@@ -1,5 +1,24 @@
 # Caisse Manager — Backend Architecture
 
+> [!WARNING]
+> **This document is aspirational, not current.** It describes a planned
+> architecture (tRPC + Trigger.dev + Axiom + service registry under
+> `src/services/impl/{demo,platform,odoo}/`) that did not ship as
+> described. The shipped implementation uses REST under `/api/*`, direct
+> Prisma access in `src/server/*`, and a different RBAC catalog.
+>
+> Use this file as **design history / future direction**. For the
+> as-shipped reference:
+> - Stack + rationale → [docs/DECISIONS.md](docs/DECISIONS.md)
+> - Auth flows → [docs/AUTH.md](docs/AUTH.md)
+> - RBAC → [docs/RBAC.md](docs/RBAC.md)
+> - Catalog → [docs/CATALOG.md](docs/CATALOG.md)
+> - Payments → [docs/PAYMENTS.md](docs/PAYMENTS.md)
+> - i18n → [docs/I18N.md](docs/I18N.md)
+> - Deployment → [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)
+
+---
+
 **Version 2.0 — Foundation Design (post-validation)**
 
 This is the canonical reference for the platform's backend architecture.
