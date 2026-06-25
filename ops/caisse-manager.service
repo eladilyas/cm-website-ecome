@@ -1,0 +1,50 @@
+# Caisse Manager website — systemd unit.
+#
+# Install on the production VPS:
+#   sudo cp ops/caisse-manager.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now caisse-manager.service
+#
+# The unit assumes:
+#   • Project code lives at /var/www/caisse-manager
+#   • A dedicated `caisse` system user owns the directory
+#   • .env.production carries the runtime secrets (gitignored)
+#   • `npm run build` has already produced .next/
+#
+# Deploy flow: see ops/deploy.sh + docs/DEPLOYMENT.md.
+
+[Unit]
+Description=Caisse Manager website (Next.js)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=caisse
+Group=caisse
+WorkingDirectory=/var/www/caisse-manager
+Environment=NODE_ENV=production
+Environment=PORT=3100
+Environment=HOSTNAME=0.0.0.0
+EnvironmentFile=/var/www/caisse-manager/.env.production
+ExecStart=/usr/bin/npx next start -p 3100 -H 0.0.0.0
+Restart=on-failure
+RestartSec=5
+KillSignal=SIGINT
+TimeoutStopSec=20
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=caisse-manager
+
+# Hardening — systemd sandbox knobs that match the multi-tenant VPS:
+# the service can't escalate privileges, can't see other users' temp
+# directories, can only read system paths, can only see read-only $HOME,
+# and can only write to its own project tree.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=read-only
+ReadWritePaths=/var/www/caisse-manager
+
+[Install]
+WantedBy=multi-user.target

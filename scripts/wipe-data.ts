@@ -37,7 +37,22 @@ const INTERNAL_STAFF_SLUGS = [
 
 async function main(): Promise<void> {
   const confirm = process.argv.includes("--confirm");
+  const allowProd = process.argv.includes("--i-know-this-is-prod");
   const label = confirm ? "DELETING" : "DRY-RUN — would delete";
+
+  // Production guard. The script accepts `--confirm` already, but we
+  // want a second, deliberately verbose flag for production DBs so an
+  // accidental shell reuse against the prod DATABASE_URL doesn't wipe
+  // customer data. NODE_ENV=production is the proxy for "I'm pointed
+  // at the live DB"; the explicit override exists so deliberate prod
+  // resets are still possible.
+  if (confirm && process.env.NODE_ENV === "production" && !allowProd) {
+    console.error(
+      "[wipe-data] refusing to run --confirm against NODE_ENV=production " +
+        "without --i-know-this-is-prod",
+    );
+    process.exit(2);
+  }
 
   console.log(`[wipe-data] mode: ${confirm ? "CONFIRM ✋" : "dry-run"}\n`);
 

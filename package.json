@@ -7,9 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "ci": "npm run lint && npm run typecheck && npm run i18n:check && npm run build",
     "db:generate": "dotenv -e .env.local -- prisma generate",
     "db:migrate": "dotenv -e .env.local -- prisma migrate dev",
     "db:deploy": "dotenv -e .env.local -- prisma migrate deploy",
+    "db:status": "dotenv -e .env.local -- prisma migrate status",
     "db:reset": "dotenv -e .env.local -- prisma migrate reset",
     "db:studio": "dotenv -e .env.local -- prisma studio",
     "rbac:seed": "dotenv -e .env.local -- tsx scripts/rbac-seed.ts",
@@ -17,7 +20,11 @@
     "shop:restructure": "dotenv -e .env.local -- tsx scripts/restructure-shop-categories.ts",
     "grant-role": "dotenv -e .env.local -- tsx scripts/grant-role.ts",
     "wipe-data": "dotenv -e .env.local -- tsx scripts/wipe-data.ts",
-    "i18n:check": "tsx scripts/i18n-check.ts"
+    "i18n:check": "tsx scripts/i18n-check.ts",
+    "deploy": "bash ops/deploy.sh"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1070.0",
