@@ -1,0 +1,1060 @@
+// Caisse Manager — production database schema.
+//
+// Schema corresponds to the 12 bounded contexts defined in
+// ARCHITECTURE.md v2. Every table is annotated with its bucket
+// (A = Platform-owned forever, B = Shared with Odoo, C = Odoo-owned
+// future). Bucket C tables exist now because the platform owns them
+// pre-Odoo; they get repointed to Odoo via `services/impl/odoo/` at
+// cutover without schema changes.
+//
+// Conventions:
+//   • IDs are UUIDs unless noted. `@default(uuid())` server-side.
+//   • Timestamps are timestamptz (Postgres) with @default(now()).
+//   • Soft delete via nullable `deletedAt` / `disabledAt`; never DELETE.
+//   • JSON columns (audit before/after, AI tool args, etc.) use `Json`.
+//   • Cross-context references are STRING IDs only, not @relation. This
+//     is intentional — keeps each context independently deployable.
+//   • Money is stored as integer minor units (centimes) + currency tag
+//     to avoid float drift. Helpers in `lib/orderMath.ts` handle display.
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearchPostgres"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  // Required for Neon (and any pooled Postgres setup): migrations,
+  // introspection, and advisory-locked operations bypass the pooler
+  // because they need multi-statement transactions.
+  directUrl = env("DIRECT_DATABASE_URL")
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// IDENTITY (Bucket A)
+// ═══════════════════════════════════════════════════════════════════════
+
+// User + Session + Account + Verification follow Better-Auth's expected
+// schema (see `src/server/auth.ts`). Better-Auth owns these four tables;
+// our RBAC layer (Role/Permission/UserRole/RolePermission below) and
+// every other bucket reference users by `userId` string only.
+//
+// Additional fields on User (`fullName`, `phone`, `odooContactId`,
+// `disabledAt`) are declared via Better-Auth's `additionalFields` config
+// so the auth library knows about them — they aren't custom-schema-only.
+
+model User {
+  id            String    @id
+  name          String
+  email         String    @unique
+  emailVerified Boolean   @default(false)
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Business additions — declared as `additionalFields` in auth config.
+  fullName      String?
+  phone         String?
+  odooContactId String?   @unique
+  disabledAt    DateTime?
+  lastLoginAt   DateTime?
+
+  sessions  Session[]
+  accounts  Account[]
+  userRoles UserRole[]
+
+  @@index([disabledAt])
+  @@index([odooContactId])
+}
+
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  token     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@unique([providerId, accountId])
+  @@index([userId])
+}
+
+model Verification {
+  id         String    @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime? @updatedAt
+
+  @@index([identifier])
+}
+
+model Role {
+  id          String           @id @default(uuid())
+  slug        String           @unique // "customer" | "support" | …
+  name        String
+  description String?
+  permissions RolePermission[]
+  userRoles   UserRole[]
+}
+
+model Permission {
+  id       String           @id @default(uuid())
+  resource String // "orders" | "products" | …
+  action   String // "view" | "create" | …
+  roles    RolePermission[]
+
+  @@unique([resource, action])
+}
+
+model RolePermission {
+  roleId       String
+  permissionId String
+  role         Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission   Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+  grantedAt    DateTime   @default(now())
+
+  @@id([roleId, permissionId])
+  @@index([permissionId])
+}
+
+model UserRole {
+  userId    String
+  roleId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role      Role     @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  grantedAt DateTime @default(now())
+
+  @@id([userId, roleId])
+  @@index([roleId])
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// CATALOG (Bucket C — Odoo-owned future)
+// ═══════════════════════════════════════════════════════════════════════
+
+enum ProductStatus {
+  IN_STOCK
+  INCOMING
+  OUT_OF_STOCK
+  DISABLED
+}
+
+model Product {
+  // Slug is the URL-stable identifier; ID is the internal key for
+  // foreign references that survive slug rename.
+  id   String @id @default(uuid())
+  slug String @unique
+
+  // When Odoo becomes source of truth, this links to the Odoo product id.
+  odooProductId String? @unique
+
+  name             String
+  subline          String?
+  tagline          String
+  category         String // ProductCategory enum lives in the contract
+  heroImage        String
+  alt              String
+  shortDescription String  @db.Text
+  features         Json // string[]
+  specs            Json // { label, value }[]
+
+  // Money as integer minor units + currency tag (no floats).
+  priceFromMinor Int
+  currency       String @default("MAD")
+
+  status         ProductStatus @default(IN_STOCK)
+  leadWeeks      Int?
+  complementaryWithSlugs Json @default("[]")
+
+  // Merchandising — drives /shop ordering + home featured rail.
+  featured     Boolean @default(false)
+  displayOrder Int     @default(100)
+  // Free-form badges/tags (string[]) shown on cards: "NEW", "PROMO", etc.
+  badges       Json    @default("[]")
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  stockLevel    StockLevel?
+  stockMovements StockMovement[]
+
+  @@index([status])
+  @@index([category])
+  @@index([deletedAt])
+  @@index([featured])
+  @@index([displayOrder])
+}
+
+// ── Categories ─────────────────────────────────────────────────────────
+// Catalog categories — admin-managed, drives /shop filters + home rail
+// chips + product detail breadcrumbs. The Product.category column stays
+// a string (slug) so existing records keep working; this table provides
+// the display label / order / hero image / active flag.
+
+model Category {
+  id           String  @id @default(uuid())
+  /** Stable URL/API identifier — matches Product.category. */
+  slug         String  @unique
+  label        String
+  description  String? @db.Text
+  /** Hero image for the future category landing page. Optional. */
+  heroImage    String?
+  isActive     Boolean @default(true)
+  displayOrder Int     @default(100)
+
+  /** Parent category — null for top-level entries. Self-referencing
+   *  FK lets us express a single-level tree (POS Périphériques →
+   *  Écran / Scanner / Imprimante / Tiroir Caisse / Afficheur /
+   *  Lecteur). Two levels is the design target; deeper nesting is
+   *  intentionally not modelled. Setting parent → null on delete so
+   *  removing a parent doesn't cascade-drop sub-categories silently. */
+  parentId String?
+  parent   Category?  @relation("CategoryTree", fields: [parentId], references: [id], onDelete: SetNull)
+  children Category[] @relation("CategoryTree")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([isActive])
+  @@index([displayOrder])
+  @@index([parentId])
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// INVENTORY (Bucket C — Odoo-owned future)
+// ═══════════════════════════════════════════════════════════════════════
+
+model StockLevel {
+  productId         String   @id
+  product           Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  onHand            Int      @default(0)
+  reserved          Int      @default(0)
+  reorderThreshold  Int?
+  updatedAt         DateTime @updatedAt
+}
+
+enum StockMovementKind {
+  SALE
+  RETURN
+  ADJUSTMENT
+  TRANSFER_IN
+  TRANSFER_OUT
+  WASTE
+}
+
+model StockMovement {
+  id          String            @id @default(uuid())
+  productId   String
+  product     Product           @relation(fields: [productId], references: [id], onDelete: Cascade)
+  delta       Int // positive = inbound, negative = outbound
+  kind        StockMovementKind
+  reason      String?
+  actorUserId String?
+  occurredAt  DateTime          @default(now())
+
+  @@index([productId, occurredAt])
+  @@index([kind])
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// COMMERCE — ORDERS (Bucket B — shared with Odoo)
+// ═══════════════════════════════════════════════════════════════════════
+
+enum OrderStatus {
+  PENDING
+  AWAITING_PAYMENT
+  /// Financing application is under review by the pre-sales team.
+  /// Order is reserved but won't enter fulfilment until the
+  /// financing decision lands. Dispatchers cannot see orders in
+  /// this status.
+  PENDING_FINANCING_APPROVAL
+  /// Financing application was rejected (or cancelled). Terminal —
+  /// the order is archived, no dispatcher access.
+  FINANCING_REJECTED
+  PAYMENT_VERIFICATION
+  PROCESSING
+  SENT_TO_ODOO
+  CONFIRMED
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+enum OrderType {
+  /// Standard purchase — card / wire / cash-on-delivery. Visible
+  /// to dispatchers as soon as it enters the fulfilment bucket.
+  STANDARD
+  /// Wafasalaf financing flow. Visible only to pre-sales + admins
+  /// while the financing is under review; dispatchers see it only
+  /// after the financing is approved and the order moves to
+  /// PROCESSING.
+  FINANCING
+  /// Reserved for future subscription-style billing. Not used yet.
+  SUBSCRIPTION
+}
+
+enum PaymentMethod {
+  CMI
+  BANK_TRANSFER
+  CASH_ON_DELIVERY
+  WAFASALAF_FINANCING
+}
+
+model Order {
+  id         String      @id @default(uuid())
+  ref        String      @unique // human-readable "ORD-A4B7C9"
+  customerId String
+  status     OrderStatus @default(PENDING)
+
+  // Bucket B — set after Odoo sync. Platform stays writeable for
+  // anything up to "sent-to-odoo"; Odoo updates `confirmed`, `shipped`,
+  // `delivered` via webhook.
+  odooOrderId String? @unique
+
+  // Snapshotted contact + shipping at order time. Deliberately
+  // denormalised so customer profile changes don't mutate historical
+  // orders.
+  contactFullName    String
+  contactEmail       String
+  contactPhone       String
+  contactCompanyName String?
+  contactCompanyIce  String?
+
+  shippingStreet     String
+  shippingCity       String
+  shippingPostalCode String
+  shippingCountry    String @default("MA")
+  shippingNotes      String? @db.Text
+
+  paymentMethod  PaymentMethod
+  trackingNumber String?
+  internalNotes  String? @db.Text
+
+  /// Order classification. STANDARD = card / wire / cash-on-delivery
+  /// flows; FINANCING = Wafasalaf-backed order pending pre-sales
+  /// review. Drives role-based visibility (dispatchers excluded
+  /// from non-approved financing) and reporting segmentation.
+  orderType OrderType @default(STANDARD)
+
+  // ── Financing-only fields (orderType = FINANCING) ────────────────────
+  // All optional so STANDARD orders don't need to set them. A separate
+  // FinancingRequest model used to hold these; consolidated onto Order
+  // so reporting + ERP integration treats every order as one entity.
+  financingStatus                 FinancingStatus?
+  financingAgeBracket             FinancingAgeBracket?
+  financingRequestedTermMonths    Int?
+  financingMonthlyPaymentMinor    Int?
+  financingFirstMonthlyPaymentMinor Int?
+  financingFileFeeMinor           Int?
+  financingTotalCostMinor         Int?
+  /// Admin's counter-offer monthly payment (set on approval if the
+  /// approved terms differ from what the customer requested).
+  financingOfferedMonthlyPaymentMinor Int?
+  financingOfferedTermMonths      Int?
+  /// Decision reason captured when the financing transitions to a
+  /// terminal state (APPROVED / REJECTED / CANCELLED).
+  financingDecisionReason         String? @db.Text
+
+  // Wire-transfer payment proof — base64 + metadata. Demo-grade
+  // storage; the production path is uploading to R2 via FileService
+  // and storing the FileRecord id here instead. The Json shape:
+  //   { fileName, mimeType, sizeBytes, dataUrl, uploadedAt }
+  paymentProofJson Json?
+
+  // Totals — integer minor units (centimes) + currency tag.
+  subtotalMinor    Int
+  taxTotalMinor    Int @default(0)
+  shippingTotalMinor Int @default(0)
+  grandTotalMinor  Int
+  currency         String @default("MAD")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  items           OrderItem[]
+  transitions     OrderStatusTransition[]
+  followupNotes   OrderFollowupNote[]
+
+  @@index([customerId])
+  @@index([status])
+  @@index([createdAt])
+  /// Powers the "financing queue" admin view + dispatcher exclusion.
+  @@index([orderType, status])
+}
+
+/// Pre-sales follow-up notes on an order — typically used for
+/// financing orders where the team tracks calls, emails, and
+/// document chases before the financing decision lands. Append-
+/// only audit-friendly trail.
+model OrderFollowupNote {
+  id          String   @id @default(uuid())
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  /// User who wrote the note (pre-sales / admin). Nullable for
+  /// system-generated entries (status transitions, etc).
+  actorUserId String?
+  body        String   @db.Text
+  /// Optional tag for filtering — "call", "email", "documents",
+  /// "decision", etc. Free-form to avoid pre-emptive taxonomy.
+  kind        String?
+  createdAt   DateTime @default(now())
+
+  @@index([orderId, createdAt])
+}
+
+model OrderItem {
+  id          String  @id @default(uuid())
+  orderId     String
+  order       Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productSlug String  // snapshot — survives product deletion
+  // Snapshot fields — survive catalog edits.
+  name        String
+  subline     String?
+  qty         Int
+  unitPriceMinor Int
+  lineTotalMinor Int
+  currency    String  @default("MAD")
+
+  @@index([orderId])
+  @@index([productSlug])
+}
+
+model OrderStatusTransition {
+  id          String      @id @default(uuid())
+  orderId     String
+  order       Order       @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  fromStatus  OrderStatus
+  toStatus    OrderStatus
+  actorUserId String
+  reason      String?
+  occurredAt  DateTime    @default(now())
+
+  @@index([orderId, occurredAt])
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// FINANCING (Bucket B — shared)
+// ═══════════════════════════════════════════════════════════════════════
+
+enum FinancingStatus {
+  DRAFT
+  SUBMITTED
+  DOCUMENTS_REQUIRED
+  UNDER_REVIEW
+  APPROVED
+  REJECTED
+  ACTIVE
+  PAID_OFF
+  CANCELLED
+}
+
+enum FinancingAgeBracket {
+  UNDER_60
+  SIXTY_PLUS
+}
+
+/// DEPRECATED — financing data has been consolidated onto the
+/// `Order` model (orderType = FINANCING + financingStatus +
+/// financing* monetary columns). This table is kept in the schema
+/// so existing rows aren't lost on the next `prisma db push`; the
+/// application no longer reads from or writes to it. A future
+/// migration can drop the table once data is archived or migrated.
+model FinancingRequest {
+  id              String              @id @default(uuid())
+  ref             String              @unique // "FIN-2026-A4B7"
+  applicantUserId String
+  status          FinancingStatus     @default(DRAFT)
+  ageBracket      FinancingAgeBracket
+
+  // Customer snapshot — denormalised so historical requests survive
+  // profile changes (same convention as Order).
+  contactFullName    String
+  contactEmail       String
+  contactPhone       String
+  contactCompanyName String?
+  contactCompanyIce  String?
+
+  shippingStreet     String
+  shippingCity       String
+  shippingPostalCode String
+  shippingCountry    String @default("MA")
+  shippingNotes      String? @db.Text
+
+  // Items snapshot — JSON array of { slug, name, subline, qty,
+  // unitPrice, lineTotal } in MAD whole units. Mirrors the order
+  // OrderItem rows; financing line items don't get their own table
+  // because they're not addressable individually.
+  itemsJson Json
+
+  // Order totals at submission time (whole-MAD values inside the Json
+  // snapshot for items match these column-stored minor units).
+  subtotalMinor    Int
+  taxTotalMinor    Int @default(0)
+  grandTotalMinor  Int
+
+  // Financing economics — all frozen at submission so the customer
+  // and the lender see the same numbers months later.
+  requestedAmountMinor   Int  // == grandTotalMinor (mirrored for legacy)
+  requestedTermMonths    Int
+  monthlyPaymentMinor    Int  // installment 2..N
+  firstMonthlyPaymentMinor Int // installment 1 (includes file fee)
+  fileFeeMinor           Int  // one-time fee withheld on first installment
+  totalCostMinor         Int  // sum of all installments
+  offeredMonthlyPaymentMinor Int? // set on approval (may differ)
+  offeredTermMonths      Int?
+  currency               String @default("MAD")
+
+  decisionReason String? @db.Text
+  internalNotes  String? @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  transitions FinancingStatusTransition[]
+
+  @@index([applicantUserId])
+  @@index([status])
+  @@index([contactEmail])
+}
+
+model FinancingStatusTransition {
+  id          String          @id @default(uuid())
+  requestId   String
+  request     FinancingRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  fromStatus  FinancingStatus
+  toStatus    FinancingStatus
+  actorUserId String
+  reason      String?
+  occurredAt  DateTime        @default(now())
+
+  @@index([requestId, occurredAt])
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// FILES (Bucket A)
+// ═══════════════════════════════════════════════════════════════════════
+
+enum FileCategory {
+  FINANCING_DOCUMENT
+  BANK_RECEIPT
+  ID_PROOF
+  COMPANY_DOCUMENT
+}
+
+enum FileVisibility {
+  PRIVATE
+  SHARED_WITH_ADMIN
+  PUBLIC_SIGNED
+}
+
+enum FileRelatedResourceType {
+  ORDER
+  FINANCING_REQUEST
+  USER
+}
+
+model FileRecord {
+  id          String                  @id @default(uuid())
+  ownerUserId String
+  category    FileCategory
+
+  relatedResourceType FileRelatedResourceType
+  relatedResourceId   String
+
+  storageKey       String   @unique // R2 object key
+  fileName         String
+  mimeType         String
+  sizeBytes        BigInt
+  checksumSha256   String
+  visibility       FileVisibility @default(PRIVATE)
+
+  uploadedAt DateTime  @default(now())
+  deletedAt  DateTime?
+
+  @@index([ownerUserId])
+  @@index([relatedResourceType, relatedResourceId])
+  @@index([deletedAt])
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// AUDIT (Bucket A — append-only)
+// ═══════════════════════════════════════════════════════════════════════
+
+model AuditEvent {
+  id            String   @id @default(uuid())
+  occurredAt    DateTime @default(now())
+  actorUserId   String?
+  actorRole     String?
+  action        String // "order.transition" | "financing.approve" | …
+  resourceType  String
+  resourceId    String
+  before        Json?
+  after         Json?
+  metadata      Json?
+  reason        String?  @db.Text
+
+  @@index([occurredAt])
+  @@index([actorUserId])
+  @@index([resourceType, resourceId])
+  @@index([action])
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// NOTIFICATIONS (Bucket A)
+// ═══════════════════════════════════════════════════════════════════════
+
+enum NotificationChannel {
+  EMAIL
+  SMS
+  WHATSAPP
+  IN_APP
+  PUSH
+}
+
+enum NotificationDeliveryStatus {
+  QUEUED
+  SENT
+  DELIVERED
+  OPENED
+  CLICKED
+  FAILED
+}
+
+model NotificationTemplate {
+  id        String              @id @default(uuid())
+  event     String // NotificationEventKind from contract
+  channel   NotificationChannel
+  locale    String // "fr-MA" | "en" | "ar-MA"
+  revision  Int                 @default(1)
+  subject   String? // email only
+  body      String              @db.Text
+  enabled   Boolean             @default(true)
+  updatedAt DateTime            @updatedAt
+  createdAt DateTime            @default(now())
+
+  @@unique([event, channel, locale, revision])
+  @@index([event, channel, locale, enabled])
+}
+
+model NotificationDelivery {
+  id              String                    @id @default(uuid())
+  recipientId     String
+  event           String
+  channel         NotificationChannel
+  templateId      String
+  templateRevision Int
+  status          NotificationDeliveryStatus @default(QUEUED)
+  queuedAt        DateTime                  @default(now())
+  sentAt          DateTime?
+  deliveredAt     DateTime?
+  openedAt        DateTime?
+  clickedAt       DateTime?
+  failedAt        DateTime?
+  failureReason   String?  @db.Text
+  externalId      String? // Resend message id, Twilio SID, etc.
+
+  @@index([recipientId])
+  @@index([status])
+  @@index([queuedAt])
+}
+
+model NotificationPreference {
+  userId    String
+  event     String
+  channels  Json // NotificationChannel[]
+  updatedAt DateTime @updatedAt
+
+  @@id([userId, event])
+}
+
+model PushToken {
+  token       String   @id
+  userId      String
+  platform    String // "ios" | "android"
+  registeredAt DateTime @default(now())
+  revokedAt   DateTime?
+
+  @@index([userId])
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// AI ASSISTANT (Bucket A)
+// ═══════════════════════════════════════════════════════════════════════
+
+enum ConversationMode {
+  CUSTOMER_SUPPORT
+  OPS_COPILOT
+  ADMIN_ANALYST
+}
+
+enum ConversationStatus {
+  ACTIVE
+  ARCHIVED
+}
+
+enum AIMessageRole {
+  USER
+  ASSISTANT
+  SYSTEM
+  TOOL
+}
+
+model Conversation {
+  id                   String             @id @default(uuid())
+  ownerUserId          String
+  mode                 ConversationMode
+  modelId              String // "claude-opus-4-8" etc.
+  systemPromptRevision Int
+  title                String?
+  status               ConversationStatus @default(ACTIVE)
+  createdAt            DateTime           @default(now())
+  lastMessageAt        DateTime           @default(now())
+
+  messages  AIMessage[]
+  toolCalls ToolCall[]
+  usage     ConversationUsage?
+
+  @@index([ownerUserId, status])
+}
+
+model AIMessage {
+  id             String        @id @default(uuid())
+  conversationId String
+  conversation   Conversation  @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  role           AIMessageRole
+  content        String        @db.Text
+  toolCallId     String? // when role === TOOL
+  tokensIn       Int?
+  tokensOut      Int?
+  createdAt      DateTime      @default(now())
+
+  @@index([conversationId, createdAt])
+}
+
+model ToolCall {
+  id             String       @id @default(uuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  messageId      String
+  toolName       String // ToolName enum in contract
+  arguments      Json
+  result         Json?
+  errorMessage   String? @db.Text
+  latencyMs      Int?
+  startedAt      DateTime @default(now())
+  finishedAt     DateTime?
+
+  @@index([conversationId])
+  @@index([toolName])
+}
+
+model ConversationUsage {
+  conversationId    String       @id
+  conversation      Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  ownerUserId       String
+  totalMessages     Int          @default(0)
+  totalTokensIn     Int          @default(0)
+  totalTokensOut    Int          @default(0)
+  estimatedCostUsd  Decimal      @default(0.00) @db.Decimal(10, 6)
+  updatedAt         DateTime     @updatedAt
+
+  @@index([ownerUserId])
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// CUSTOMER SUCCESS — TICKETS (Bucket A)
+// ═══════════════════════════════════════════════════════════════════════
+
+enum TicketStatus {
+  OPEN
+  IN_PROGRESS
+  WAITING_ON_CUSTOMER
+  RESOLVED
+  CLOSED
+}
+
+enum TicketPriority {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+}
+
+enum TicketCategory {
+  ORDER_ISSUE
+  FINANCING_QUESTION
+  PRODUCT_QUESTION
+  BILLING
+  TECHNICAL
+  FEEDBACK
+  OTHER
+}
+
+model Ticket {
+  id                        String          @id @default(uuid())
+  ref                       String          @unique // "TKT-2026-A4B7"
+  ownerUserId               String
+  assignedAgentId           String?
+  subject                   String
+  category                  TicketCategory
+  priority                  TicketPriority  @default(NORMAL)
+  status                    TicketStatus    @default(OPEN)
+
+  relatedOrderId            String?
+  relatedFinancingId        String?
+  originatingConversationId String?
+
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  closedAt         DateTime?
+  firstResponseAt  DateTime?
+  resolutionTimeMs Int?
+
+  messages TicketMessage[]
+
+  @@index([ownerUserId])
+  @@index([assignedAgentId])
+  @@index([status])
+  @@index([priority])
+  @@index([createdAt])
+}
+
+enum TicketMessageAuthorRole {
+  CUSTOMER
+  AGENT
+  SYSTEM
+}
+
+model TicketMessage {
+  id               String                  @id @default(uuid())
+  ticketId         String
+  ticket           Ticket                  @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  authorUserId     String
+  authorRole       TicketMessageAuthorRole
+  body             String                  @db.Text
+  internal         Boolean                 @default(false)
+  attachedFileIds  Json                    @default("[]")
+  createdAt        DateTime                @default(now())
+
+  @@index([ticketId, createdAt])
+}
+
+model CustomerHealth {
+  userId                  String   @id
+  score                   Int // 0-100
+  lastActiveAt            DateTime?
+  openTicketCount         Int      @default(0)
+  lastOrderAt             DateTime?
+  totalOrderCount         Int      @default(0)
+  totalLifetimeValueMinor BigInt   @default(0)
+  currency                String   @default("MAD")
+  tags                    Json     @default("[]")
+  updatedAt               DateTime @updatedAt
+
+  @@index([score])
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// CONTENT (Bucket A — implementation deferred to Phase 4)
+// ═══════════════════════════════════════════════════════════════════════
+
+enum ContentType {
+  TEXT
+  RICH_TEXT
+  IMAGE
+  JSON
+  URL
+  COLOR
+}
+
+model ContentNode {
+  surfaceKey   String      // "pricing.hero.title"
+  locale       String      // "fr-MA"
+  type         ContentType
+  value        Json
+  revision     Int         @default(1)
+  publishedAt  DateTime?
+  draftAt      DateTime?
+  updatedBy    String?
+  updatedAt    DateTime    @updatedAt
+
+  revisions ContentRevision[]
+
+  @@id([surfaceKey, locale])
+  @@index([publishedAt])
+}
+
+model ContentRevision {
+  id          String   @id @default(uuid())
+  surfaceKey  String
+  locale      String
+  revision    Int
+  value       Json
+  createdAt   DateTime @default(now())
+  createdBy   String
+  changeNote  String?  @db.Text
+
+  node ContentNode @relation(fields: [surfaceKey, locale], references: [surfaceKey, locale], onDelete: Cascade)
+
+  @@index([surfaceKey, locale, revision])
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// PLATFORM — settings + feature flags
+// ═══════════════════════════════════════════════════════════════════════
+
+model Setting {
+  key       String   @id
+  value     Json
+  updatedBy String?
+  updatedAt DateTime @updatedAt
+}
+
+model FeatureFlag {
+  key         String   @id
+  enabled     Boolean  @default(false)
+  description String?
+  /// Optional JSON gate — { userIds?: [], roleSlugs?: [], rolloutPct?: 0-100 }.
+  /// Empty object = on/off for everyone.
+  gate        Json     @default("{}")
+  updatedAt   DateTime @updatedAt
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// INTEGRATIONS — Odoo + Wafasalaf + CMI sync state
+// ═══════════════════════════════════════════════════════════════════════
+
+enum IntegrationName {
+  ODOO
+  WAFASALAF
+  CMI
+}
+
+enum IntegrationStatus {
+  CONNECTED
+  DEGRADED
+  DISCONNECTED
+  NOT_CONFIGURED
+}
+
+model IntegrationState {
+  name           IntegrationName   @id
+  status         IntegrationStatus @default(NOT_CONFIGURED)
+  lastSyncedAt   DateTime?
+  lastErrorAt    DateTime?
+  lastErrorMsg   String? @db.Text
+  /// Provider-side identifiers + config (encrypted at rest in production).
+  config         Json @default("{}")
+  updatedAt      DateTime @updatedAt
+}
+
+model IntegrationSyncLog {
+  id           String   @id @default(uuid())
+  integration  IntegrationName
+  direction    String // "outbound" | "inbound"
+  resourceType String // "product" | "order" | …
+  resourceId   String
+  status       String // "success" | "failed" | "partial"
+  payload      Json?
+  response     Json?
+  errorMessage String? @db.Text
+  startedAt    DateTime @default(now())
+  finishedAt   DateTime?
+
+  @@index([integration, startedAt])
+  @@index([resourceType, resourceId])
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// LEAD ASSIGNMENT (Bucket A — Platform-owned forever)
+// ═══════════════════════════════════════════════════════════════════════
+// Pre-sales users own customers, not individual orders. One assignment
+// per customer email; the presales user can see ALL orders + financing
+// requests whose contact email matches.
+
+model LeadAssignment {
+  id String @id @default(uuid())
+
+  /** Stable customer identifier. Lower-cased on write. Matches the
+   *  email captured at checkout / financing submission. */
+  customerEmail String @unique
+
+  /** Pre-sales user (User row) currently handling this customer. */
+  assignedToUserId String
+
+  /** Super-admin who made the most recent assignment. Null for
+   *  auto-distributed assignments from the round-robin job. */
+  assignedByUserId String?
+
+  /** Optional CRM note — call notes, blockers, next steps. */
+  notes String? @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([assignedToUserId])
+  @@index([customerEmail])
+}
+
+// ── Order assignment ──────────────────────────────────────────────────
+// Dispatchers own ORDERS (not customers — that's pre-sales). One
+// dispatcher per order ref. Distinct table from LeadAssignment because
+// the cardinality and lifecycle differ:
+//   • Customer assignment: 1 per customer, persists for the relationship
+//   • Order assignment:    1 per order, lives for the fulfilment window
+//
+// We key by `orderRef` (the public, human-readable code like
+// ORD-2026-A4B7) so this table works whether the order data layer is
+// localStorage (current state) or Postgres (target state). Same code
+// path applies after the orderStore migration.
+
+model OrderAssignment {
+  id String @id @default(uuid())
+
+  /** Stable order identifier. Matches Order.ref (string, not Order.id
+   *  which is internal). Lower-cased on write. */
+  orderRef String @unique
+
+  /** Dispatcher (User row) currently handling this order. */
+  assignedToUserId String
+
+  /** Super-admin / admin who made the most recent assignment. Null for
+   *  auto-distributed assignments from the round-robin action. */
+  assignedByUserId String?
+
+  /** Optional fulfilment note — courier picked, blocker, etc. */
+  notes String? @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([assignedToUserId])
+  @@index([orderRef])
+}

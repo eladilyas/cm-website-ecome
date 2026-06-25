@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Neutral palette (pure mono — red lives only in the logo) ── */
+  --color-ink: #1d1d1f;
+  --color-ink-soft: #424245;
+  --color-ink-mute: #6e6e73;
+  --color-paper: #ffffff;
+  --color-canvas: #fbfbfd;
+  --color-fog: #f5f5f7;
+  --color-night: #000000;
+  --color-night-soft: #0a0a0a;
+  --color-hairline: rgba(0, 0, 0, 0.08);
+  --color-hairline-strong: rgba(0, 0, 0, 0.14);
+  --color-hairline-dark: rgba(255, 255, 255, 0.1);
+
+  /* ── Fonts (Geist from scaffold; closest premium SF-Pro-style web font) ── */
+  --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-geist-sans);
+
+  /* ── Typography scale (Apple-style: 11 → 96) ── */
+  --text-micro: 0.6875rem;   /* 11 */
+  --text-mini: 0.75rem;      /* 12 */
+  --text-tiny: 0.8125rem;    /* 13 */
+  --text-sm: 0.875rem;       /* 14 */
+  --text-base: 1.0625rem;    /* 17 — Apple body */
+  --text-lg: 1.1875rem;      /* 19 */
+  --text-xl: 1.5rem;         /* 24 */
+  --text-2xl: 2rem;          /* 32 */
+  --text-3xl: 3rem;          /* 48 */
+  --text-4xl: 4rem;          /* 64 */
+  --text-5xl: 5rem;          /* 80 */
+  --text-6xl: 6rem;          /* 96 */
+
+  /* ── Motion ── */
+  --ease-apple: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-apple-in: cubic-bezier(0.4, 0, 1, 1);
+
+  /* ── Radii ── */
+  --radius-pill: 9999px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+
+  /* ── Container ── */
+  --container-shell: 1280px;
+}
+
+/* Utility — hide the native scrollbar on horizontally-scrolling containers
+   (used by TrustedByStrip, which is JS-driven via scrollLeft so the visible
+   scrollbar would distract from the strip's premium appearance). */
+.scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+/* Admin table sticky header — premium SaaS pattern: the column labels
+   stay glued to the top of the scrollable area as the row list scrolls,
+   with a frosted backdrop so the rows below visually pass underneath. */
+.admin-thead {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: color-mix(in srgb, var(--color-paper) 92%, transparent);
+  -webkit-backdrop-filter: saturate(120%) blur(10px);
+          backdrop-filter: saturate(120%) blur(10px);
+  border-bottom: 1px solid var(--color-hairline);
+}
+
+/* Ecosystem diagram (PlatformSection) — connection-pulse dots that travel
+   outward from the central hub to each satellite. Each instance sets its
+   own --target-x / --target-y via inline style for the destination, plus
+   an animation-delay for staggering. */
+@keyframes ecosystem-pulse-out {
+  0%   { transform: translate(0, 0) scale(0.6); opacity: 0; }
+  10%  { transform: translate(0, 0) scale(1);   opacity: 0.9; }
+  90%  { opacity: 0.7; }
+  100% {
+    transform: translate(var(--target-x, 0px), var(--target-y, 0px)) scale(0.85);
+    opacity: 0;
+  }
+}
+.ecosystem-pulse {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 9999px;
+  background: rgba(225, 29, 42, 0.95);
+  box-shadow: 0 0 14px rgba(225, 29, 42, 0.7);
+  pointer-events: none;
+  animation: ecosystem-pulse-out 4.8s var(--ease-apple, cubic-bezier(0.22, 1, 0.36, 1)) infinite;
+}
+
+/* Hero orbit — generic ring rotations used by OrbitItem. A parent rotates
+   in one direction and a counter-spinning child cancels its rotation, so
+   the payload stays upright while still orbiting. Pure transform → GPU. */
+@keyframes orbit-cw  { from { transform: rotate(0deg); }   to { transform: rotate(360deg); } }
+@keyframes orbit-ccw { from { transform: rotate(0deg); }   to { transform: rotate(-360deg); } }
+
+/* Footer atmosphere — fade-only pulse on select constellation nodes.
+   Long 14s cycle, no scale change. The halo lives in opacity space so
+   it never "expands" outward (which would read as a radar ping); it
+   just gently brightens and recedes, like a slow breath. */
+@keyframes atmosphere-pulse {
+  0%, 100% { opacity: 0; }
+  50%      { opacity: 1; }
+}
+
+/* Sonar ping — thin brand-red ring that scales out from the hub and fades.
+   Drives the "alive" hub feel separate from the per-line pulse dots. */
+@keyframes ecosystem-sonar {
+  0%   { transform: translate(-50%, -50%) scale(0.7); opacity: 0.55; }
+  70%  { opacity: 0.10; }
+  100% { transform: translate(-50%, -50%) scale(1.9); opacity: 0; }
+}
+.ecosystem-sonar {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 120px;
+  height: 120px;
+  border-radius: 9999px;
+  border: 1px solid rgba(225, 29, 42, 0.55);
+  pointer-events: none;
+  animation: ecosystem-sonar 4s var(--ease-apple, cubic-bezier(0.22, 1, 0.36, 1)) infinite;
+}
+.ecosystem-sonar-2 {
+  animation-delay: 2s;
+}
+
+/* AI-gradient text — premium near-white headline with red as a
+   restrained accent. System rule for hero titles:
+   • Base tone is white / faint cool neutral — never solid color.
+   • Brand red appears only as a slim "kiss" mid-gradient, surrounded
+     by warm rose bridges that absorb its intensity.
+   • Across the cycle the title always reads predominantly white;
+     the red flows through as controlled energy, not a wash.
+   Tuned so contrast stays strong on the hero's dark glass and the
+   piece never reads as "red typography." Falls back to white if
+   background-clip: text isn't supported. */
+@keyframes ai-gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.ai-gradient-text {
+  background: linear-gradient(
+    100deg,
+    #ffffff 0%,
+    #ffffff 22%,
+    #f7f8fa 32%,
+    #ffeaee 42%,
+    #ffbac4 48%,
+    #E11D2A 50%,
+    #ffbac4 52%,
+    #ffeaee 58%,
+    #f7f8fa 68%,
+    #ffffff 78%,
+    #ffffff 100%
+  );
+  background-size: 280% 100%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+          color: #ffffff;
+  animation: ai-gradient-shift 13s ease-in-out infinite;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+    /* Always reserve the scrollbar gutter so short pages (no Y overflow)
+       are the same width as long pages. Without this, mx-auto-centered
+       containers — like the admin sidebar — jitter horizontally between
+       routes whenever the scrollbar appears/disappears. */
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+    font-size: var(--text-base);
+    line-height: 1.47;
+    letter-spacing: -0.011em;
+  }
+
+  h1, h2, h3 {
+    letter-spacing: -0.022em;
+    line-height: 1.07;
+  }
+
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

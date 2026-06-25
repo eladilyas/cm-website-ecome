@@ -1,0 +1,50 @@
+{
+  "name": "cm-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "db:generate": "dotenv -e .env.local -- prisma generate",
+    "db:migrate": "dotenv -e .env.local -- prisma migrate dev",
+    "db:deploy": "dotenv -e .env.local -- prisma migrate deploy",
+    "db:reset": "dotenv -e .env.local -- prisma migrate reset",
+    "db:studio": "dotenv -e .env.local -- prisma studio",
+    "rbac:seed": "dotenv -e .env.local -- tsx scripts/rbac-seed.ts",
+    "categories:seed": "dotenv -e .env.local -- tsx scripts/seed-categories.ts",
+    "shop:restructure": "dotenv -e .env.local -- tsx scripts/restructure-shop-categories.ts",
+    "grant-role": "dotenv -e .env.local -- tsx scripts/grant-role.ts",
+    "wipe-data": "dotenv -e .env.local -- tsx scripts/wipe-data.ts",
+    "i18n:check": "tsx scripts/i18n-check.ts"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1070.0",
+    "@aws-sdk/s3-request-presigner": "^3.1070.0",
+    "@prisma/client": "^6.19.3",
+    "better-auth": "^1.6.19",
+    "framer-motion": "^12.40.0",
+    "libphonenumber-js": "^1.13.6",
+    "next": "16.2.9",
+    "next-intl": "^4.13.0",
+    "prisma": "^6.19.3",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "resend": "^6.13.0",
+    "zod": "^4.4.3",
+    "zustand": "^5.0.14"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "dotenv-cli": "^11.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.9",
+    "tailwindcss": "^4",
+    "tsx": "^4.22.4",
+    "typescript": "^5"
+  }
+}

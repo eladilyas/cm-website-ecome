@@ -1,0 +1,1773 @@
+{
+  "common": {
+    "loading": "Loading…",
+    "error": "Something went wrong. Try again.",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "continue": "Continue",
+    "back": "Back",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "search": "Search",
+    "viewAll": "View all",
+    "learnMore": "Learn more",
+    "getStarted": "Get started",
+    "from": "From",
+    "vatExcluded": "HT",
+    "vatIncluded": "Incl. VAT",
+    "perMonth": "/mo",
+    "perYear": "/yr",
+    "month": "month",
+    "months": "months",
+    "currency": "MAD",
+    "free": "Free"
+  },
+  "nav": {
+    "shop": "Shop",
+    "industries": "Industries",
+    "pricing": "Pricing",
+    "partnership": "Partners",
+    "about": "About",
+    "support": "Support",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "account": "Account",
+    "accountOrders": "Account & orders",
+    "signOut": "Sign out",
+    "signedInAs": "Signed in as",
+    "startTrial": "Start free trial",
+    "demo": "Try the demo",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "openCart": "Open cart",
+    "openSearch": "Search",
+    "closeSearch": "Close search",
+    "cartItems": "{count, plural, =0 {Cart is empty} =1 {1 item} other {# items}}",
+    "ecommerceCard": {
+      "trialEyebrow": "Try Caisse Manager",
+      "trialHeadingLine1": "Start free.",
+      "trialHeadingLine2": "No card required.",
+      "trialCaption": "Setup takes about four minutes. Your menu, your team, your tills — ready before lunch service.",
+      "trialPrimary": "Start free trial",
+      "trialSecondary": "See pricing",
+      "productsEyebrow": "Products",
+      "signInLink": "Sign in →",
+      "products": {
+        "pos": "POS Systems",
+        "kds": "Kitchen Display",
+        "mobile": "Mobile App",
+        "kiosk": "Kiosks",
+        "store": "Hardware Store"
+      }
+    },
+    "menuLabels": {
+      "solutions": "Solutions",
+      "store": "Store",
+      "pricing": "Pricing",
+      "support": "Support",
+      "company": "Company"
+    },
+    "solutionsDropdown": {
+      "cafes": "Cafés",
+      "bakery": "Bakery",
+      "fastFood": "Fast-food",
+      "restaurants": "Restaurants",
+      "beauty": "Beauty salons",
+      "barber": "Barbershops",
+      "market": "Retail · Market",
+      "whyTitle": "Why Caisse Manager",
+      "platformLabel": "Connected platform",
+      "platformDesc": "Every product, one brain",
+      "integrationsLabel": "Trusted integrations",
+      "integrationsDesc": "CMI, Wafasalaf, Glovo, Yassir",
+      "hardwareLabel": "Hardware lineup",
+      "hardwareDesc": "POS, mobile, kitchen, kiosks",
+      "seePricing": "See pricing",
+      "getStartedTitle": "Get started",
+      "trialLabel": "Start free trial",
+      "trialDesc": "Live in under an hour",
+      "demoLabel": "Try the demo",
+      "demoDesc": "Ring a real order, no signup",
+      "salesLabel": "Contact sales"
+    },
+    "storeDropdown": {
+      "terminalsTitle": "POS Terminals",
+      "swan1Desc": "Counter-grade desktop POS, 15.6″",
+      "swan1kDesc": "All-metal commercial display, VESA-mount",
+      "mobileTitle": "Mobile POS",
+      "swift1ProDesc": "Pocketable handheld with NFC",
+      "swift2ProDesc": "Handheld with integrated 58mm printer",
+      "swift2UltraDesc": "Flagship — receipt + label printing",
+      "kiosksTitle": "Self-Order Kiosks",
+      "heron1Desc": "23.8″ floor-standing kiosk",
+      "heron1MiniDesc": "15.6″ counter kiosk",
+      "browseTitle": "Browse",
+      "allHardwareLabel": "All hardware",
+      "allHardwareDesc": "See the complete lineup"
+    },
+    "supportDropdown": {
+      "helpCenter": "Help Center",
+      "faq": "Frequently asked",
+      "contactSales": "Contact sales",
+      "onboardingTitle": "Onboarding",
+      "trialDesc": "Pair hardware, import menu",
+      "demoDesc": "Walk a real order through",
+      "hardwareStore": "Hardware store",
+      "accountTitle": "Your account",
+      "signIn": "Sign in",
+      "ordersLabel": "Orders & delivery",
+      "ordersDesc": "Track shipments",
+      "financingLabel": "Financing requests",
+      "financingDesc": "Wafasalaf status",
+      "profile": "Profile"
+    },
+    "companyDropdown": {
+      "about": "About us",
+      "careers": "Careers",
+      "partnership": "Partnership",
+      "workTitle": "Work with us",
+      "rolesLabel": "Open roles",
+      "rolesDesc": "Engineering, ops, retail",
+      "partnerLabel": "Become a partner",
+      "partnerDesc": "Refer, resell, integrate",
+      "talkSales": "Talk to sales",
+      "trustTitle": "Trust & legal",
+      "privacy": "Privacy policy",
+      "terms": "Terms of service"
+    }
+  },
+  "footer": {
+    "tagline": "Ready to move your counter forward?",
+    "products": "Products",
+    "company": "Company",
+    "resources": "Resources",
+    "legal": "Legal",
+    "newsletter": "Stay in the loop",
+    "newsletterCopy": "Tips, product news, and operator playbooks — for Moroccan business owners.",
+    "newsletterPlaceholder": "you@email.com",
+    "newsletterSubmit": "Subscribe",
+    "copyright": "© {year} Caisse Manager. All rights reserved.",
+    "madeIn": "Built and hosted in Morocco.",
+    "brandLine1": "Point of sale, kitchen, online orders, and the people who run it all.",
+    "brandLine2": "Engineered in Morocco for the operators who serve it.",
+    "brandLine3": "Powering counters from Tangier to Laayoune — with local support, local installs, and same-day service across major cities.",
+    "corpEntity": "Caisse Manager SARL",
+    "corpCity": "Casablanca, Morocco",
+    "corpEmail": "contact@caissemanager.com",
+    "statusOk": "All systems normal",
+    "columns": {
+      "solutions": "Solutions",
+      "industries": "Industries",
+      "store": "Store",
+      "company": "Company",
+      "supportLegal": "Support & Legal"
+    },
+    "links": {
+      "shop": "Hardware shop",
+      "pricing": "Pricing",
+      "industries": "Industries",
+      "demo": "Try the demo",
+      "about": "About us",
+      "careers": "Careers",
+      "partnership": "Partnership",
+      "support": "Help center",
+      "contact": "Talk to sales",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "exploreSolutions": "Explore solutions",
+      "freeTrial": "Free trial",
+      "restaurants": "Restaurants",
+      "cafes": "Cafés",
+      "bakeries": "Bakeries",
+      "retail": "Retail",
+      "bars": "Bars",
+      "beauty": "Beauty",
+      "allHardware": "All hardware",
+      "swan1": "Swan 1 — POS terminal",
+      "swift2Pro": "Swift 2 Pro — Mobile POS",
+      "heron1": "Heron 1 — Self-order kiosk",
+      "supportCenter": "Support center",
+      "faq": "FAQ",
+      "account": "Account"
+    },
+    "legalLinks": {
+      "privacy": "Privacy",
+      "terms": "Terms"
+    }
+  },
+  "language": {
+    "label": "Language",
+    "fr": "Français",
+    "en": "English",
+    "switchTo": "Switch to {language}"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Caisse Manager",
+      "headline": "AI-Empowerment for business growth",
+      "subhead": "The unified platform Moroccan operators trust to run point of sale, kitchen, online orders, and back office — one system, on every device, built to grow with you.",
+      "primaryCta": "Start free trial",
+      "secondaryCta": "See pricing",
+      "trustBadge": "No commitment · 10-minute setup"
+    },
+    "finalCta": {
+      "heading": "See it on your counter.",
+      "body": "Spin up a free trial today. Bring your menu, your team, and your tills.",
+      "primaryCta": "Start Free Trial",
+      "secondaryCta": "Explore product"
+    },
+    "sections": {
+      "industriesEyebrow": "Built for your industry",
+      "industriesTitle": "One platform. Seven trades.",
+      "industriesSubtitle": "From restaurants to beauty salons, every trade gets the workflow, keypad, and reports that match how the day actually runs.",
+      "hardwareEyebrow": "Certified hardware",
+      "hardwareTitle": "Every device. One ecosystem.",
+      "hardwareSubtitle": "Terminals, kiosks, printers, and accessories picked to work together out of the box.",
+      "financingEyebrow": "Wafasalaf financing",
+      "financingTitle": "Equip today. Pay over 24 months.",
+      "financingSubtitle": "An exclusive partnership with Wafasalaf lets you spread the cost of your hardware without straining cash flow."
+    },
+    "store": {
+      "eyebrow": "The store",
+      "headlineLine1": "Every device.",
+      "headlineLine2": "One ecosystem.",
+      "subtitle": "POS terminals, self-order kiosks, and handhelds — designed to talk to your menu, your team, and your back office the moment you plug them in.",
+      "filterAria": "Filter products by category",
+      "chipAll": "All hardware",
+      "prevAria": "Previous products",
+      "nextAria": "Next products",
+      "viewAllTitle": "View all hardware",
+      "viewAllDesc": "Browse the full catalog, compare specs, build a quote.",
+      "exploreCta": "Explore the store"
+    },
+    "industries": {
+      "eyebrow": "Industries",
+      "title": "Built for your operation.",
+      "subtitle": "From a single café to a forty-store chain — every kind of business runs on the same Caisse Manager engine. Find your operation below.",
+      "tiles": {
+        "restaurants": {
+          "eyebrow": "Hospitality",
+          "title": "Restaurants",
+          "tagline": "Fast service, full house."
+        },
+        "cafes": {
+          "eyebrow": "Coffee & counter",
+          "title": "Cafés",
+          "tagline": "Counter to cup, in seconds."
+        },
+        "retail": {
+          "eyebrow": "Shop floor",
+          "title": "Retail",
+          "tagline": "Inventory you can trust."
+        },
+        "multi-store": {
+          "eyebrow": "Group operations",
+          "title": "Multi-store",
+          "tagline": "Every location, one console."
+        },
+        "fast-food": {
+          "eyebrow": "Quick service",
+          "title": "Fast food",
+          "tagline": "Volume without chaos."
+        },
+        "bakery": {
+          "eyebrow": "Daily bake",
+          "title": "Bakery",
+          "tagline": "Stock that matches the oven."
+        },
+        "bar": {
+          "eyebrow": "Evening trade",
+          "title": "Bar & lounge",
+          "tagline": "Tabs, rounds, and tickets."
+        },
+        "beauty": {
+          "eyebrow": "Appointments",
+          "title": "Beauty & services",
+          "tagline": "Bookings, staff, and till — one app."
+        }
+      }
+    },
+    "integrations": {
+      "eyebrow": "Connected by design",
+      "headline": "Every system that runs your business.",
+      "subtitle": "Payments, stock, delivery, financing — Caisse Manager speaks to the tools you already trust.",
+      "whisper": "One platform. No replatforming."
+    },
+    "solutions": {
+      "eyebrow": "The Ecosystem",
+      "headline": "One platform. Every surface of your business.",
+      "subtitle": "Twelve solutions, one connected operating system. Built for restaurants, retail, and services.",
+      "ctaPrimary": "Talk to sales",
+      "ctaSecondary": "Explore hardware",
+      "cards": {
+        "kiosk": "Self-Order Kiosk",
+        "pos": "POS Software",
+        "posDesc": "Ring, fire, take payment — one screen.",
+        "backOffice": "Back Office",
+        "backOfficeDesc": "Analytics, multi-store, permissions.",
+        "mobileApp": "Mobile Application",
+        "kds": "Kitchen Display",
+        "kdsDesc": "Station tickets, color-coded urgency.",
+        "customerDisplay": "Customer Display",
+        "queue": "Queue Management",
+        "onlineOrdering": "Online Ordering",
+        "stock": "Stock Management",
+        "paymentTerminal": "Payment Terminal",
+        "qrMenu": "QR Menu",
+        "timeAttendance": "Time & Attendance"
+      }
+    },
+    "posImmersion": {
+      "eyebrow": "The simulator",
+      "headline": "Run a real shift, right now.",
+      "tabsAria": "Business type",
+      "hint": "Tap categories, add items, run a payment.",
+      "cta": "Start Free Trial"
+    },
+    "pricingPreview": {
+      "eyebrow": "Pricing",
+      "titleLine1": "Three plans.",
+      "titleLine2": "One straight answer per counter.",
+      "subtitle": "Per counter, never per seat. Switch tier the moment your operation does — pro-rated, no penalty.",
+      "compareCta": "Compare every feature",
+      "compareHint": "From 120 MAD / mo"
+    }
+  },
+  "pricing": {
+    "metaTitle": "Pricing",
+    "metaDescription": "Free Basic plan, Pro from 250 MAD/mo per counter. No commitment, no hidden fees. Compare every feature.",
+    "eyebrow": "Pricing",
+    "heroTitle": "Plain-English pricing.",
+    "heroSubtitle": "Start free, move to Pro when your operation calls for it. Three prices per plan: monthly, yearly (-25%), or 24-month (-50%). No commitment, no hidden fees.",
+    "matrixTitle": "Compare features",
+    "matrixSubtitle": "Everything included in every plan — no asterisks.",
+    "popular": "Popular",
+    "free": "Free",
+    "currency": "MAD",
+    "freeForever": "Forever — no card",
+    "perMonthPerCounter": "/ month per counter",
+    "yearly": "Yearly",
+    "biennial": "24 months",
+    "save25": "Save 25%",
+    "save50": "Save 50%",
+    "trustEyebrow": "Moroccan-grade trust",
+    "trustTitle": "Built, hosted, and run in Morocco.",
+    "trustSubtitle": "Hundreds of operators across the Kingdom run their counter on Caisse Manager.",
+    "faqEyebrow": "Common questions",
+    "faqTitle": "The pricing fine print.",
+    "faqBody": "Can't see your question? <link>Ask the team</link> — we typically reply within an hour during business hours.",
+    "metaTitle2": "Pricing — Caisse Manager",
+    "heroEyebrow": "Pricing",
+    "heroHeadline": "Pricing built for the way you operate.",
+    "heroBody": "Per counter, never per seat. Start free on a single till, scale to multi-store with custom integrations — and switch tier the moment your operation does.",
+    "plansReassure": "All prices in MAD, excluding VAT. Priced per counter, pro-rated when you add or remove a station. Hardware sold separately; Wafasalaf financing available.",
+    "hardware": {
+      "eyebrow": "Hardware",
+      "headlineA": "Premium POS hardware.",
+      "headlineB": "Acquire it your way.",
+      "body": "Pair your POS terminal, printer, drawer, and scanner with the software. Hardware is sold separately — pay upfront or spread the cost over 24 months with Wafasalaf financing. Every unit ships with a 12-month warranty and on-site support across Morocco.",
+      "browseCta": "Browse hardware",
+      "talkCta": "Talk to a specialist →",
+      "tile": {
+        "posTerminals": "POS terminals",
+        "kds": "Kitchen display",
+        "printers": "Printers",
+        "drawers": "Cash drawers"
+      }
+    },
+    "whyTeamsEyebrow": "Why teams pick us",
+    "whyTeamsTitleA": "Premium platform.",
+    "whyTeamsTitleB": "Without the enterprise overhead.",
+    "compareEyebrow": "Compare plans",
+    "compareTitle": "Every feature, side by side.",
+    "compareBody": "The full catalogue. Find the smallest plan that says yes to everything you need.",
+    "finalEyebrow": "",
+    "finalTitle": "Start the trial. We'll sort the rest.",
+    "finalBody": "Four quick fields and a guided setup call — that's the whole onboarding.",
+    "finalPrimaryCta": "Start free trial",
+    "finalSecondaryCta": "Try the demo",
+    "faqs": {
+      "q1": "Is there a setup fee?",
+      "a1": "No. Setup and onboarding are included in every plan. Our team imports your menu, pairs your hardware, and trains your staff in a guided session — typically live within the hour.",
+      "q2": "Do I have to commit to a contract?",
+      "a2": "Monthly billing is the default and you can cancel anytime. The Save 25% yearly and Save 50% 24-month options unlock larger discounts — neither plan locks you in beyond the term you choose.",
+      "q3": "Can I switch plans later?",
+      "a3": "Yes — upgrade or downgrade at any moment from the Backoffice. Billing is pro-rated on changes; no penalty.",
+      "q4": "What payment methods do you accept?",
+      "a4": "Bank transfer, card via CMI for in-country billing, and Wafasalaf 24-month financing on hardware bundles. Enterprise accounts can be invoiced quarterly or annually.",
+      "q5": "Do I need to buy hardware from you?",
+      "a5": "No. Caisse Manager runs on the hardware we sell and on most existing Android-based POS terminals. Hardware is sold separately; 24-month Wafasalaf financing is available to spread the cost.",
+      "q6": "What if my counter count changes month to month?",
+      "a6": "Per-counter billing is pro-rated. Add a counter for a busy month, remove it for the slow one — your invoice tracks the actual count in use.",
+      "q7": "How is data protected?",
+      "a7": "All sales, inventory, and customer data sync over TLS to our hosted backoffice. Enterprise plans include extended retention, SSO, and a contractual uptime SLA. We process data inside the EU; Morocco-hosting on request."
+    },
+    "plans": {
+      "basic": {
+        "name": "Basic",
+        "tagline": "Your first POS, free forever.",
+        "description": "One counter, zero cost. Everything you need to ring your first sale.",
+        "ctaLabel": "Start free trial",
+        "highlights": {
+          "h1": "Single counter (mono post)",
+          "h2": "Chat & email support",
+          "h3": "Remote access",
+          "h4": "Data storage",
+          "h5": "API integrations"
+        }
+      },
+      "pro": {
+        "name": "Pro",
+        "tagline": "POS software that runs the whole operation.",
+        "description": "Multi-station, kitchen-synced, delivery and integrations built in — one POS for sales, team, and stock.",
+        "ctaLabel": "Start free trial",
+        "highlights": {
+          "h1": "Multi-POS support",
+          "h2": "Chat, email & phone support",
+          "h3": "Remote access",
+          "h4": "Data storage",
+          "h5": "API integrations"
+        }
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "tagline": "A POS platform shaped around your operation.",
+        "description": "Multi-store, custom integrations, dedicated rollout — a POS calibrated for networks and mission-critical operations.",
+        "ctaLabel": "Contact sales",
+        "highlights": {
+          "h1": "Multi-POS support",
+          "h2": "Chat, email & phone support",
+          "h3": "Remote access",
+          "h4": "Data storage",
+          "h5": "API integrations"
+        }
+      }
+    },
+    "matrix": {
+      "groupWorkspace": "Workspace",
+      "groupPlatform": "Platform",
+      "groupSupport": "Support",
+      "groupHardware": "Hardware",
+      "rows": {
+        "counters": "Counters",
+        "countersHint": "POS stations included in the plan",
+        "countersBasic": "1 counter",
+        "countersPro": "Multi-counter",
+        "countersEnterprise": "Multi-counter + multi-store",
+        "multiSync": "Multi-POS sync",
+        "multiSyncHint": "Real-time menu, orders, and ticket state across counters",
+        "kds": "Kitchen display + ticket routing",
+        "delivery": "Delivery integrations (Glovo, Yassir, Done)",
+        "branded": "Branded customer ordering",
+        "brandedHint": "Your menu on a QR / web ordering surface",
+        "remote": "Remote access",
+        "remoteHint": "Manage the counter from anywhere",
+        "storage": "Data storage",
+        "storageHint": "Historical sales, inventory, and reports retained at scale",
+        "api": "API integrations",
+        "apiHint": "ERP, accounting, and custom business systems",
+        "sso": "Single sign-on (SSO)",
+        "uptime": "Uptime SLA",
+        "chatEmail": "Chat & email",
+        "phone": "Phone support",
+        "priority": "Priority response",
+        "onboarding": "Dedicated onboarding manager",
+        "hwCompat": "Works with our Swan, Swift, and most Android terminals",
+        "hwPeripheral": "Receipt printer, drawer, scanner support",
+        "hwKitchen": "Kitchen printer + KDS support",
+        "hwBundles": "Custom hardware bundles"
+      }
+    }
+  },
+  "shop": {
+    "eyebrow": "Hardware shop",
+    "title": "The hardware behind your counter.",
+    "subtitle": "Hand-picked for the daily reality of Moroccan operators. Casablanca stock, nationwide shipping.",
+    "filtersAll": "All hardware",
+    "filterCount": "{count, plural, =0 {No products} =1 {1 product} other {# products}}",
+    "emptyTitle": "Nothing matches that search.",
+    "emptyHint": "Try a different category or browse the full catalog.",
+    "viewAll": "Browse the full catalog"
+  },
+  "productCard": {
+    "from": "From",
+    "vatExcluded": "HT",
+    "quickView": "Quick view: {name}",
+    "addToCart": "Add to cart",
+    "inCart": "In cart · {count}",
+    "inCartLabel": "In cart, quantity {count}. View cart.",
+    "explore": "Explore"
+  },
+  "availability": {
+    "inStock": "In stock",
+    "inStockHint": "Ships immediately",
+    "incoming": "Incoming",
+    "incomingHint": "Lead time ~{weeks} weeks",
+    "shipsIn": "Ships in {days, plural, =1 {1 business day} other {# business days}}",
+    "preorder": "Pre-order"
+  },
+  "wafasalaf": {
+    "partnerEyebrow": "Financing partner",
+    "from": "From",
+    "perMonth": "/mo",
+    "termSuffix": "· 24 months",
+    "ariaCompact": "Wafasalaf financing available — from {monthly} MAD per month over 24 months",
+    "ariaInline": "Wafasalaf financing available — from {monthly} MAD per month over 24 months",
+    "cardTitle": "Pay from {monthly} MAD/mo",
+    "cardSubtitle": "over 24 months",
+    "cardFootnote": "Decision within 24 hours · Subject to approval",
+    "emptyTitle": "Spread the cost — pay monthly with Wafasalaf",
+    "emptyBody": "Our financing partner helps you equip your business without paying everything up front. Pick a term up to 24 months, get a decision in under 24 hours.",
+    "emptyCta": "Discover eligible hardware",
+    "trustDecision": "Decision in 24h",
+    "trustTerm": "Up to 24 months",
+    "trustFirstFee": "0 MAD opening fee"
+  },
+  "cart": {
+    "drawerTitle": "Your cart",
+    "eyebrow": "Your cart",
+    "headerCount": "{count, plural, =1 {1 item} other {# items}}",
+    "empty": "Your cart is empty.",
+    "emptyTitle": "Your cart is ready to be filled.",
+    "emptyHint": "Pick the hardware that fits your operation — POS terminals, self-order kiosks, kitchen displays, and more. Bundle now or talk to a specialist first.",
+    "browseShop": "Explore the store",
+    "exploreStore": "Explore the store",
+    "continueShopping": "Continue shopping →",
+    "subtotal": "Subtotal",
+    "subtotalHT": "Subtotal · HT",
+    "summaryTitle": "Order summary",
+    "vat": "VAT (20%)",
+    "vatCalc": "Calculated at checkout",
+    "shipping": "Shipping",
+    "shippingCalc": "Calculated at checkout",
+    "shippingFree": "Free",
+    "total": "Total",
+    "quantity": "Quantity",
+    "remove": "Remove",
+    "removeLine": "Remove {name} from cart",
+    "increase": "Increase quantity",
+    "decrease": "Decrease quantity",
+    "perUnit": "{price} per unit",
+    "fromPrice": "from {price}",
+    "add": "Add",
+    "proceed": "Proceed to checkout",
+    "secureOrder": "Secure my order",
+    "payMethods": "Pay by card with CMI · or spread the cost with Wafasalaf",
+    "upsellsEyebrow": "Often paired together",
+    "upsellsTitle": "Complete your setup",
+    "clearCart": "Clear cart",
+    "viewCart": "View cart",
+    "incomingTitle": "{count, plural, =1 {1 item marked} other {# items marked}} En arrivage",
+    "incomingBody": "We ship the order as a single consolidated delivery once every item is in. Expect up to ~{weeks} weeks — the longest lead time in your cart. You can track each shipment from your account once the order is placed."
+  },
+  "checkout": {
+    "title": "Complete your order",
+    "subtitle": "A few details and we'll prepare your hardware.",
+    "sectionContact": "Contact",
+    "sectionContactSubtitle": "We'll use this to send your order confirmation.",
+    "sectionCompany": "Company",
+    "sectionCompanySubtitle": "Used on the invoice + delivery slip.",
+    "sectionShipping": "Shipping address",
+    "sectionPayment": "Payment method",
+    "country": "Country",
+    "countryMorocco": "Morocco",
+    "summaryTitle": "Order summary",
+    "summaryItemsCount": "{count, plural, =1 {1 item} other {# items}}",
+    "shippingEstimated": "Estimated by ops",
+    "vatLine": "VAT ({pct}%)",
+    "backToShopping": "‹ Back to shopping",
+    "paymentSelected": "Selected",
+    "paymentAvailable": "Available",
+    "paymentWafasalafFrom": "From {amount} MAD / month. {desc}",
+    "paymentWireDescription": "Transfer to our bank account, then upload your receipt. Order ships once the transfer is confirmed.",
+    "submitting": "Securing your order…",
+    "submitCmiAmount": "Pay securely · {amount}",
+    "submitWireAmount": "Confirm order · {amount}",
+    "submitFinancingAmount": "Apply for financing · {amount}",
+    "submitFinancingMonthly": "Apply for financing · {amount} MAD / mo",
+    "footerCmi": "Secured by CMI · SSL-encrypted · We never store your card details. Order confirmation arrives in your inbox within seconds of payment.",
+    "footerWire": "We'll show you the bank details and a receipt upload on the next screen. Hardware ships the same day funds clear — typically within 24 hours.",
+    "footerFinancing": "Wafasalaf reviews your file in under 24 hours. You'll receive a signed offer by email and can start using your hardware as soon as the contract is countersigned.",
+    "prefillTitle": "We've filled in your details from your last order.",
+    "prefillBody": "Review anything below and edit if it's changed — every field stays editable.",
+    "eyebrow": "Checkout",
+    "heading": "Confirm your order",
+    "tlsPill": "Secure checkout · TLS encrypted",
+    "optional": "(optional)",
+    "placeholderFullName": "Full name",
+    "placeholderCompanyName": "Company name",
+    "placeholderIce": "002345678000041",
+    "placeholderStreet": "Street and number",
+    "placeholderPostal": "20100",
+    "authGate": {
+      "eyebrow": "Account required",
+      "title": "Sign in to complete your order.",
+      "body": "We require an account so you can track every order and financing request from your customer portal. Your cart is saved — sign in or create an account in 30 seconds and you'll land right back here.",
+      "createAccount": "Create an account",
+      "signIn": "Sign in",
+      "demoNote": "Demo accounts are stored locally in this browser."
+    },
+    "signedIn": {
+      "label": "Signed in as",
+      "switchAccount": "Use different account"
+    },
+    "emptyCheckout": {
+      "title": "Nothing to check out yet.",
+      "body": "Add hardware to your cart and come back — we'll handle delivery, installation, and onboarding from there.",
+      "cta": "Pick your hardware"
+    },
+    "overlay": {
+      "cmiTitle": "Redirecting to CMI…",
+      "cmiSubtitle": "Do not close this window. You'll return here once payment clears.",
+      "cmiFooter": "Secured by CMI · 3DS",
+      "wireTitle": "Reserving your order…",
+      "wireSubtitle": "Holding your stock and preparing the bank transfer instructions.",
+      "wireFooter": "Pending payment · Order ships after transfer is confirmed",
+      "financingTitle": "Submitting to Wafasalaf…",
+      "financingSubtitle": "Sending your financing application. You'll see a confirmation in a moment.",
+      "financingFooter": "Backed by Wafasalaf · Decision within 24h"
+    },
+    "fullName": "Full name",
+    "fullNamePlaceholder": "Mehdi Alami",
+    "email": "Work email",
+    "emailPlaceholder": "you@company.ma",
+    "phone": "Phone",
+    "phonePlaceholder": "+212 6 12 34 56 78",
+    "companyName": "Company name",
+    "companyNamePlaceholder": "Your business",
+    "companyIce": "ICE (optional)",
+    "companyIcePlaceholder": "15 digits",
+    "shippingStreet": "Street address",
+    "shippingStreetPlaceholder": "Street, number, building",
+    "shippingCity": "City",
+    "shippingCityPlaceholder": "Casablanca",
+    "shippingPostalCode": "Postal code",
+    "shippingPostalCodePlaceholder": "20000",
+    "shippingCountry": "Country",
+    "shippingNotes": "Delivery notes (optional)",
+    "shippingNotesPlaceholder": "Floor, access code, hours…",
+    "paymentCmi": "Card payment",
+    "paymentCmiHint": "Moroccan or international card, via the CMI gateway.",
+    "paymentWafasalaf": "Wafasalaf financing",
+    "paymentWafasalafHint": "Spread over 24 months — decision in 24 hours.",
+    "paymentWire": "Bank transfer",
+    "paymentWireHint": "We'll email you our bank details after confirmation.",
+    "wafasalafTitle": "Your estimated monthly payment",
+    "wafasalafAgeQuestion": "Are you under 60?",
+    "wafasalafUnder60": "Under 60",
+    "wafasalafOver60": "60 and over",
+    "wafasalafTerm": "Term",
+    "wafasalafMonthly": "Monthly",
+    "wafasalafTotal": "Total cost",
+    "wafasalafDisclaimer": "Indicative estimate · The final offer is confirmed by Wafasalaf after review.",
+    "prefillBannerTitle": "Pre-filled from your profile",
+    "prefillBannerBody": "We pulled your profile and last order. Review and adjust if needed.",
+    "submitCmi": "Pay securely",
+    "submitWafasalaf": "Submit my financing request",
+    "submitWire": "Confirm my order",
+    "redirectingCmi": "Redirecting to the CMI gateway…",
+    "termsAccept": "By completing this order, I accept the <link>terms of sale</link>.",
+    "errorPhone": "Invalid phone. Expected format: +212 6 XX XX XX XX.",
+    "errorEmail": "Invalid email.",
+    "errorRequired": "This field is required."
+  },
+  "checkoutSuccess": {
+    "paidEyebrow": "Payment received · Order confirmed",
+    "paidTitle": "Thanks {firstName}.\nWe're preparing your hardware.",
+    "paidBody": "A confirmation with your invoice and delivery details is on its way to {email}. Our team will reach out within one business day to schedule install and onboarding.",
+    "orderRef": "Order reference",
+    "placedAt": "Placed",
+    "payment": "Payment",
+    "delivery": "Delivery",
+    "billedTo": "Billed to",
+    "itemsOrdered": "Items ordered",
+    "subtotalHT": "Subtotal · HT",
+    "vat": "VAT",
+    "shipping": "Shipping",
+    "shippingIncluded": "Included",
+    "totalTTC": "Total · TTC",
+    "trackOrder": "Track your order",
+    "continueShopping": "Continue shopping",
+    "wireEyebrow": "Awaiting payment",
+    "wireTitle": "Thanks {firstName}.\nYour order is reserved.",
+    "wireBody": "To finalize, complete the wire transfer below and upload your receipt. Your order will ship as soon as our team confirms the funds.",
+    "wireProofEyebrow": "Transfer receipt",
+    "wireProofUploaded": "Receipt received · validation in progress",
+    "wireProofHeading": "Upload your proof of transfer",
+    "wireProofHint": "Once you've made the transfer, upload your bank receipt here (statement, screenshot, or PDF) to speed up validation.",
+    "wireTrackOrder": "Track the order",
+    "financingTitle": "Thanks {firstName}.\nYour application is with Wafasalaf.",
+    "financingBody": "We've received your request. A confirmation went to {email}. Wafasalaf typically responds within 24 hours.",
+    "financingRef": "Request reference",
+    "financingSubmitted": "Submitted",
+    "financingMonthlyLabel": "Monthly · {months}m",
+    "financingFirstInstallment": "First installment",
+    "financingTotalCost": "Total cost",
+    "financingOrderTotal": "Order total",
+    "financingAgeBracket": "Age bracket",
+    "financingTrack": "Track this request",
+    "notFoundTitle": "Order not found",
+    "notFoundBody": "Check the link, or open your orders list."
+  },
+  "account": {
+    "navOverview": "Overview",
+    "navOrders": "Orders",
+    "navFinancing": "Financing",
+    "navProfile": "Profile",
+    "signOut": "Sign out",
+    "welcome": "Hello {name}",
+    "overviewTitle": "Your activity at a glance",
+    "ordersTitle": "Your orders",
+    "ordersEmpty": "No orders yet.",
+    "ordersEmptyHint": "Browse the shop to place your first order.",
+    "financingTitle": "Your financing requests",
+    "financingEmptyCta": "Discover Wafasalaf financing",
+    "profileTitle": "Your information",
+    "profileContact": "Contact",
+    "profileCompany": "Company",
+    "profileShipping": "Default address",
+    "profileSaveSuccess": "Profile updated.",
+    "stats": {
+      "totalOrders": "Total orders",
+      "totalOrdersHint": "{count, plural, =0 {No orders yet} =1 {Including 1 delivered} other {Including # delivered}}",
+      "inTransit": "In transit",
+      "inTransitYes": "On the way to you",
+      "inTransitNo": "Nothing in transit",
+      "awaitingPayment": "Awaiting payment",
+      "awaitingPaymentHint": "Wire transfer to confirm",
+      "lifetime": "Lifetime spend",
+      "lifetimeHint": "TTC, across all orders"
+    },
+    "recent": {
+      "eyebrow": "Recent orders",
+      "title": "Latest activity",
+      "viewAll": "View all →",
+      "itemsCount": "{count, plural, =1 {1 item} other {# items}}"
+    },
+    "emptyOverview": {
+      "title": "Your first order is one step away",
+      "body": "Once you place an order, you'll track every stage here — from confirmation through preparation, delivery, and on-site install.",
+      "cta": "Explore the store"
+    },
+    "shell": {
+      "eyebrow": "My account",
+      "greeting": "Hello, {firstName}.",
+      "loading": "Loading your account…",
+      "customerLabel": "Customer",
+      "navLabel": "Account sections"
+    },
+    "navItems": {
+      "overviewLabel": "Overview",
+      "overviewDesc": "At-a-glance activity",
+      "ordersLabel": "Orders",
+      "ordersDesc": "Track shipments & delivery",
+      "financingLabel": "Financing",
+      "financingDesc": "Wafasalaf requests",
+      "profileLabel": "Profile",
+      "profileDesc": "Account & company info"
+    },
+    "ordersPage": {
+      "eyebrow": "Orders",
+      "countTitle": "{count, plural, =1 {1 order} other {# orders}}",
+      "emptyTitle": "No orders yet",
+      "emptyBody": "Your placed orders will appear here so you can track them from confirmation to delivery.",
+      "browseStore": "Browse the store →",
+      "itemsCount": "{count, plural, =1 {1 item} other {# items}}",
+      "ttc": "TTC"
+    },
+    "financingStrip": {
+      "eyebrow": "Financing",
+      "title": "Active requests",
+      "viewAll": "View all →",
+      "itemPlan": "{items, plural, =1 {1 item} other {# items}} · {months}-month plan"
+    },
+    "financingPage": {
+      "eyebrow": "Financing",
+      "countTitle": "{count, plural, =1 {1 request} other {# requests}}",
+      "partnerEyebrow": "Financing partner",
+      "emptyHeading": "Spread the cost — pay monthly with Wafasalaf.",
+      "emptyBody": "Open a 24-month financing plan on any hardware order. Decision in under 24 hours. Once approved, your order moves straight into preparation and ships as soon as our team confirms.",
+      "trust": {
+        "kpi1": "24h",
+        "label1": "decision turnaround",
+        "kpi2": "24 mo",
+        "label2": "standard term",
+        "kpi3": "0 MAD",
+        "label3": "deposit required"
+      },
+      "pickHardware": "Pick your hardware",
+      "howItWorks": "How financing works →",
+      "creditNote": "Subject to credit approval. Standard Wafasalaf terms apply.",
+      "monthly": "Monthly",
+      "monthPlan": "{months}-month plan",
+      "itemsCount": "{count, plural, =1 {1 item} other {# items}}",
+      "submitted": "Submitted",
+      "term": "Term",
+      "months": "{count} months",
+      "totalCost": "Total cost"
+    },
+    "profilePage": {
+      "eyebrow": "Profile",
+      "title": "Your information",
+      "subtitle": "These details are pre-filled at checkout and appear on your orders and invoices.",
+      "fullName": "Full name",
+      "email": "Email",
+      "emailReadonly": "Not editable — your account login",
+      "phone": "Phone",
+      "companyName": "Company",
+      "companyIce": "ICE / Patente",
+      "iceOptional": "Optional",
+      "save": "Save",
+      "saved": "Changes saved",
+      "dirty": "Unsaved changes",
+      "clean": "No changes"
+    }
+  },
+  "auth": {
+    "loading": "Loading…",
+    "signIn": {
+      "eyebrow": "Welcome back",
+      "heading": "Sign in to your dashboard.",
+      "subheading": "Pick up exactly where you left off — orders in flight, financing files, hardware deliveries, and your team.",
+      "submit": "Continue",
+      "footerQuestion": "New to Caisse Manager?",
+      "footerLink": "Create an account",
+      "submittingFailed": "Sign-in failed. Check your email and password.",
+      "submittingUnreachable": "We couldn't reach the authentication service. Please try again in a moment."
+    },
+    "signUp": {
+      "eyebrow": "Open your account",
+      "headingLine1": "Start running your",
+      "headingLine2": "business on Caisse Manager.",
+      "subheading": "Free to set up. No credit card required. You're up and running in under three minutes — orders, financing, hardware, and your team all in one place.",
+      "submit": "Create my account",
+      "footerQuestion": "Already have an account?",
+      "footerLink": "Sign in",
+      "submittingFailed": "Sign-up failed. Check the browser console for details."
+    },
+    "fields": {
+      "email": "Email",
+      "emailPlaceholder": "name@company.com",
+      "password": "Password",
+      "passwordSignInPlaceholder": "Your password",
+      "passwordSignUpPlaceholder": "Choose a strong password",
+      "fullName": "Full name",
+      "fullNamePlaceholder": "Your full name",
+      "phone": "Phone",
+      "companyName": "Company (optional)",
+      "forgotPassword": "Forgot password?",
+      "passwordRequirement": "{min}+ characters",
+      "passwordWeak": "Too short",
+      "passwordOk": "Good",
+      "passwordStrong": "Strong"
+    },
+    "validation": {
+      "required": "Required",
+      "invalidEmail": "Invalid email",
+      "passwordLength": "{min}+ characters",
+      "generic": "Something went wrong. Please try again."
+    },
+    "consent": "By continuing you agree to our <terms>Terms</terms> and <privacy>Privacy Policy</privacy>.",
+    "consentSignUp": "By creating an account you agree to our <terms>Terms</terms> and <privacy>Privacy Policy</privacy>.",
+    "brandPanel": {
+      "eyebrow": "Built for Morocco",
+      "heading": "One platform for point of sale, kitchen, and inventory.",
+      "body": "From a single café to a multi-store group — Caisse Manager runs the business on iPad, terminal, and the cloud, with Moroccan tax, languages, and payment methods built in.",
+      "financingNote": "Hardware financing available through our partner Wafasalaf, subject to eligibility.",
+      "trustBadge": "Trusted by 500+ businesses",
+      "deployment": "Cloud · Local · Offline"
+    }
+  },
+  "startFreeTrial": {
+    "metaTitle": "Start free trial",
+    "metaDescription": "Start your free Caisse Manager trial. Four fields and a guided setup call — your counter is live within the hour.",
+    "eyebrow": "Start your free trial",
+    "heroHeadline": "Every counter, ready in an hour.",
+    "heroBody": "Four quick fields and a guided setup call — that's the whole onboarding. No installer, no commitment.",
+    "benefits": {
+      "b1": "Live on your hardware within one onboarding call.",
+      "b2": "Menu import + staff training included, no extra cost.",
+      "b3": "Cancel anytime. No long-term contract.",
+      "b4": "Priority WhatsApp support during your first 30 days."
+    },
+    "trustedByEyebrow": "Trusted by",
+    "trustedByBody": "200+ counters across 13 cities in Morocco. From single-counter cafés to multi-store restaurant groups.",
+    "formEyebrow": "Tell us about you",
+    "formTitle": "Four fields, then we'll reach out.",
+    "fields": {
+      "fullName": "Full name",
+      "fullNameError": "Please enter your full name.",
+      "brandName": "Brand name",
+      "brandNameError": "Please enter your brand name.",
+      "city": "City",
+      "cityError": "Pick a city from the list.",
+      "phoneError": "Enter a valid phone number."
+    },
+    "submitting": "Setting up your trial…",
+    "submit": "Start free trial",
+    "terms": "By continuing you agree to our <terms>Terms</terms> and <privacy>Privacy Policy</privacy>. No spam — promise.",
+    "successWelcome": "Welcome, {name}.",
+    "successWelcomeNoName": "You're in.",
+    "successBody": "We've received your details. Someone from the team will reach out within 24 hours to walk you through the next steps and schedule your onboarding.",
+    "successPrimary": "Back to home",
+    "successSecondary": "Try the simulator",
+    "successSupport": "Have a question? <link>Visit support</link>."
+  },
+  "support": {
+    "metaTitle": "Support",
+    "metaDescription": "Caisse Manager help center — answers on setup, hardware, payments, and integrations. Reach us by email, WhatsApp, or phone.",
+    "eyebrow": "Support",
+    "heroHeadline": "How can we help?",
+    "searchAria": "Search support",
+    "searchPlaceholder": "Search the help center",
+    "searchSoon": "Search is coming soon. For now, pick a topic below.",
+    "browseEyebrow": "Browse by topic",
+    "allTopics": "All topics",
+    "allTopicsDesc": "{count} questions across every area",
+    "faqDefaultTitle": "Frequently asked",
+    "contactEyebrow": "Ready to move forward?",
+    "contactTitle": "Talk to our sales team.",
+    "contactEmail": "Email",
+    "contactWhatsapp": "WhatsApp",
+    "contactPhone": "Phone",
+    "finalTitle": "Get up and running.",
+    "finalBody": "The fastest way to find your answer is to try the demo. Five minutes in, most questions answer themselves.",
+    "finalPrimary": "Start free trial",
+    "finalSecondary": "Try the demo",
+    "topics": {
+      "setupLabel": "Setup",
+      "setupDesc": "First-time install, hardware pairing, and Day One.",
+      "hardwareLabel": "Hardware",
+      "hardwareDesc": "POS terminals, mobile POS, printers, cash drawers, scanners.",
+      "paymentsLabel": "Payments",
+      "paymentsDesc": "Cash, card, mobile, delivery partners, end-of-day.",
+      "integrationsLabel": "Integrations",
+      "integrationsDesc": "Delivery apps, accounting, and online ordering.",
+      "backofficeLabel": "Backoffice",
+      "backofficeDesc": "Menu, inventory, staff, reporting, multi-store.",
+      "mobileLabel": "Mobile apps",
+      "mobileDesc": "Cashier mobile POS, ordering app, delivery app."
+    },
+    "faqs": {
+      "setup1Q": "How long does setup take?",
+      "setup1A": "Most operations are live within an hour of receiving the hardware. Menu import, staff accounts, and printer pairing happen on a guided onboarding call.",
+      "setup2Q": "Can I import my menu from another POS?",
+      "setup2A": "Yes. Send us a CSV (or a screenshot of your current menu screens) and we'll import categories, items, modifiers, and prices for you before Day One.",
+      "hardware1Q": "Do I have to buy hardware from you?",
+      "hardware1A": "No. Caisse Manager runs on the hardware we sell and on most Android-based POS terminals. If you already have terminals, we'll check compatibility before you commit.",
+      "hardware2Q": "Which printers work with Caisse Manager?",
+      "hardware2A": "Any ESC/POS-compatible thermal printer over Ethernet, USB, or Bluetooth. We ship a tested list with onboarding — most Epson, Star, and Xprinter models are plug-and-play.",
+      "payments1Q": "Do you handle card processing?",
+      "payments1A": "Caisse Manager integrates with CMI and TPE Mobile for in-store card payments. Settlement happens through your bank — we don't hold funds.",
+      "payments2Q": "How does end-of-day reconciliation work?",
+      "payments2A": "Close Day produces a Z report comparing cash counted to expected, with per-tender breakdowns. Discrepancies surface immediately so they get resolved while the shift is still standing there.",
+      "integrations1Q": "Do you integrate with Glovo and Yassir?",
+      "integrations1A": "Yes. Direct API integrations route incoming delivery orders straight to your kitchen as if they were dine-in tickets, with the platform's commission and delivery fees handled in your daily reports.",
+      "integrations2Q": "Can I export data to my accountant?",
+      "integrations2A": "End-of-day exports are downloadable as CSV or Excel. Many of our customers wire them straight into their accounting tool via a Make.com or Zapier flow we'll help you set up.",
+      "backoffice1Q": "Can I run multiple locations on one account?",
+      "backoffice1A": "Yes. The Backoffice supports unlimited locations with per-location menus, staff, and reports — rolled up into a single multi-store view for owners.",
+      "backoffice2Q": "How do staff permissions work?",
+      "backoffice2A": "Roles: Cashier, Manager, Waiter, Owner. Each role has configurable permissions (discounts, voids, reports, etc). Sensitive actions like discounts can require manager approval at the POS.",
+      "mobile1Q": "Is there a customer-facing ordering app?",
+      "mobile1A": "Yes. A branded online ordering app comes standard. Your menu, your colors, your domain — your customers order without ever leaving your brand.",
+      "mobile2Q": "Does the delivery app work offline?",
+      "mobile2A": "Drivers can complete deliveries with intermittent signal — orders sync the moment connectivity returns. Critical operations (mark delivered, take photo proof) all work offline-first."
+    }
+  },
+  "partnership": {
+    "metaTitle": "Partnership",
+    "metaDescription": "Partner with Caisse Manager — referrals, reseller programs, and integrations. We share the upside with the people who bring us counters that grow.",
+    "eyebrow": "Partnership",
+    "heroHeadline": "Grow the counter ecosystem with us.",
+    "heroBody": "Three ways to partner with Caisse Manager — refer, resell, or integrate. Each one shares the upside fairly with the people who help our platform reach the counters that need it.",
+    "tracksEyebrow": "Three programs",
+    "tracksTitle": "Pick the track that matches how you work.",
+    "tracks": {
+      "affiliation": {
+        "eyebrow": "Affiliation",
+        "title": "Refer a counter, earn on every shift.",
+        "body": "Recurring revenue share on every active subscription you bring in. Best for agencies, consultants, and independent restaurateurs with networks."
+      },
+      "reseller": {
+        "eyebrow": "Reseller",
+        "title": "Sell the hardware lineup with us.",
+        "body": "Authorized reseller pricing on the full Swan / Swift / Heron lineup, plus co-marketing budget once your pipeline is qualified. Built for hardware distributors and IT integrators."
+      },
+      "technology": {
+        "eyebrow": "Technology",
+        "title": "Build on top of the API.",
+        "body": "Deep integrations — delivery platforms, accounting suites, marketing tools. Bring a product our customers already use and we'll wire it into the platform."
+      }
+    },
+    "howEyebrow": "How it works",
+    "howTitle": "Three steps from intro to first payout.",
+    "steps": {
+      "step1Title": "Apply",
+      "step1Body": "Send a short note about your network or product. One email, no forms — we read each one.",
+      "step2Title": "Onboarding",
+      "step2Body": "A 30-minute call to map fit, then access to demo accounts, sales collateral, and your partner manager.",
+      "step3Title": "Earn",
+      "step3Body": "Referrals start paying out from the first invoice your client settles. Reseller margins clear monthly."
+    },
+    "finalTitle": "Apply to partner.",
+    "finalBody": "One email is enough — tell us which track and what you bring. We'll come back within two business days.",
+    "finalPrimary": "Email partners@",
+    "finalSecondary": "Talk to sales first"
+  },
+  "careers": {
+    "metaTitle": "Careers",
+    "metaDescription": "Join Caisse Manager — we're building the calmest counter in Morocco. Engineering, design, customer success, and ops roles based in Casablanca.",
+    "eyebrow": "Careers",
+    "heroHeadline": "Build the calmest counter in Morocco.",
+    "heroBody": "We're a small team in Casablanca building the POS, kitchen, and back-office system that hundreds of counters across Morocco run their day on. If shipping software that real people use every shift sounds like your kind of work, we'd like to meet you.",
+    "lookForEyebrow": "What we look for",
+    "lookForTitle": "Builders who care about the seventh detail.",
+    "lookForBody1": "Restaurants and shops run on rhythm. The software they trust has to disappear into that rhythm — no clunky modals, no surprises, no waiting. We hire people who feel that and ship for it.",
+    "lookForBody2": "Engineering, design, customer success, and operations roles — all hybrid out of our Casablanca office, with calm async rhythms for the deep-work hours.",
+    "openEyebrow": "Open roles",
+    "openTitleOpen": "Roles open right now.",
+    "openTitleClosed": "Nothing live this minute — but we always read introductions.",
+    "openApply": "Apply",
+    "openClosedBody": "Send us a note about what you do well and what kind of work you'd want next. If we see a fit — now or in a few months — we'll be in touch.",
+    "finalTitle": "Tell us what you build.",
+    "finalBody": "A short intro and your work goes a long way. We read every one.",
+    "finalPrimary": "Email careers@",
+    "finalSecondary": "About Caisse Manager"
+  },
+  "about": {
+    "metaTitle": "About",
+    "metaDescription": "Caisse Manager is built to make the counter feel calmer — fewer screens, faster decisions, a system every shift trusts.",
+    "eyebrow": "About",
+    "heroHeadline": "We build the counter we wished we had.",
+    "heroBody": "Caisse Manager started in a single restaurant's kitchen, with a notebook full of frustrations about every POS that had been tried before. It became the thing they actually wanted.",
+    "visionEyebrow": "Our vision",
+    "visionTitle": "Make the counter feel calmer.",
+    "visionBody1": "Restaurants run on rhythm. Every interruption — a clunky modifier modal, a screen that fights the cashier's hands, a kitchen ticket that prints late — breaks that rhythm. We obsess about removing those interruptions, one screen at a time.",
+    "visionBody2": "POS, kitchen, ordering, delivery, and back-office — designed to behave like one system because, for the team using it, they should.",
+    "numbersEyebrow": "By the numbers",
+    "numbersTitle": "Trusted across counters in Morocco.",
+    "stats": {
+      "counters": "active counters",
+      "cities": "cities served",
+      "tickets": "tickets / month",
+      "uptime": "uptime, last quarter"
+    },
+    "finalTitle": "See it on your counter.",
+    "finalBody": "Start a free trial. Bring your menu, your team, and your tills.",
+    "finalPrimary": "Start free trial",
+    "finalSecondary": "Try the demo"
+  },
+  "legal": {
+    "lastUpdated": "June 2026",
+    "privacy": {
+      "title": "Privacy.",
+      "intro": "A short, plain-language description of what Caisse Manager collects, why we collect it, and how we keep it safe. The full legal policy is being finalized — this page will be updated before public launch.",
+      "h1": "What we collect",
+      "p1": "When you start a free trial we ask for your full name, brand name, city, and phone number. When you use the platform, we record the operational data your team produces — orders, items, prices, shifts, receipts. We do not collect personal data about the diners or shoppers at your counter unless you choose to enable customer profiles.",
+      "h2": "How we use it",
+      "p2": "Your lead information is used to set up your account, schedule onboarding, and stay in touch about the product. Your operational data powers the reports and dashboards you see in the Backoffice. We do not sell either to third parties.",
+      "h3": "Where it lives",
+      "p3": "Operational data is stored on encrypted servers in the European Union. Backups are encrypted at rest. Access to production data is limited to a small number of engineers under audit logging.",
+      "h4": "Your rights",
+      "p4": "You can request a copy of every record we hold about your account, ask us to correct it, or ask us to delete it. Email the support team and we'll respond within five business days.",
+      "h5": "Updates",
+      "p5": "Material changes are announced in the Backoffice and via the email address on file at least 30 days before they take effect. Continuing to use the platform after that constitutes acceptance."
+    },
+    "terms": {
+      "title": "Terms.",
+      "intro": "A plain-language summary of the agreement between you and Caisse Manager. The full legal terms are being finalized — this page will be updated before public launch.",
+      "h1": "The short version",
+      "p1": "Caisse Manager is a software platform for running point-of-sale operations. You agree to use it for its intended purpose, pay for the plan you signed up for, and not abuse the service. We agree to keep the platform running, protect your data, and give reasonable notice before changing the terms.",
+      "h2": "Your account",
+      "p2": "You are responsible for the actions taken under your account, including those by staff you grant access to. Keep your credentials confidential. Notify us promptly of any unauthorized access.",
+      "h3": "Billing",
+      "p3": "Plans are billed monthly per active counter, unless you have agreed to annual or custom terms in writing. Pricing changes are announced at least 30 days in advance and apply at the start of the following billing cycle.",
+      "h4": "Cancellation",
+      "p4": "You can cancel at any time from the Backoffice. Your service remains active until the end of the current billing period. We can export your operational data on request for up to 90 days after cancellation; after that it is permanently deleted.",
+      "h5": "Acceptable use",
+      "p5": "Don't use the platform to break the law, infringe on others' rights, or attempt to disrupt the service. We may suspend accounts that do, with notice when possible.",
+      "h6": "Liability",
+      "p6": "The platform is provided on a best-effort basis. We commit to the uptime SLAs in your plan and will credit downtime accordingly. Beyond that, our liability is capped at the fees paid in the prior 12 months, to the extent permitted by applicable law.",
+      "h7": "Governing law",
+      "p7": "These terms are governed by the laws of the Kingdom of Morocco. Disputes will be resolved in the courts of the city of Casablanca unless we mutually agree otherwise."
+    },
+    "metaPrivacyTitle": "Privacy",
+    "metaPrivacyDesc": "How Caisse Manager collects, uses, and protects the information you share with us.",
+    "metaTermsTitle": "Terms",
+    "metaTermsDesc": "The agreement between you and Caisse Manager when you use the platform."
+  },
+  "seo": {
+    "siteName": "Caisse Manager",
+    "defaultTitle": "Caisse Manager — POS, inventory & kitchen for Morocco",
+    "defaultDescription": "Cloud POS, inventory, kitchen display, and Wafasalaf financing. Built for Moroccan restaurants, cafés, bakeries, and retail.",
+    "shop": {
+      "title": "POS hardware shop",
+      "description": "Terminals, kiosks, printers, and accessories for your business. Casablanca stock, Wafasalaf financing available."
+    },
+    "pricing": {
+      "title": "Pricing",
+      "description": "Free plan, Pro from 250 MAD/mo per register. No commitment, no hidden fees."
+    },
+    "checkout": {
+      "title": "Complete your order",
+      "description": "Secure payment by CMI, Wafasalaf financing, or bank transfer."
+    }
+  },
+  "integrations": {
+    "role": {
+      "foodDelivery": "Food delivery",
+      "paymentIntegration": "Payment integration",
+      "integratedScale": "Integrated scale",
+      "deliveryApp": "Delivery app",
+      "stockErp": "Stock & ERP"
+    }
+  },
+  "search": {
+    "label": "Search Caisse Manager",
+    "placeholder": "Search Caisse Manager",
+    "quickLinks": "Quick links",
+    "noResults": "No matches for \"{query}\"",
+    "noResultsHint": "Try a different term, or reach out — we'll point you to the right place.",
+    "fallbackContact": {
+      "title": "Contact Sales",
+      "description": "Email, WhatsApp, or phone"
+    },
+    "categories": {
+      "getStarted": "Get started",
+      "solutions": "Solutions",
+      "store": "Store",
+      "platform": "Platform",
+      "helpLegal": "Help & legal"
+    },
+    "entries": {
+      "trial": {
+        "title": "Start a free trial",
+        "description": "On your hardware in minutes"
+      },
+      "demo": {
+        "title": "Try the live demo",
+        "description": "Run a real order in 60 seconds"
+      },
+      "pricing": {
+        "title": "Pricing",
+        "description": "Plans, hardware financing, and add-ons"
+      },
+      "cafe": {
+        "title": "Cafés",
+        "description": "Coffee, pastries, takeaway-first"
+      },
+      "bakery": {
+        "title": "Bakery",
+        "description": "Breads, viennoiseries, cakes"
+      },
+      "fastFood": {
+        "title": "Fast food",
+        "description": "Burgers, combos, queue management"
+      },
+      "restaurant": {
+        "title": "Restaurants",
+        "description": "Tables, courses, table-side service"
+      },
+      "beauty": {
+        "title": "Beauty salons",
+        "description": "Services, treatments, and take-home retail"
+      },
+      "barber": {
+        "title": "Barbershops",
+        "description": "Cuts, beards, and chair-side regulars"
+      },
+      "retail": {
+        "title": "Retail · Market",
+        "description": "Groceries, scan-and-go, mixed baskets"
+      },
+      "shopAll": {
+        "title": "All hardware",
+        "description": "Browse the complete POS hardware lineup"
+      },
+      "swan1": {
+        "title": "Swan 1",
+        "description": "Counter-grade desktop POS, 15.6″"
+      },
+      "swan1k": {
+        "title": "Swan 1k",
+        "description": "All-metal commercial display, VESA-mount"
+      },
+      "swift1Pro": {
+        "title": "Swift 1 Pro",
+        "description": "Pocketable handheld POS with NFC"
+      },
+      "swift2Pro": {
+        "title": "Swift 2 Pro",
+        "description": "Handheld with integrated 58mm printer"
+      },
+      "swift2Ultra": {
+        "title": "Swift 2 Ultra",
+        "description": "Flagship — receipt + label printing"
+      },
+      "heron1": {
+        "title": "Heron 1",
+        "description": "23.8″ floor-standing self-order kiosk"
+      },
+      "heron1Mini": {
+        "title": "Heron 1 Mini",
+        "description": "15.6″ counter-top self-order kiosk"
+      },
+      "platform": {
+        "title": "Platform overview",
+        "description": "Every device, one system"
+      },
+      "integrations": {
+        "title": "Integrations",
+        "description": "Payments, stock, delivery, financing"
+      },
+      "helpCenter": {
+        "title": "Help Center",
+        "description": "Topic-based articles + FAQs"
+      },
+      "faq": {
+        "title": "Frequently asked questions"
+      },
+      "contactSales": {
+        "title": "Contact Sales",
+        "description": "Tailored demo, quote, product guidance — email, WhatsApp, or phone."
+      },
+      "about": {
+        "title": "About Caisse Manager",
+        "description": "Our story"
+      },
+      "privacy": {
+        "title": "Privacy"
+      },
+      "terms": {
+        "title": "Terms"
+      }
+    }
+  },
+  "demo": {
+    "customerPicker": {
+      "title": "Attach customer",
+      "currentlyAttached": "Currently attached · {name}",
+      "inRoster": "{count, plural, =1 {1 customer in roster} other {# customers in roster}}",
+      "detach": "Detach",
+      "findCustomer": "Find customer",
+      "newCustomer": "New customer",
+      "searchPlaceholder": "Search by name, phone, or email",
+      "matches": "Matches",
+      "allCustomers": "All customers",
+      "ofTotal": "{visible} of {total}",
+      "attached": "Attached",
+      "ptsSuffix": "pts",
+      "walkIn": "Walk-in",
+      "noMatchTitle": "No customers match.",
+      "noMatchBody": "Try a different name, phone, or email — or add this person to the roster.",
+      "createNew": "Create new customer",
+      "name": "Name",
+      "fullNamePlaceholder": "Full name",
+      "phone": "Phone",
+      "phonePlaceholder": "6 00 00 00 00",
+      "email": "Email",
+      "emailPlaceholder": "name@company.com",
+      "rosterHint": "New customers join the {activity} roster. Their purchase history updates automatically with every order.",
+      "cancel": "Cancel",
+      "createAndAttach": "Create + attach"
+    },
+    "parked": {
+      "title": "Parked orders",
+      "subtitle": "{count, plural, =0 {No orders on hold} =1 {1 order on hold} other {# orders on hold}}",
+      "empty": "No orders parked",
+      "emptyBody": "Hold an active order from the cart to resume it here later.",
+      "heldAgo": "Held {duration} ago",
+      "items": "{count, plural, =1 {1 item} other {# items}}",
+      "resume": "Resume",
+      "discard": "Discard",
+      "confirmDiscardTitle": "Discard parked order?",
+      "confirmDiscardBody": "The held cart will be discarded. This cannot be undone.",
+      "confirmDiscardLabel": "Discard",
+      "confirmKeep": "Keep parked",
+      "justNow": "just now"
+    },
+    "activities": {
+      "cafe": "Café",
+      "bakery": "Bakery",
+      "fast-food": "Fast food",
+      "dine-in": "Restaurant",
+      "market": "Market",
+      "beauty": "Beauty salon",
+      "barber": "Barber"
+    },
+    "categories": {
+      "coffee": "Coffee",
+      "pastries": "Pastries",
+      "sandwiches": "Sandwiches",
+      "cold": "Cold drinks",
+      "drinks": "Drinks",
+      "burgers": "Burgers",
+      "wraps": "Wraps",
+      "sides": "Sides",
+      "combos": "Combos",
+      "starters": "Starters",
+      "plats": "Mains",
+      "pasta": "Pasta & rice",
+      "desserts": "Desserts",
+      "produce": "Fruits & vegetables",
+      "bread": "Bread & pastry",
+      "dairy": "Dairy & eggs",
+      "beverages": "Beverages",
+      "snacks": "Snacks",
+      "pantry": "Pantry",
+      "household": "Household",
+      "personal": "Personal care",
+      "breads": "Breads",
+      "viennoiseries": "Viennoiseries",
+      "cakes": "Cakes & tarts",
+      "cookies": "Cookies",
+      "hair": "Hair",
+      "nails": "Nails",
+      "spa": "Spa & treatments",
+      "treatments": "Treatments",
+      "retail": "Retail",
+      "cuts": "Cuts",
+      "beard": "Beard",
+      "shave": "Shave",
+      "grooming": "Grooming"
+    },
+    "posChrome": {
+      "exit": "Back to website",
+      "exitConfirmTitle": "Leave the demo?",
+      "exitConfirmBody": "This clears the active order and returns you to the marketing site.",
+      "exitConfirmLabel": "Back to website",
+      "cancel": "Cancel"
+    },
+    "kitchenView": {
+      "title": "Kitchen display",
+      "urgentBadge": "{count, plural, =1 {1 urgent · top of queue} other {# urgent · top of queue}}"
+    },
+    "productBrowser": {
+      "customize": "Customize…",
+      "add": "Add"
+    },
+    "customize": {
+      "title": "Customize",
+      "baseLabel": "Base {amount} MAD",
+      "required": "Required",
+      "pickUpTo": "Pick up to {max}",
+      "pickUpToAny": "Pick any",
+      "total": "Total",
+      "cancel": "Cancel",
+      "addToOrder": "Add to order",
+      "pickVariant": "Pick a size",
+      "pickGroup": "Pick {group}",
+      "incomplete": "Incomplete",
+      "groups": {
+        "size": "Size",
+        "milk": "Milk",
+        "extras": "Extras",
+        "syrup": "Syrup",
+        "spice-level": "Spice level",
+        "cheese-type": "Cheese type",
+        "toppings": "Toppings",
+        "doneness": "Doneness",
+        "style": "Style",
+        "blend": "Blend",
+        "drink": "Drink",
+        "side": "Side"
+      },
+      "options": {
+        "size-s": "Small",
+        "size-m": "Medium",
+        "size-l": "Large",
+        "milk-none": "No milk",
+        "milk-whole": "Whole milk",
+        "milk-oat": "Oat milk",
+        "milk-almond": "Almond milk",
+        "shot": "Extra shot",
+        "vanilla": "Vanilla syrup",
+        "hazelnut": "Hazelnut syrup",
+        "cocoa": "Cocoa dust",
+        "cheese-cheddar": "Cheddar",
+        "cheese-blue": "Blue cheese",
+        "cheese-vegan": "Vegan cheese",
+        "cheese-slice": "Extra cheese slice",
+        "jalapenos": "Jalapeños",
+        "extra-pickles": "Extra pickles",
+        "no-onions": "No onions",
+        "no-tomato": "No tomato",
+        "no-sauce": "No sauce",
+        "bacon": "Bacon",
+        "egg": "Egg",
+        "fries": "Fries",
+        "onion-rings": "Onion rings",
+        "spice-mild": "Mild",
+        "spice-med": "Medium",
+        "spice-hot": "Hot",
+        "low": "Rare",
+        "med": "Medium",
+        "well": "Well done",
+        "high": "High fade",
+        "fade": "Fade",
+        "taper": "Taper",
+        "scissor": "Scissor",
+        "skin-fade": "Skin fade",
+        "fringe": "With fringe",
+        "layers": "Layered",
+        "bob": "Bob",
+        "blend": "Blend",
+        "wash": "Wash",
+        "hot-towel": "Hot towel finish",
+        "aftershave": "Aftershave",
+        "long-trim": "Long trim",
+        "beard-trim": "Beard trim",
+        "mustache": "Mustache trim",
+        "deep-cond": "Deep conditioner",
+        "scalp": "Scalp treatment",
+        "hair-mask": "Hair mask",
+        "color-app": "Color application"
+      }
+    },
+    "discount": {
+      "title": "Apply discount",
+      "subtitle": "Percent off, fixed amount, or coupon code",
+      "tabs": {
+        "pct": "Percent",
+        "fixed": "Fixed",
+        "coupon": "Coupon"
+      },
+      "pickPct": "Pick a percentage",
+      "pickAmount": "Pick an amount",
+      "customPct": "Custom %",
+      "customAmount": "Custom amount",
+      "labelField": "Label (optional)",
+      "labelPlaceholder": "Manager discount · returning customer · …",
+      "availableCodes": "Available codes",
+      "couponDemoHint": "Demo presets · real codes come from your promotion engine",
+      "remove": "Remove discount",
+      "cancel": "Cancel",
+      "apply": "Apply",
+      "lineTitle": "Line discount",
+      "lineRemove": "Remove",
+      "lineApply": "Apply {pct}%",
+      "customItemTitle": "Custom item",
+      "customItemSubtitle": "Open-price entry · adds as a line extra",
+      "itemName": "Item name",
+      "itemNamePlaceholder": "Special catering plate · custom cake · …",
+      "priceField": "Price",
+      "addItem": "Add",
+      "addItemAmount": "Add · {amount} MAD"
+    },
+    "inline": {
+      "comment": {
+        "title": "Order note",
+        "placeholder": "Add a note for the kitchen…",
+        "presets": "Quick presets",
+        "apply": "Save note",
+        "clear": "Clear",
+        "cancel": "Cancel"
+      },
+      "fee": {
+        "title": "Add fee or extra",
+        "labelField": "Description",
+        "amountField": "Amount",
+        "labelPlaceholder": "Delivery · service · …",
+        "apply": "Add",
+        "cancel": "Cancel"
+      },
+      "discount": {
+        "title": "Order discount",
+        "pct": "Percent",
+        "fixed": "Amount",
+        "coupon": "Coupon",
+        "pctPlaceholder": "10",
+        "fixedPlaceholder": "20",
+        "couponPlaceholder": "Code",
+        "apply": "Apply",
+        "remove": "Remove",
+        "cancel": "Cancel",
+        "preview": "Discount preview"
+      }
+    },
+    "tabs": {
+      "pos": "POS",
+      "kitchen": "Kitchen",
+      "calendar": "Calendar",
+      "backoffice": "Backoffice",
+      "parked": "Parked",
+      "parkedAria": "Parked orders ({count})",
+      "parkedAriaEmpty": "Parked orders"
+    },
+    "orderType": {
+      "takeAway": "Take-away",
+      "dineIn": "Dine-in",
+      "glovo": "Glovo",
+      "done": "Done",
+      "takeAwaySub": "Counter pickup",
+      "dineInSub": "Seated",
+      "glovoSub": "Glovo delivery",
+      "doneSub": "Done delivery",
+      "change": "Change order type",
+      "tableN": "Table {id}",
+      "order": "Order"
+    },
+    "cart": {
+      "menu": "MENU",
+      "noCategories": "No categories yet.",
+      "emptyTitle": "Ready when you are",
+      "emptyBody": "Pick a category on the left, then tap a product to start the order.",
+      "items": "Items",
+      "subtotal": "Subtotal",
+      "total": "Total",
+      "addDiscount": "+ Discount",
+      "customerPlaceholder": "Customer",
+      "attachCustomer": "Attach customer",
+      "markUrgent": "Mark urgent",
+      "urgent": "Urgent",
+      "hold": "Hold",
+      "resume": "Resume",
+      "sendToKitchen": "Send to kitchen",
+      "kitchenHint": "Kitchen fires the ticket · payment is taken on customer return",
+      "proceedToPayment": "Proceed to Payment",
+      "takePayment": "Take payment",
+      "takePaymentAmount": "Take payment · {amount}",
+      "sendToKitchenUrgent": "Send to kitchen · Urgent",
+      "extras": "Extras",
+      "discountFallback": "Discount",
+      "discountPct": "Discount ({pct}%)",
+      "inService": "In service · awaiting return",
+      "orderActions": "Order actions",
+      "addComment": "Add a comment",
+      "addFee": "Add a fee or extra",
+      "voidOrder": "Void order",
+      "applyDiscount": "Apply discount",
+      "lineActions": "Line actions",
+      "editNote": "Edit note",
+      "addNote": "Add note",
+      "noteActive": "Active",
+      "editDiscount": "Edit discount",
+      "removeFromOrder": "Remove from order"
+    },
+    "kitchen": {
+      "stage": {
+        "new": "New",
+        "accepted": "Accepted",
+        "preparing": "Preparing",
+        "ready": "Ready",
+        "delivered": "Delivered"
+      },
+      "advance": {
+        "new": "Accept",
+        "accepted": "Start",
+        "preparing": "Mark ready",
+        "ready": "Mark delivered",
+        "delivered": "Clear"
+      },
+      "emptyAll": "No tickets · the line is clean",
+      "emptyHint": "When the cashier fires an order, tickets appear here.",
+      "emptyColumn": "Nothing here",
+      "ticketLabel": "Ticket",
+      "voided": "VOIDED",
+      "urgent": "URGENT",
+      "items": "{count, plural, =1 {1 item} other {# items}}"
+    },
+    "calendar": {
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "tomorrow": "Tomorrow",
+      "schedule": "Schedule",
+      "noBookings": "No bookings",
+      "bookings": "{count, plural, =0 {No bookings} =1 {1 booking} other {# bookings}}",
+      "minutes": "{count} min",
+      "dayAtAGlance": "Day at a glance",
+      "scheduledLabel": "Scheduled",
+      "inProgressLabel": "In progress",
+      "doneLabel": "Done",
+      "capacityUsed": "Capacity used",
+      "nextUp": "Next up",
+      "noBookingsYetTitle": "No bookings yet",
+      "noBookingsYetBody": "The day is open. Schedule a service to fill the calendar.",
+      "todayBtn": "Today",
+      "operatingHours": "Operating hours",
+      "bookableHours": "{count} hours of bookable time per day.",
+      "closePopover": "Close popover",
+      "inMinutes": "in {count} min",
+      "prevDay": "Previous day",
+      "nextDay": "Next day"
+    },
+    "backoffice": {
+      "sections": {
+        "overview": "Overview",
+        "receipts": "Receipts",
+        "products": "Products",
+        "inventory": "Inventory",
+        "bom": "Bill of Materials",
+        "suppliers": "Suppliers"
+      },
+      "captions": {
+        "overview": "Real-time performance, alerts, and operational signals.",
+        "receipts": "Audit trail of every transaction — issue refunds or void here.",
+        "products": "Catalog management — create, edit, and retire SKUs.",
+        "inventory": "Stock positions, reorder thresholds, adjustments, and movement history.",
+        "bom": "Define how each finished good is assembled from raw components.",
+        "suppliers": "Supplier directory — contacts, lead times, and procurement categories."
+      },
+      "titles": {
+        "overviewAt": "{activity} performance overview",
+        "receipts": "Transaction ledger",
+        "products": "Product catalog",
+        "inventory": "Inventory position",
+        "bom": "Bill of Materials",
+        "suppliers": "Supplier directory"
+      },
+      "vat": "{rate}% VAT · {currency}",
+      "footer": "v2 · demo",
+      "overview": {
+        "salesByHour": "Sales by hour",
+        "salesByHourSubtitle": "{count, plural, =0 {No orders today} =1 {1 order today · avg {avg} MAD} other {# orders today · avg {avg} MAD}}",
+        "salesByHourEmpty": "Ring something up to see the curve.",
+        "topItems": "Top items",
+        "topItemsSubtitle": "All-time leaders",
+        "topItemsEmpty": "No items sold yet."
+      },
+      "kpi": {
+        "orders": "Orders",
+        "covers": "Covers",
+        "transactions": "Transactions",
+        "appointments": "Appointments",
+        "itemsSold": "Items sold",
+        "avgTicket": "Avg ticket",
+        "avgCheck": "Avg check",
+        "avgBasket": "Avg basket",
+        "ordersToday": "{count, plural, =1 {1 order today} other {# orders today}}",
+        "ordersUnit": "{count, plural, =1 {order} other {orders}}",
+        "attributedOrders": "{count, plural, =1 {1 attributed order} other {# attributed orders}}"
+      },
+      "customerIntel": {
+        "eyebrow": "Customer intelligence",
+        "inBook": "{count, plural, =1 {1 customer in book} other {# customers in book}}",
+        "repeatRate": "Repeat-customer rate",
+        "repeatRateBody": "Of attributed orders this period come from returning customers.",
+        "attributedShare": "{share}% of orders attribute a customer.",
+        "topCustomers": "Top customers",
+        "topCustomersEmpty": "Attach a customer to an order to populate this leaderboard.",
+        "ordersUnit": "{orders, plural, =1 {1 order} other {# orders}}",
+        "customersUnit": "{count, plural, =1 {1 customer} other {# customers}}"
+      },
+      "staffPerf": {
+        "ordersUnit": "{count, plural, =1 {order} other {orders}}"
+      },
+      "revenueIntel": {
+        "salesToday": "Sales today",
+        "thisWeek": "This week",
+        "thisMonth": "This month",
+        "vsPrior7": "vs. prior 7 days",
+        "vsPrior30": "vs. prior 30 days",
+        "ordersTodaySuffix": "{count, plural, =0 {no orders today} =1 {1 order today} other {# orders today}}",
+        "revenueByCategory": "Revenue by category",
+        "categoriesUnit": "{count, plural, =1 {1 category} other {# categories}}",
+        "categoryEmpty": "Ring something up to see the category breakdown.",
+        "byChannel": "By channel",
+        "channelEmpty": "No channel data yet.",
+        "channelLabels": {
+          "take-away": "Take-away",
+          "dine-in": "Dine-in",
+          "glovo": "Glovo",
+          "done": "Done"
+        }
+      },
+      "staffPerfPanel": {
+        "eyebrow": "Staff performance",
+        "headline": "Today on the till",
+        "peopleCount": "{count, plural, =1 {1 person} other {# people}}",
+        "noStaff": "No staff seeded for this activity.",
+        "noAttribution": "Pick the cashier on the till from the ActiveOrder header to start attributing today's sales here.",
+        "ordersUnit": "orders",
+        "avgPrefix": "avg {value}",
+        "role": {
+          "cashier": "Cashier",
+          "manager": "Manager",
+          "barista": "Barista",
+          "chef": "Chef",
+          "server": "Server",
+          "barber": "Barber",
+          "stylist": "Stylist",
+          "esthetician": "Esthetician",
+          "owner": "Owner",
+          "cook": "Cook"
+        }
+      },
+      "inventoryHealth": {
+        "title": "Inventory health"
+      },
+      "activityFeed": {
+        "title": "Recent activity",
+        "empty": "Activity appears here as orders, stock changes, and kitchen events happen."
+      }
+    }
+  },
+  "demoLanding": {
+    "eyebrow": "Interactive demo · Choose your template",
+    "heading": "Pick a POS",
+    "subheading": "Each template loads a real menu, real stock, a week of receipts, and the workflows specific to that business — so you can ring an order in under thirty seconds.",
+    "featuredTemplate": "Featured template",
+    "tryIt": "Try it",
+    "whatsLoaded": "What's loaded",
+    "stat": {
+      "products": "Products",
+      "categories": "Categories",
+      "taxMode": "Tax mode",
+      "taxInclusive": "Inclusive",
+      "taxExclusive": "Exclusive",
+      "paymentMethods": "Payment methods",
+      "backfilledReceipts": "Backfilled receipts",
+      "sevenDays": "7 days"
+    },
+    "cardFooter": "{products} products · {categories} categories",
+    "badges": {
+      "kitchen": "Kitchen",
+      "calendar": "Calendar",
+      "services": "Services",
+      "delivery": "Delivery",
+      "inventory": "Inventory",
+      "customers": "Customers"
+    },
+    "activity": {
+      "cafe": {
+        "tagline": "Coffee, pastries, and the quiet morning rush.",
+        "description": "Counter-served espresso, fresh pastries, and seasonal cold drinks. Built for fast pickup and dine-in by the window."
+      },
+      "fast-food": {
+        "tagline": "Built for the lunch rush — burgers, combos, delivery.",
+        "description": "Burgers, wraps, and combos with delivery handoff to Glovo and other partners. Heavy combo wizard usage; tight kitchen sync."
+      },
+      "dine-in": {
+        "tagline": "Tables, courses, and a kitchen that listens.",
+        "description": "Full-service dining with a floor plan, multi-course orders, and table-side modifications. Built around the dine-in flow."
+      },
+      "market": {
+        "tagline": "Bread, milk, eggs — and 200 other items, fast.",
+        "description": "Grocery and convenience checkout. Per-item pricing, dense category browsing, no kitchen routing. Built so the line behind the counter keeps moving."
+      },
+      "bakery": {
+        "tagline": "Breads, viennoiseries, and the morning queue.",
+        "description": "Artisan production rotating through the day — loaves, pastries, signature cakes, and counter coffee. Built for fast pickup and a moving line."
+      },
+      "beauty": {
+        "tagline": "Services, treatments, and take-home retail at one till.",
+        "description": "Hair, nails, and spa services rung up alongside a real retail shelf — shampoo, masks, polish. The same till that books the chair sells the product."
+      },
+      "barber": {
+        "tagline": "Cuts, shaves, and chair-side regulars.",
+        "description": "Classic and modern men's grooming — cuts, fades, beard work, and the take-home shelf. Same appointment book as the salon, tuned for the barbershop chair."
+      }
+    },
+    "fallback": {
+      "eyebrow": "Don't see your activity?",
+      "heading": "Every Caisse Manager template can be tailored.",
+      "body": "Pizzeria, juice bar, ice cream stand, food truck — the engine is the same. Start a trial and we'll wire your menu, stock, and team in one onboarding call.",
+      "cta": "Start free trial"
+    }
+  }
+}

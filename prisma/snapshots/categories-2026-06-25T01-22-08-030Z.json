@@ -1,0 +1,174 @@
+{
+  "categories": [
+    {
+      "id": "0870fc9a-c732-4c3c-a5de-0f74f5b7e6f9",
+      "slug": "pos-terminals",
+      "label": "POS Terminals",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 10,
+      "parentId": null,
+      "createdAt": "2026-06-17T18:42:40.711Z",
+      "updatedAt": "2026-06-17T19:39:13.467Z"
+    },
+    {
+      "id": "329d2fcc-bc65-44ab-a616-e062e37050d1",
+      "slug": "mobile-pos",
+      "label": "Mobile POS",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 20,
+      "parentId": null,
+      "createdAt": "2026-06-17T18:42:41.039Z",
+      "updatedAt": "2026-06-17T19:39:13.467Z"
+    },
+    {
+      "id": "35e77e8c-411e-489d-8b10-ff50de92b1fb",
+      "slug": "kiosks",
+      "label": "Self-Order Kiosks",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 30,
+      "parentId": null,
+      "createdAt": "2026-06-17T18:42:41.179Z",
+      "updatedAt": "2026-06-17T18:42:41.179Z"
+    },
+    {
+      "id": "ada7746a-5117-4c8e-bc38-634ca7c296a5",
+      "slug": "kds",
+      "label": "Kitchen Display",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 40,
+      "parentId": null,
+      "createdAt": "2026-06-17T18:42:41.324Z",
+      "updatedAt": "2026-06-17T18:42:41.324Z"
+    },
+    {
+      "id": "fbd10115-8d78-46ab-a428-ba3c8eaf1fa9",
+      "slug": "cash-drawers",
+      "label": "Cash Management",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 50,
+      "parentId": null,
+      "createdAt": "2026-06-17T18:42:41.475Z",
+      "updatedAt": "2026-06-17T18:42:41.475Z"
+    },
+    {
+      "id": "cfce639d-4940-4d66-ad3d-c18a72c7ba8e",
+      "slug": "printers",
+      "label": "Printing",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 60,
+      "parentId": null,
+      "createdAt": "2026-06-17T18:42:41.627Z",
+      "updatedAt": "2026-06-17T18:42:41.627Z"
+    },
+    {
+      "id": "4eb5a6eb-45dc-4ce2-9bf8-37277d246bb7",
+      "slug": "scanners",
+      "label": "Scanning",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 70,
+      "parentId": null,
+      "createdAt": "2026-06-17T18:42:41.771Z",
+      "updatedAt": "2026-06-17T18:42:41.771Z"
+    },
+    {
+      "id": "1fc139d0-6327-4403-81d8-f6a760f47d82",
+      "slug": "paging",
+      "label": "Customer Paging",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 80,
+      "parentId": null,
+      "createdAt": "2026-06-17T18:42:41.933Z",
+      "updatedAt": "2026-06-18T15:02:10.839Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "47ff737b-5231-4078-ac8d-0ae3add6958a",
+      "slug": "swan-1-gen-2",
+      "name": "Swan 1",
+      "category": "pos-terminals"
+    },
+    {
+      "id": "4efa4847-9fe9-4733-99e0-12a9796561e0",
+      "slug": "swan-1k-gen-2",
+      "name": "Swan 1k",
+      "category": "kds"
+    },
+    {
+      "id": "d9b455b7-249a-47e5-867c-7bc835c74e70",
+      "slug": "wdlink-wd15m",
+      "name": "WDLink WD15M",
+      "category": "pos-terminals"
+    },
+    {
+      "id": "b1a62115-e512-45a2-b642-ff418080373b",
+      "slug": "swift-1-pro",
+      "name": "Swift 1 Pro",
+      "category": "mobile-pos"
+    },
+    {
+      "id": "188baec8-0b3f-48fd-9ab1-685dc828f808",
+      "slug": "swift-2-pro",
+      "name": "Swift 2 Pro",
+      "category": "mobile-pos"
+    },
+    {
+      "id": "74e066b7-7cf6-4abe-9d30-2a326de183b1",
+      "slug": "swift-2-ultra",
+      "name": "Swift 2 Ultra",
+      "category": "mobile-pos"
+    },
+    {
+      "id": "1bdc6375-f845-4cd5-a1c2-aab530d0b477",
+      "slug": "heron-1",
+      "name": "Heron 1",
+      "category": "kiosks"
+    },
+    {
+      "id": "27d8e188-b3b9-4630-a626-b0208582498c",
+      "slug": "heron-1-mini",
+      "name": "Heron 1 Mini",
+      "category": "kiosks"
+    },
+    {
+      "id": "1752615a-ca87-47b3-b12e-53f1412d11e3",
+      "slug": "epson-printer",
+      "name": "Epson Printer",
+      "category": "printers"
+    },
+    {
+      "id": "5623706e-0fcc-4bdb-87e7-d49110e0d04b",
+      "slug": "drawer",
+      "name": "Drawer",
+      "category": "cash-drawers"
+    },
+    {
+      "id": "4887ddb8-428f-470c-b9ac-1f1497da3599",
+      "slug": "2d-scanner",
+      "name": "2D Scanner",
+      "category": "scanners"
+    },
+    {
+      "id": "5933020b-74dc-4f34-a98f-34fde2b1228d",
+      "slug": "signature-guest-pager",
+      "name": "Signature Guest Pager",
+      "category": "paging"
+    }
+  ]
+}
