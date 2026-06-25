@@ -24,6 +24,7 @@ import {
   Field,
 } from "@/components/auth/AuthForm";
 import { signIn } from "@/lib/auth-client";
+import { safeNext } from "@/lib/safeNext";
 
 export default function SigninPage() {
   return (
@@ -36,7 +37,13 @@ export default function SigninPage() {
 function SigninContent() {
   const router = useRouter();
   const params = useSearchParams();
-  const nextHref = params.get("next") ?? "/account";
+  // safeNext rejects protocol-relative URLs (`//evil.com/...`),
+  // control-character splits, and `/admin/*` paths that customer
+  // signin must never redirect to.
+  const nextHref = safeNext(params.get("next"), {
+    fallback: "/account",
+    allowAdmin: false,
+  });
   const prefillEmail = params.get("email") ?? "";
 
   const tSignIn = useTranslations("auth.signIn");

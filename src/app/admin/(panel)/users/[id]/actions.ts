@@ -90,9 +90,18 @@ export async function setUserDisabled(
     }
   }
 
-  await db.user.update({
-    where: { id: userId },
-    data: { disabledAt: disabled ? new Date() : null },
+  await db.$transaction(async (tx) => {
+    await tx.user.update({
+      where: { id: userId },
+      data: { disabledAt: disabled ? new Date() : null },
+    });
+    // Disabling — purge active sessions so the existing cookie stops
+    // resolving immediately (loadActor reads disabledAt as a second
+    // line, but session deletion is the authoritative cut).
+    // Re-enabling — no session changes; the user signs in again.
+    if (disabled) {
+      await tx.session.deleteMany({ where: { userId } });
+    }
   });
 
   revalidatePath("/admin/users");

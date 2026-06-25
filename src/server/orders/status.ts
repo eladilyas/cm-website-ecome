@@ -142,10 +142,16 @@ export function initialStatusForMethod(method: PaymentMethod): OrderStatus {
       // Customer pays after order — admin verifies via the proof.
       return "AWAITING_PAYMENT";
     case "CMI":
-      // CMI demo flow clears immediately on success; order moves to
-      // fulfilment as soon as it's created.
-      return "PROCESSING";
+      // CMI integration is stubbed today (no live merchant credentials,
+      // no signed callback). Until a verified payment signal (signed
+      // CMI postback or staff manual confirmation) advances the order,
+      // it must NOT be marked PROCESSING — that would let any
+      // authenticated buyer mint a "paid" order by POSTing to the API.
+      // See docs/PAYMENTS.md for the planned CMI → PROCESSING handoff.
+      return "AWAITING_PAYMENT";
     case "CASH_ON_DELIVERY":
+      // Payment happens at delivery; nothing to verify pre-shipment.
+      // Goes straight into the fulfilment bucket.
       return "PROCESSING";
     case "WAFASALAF_FINANCING":
       // Financing-backed orders wait for pre-sales review. The

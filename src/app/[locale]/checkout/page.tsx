@@ -410,9 +410,10 @@ export default function CheckoutPage() {
     const submit = async () => {
       try {
         if (chosen === "wafasalaf") {
-          // Financing → Postgres via /api/financing. Reuse the same
-          // monthly quote the panel showed the customer.
-          const quote = computeClassique(grandTotal, 24, financingAge);
+          // Financing → Postgres via /api/financing. The server
+          // recomputes the Wafasalaf quote from the authoritative
+          // catalog price + termMonths + ageBracket; client just
+          // posts the cart shape.
           const finBody = {
             ageBracket:
               financingAge === "under60" ? "UNDER_60" : "SIXTY_PLUS",
@@ -427,18 +428,9 @@ export default function CheckoutPage() {
             },
             items: lines.map((l) => ({
               slug: l.slug,
-              name: l.product.name,
-              subline: l.product.subline ?? null,
               qty: l.qty,
-              unitPrice: l.product.priceFrom,
             })),
-            quote: {
-              months: 24,
-              monthly: quote.monthly,
-              firstMonthly: quote.firstMonthly,
-              fileFee: quote.fileFee,
-              totalCost: quote.totalCost,
-            },
+            termMonths: 24,
           };
           const res = await fetch("/api/financing", {
             method: "POST",
@@ -478,12 +470,11 @@ export default function CheckoutPage() {
             ...shipping,
             notes: null,
           },
+          // slug + qty only — server reads authoritative name + price
+          // from the catalog. See src/server/catalog/orderable.ts.
           items: lines.map((l) => ({
             slug: l.slug,
-            name: l.product.name,
-            subline: l.product.subline ?? null,
             qty: l.qty,
-            unitPrice: l.product.priceFrom,
           })),
         };
 

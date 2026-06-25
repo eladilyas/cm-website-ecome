@@ -18,9 +18,12 @@
 // keep working without changes.
 
 import { z } from "zod";
+import { Prisma } from "@prisma/client";
 
 import { db } from "@/server/db";
 import { generateOrderRef } from "@/lib/refs";
+import { VAT_RATE } from "@/lib/commerceConstants";
+import { resolveOrderableProducts } from "@/server/catalog/orderable";
 import { loadActor, type Actor } from "@/server/policy";
 import { canTransitionTo, PENDING_STATUSES } from "./status";
 import type {
@@ -144,6 +147,11 @@ function orderToDisplay(
 
 // ── Create ─────────────────────────────────────────────────────────────
 
+// Public schema accepted at /api/financing. Critically: items carry
+// slug + qty only — name + unitPrice are looked up server-side from
+// the catalog. The Wafasalaf quote (monthly/firstMonthly/fileFee/
+// totalCost) is recomputed server-side from the subtotal so a hostile
+// client can't bias it.
 export const CreateFinancingInput = z.object({
   applicantUserId: z.string().min(1),
   ageBracket: z.enum(["UNDER_60", "SIXTY_PLUS"]),
@@ -167,24 +175,20 @@ export const CreateFinancingInput = z.object({
     .array(
       z.object({
         slug: z.string().min(1).max(80),
-        name: z.string().min(1).max(160),
-        subline: z.string().max(160).nullable().optional(),
         qty: z.number().int().positive().max(9999),
-        unitPrice: z.number().nonnegative().max(1_000_000),
       }),
     )
     .min(1)
     .max(100),
-  quote: z.object({
-    months: z.number().int().positive().max(60),
-    monthly: z.number().nonnegative().max(10_000_000),
-    firstMonthly: z.number().nonnegative().max(10_000_000),
-    fileFee: z.number().nonnegative().max(10_000_000),
-    totalCost: z.number().nonnegative().max(10_000_000),
-  }),
+  // Term in months — the only quote dimension the customer chooses.
+  // Monthly / firstMonthly / fileFee / totalCost are recomputed
+  // server-side from the resolved subtotal + ageBracket.
+  termMonths: z.number().int().positive().max(60),
 });
 
 export type CreateFinancingInputT = z.infer<typeof CreateFinancingInput>;
+
+const FINANCING_REF_RETRY_LIMIT = 5;
 
 export async function createFinancingRequest(
   input: CreateFinancingInputT,
@@ -198,79 +202,135 @@ export async function createFinancingRequest(
   }
   const d = parsed.data;
 
-  const VAT_RATE = 0.2;
-  const subtotal = d.items.reduce((s, i) => s + i.unitPrice * i.qty, 0);
-  const subtotalMinor = wholeToMinor(subtotal);
+  // Resolve every slug against Postgres — rejects OUT_OF_STOCK +
+  // DISABLED + missing products and pulls authoritative price + name.
+  const resolution = await resolveOrderableProducts(
+    d.items.map((i) => i.slug),
+  );
+  if (!resolution.ok) return { ok: false, error: resolution.error };
+
+  const resolvedLines = d.items.map((it) => {
+    const product = resolution.bySlug.get(it.slug)!;
+    const unitPriceMinor = product.priceFromMinor;
+    return {
+      slug: it.slug,
+      name: product.name,
+      subline: product.subline,
+      qty: it.qty,
+      unitPriceMinor,
+      lineTotalMinor: unitPriceMinor * it.qty,
+    };
+  });
+
+  const subtotalMinor = resolvedLines.reduce(
+    (s, l) => s + l.lineTotalMinor,
+    0,
+  );
   const taxTotalMinor = Math.round(subtotalMinor * VAT_RATE);
   const grandTotalMinor = subtotalMinor + taxTotalMinor;
 
+  // Wafasalaf quote — recomputed server-side from the authoritative
+  // grand total + term + age bracket. `computeClassique` throws if the
+  // requested term is not in the Wafasalaf tariff; everything else
+  // (amount range, age bracket) is the buyer's concern.
+  let quote;
   try {
-    const created = await db.$transaction(async (tx) => {
-      const order = await tx.order.create({
-        data: {
-          ref: generateOrderRef(),
-          customerId: d.applicantUserId,
-          orderType: "FINANCING",
-          status: "PENDING_FINANCING_APPROVAL",
-          paymentMethod: "WAFASALAF_FINANCING",
-          // Financing-specific columns — all populated here.
-          financingStatus: "SUBMITTED",
-          financingAgeBracket: d.ageBracket,
-          financingRequestedTermMonths: d.quote.months,
-          financingMonthlyPaymentMinor: wholeToMinor(d.quote.monthly),
-          financingFirstMonthlyPaymentMinor: wholeToMinor(d.quote.firstMonthly),
-          financingFileFeeMinor: wholeToMinor(d.quote.fileFee),
-          financingTotalCostMinor: wholeToMinor(d.quote.totalCost),
-          // Snapshot contact + shipping (same shape as a standard order).
-          contactFullName: d.contact.fullName,
-          contactEmail: d.contact.email.toLowerCase(),
-          contactPhone: d.contact.phone,
-          contactCompanyName: d.company.name ?? null,
-          contactCompanyIce: d.company.ice ?? null,
-          shippingStreet: d.shipping.street,
-          shippingCity: d.shipping.city,
-          shippingPostalCode: d.shipping.postalCode,
-          shippingCountry: d.shipping.country,
-          shippingNotes: d.shipping.notes ?? null,
-          subtotalMinor,
-          taxTotalMinor,
-          shippingTotalMinor: 0,
-          grandTotalMinor,
-          items: {
-            create: d.items.map((it) => ({
-              productSlug: it.slug,
-              name: it.name,
-              subline: it.subline ?? null,
-              qty: it.qty,
-              unitPriceMinor: wholeToMinor(it.unitPrice),
-              lineTotalMinor: wholeToMinor(it.unitPrice * it.qty),
-            })),
-          },
-          transitions: {
-            create: [
-              {
-                fromStatus: "PENDING",
-                toStatus: "PENDING_FINANCING_APPROVAL",
-                actorUserId: d.applicantUserId,
-                reason: "Financing application submitted",
-              },
-            ],
-          },
-        },
-        include: { items: true },
-      });
-      return order;
-    });
-    return { ok: true, request: orderToDisplay(created) };
+    const { computeClassique } = await import("@/lib/wafasalaf");
+    quote = computeClassique(
+      minorToWhole(grandTotalMinor),
+      d.termMonths,
+      d.ageBracket === "UNDER_60" ? "under60" : "over60",
+    );
   } catch (err) {
     return {
       ok: false,
       error:
         err instanceof Error
           ? err.message
-          : "Could not create financing request.",
+          : "Financing quote unavailable for this term.",
     };
   }
+
+  for (let attempt = 0; attempt < FINANCING_REF_RETRY_LIMIT; attempt += 1) {
+    try {
+      const created = await db.$transaction(async (tx) => {
+        const order = await tx.order.create({
+          data: {
+            ref: generateOrderRef(),
+            customerId: d.applicantUserId,
+            orderType: "FINANCING",
+            status: "PENDING_FINANCING_APPROVAL",
+            paymentMethod: "WAFASALAF_FINANCING",
+            // Financing-specific columns — all server-computed.
+            financingStatus: "SUBMITTED",
+            financingAgeBracket: d.ageBracket,
+            financingRequestedTermMonths: d.termMonths,
+            financingMonthlyPaymentMinor: wholeToMinor(quote.monthly),
+            financingFirstMonthlyPaymentMinor: wholeToMinor(quote.firstMonthly),
+            financingFileFeeMinor: wholeToMinor(quote.fileFee),
+            financingTotalCostMinor: wholeToMinor(quote.totalCost),
+            // Snapshot contact + shipping (same shape as a standard order).
+            contactFullName: d.contact.fullName,
+            contactEmail: d.contact.email.toLowerCase(),
+            contactPhone: d.contact.phone,
+            contactCompanyName: d.company.name ?? null,
+            contactCompanyIce: d.company.ice ?? null,
+            shippingStreet: d.shipping.street,
+            shippingCity: d.shipping.city,
+            shippingPostalCode: d.shipping.postalCode,
+            shippingCountry: d.shipping.country,
+            shippingNotes: d.shipping.notes ?? null,
+            subtotalMinor,
+            taxTotalMinor,
+            shippingTotalMinor: 0,
+            grandTotalMinor,
+            items: {
+              create: resolvedLines.map((it) => ({
+                productSlug: it.slug,
+                name: it.name,
+                subline: it.subline,
+                qty: it.qty,
+                unitPriceMinor: it.unitPriceMinor,
+                lineTotalMinor: it.lineTotalMinor,
+              })),
+            },
+            transitions: {
+              create: [
+                {
+                  fromStatus: "PENDING",
+                  toStatus: "PENDING_FINANCING_APPROVAL",
+                  actorUserId: d.applicantUserId,
+                  reason: "Financing application submitted",
+                },
+              ],
+            },
+          },
+          include: { items: true },
+        });
+        return order;
+      });
+      return { ok: true, request: orderToDisplay(created) };
+    } catch (err) {
+      if (
+        err instanceof Prisma.PrismaClientKnownRequestError &&
+        err.code === "P2002" &&
+        attempt < FINANCING_REF_RETRY_LIMIT - 1
+      ) {
+        continue;
+      }
+      return {
+        ok: false,
+        error:
+          err instanceof Error
+            ? err.message
+            : "Could not create financing request.",
+      };
+    }
+  }
+  return {
+    ok: false,
+    error: "Could not generate a unique financing reference.",
+  };
 }
 
 // ── Reads ──────────────────────────────────────────────────────────────

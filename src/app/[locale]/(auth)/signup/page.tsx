@@ -25,6 +25,7 @@ import {
   Field,
 } from "@/components/auth/AuthForm";
 import { signUp } from "@/lib/auth-client";
+import { safeNext } from "@/lib/safeNext";
 
 const MIN_PASSWORD_LEN = 8;
 
@@ -39,7 +40,12 @@ export default function SignupPage() {
 function SignupContent() {
   const router = useRouter();
   const params = useSearchParams();
-  const nextHref = params.get("next") ?? "/account";
+  // safeNext rejects protocol-relative URLs and `/admin/*` paths so
+  // customer signup can't be turned into an open redirect.
+  const nextHref = safeNext(params.get("next"), {
+    fallback: "/account",
+    allowAdmin: false,
+  });
   const prefillEmail = params.get("email") ?? "";
 
   const tSignUp = useTranslations("auth.signUp");

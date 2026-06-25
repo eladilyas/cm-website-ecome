@@ -50,6 +50,18 @@ export type Actor = Readonly<{
 export const loadActor = cache(async (): Promise<Actor | null> => {
   const session = await getServerSession();
   if (!session?.user) return null;
+
+  // Disabled-user gate. `setUserDisabled` writes User.disabledAt; this
+  // check makes the flag actually revoke access on the next request,
+  // not just on next sign-in. The matching action also deletes the
+  // user's Session rows so the cookie itself stops resolving — this
+  // is the belt-and-braces second line.
+  const user = await db.user.findUnique({
+    where: { id: session.user.id },
+    select: { disabledAt: true },
+  });
+  if (!user || user.disabledAt) return null;
+
   const roles = await getUserRoles();
   const isSuper = roles.includes(ROLE_SLUGS.superAdmin);
   const isAdminRoleAssigned = roles.some(isAdminRole);

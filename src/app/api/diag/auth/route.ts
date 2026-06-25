@@ -2,8 +2,19 @@
 // class of failures. Reports whether each prerequisite is satisfied
 // without leaking secret values.
 //
-// Visit http://localhost:3000/api/diag/auth in the browser; it returns
-// a JSON shape that points at the broken prerequisite.
+// Access policy:
+//   • Disabled in production by default — the original implementation
+//     returned an env summary + DB connectivity + the auth-table column
+//     list, which is a reconnaissance jackpot for any attacker.
+//   • In non-production it remains open so a dev can hit it directly.
+//   • Super-admins can still reach it in production by sending the
+//     `?token=<BETTER_AUTH_SECRET>` query param. Knowing the secret
+//     is equivalent to full admin access already.
+//
+// Tightening notes for the audit-conscious reader:
+//   • Schema dump removed entirely. If you need columns, query the DB.
+//   • Boolean env checks only — no values, lengths, or URLs.
+//   • Raw error messages live in server logs, never the response body.
 
 import { NextResponse } from "next/server";
 
@@ -12,18 +23,39 @@ import { db } from "@/server/db";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function GET() {
+function gateInProduction(req: Request): NextResponse | null {
+  if (process.env.NODE_ENV !== "production") return null;
+  const token = new URL(req.url).searchParams.get("token");
+  if (!token || !process.env.BETTER_AUTH_SECRET) {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
+  // Constant-time-ish comparison — token length first, then char-wise.
+  if (token.length !== process.env.BETTER_AUTH_SECRET.length) {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
+  let mismatch = 0;
+  for (let i = 0; i < token.length; i += 1) {
+    mismatch |= token.charCodeAt(i) ^ process.env.BETTER_AUTH_SECRET.charCodeAt(i);
+  }
+  if (mismatch !== 0) {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
+  return null;
+}
+
+export async function GET(req: Request) {
+  const gate = gateInProduction(req);
+  if (gate) return gate;
+
   const checks: Record<string, unknown> = {};
 
-  // 1. Env vars present? (booleans only — never echo secrets.)
+  // 1. Env vars present? Booleans only — no values, no lengths.
   checks.env = {
     BETTER_AUTH_SECRET_set: Boolean(process.env.BETTER_AUTH_SECRET),
-    BETTER_AUTH_SECRET_length: process.env.BETTER_AUTH_SECRET?.length ?? 0,
     BETTER_AUTH_URL_set: Boolean(process.env.BETTER_AUTH_URL),
-    BETTER_AUTH_URL_value: process.env.BETTER_AUTH_URL ?? null,
     DATABASE_URL_set: Boolean(process.env.DATABASE_URL),
     DIRECT_DATABASE_URL_set: Boolean(process.env.DIRECT_DATABASE_URL),
-    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL ?? null,
+    NEXT_PUBLIC_SITE_URL_set: Boolean(process.env.NEXT_PUBLIC_SITE_URL),
   };
 
   // 2. Can we import the auth module? (Triggers all module-load checks.)
@@ -34,47 +66,17 @@ export async function GET() {
       hasAuth: typeof mod.auth === "object",
     };
   } catch (err) {
-    checks.authModule = {
-      ok: false,
-      error: err instanceof Error ? err.message : String(err),
-      stack: err instanceof Error ? err.stack?.split("\n").slice(0, 6) : undefined,
-    };
+    console.error("[diag/auth] authModule import failed", err);
+    checks.authModule = { ok: false };
   }
 
-  // 3. Can we reach the Postgres DB? (Catches misconfigured DATABASE_URL.)
+  // 3. Can we reach the Postgres DB?
   try {
-    const count = await db.user.count();
-    checks.database = { ok: true, userCount: count };
+    await db.user.count();
+    checks.database = { ok: true };
   } catch (err) {
-    checks.database = {
-      ok: false,
-      error: err instanceof Error ? err.message : String(err),
-    };
-  }
-
-  // 4. Verify the auth tables exist with the expected columns.
-  //    Skipped if the DB ping above already failed.
-  if ((checks.database as { ok: boolean }).ok) {
-    try {
-      const cols = await db.$queryRaw<Array<{ table_name: string; column_name: string }>>`
-        SELECT table_name, column_name
-        FROM information_schema.columns
-        WHERE table_schema = 'public'
-          AND table_name IN ('User', 'Session', 'Account', 'Verification')
-        ORDER BY table_name, ordinal_position
-      `;
-      const byTable: Record<string, string[]> = {};
-      for (const c of cols) {
-        if (!byTable[c.table_name]) byTable[c.table_name] = [];
-        byTable[c.table_name].push(c.column_name);
-      }
-      checks.schema = { ok: true, tables: byTable };
-    } catch (err) {
-      checks.schema = {
-        ok: false,
-        error: err instanceof Error ? err.message : String(err),
-      };
-    }
+    console.error("[diag/auth] database ping failed", err);
+    checks.database = { ok: false };
   }
 
   return NextResponse.json(checks, { status: 200 });

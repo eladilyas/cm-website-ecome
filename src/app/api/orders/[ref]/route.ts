@@ -1,6 +1,14 @@
 // GET /api/orders/[ref] — fetch a single order, scoped via the policy
 // layer. Returns 404 to anyone who can't see this order (so existence
 // can't be probed across users).
+//
+// Output contract:
+//   • Operators (admin / dispatcher / pre-sales) see the full
+//     DisplayOrder including `internalNotes`.
+//   • Customers viewing their own order see a sanitized shape with
+//     internalNotes stripped — admin commentary is not for buyers.
+//   • Sanitization happens at the route boundary so the service layer
+//     stays caller-agnostic.
 
 import { NextResponse } from "next/server";
 
@@ -8,10 +16,16 @@ import { loadActor } from "@/server/policy";
 import {
   actorCanSeeOrder,
   getOrderByRef,
+  type DisplayOrder,
 } from "@/server/orders/service";
+import { isOperatorRole } from "@/server/rbac/catalog";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+
+function customerView(order: DisplayOrder): DisplayOrder {
+  return { ...order, internalNotes: null };
+}
 
 export async function GET(
   _req: Request,
@@ -36,5 +50,9 @@ export async function GET(
     // can't enumerate refs across users.
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
-  return NextResponse.json({ order });
+
+  const isOperator = actor.roles.some(isOperatorRole);
+  return NextResponse.json({
+    order: isOperator ? order : customerView(order),
+  });
 }

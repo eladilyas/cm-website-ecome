@@ -9,10 +9,12 @@
 // DisplayOrder shape rather than raw Prisma rows.
 
 import { z } from "zod";
+import { Prisma } from "@prisma/client";
 
 import { db } from "@/server/db";
 import { generateOrderRef } from "@/lib/refs";
 import { VAT_RATE } from "@/lib/commerceConstants";
+import { resolveOrderableProducts } from "@/server/catalog/orderable";
 import {
   canSeeOrder,
   customerScopeFor,
@@ -26,7 +28,13 @@ import {
   canTransitionTo,
   initialStatusForMethod,
 } from "./status";
-import type { Order, OrderItem, OrderStatus, OrderType, PaymentMethod } from "@prisma/client";
+import type {
+  Order,
+  OrderItem,
+  OrderStatus,
+  OrderType,
+  PaymentMethod,
+} from "@prisma/client";
 
 // ── Display shape ──────────────────────────────────────────────────────
 // What server components render. Money is pre-converted to whole MAD
@@ -87,7 +95,6 @@ export type DisplayOrder = Readonly<{
 }>;
 
 const minorToWhole = (minor: number): number => Math.round(minor) / 100;
-const wholeToMinor = (whole: number): number => Math.round(whole * 100);
 
 function toDisplay(
   row: Order & { items: OrderItem[] },
@@ -144,6 +151,10 @@ function toDisplay(
 
 // ── Create ─────────────────────────────────────────────────────────────
 
+// Public schema accepted at /api/orders. Critically: NO `unitPrice`,
+// NO product name, NO initial status — those are all server-derived.
+// The wire contract is intentionally minimal so a hostile client
+// cannot influence money, fulfilment state, or product identity.
 export const CreateOrderInput = z.object({
   customerId: z.string().min(1),
   paymentMethod: z.enum([
@@ -168,45 +179,42 @@ export const CreateOrderInput = z.object({
     country: z.string().min(2).max(2).default("MA"),
     notes: z.string().max(500).nullable().optional(),
   }),
+  // Items carry slug + qty only. The server looks up authoritative
+  // name + unit price from Postgres at write time; OUT_OF_STOCK and
+  // DISABLED products are rejected. Per-order line cap of 100; per-
+  // line qty cap of 9999 to bound integer-overflow risk on totals.
   items: z
     .array(
       z.object({
         slug: z.string().min(1).max(80),
-        name: z.string().min(1).max(160),
-        subline: z.string().max(160).nullable().optional(),
-        // qty capped at 9999 — generous for B2B hardware (no
-        // legitimate buyer needs more, and stops integer-overflow
-        // shenanigans on the totals downstream).
         qty: z.number().int().positive().max(9999),
-        unitPrice: z.number().nonnegative().max(1_000_000),
       }),
     )
     .min(1)
-    // Per-order line cap. Real orders rarely exceed 20 unique SKUs;
-    // 100 leaves room for power buyers and stops abuse.
     .max(100),
-  /** Override the initial status (rare — typically derived from method). */
-  initialStatus: z
-    .enum([
-      "PENDING",
-      "AWAITING_PAYMENT",
-      "PAYMENT_VERIFICATION",
-      "PROCESSING",
-      "SENT_TO_ODOO",
-      "CONFIRMED",
-      "SHIPPED",
-      "DELIVERED",
-      "CANCELLED",
-    ])
-    .optional(),
 });
 
 export type CreateOrderInputT = z.infer<typeof CreateOrderInput>;
 
+// How many times to retry a transient ref collision before giving up.
+// generateOrderRef() draws 6 alphanumeric chars from a 36-symbol
+// alphabet → ~2.18e9 keys; collisions are astronomically rare but
+// any concurrent retry is cheaper than surfacing a raw Prisma error
+// at the most load-bearing route.
+const REF_RETRY_LIMIT = 5;
+
 /**
  * Create an order + line items + initial status transition row in ONE
- * transaction. Money values are stored as integer minor units; totals
- * are computed server-side so the client can't smuggle a discount.
+ * transaction. Server-side guarantees:
+ *
+ *   • `unitPrice` is read from Postgres by slug — client input ignored.
+ *   • `name` + `subline` are read from Postgres by slug — client input
+ *     never persists.
+ *   • `initialStatus` is derived from the chosen payment method via
+ *     `initialStatusForMethod` — never accepted from the wire.
+ *   • Totals (subtotal, VAT, shipping, grand) are recomputed from
+ *     resolved prices × qty.
+ *   • Ref collisions are retried up to REF_RETRY_LIMIT times.
  */
 export async function createOrder(
   input: CreateOrderInputT,
@@ -217,77 +225,109 @@ export async function createOrder(
   }
   const d = parsed.data;
 
-  // Recompute totals server-side. The customer-facing receipt has
-  // already shown these numbers; treating client input as advisory.
-  const subtotal = d.items.reduce(
-    (s, i) => s + i.unitPrice * i.qty,
+  // Resolve every slug against Postgres before touching the DB for the
+  // write. The lookup rejects out-of-stock/disabled/deleted products
+  // and gives us authoritative name + price for each line.
+  const resolution = await resolveOrderableProducts(
+    d.items.map((i) => i.slug),
+  );
+  if (!resolution.ok) return { ok: false, error: resolution.error };
+
+  // Build the authoritative line snapshot. Each line carries the
+  // canonical name + unit price from the DB.
+  const resolvedLines = d.items.map((it) => {
+    const product = resolution.bySlug.get(it.slug)!;
+    const unitPriceMinor = product.priceFromMinor;
+    return {
+      slug: it.slug,
+      name: product.name,
+      subline: product.subline,
+      qty: it.qty,
+      unitPriceMinor,
+      lineTotalMinor: unitPriceMinor * it.qty,
+    };
+  });
+
+  const subtotalMinor = resolvedLines.reduce(
+    (s, l) => s + l.lineTotalMinor,
     0,
   );
-  const subtotalMinor = wholeToMinor(subtotal);
   const taxTotalMinor = Math.round(subtotalMinor * VAT_RATE);
   const shippingTotalMinor = 0;
   const grandTotalMinor = subtotalMinor + taxTotalMinor + shippingTotalMinor;
 
-  const status = d.initialStatus ?? initialStatusForMethod(d.paymentMethod);
+  const status = initialStatusForMethod(d.paymentMethod);
 
-  try {
-    const created = await db.$transaction(async (tx) => {
-      const order = await tx.order.create({
-        data: {
-          ref: generateOrderRef(),
-          customerId: d.customerId,
-          status,
-          paymentMethod: d.paymentMethod,
-          contactFullName: d.contact.fullName,
-          contactEmail: d.contact.email.toLowerCase(),
-          contactPhone: d.contact.phone,
-          contactCompanyName: d.company.name ?? null,
-          contactCompanyIce: d.company.ice ?? null,
-          shippingStreet: d.shipping.street,
-          shippingCity: d.shipping.city,
-          shippingPostalCode: d.shipping.postalCode,
-          shippingCountry: d.shipping.country,
-          shippingNotes: d.shipping.notes ?? null,
-          subtotalMinor,
-          taxTotalMinor,
-          shippingTotalMinor,
-          grandTotalMinor,
-          items: {
-            create: d.items.map((it) => ({
-              productSlug: it.slug,
-              name: it.name,
-              subline: it.subline ?? null,
-              qty: it.qty,
-              unitPriceMinor: wholeToMinor(it.unitPrice),
-              lineTotalMinor: wholeToMinor(it.unitPrice * it.qty),
-            })),
+  for (let attempt = 0; attempt < REF_RETRY_LIMIT; attempt += 1) {
+    try {
+      const created = await db.$transaction(async (tx) => {
+        const order = await tx.order.create({
+          data: {
+            ref: generateOrderRef(),
+            customerId: d.customerId,
+            status,
+            paymentMethod: d.paymentMethod,
+            contactFullName: d.contact.fullName,
+            contactEmail: d.contact.email.toLowerCase(),
+            contactPhone: d.contact.phone,
+            contactCompanyName: d.company.name ?? null,
+            contactCompanyIce: d.company.ice ?? null,
+            shippingStreet: d.shipping.street,
+            shippingCity: d.shipping.city,
+            shippingPostalCode: d.shipping.postalCode,
+            shippingCountry: d.shipping.country,
+            shippingNotes: d.shipping.notes ?? null,
+            subtotalMinor,
+            taxTotalMinor,
+            shippingTotalMinor,
+            grandTotalMinor,
+            items: {
+              create: resolvedLines.map((it) => ({
+                productSlug: it.slug,
+                name: it.name,
+                subline: it.subline,
+                qty: it.qty,
+                unitPriceMinor: it.unitPriceMinor,
+                lineTotalMinor: it.lineTotalMinor,
+              })),
+            },
+            // Initial status transition row — PENDING → <initial>. We
+            // model this as `fromStatus: PENDING, toStatus: status` so
+            // the audit trail starts at order creation, not after the
+            // first manual transition.
+            transitions: {
+              create: [
+                {
+                  fromStatus: "PENDING",
+                  toStatus: status,
+                  actorUserId: d.customerId,
+                  reason: "Order created",
+                },
+              ],
+            },
           },
-          // Initial status transition row — PENDING → <initial>. We
-          // model this as `fromStatus: PENDING, toStatus: status` so
-          // the audit trail starts at order creation, not after the
-          // first manual transition.
-          transitions: {
-            create: [
-              {
-                fromStatus: "PENDING",
-                toStatus: status,
-                actorUserId: d.customerId,
-                reason: "Order created",
-              },
-            ],
-          },
-        },
-        include: { items: true },
+          include: { items: true },
+        });
+        return order;
       });
-      return order;
-    });
-    return { ok: true, order: toDisplay(created) };
-  } catch (err) {
-    return {
-      ok: false,
-      error: err instanceof Error ? err.message : "Could not create order.",
-    };
+      return { ok: true, order: toDisplay(created) };
+    } catch (err) {
+      if (
+        err instanceof Prisma.PrismaClientKnownRequestError &&
+        err.code === "P2002" &&
+        attempt < REF_RETRY_LIMIT - 1
+      ) {
+        // Ref collision — regenerate and retry. Don't surface this
+        // to the user.
+        continue;
+      }
+      return {
+        ok: false,
+        error: err instanceof Error ? err.message : "Could not create order.",
+      };
+    }
   }
+  return { ok: false, error: "Could not generate a unique order reference." };
 }
 
 // ── Reads ──────────────────────────────────────────────────────────────
