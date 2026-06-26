@@ -143,8 +143,10 @@ export function Header({
 
   // Close every overlay on route change. Catches both in-dropdown link
   // clicks AND top-level nav item navigation (e.g. clicking "Pricing"
-  // while the Store dropdown is open).
+  // while the Store dropdown is open). pathname is an external signal
+  // (router) so the set-state-in-effect rule doesn't apply here.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setExpansion(null);
     setMobileOpen(false);
   }, [pathname]);
