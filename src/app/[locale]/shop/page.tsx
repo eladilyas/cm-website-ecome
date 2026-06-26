@@ -11,6 +11,7 @@
 // CategoryStrip / ProductCard remain client islands.
 
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { SectionDivider } from "@/components/ui/SectionDivider";
@@ -38,11 +39,19 @@ export default async function ShopPage({
   const category =
     typeof categoryRaw === "string" ? categoryRaw : categoryRaw?.[0] ?? null;
 
-  const [allProducts, categories, categoryLabels] = await Promise.all([
+  const [allProducts, categories, categoryLabels, t, tCat] = await Promise.all([
     listPublicProducts(),
     listPublicCategories(),
     getActiveCategoryLabels(),
+    getTranslations("shop"),
+    getTranslations("shop.categories"),
   ]);
+
+  const labelFor = (slug: string): string => {
+    const k = tCat(slug);
+    if (k && k !== `shop.categories.${slug}`) return k;
+    return categoryLabels[slug] ?? slug;
+  };
 
   // Resolve the active category — if the filter is a PARENT category,
   // include products from all of its children too. Lets the user click
@@ -71,21 +80,21 @@ export default async function ShopPage({
             <div>
               <Reveal>
                 <p className="text-[10.5px] font-medium uppercase tracking-[0.20em] text-ink-mute mb-2.5">
-                  Hardware
+                  {t("eyebrow")}
                 </p>
               </Reveal>
               <Reveal delay={0.04}>
                 <h1
                   className="text-[clamp(2rem,4.4vw,3.5rem)] font-semibold tracking-[-0.022em] leading-[0.96] text-ink"
                 >
-                  Store
+                  {t("title")}
                 </h1>
               </Reveal>
             </div>
             <Reveal delay={0.08}>
               <div className="text-[13px] md:text-[14px] leading-[1.5] md:text-right max-w-[22rem] md:justify-self-end">
                 <p className="text-ink font-medium">
-                  Premium hardware, ready to ring up business on day one.
+                  {t("sidebarHeadline")}
                 </p>
                 <div className="mt-2.5 space-y-1.5">
                   <p>
@@ -93,7 +102,7 @@ export default async function ShopPage({
                       href="/start-free-trial"
                       className="inline-flex items-center gap-1 text-[#E11D2A] hover:opacity-80 transition-opacity"
                     >
-                      Talk to a specialist
+                      {t("talkSpecialist")}
                       <Arrow />
                     </Link>
                   </p>
@@ -102,7 +111,7 @@ export default async function ShopPage({
                       href="/demo"
                       className="inline-flex items-center gap-1 text-[#E11D2A] hover:opacity-80 transition-opacity"
                     >
-                      See the platform in action
+                      {t("seePlatform")}
                       <Arrow />
                     </Link>
                   </p>
@@ -132,13 +141,21 @@ export default async function ShopPage({
         <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-10 md:py-14">
           {category ? (
             <FlatCategoryView
-              title={categoryLabels[category] ?? "Products"}
+              title={labelFor(category) || t("fallbackTitle")}
               products={products}
+              emptyBody={t("emptyCategoryBody")}
+              countLabel={(n: number) =>
+                t("filterCount", { count: n })
+              }
             />
           ) : (
             <GroupedCategoryView
               allProducts={allProducts}
               categories={categories}
+              labelFor={labelFor}
+              countLabel={(n: number) =>
+                t("filterCount", { count: n })
+              }
             />
           )}
         </div>
@@ -153,8 +170,8 @@ export default async function ShopPage({
               className="text-[clamp(1.75rem,3.6vw,2.5rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[26ch]"
               style={{ textWrap: "balance" }}
             >
-              The Caisse Manager difference.{" "}
-              <span className="text-ink-mute font-normal">Why buy hardware with us.</span>
+              {t("benefitsTitleA")}{" "}
+              <span className="text-ink-mute font-normal">{t("benefitsTitleB")}</span>
             </h2>
           </Reveal>
 
@@ -164,8 +181,8 @@ export default async function ShopPage({
               accent="text-emerald-600"
               title={
                 <>
-                  <span className="text-emerald-600">Same-day delivery</span> in
-                  Casablanca, Rabat, and Marrakech.
+                  <span className="text-emerald-600">{t("benefitDeliveryStrong")}</span>{" "}
+                  {t("benefitDeliveryBody")}
                 </>
               }
               delay={0.06}
@@ -175,8 +192,8 @@ export default async function ShopPage({
               accent="text-[#E11D2A]"
               title={
                 <>
-                  <span className="text-[#E11D2A]">Free guided setup.</span> Menu
-                  import and hardware pairing in the first hour.
+                  <span className="text-[#E11D2A]">{t("benefitSetupStrong")}</span>{" "}
+                  {t("benefitSetupBody")}
                 </>
               }
               delay={0.1}
@@ -186,8 +203,8 @@ export default async function ShopPage({
               accent="text-amber-600"
               title={
                 <>
-                  <span className="text-amber-600">Pay monthly,</span> not up front.
-                  Bundle hardware into your plan.
+                  <span className="text-amber-600">{t("benefitMonthlyStrong")}</span>{" "}
+                  {t("benefitMonthlyBody")}
                 </>
               }
               delay={0.14}
@@ -197,8 +214,8 @@ export default async function ShopPage({
               accent="text-blue-600"
               title={
                 <>
-                  <span className="text-blue-600">12-month warranty</span> on every
-                  device, plus on-site repair across Morocco.
+                  <span className="text-blue-600">{t("benefitWarrantyStrong")}</span>{" "}
+                  {t("benefitWarrantyBody")}
                 </>
               }
               delay={0.18}
@@ -213,21 +230,21 @@ export default async function ShopPage({
         <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-20 md:py-28 text-center">
           <Reveal>
             <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-semibold tracking-[-0.022em] leading-[1.05]">
-              Not sure where to start?
+              {t("ctaTitle")}
             </h2>
           </Reveal>
           <Reveal delay={0.05}>
             <p className="mt-5 text-[16px] md:text-[18px] text-paper/75 max-w-[32rem] mx-auto">
-              Start a free trial and we&rsquo;ll match the right hardware to your operation.
+              {t("ctaBody")}
             </p>
           </Reveal>
           <Reveal delay={0.1}>
             <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
               <Button href="/start-free-trial" variant="invert" size="md">
-                Start Free Trial
+                {t("ctaStartTrial")}
               </Button>
               <Button href="/demo" variant="outline" size="md">
-                Try the demo
+                {t("ctaTryDemo")}
               </Button>
             </div>
           </Reveal>
@@ -357,9 +374,13 @@ function Arrow() {
 function FlatCategoryView({
   title,
   products,
+  emptyBody,
+  countLabel,
 }: {
   title: string;
   products: readonly CatalogProduct[];
+  emptyBody: string;
+  countLabel: (n: number) => string;
 }) {
   return (
     <>
@@ -370,15 +391,14 @@ function FlatCategoryView({
           </h2>
         </Reveal>
         <p className="text-[11.5px] text-ink-mute tabular-nums shrink-0">
-          {products.length} {products.length === 1 ? "product" : "products"}
+          {countLabel(products.length)}
         </p>
       </div>
 
       {products.length === 0 ? (
         <div className="py-20 text-center">
           <p className="text-[14px] text-ink-soft max-w-[36rem] mx-auto leading-[1.55]">
-            Nothing in this category yet — new hardware lands often. Check
-            the full lineup, or talk to a specialist for a custom build.
+            {emptyBody}
           </p>
         </div>
       ) : (
@@ -407,9 +427,13 @@ function FlatCategoryView({
 function GroupedCategoryView({
   allProducts,
   categories,
+  labelFor,
+  countLabel,
 }: {
   allProducts: readonly CatalogProduct[];
   categories: readonly CatalogCategory[];
+  labelFor: (slug: string) => string;
+  countLabel: (n: number) => string;
 }) {
   const tops = categories
     .filter((c) => !c.parentSlug && c.isActive)
@@ -438,11 +462,11 @@ function GroupedCategoryView({
                   id={`grp-${top.slug}`}
                   className="text-[clamp(1.375rem,2.4vw,1.875rem)] font-semibold tracking-[-0.018em] leading-[1.1] text-ink"
                 >
-                  {top.label}
+                  {labelFor(top.slug)}
                 </h2>
               </Reveal>
               <p className="text-[11.5px] text-ink-mute tabular-nums shrink-0">
-                {list.length} {list.length === 1 ? "product" : "products"}
+                {countLabel(list.length)}
               </p>
             </div>
 

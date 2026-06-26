@@ -42,6 +42,7 @@ export function useNavMenu(): NavItem[] {
   const s = useTranslations("nav.solutionsDropdown");
   const sup = useTranslations("nav.supportDropdown");
   const co = useTranslations("nav.companyDropdown");
+  const cat = useTranslations("shop.categories");
 
   return [
     // ─── Solutions ─────────────────────────────────────────────
@@ -104,14 +105,14 @@ export function useNavMenu(): NavItem[] {
       label: t("store"),
       href: "/shop",
       items: [
-        { label: "POS", href: "/shop?category=pos" },
-        { label: "Handheld", href: "/shop?category=handheld" },
-        { label: "Kiosk", href: "/shop?category=kiosk" },
-        { label: "Peripherals", href: "/shop?category=peripherals" },
-        { label: "Syscall", href: "/shop?category=syscall" },
-        { label: "Accessories", href: "/shop?category=accessories" },
-        { label: "Consumables", href: "/shop?category=consumables" },
-        { label: "Access & Presence", href: "/shop?category=access-presence" },
+        { label: cat("pos"), href: "/shop?category=pos" },
+        { label: cat("handheld"), href: "/shop?category=handheld" },
+        { label: cat("kiosk"), href: "/shop?category=kiosk" },
+        { label: cat("peripherals"), href: "/shop?category=peripherals" },
+        { label: cat("syscall"), href: "/shop?category=syscall" },
+        { label: cat("accessories"), href: "/shop?category=accessories" },
+        { label: cat("consumables"), href: "/shop?category=consumables" },
+        { label: cat("access-presence"), href: "/shop?category=access-presence" },
       ],
     },
 

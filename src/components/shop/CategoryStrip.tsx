@@ -22,6 +22,7 @@ import Image from "next/image";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { useMemo } from "react";
+import { useTranslations } from "next-intl";
 
 import { useCatalog } from "@/components/catalog/CatalogProvider";
 
@@ -42,6 +43,13 @@ export function CategoryStrip() {
   const pathname = usePathname();
   const active = params.get("category") ?? "";
   const { products, categories } = useCatalog();
+  const t = useTranslations("shop");
+  const tCat = useTranslations("shop.categories");
+
+  const labelFor = (c: { slug: string; label: string }): string => {
+    const k = tCat(c.slug);
+    return k && k !== `shop.categories.${c.slug}` ? k : c.label;
+  };
 
   const strip = useMemo<StripItem[]>(() => {
     // Top-level cats (parentSlug == null), active, ordered by displayOrder.
@@ -74,7 +82,7 @@ export function CategoryStrip() {
 
     const all: StripItem = {
       id: "",
-      label: "Tout",
+      label: t("filtersAll"),
       thumbnail: { kind: "icon" },
     };
 
@@ -83,20 +91,21 @@ export function CategoryStrip() {
       if (rep) {
         return {
           id: c.slug,
-          label: c.label,
+          label: labelFor(c),
           thumbnail: { kind: "image", src: rep.heroImage, alt: rep.alt },
         };
       }
       return {
         id: c.slug,
-        label: c.label,
+        label: labelFor(c),
         thumbnail: { kind: "icon" },
         comingSoon: true,
       };
     });
 
     return [all, ...items];
-  }, [categories, products]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [categories, products, tCat]);
 
   const set = (id: string) => {
     const next = new URLSearchParams(params.toString());
@@ -108,7 +117,7 @@ export function CategoryStrip() {
 
   return (
     <nav
-      aria-label="Hardware categories"
+      aria-label={t("eyebrow")}
       role="tablist"
       className="relative -mx-6 lg:-mx-10"
     >
@@ -174,7 +183,7 @@ export function CategoryStrip() {
                 </p>
                 {item.comingSoon && (
                   <p className="mt-1 inline-block text-[9px] font-medium uppercase tracking-[0.14em] text-ink-mute border border-hairline rounded-full px-1.5 py-0.5">
-                    Bientôt
+                    {t("comingSoon")}
                   </p>
                 )}
                 {isActive && (

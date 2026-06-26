@@ -17,6 +17,7 @@
 // fine-grained subscriptions.
 
 import { createContext, useContext, useMemo, type ReactNode } from "react";
+import { useTranslations } from "next-intl";
 
 import type {
   CatalogCategory,
@@ -85,9 +86,18 @@ export function useProduct(slug: string): CatalogProduct | undefined {
   return useCatalog().productsBySlug[slug];
 }
 
-/** Category label lookup. Falls back to the slug itself when the
- *  label isn't known (e.g. category was disabled after a product
- *  referenced it). */
+/** Category label lookup. Resolution order:
+ *    1. i18n catalog (`shop.categories.<slug>`) — bilingual.
+ *    2. Live DB label from `useCatalog`.
+ *    3. Slug itself, as last-resort fallback.
+ *  Components inside `<CatalogProvider />` get the right label for the
+ *  current locale without any extra wiring. */
 export function useCategoryLabel(slug: string): string {
-  return useCatalog().categoryLabels[slug] ?? slug;
+  const ctx = useCatalog();
+  const t = useTranslations("shop.categories");
+  // next-intl returns the key path itself for missing keys; treat that
+  // as "no translation" and fall back to the DB label.
+  const translated = t(slug);
+  if (translated && translated !== `shop.categories.${slug}`) return translated;
+  return ctx.categoryLabels[slug] ?? slug;
 }
