@@ -438,7 +438,7 @@ const DRAWER_FLIP_TOP: CatalogProduct = {
   name: "Drawer Flip-Top",
   subline: "Slim · 460 mm · Top-opening",
   tagline: "Slim profile, full till. Opens upward — saves the counter.",
-  category: "peripherals",
+  category: "cash-drawers",
   heroImage: "/hardware/drawer-flip-top.png",
   alt: "Slim flip-top POS cash drawer with steel chassis and removable till insert.",
   shortDescription:
