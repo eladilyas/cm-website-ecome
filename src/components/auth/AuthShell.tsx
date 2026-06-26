@@ -142,21 +142,31 @@ function BrandPanel() {
         </p>
       </motion.div>
 
-      {/* Footer trust strip + language switcher. */}
+      {/* Footer — trust chips + language switcher.
+          The switcher lives on its OWN row, always. Earlier it shared
+          the row with the chips via flex-wrap, which meant longer
+          translations (FR "Plus de 500 commerces nous font confiance")
+          would push the switcher onto a second line while shorter
+          translations (EN) kept it inline — different shape per locale.
+          Hard-separating the rows guarantees the same vertical rhythm
+          regardless of copy length. */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.55 }}
-        className="relative flex flex-wrap items-center gap-x-6 gap-y-3 text-[11.5px] text-paper/55"
+        className="relative flex flex-col gap-4"
       >
-        <span className="inline-flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-          {t("trustBadge")}
-        </span>
-        <span aria-hidden className="w-px h-3 bg-hairline-dark" />
-        <span>{t("deployment")}</span>
-        <span aria-hidden className="w-px h-3 bg-hairline-dark" />
-        <LanguageSwitcher scheme="dark" />
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11.5px] text-paper/55">
+          <span className="inline-flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+            {t("trustBadge")}
+          </span>
+          <span aria-hidden className="w-px h-3 bg-hairline-dark" />
+          <span>{t("deployment")}</span>
+        </div>
+        <div>
+          <LanguageSwitcher scheme="dark" />
+        </div>
       </motion.div>
     </aside>
   );
