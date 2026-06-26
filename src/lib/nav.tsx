@@ -49,13 +49,13 @@ export function useNavMenu(): NavItem[] {
     {
       label: t("solutions"),
       items: [
-        { label: s("cafes"), href: "/demo#cafe" },
-        { label: s("bakery"), href: "/demo#bakery" },
-        { label: s("fastFood"), href: "/demo#fast-food" },
-        { label: s("restaurants"), href: "/demo#dine-in" },
-        { label: s("beauty"), href: "/demo#beauty" },
-        { label: s("barber"), href: "/demo#barber" },
-        { label: s("market"), href: "/demo#market" },
+        { label: s("cafes"), href: "/industries/cafe" },
+        { label: s("bakery"), href: "/industries/bakery" },
+        { label: s("fastFood"), href: "/industries/fast-food" },
+        { label: s("restaurants"), href: "/industries/dine-in" },
+        { label: s("beauty"), href: "/industries/beauty" },
+        { label: s("barber"), href: "/industries/barber" },
+        { label: s("market"), href: "/industries/market" },
       ],
       groups: [
         {

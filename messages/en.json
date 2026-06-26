@@ -523,6 +523,132 @@
       "access-presence": "Access & Presence"
     }
   },
+  "industryPages": {
+    "labels": {
+      "workflowTitle": "How the day runs.",
+      "ecosystemTitle": "What plugs in.",
+      "scalingTitle": "Scales with you.",
+      "ctaTrial": "Start a free trial",
+      "ctaTalk": "Talk to sales",
+      "ctaTrySimGeneric": "Try the POS simulator",
+      "ctaTrySim": "Try the simulator — {activity}",
+      "ctaTrySimDesc": "Open a till pre-configured for {activity} in seconds — no signup.",
+      "backToIndustries": "← Back to all industries"
+    },
+    "cafe": {
+      "eyebrow": "Coffee & counter",
+      "title": "Cafés",
+      "standfirst": "Counter to cup, in seconds. Built for the morning rush, the casual lunch, and the regulars who already know what they want.",
+      "workflow": [
+        "One-tap modifiers — size, milk, extra shot — without slowing the line.",
+        "Loyalty redeems at the till; baristas don't manage two systems.",
+        "Recipe-aware stock deducts beans, milk, and cups on every sale."
+      ],
+      "ecosystem": [
+        "QR Menu for table-service flips dine-in into a kiosk ordering experience.",
+        "Mobile Application lets the manager check sales from anywhere.",
+        "Customer Display turns the counter into a brand surface."
+      ],
+      "scaling": "Single café? Run it lean. Chain of locations? See every counter's flow from one dashboard."
+    },
+    "fast-food": {
+      "eyebrow": "Quick service",
+      "title": "Fast food",
+      "standfirst": "Volume without chaos. Combos, modifiers, kitchen tickets — all tuned for peak hour.",
+      "workflow": [
+        "Combo wizard walks customers through main + side + drink in seconds.",
+        "Tickets fire to kitchen the moment payment hits.",
+        "Receipt printer + cash drawer integration on every counter."
+      ],
+      "ecosystem": [
+        "Self-Order Kiosk pulls orders out of the cashier queue.",
+        "Online Ordering routes to the same KDS as the counter line.",
+        "Mobile Application lets management track speed-of-service."
+      ],
+      "scaling": "Multi-store quick service runs on the same till logic — every location reports into one Back Office."
+    },
+    "dine-in": {
+      "eyebrow": "Hospitality",
+      "title": "Restaurants",
+      "standfirst": "Fast service, full house. Ring orders, fire to kitchen, take payment — without ever leaving the floor.",
+      "workflow": [
+        "Open orders by table, modify on the fly, split or merge tabs in one tap.",
+        "Send to kitchen instantly — no shouting across the line, no lost tickets.",
+        "Take payment at the table, cash drawer, or terminal — same workflow."
+      ],
+      "ecosystem": [
+        "Kitchen Display routes by station with color-coded urgency.",
+        "Customer Display shows the order live as your team rings it.",
+        "Payment Terminal docks at the till for tap-and-go.",
+        "Online Ordering and QR Menu drop straight into the same kitchen queue."
+      ],
+      "scaling": "One restaurant or forty — Back Office consolidates every till's revenue, stock, and staff hours into one console."
+    },
+    "bakery": {
+      "eyebrow": "Daily bake",
+      "title": "Bakery",
+      "standfirst": "Stock that matches the oven. Track every loaf, croissant, and cake from production to till.",
+      "workflow": [
+        "Production runs deduct raw materials; sales deduct finished goods.",
+        "Daily prep counts visible at every counter — no over-baking, no shortages.",
+        "Batch and expiry tracking for perishable items."
+      ],
+      "ecosystem": [
+        "Stock Management knows the recipe behind every product.",
+        "Customer Display shows daily specials to the queue.",
+        "QR Menu for catering pre-orders."
+      ],
+      "scaling": "Central kitchen + multiple retail counters? Back Office orchestrates production and distribution."
+    },
+    "beauty": {
+      "eyebrow": "Appointments",
+      "title": "Beauty & services",
+      "standfirst": "Bookings, staff, and till — one app. From walk-ins to standing appointments.",
+      "workflow": [
+        "Calendar view per staff member with drag-and-drop rebooking.",
+        "Add services to active appointments; ring through the till at checkout.",
+        "Customer history attached to every visit."
+      ],
+      "ecosystem": [
+        "Mobile Application turns any phone into a booking terminal.",
+        "Customer Display shows the customer's selected services + total.",
+        "Stock Management for retail products sold alongside services."
+      ],
+      "scaling": "Single salon to franchise group — staff schedules, commissions, and inventory all centralized."
+    },
+    "barber": {
+      "eyebrow": "Cuts & shaves",
+      "title": "Barbershops",
+      "standfirst": "Quick or detailed, every appointment runs in one gesture. Track each barber, each product, each transaction.",
+      "workflow": [
+        "Per-barber calendar with flexible slots and one-tap walk-ins.",
+        "Service + retail (oil, wax, comb) on the same check.",
+        "Per-barber commissions calculated automatically at end of day."
+      ],
+      "ecosystem": [
+        "Mobile Application allows self-service customer booking.",
+        "Customer Display shows the service, duration and price before the chair.",
+        "Stock Management for retail products sold in the shop."
+      ],
+      "scaling": "A single shop or a multi-city brand — schedules and revenue consolidated in one place."
+    },
+    "market": {
+      "eyebrow": "Shop floor",
+      "title": "Retail",
+      "standfirst": "Inventory you can trust. Sell, restock, transfer between stores — all in one rhythm.",
+      "workflow": [
+        "Barcode scan or product search — both routes lead to the same till.",
+        "Live stock counts so the screen never shows what the shelf doesn't have.",
+        "Returns, exchanges, and refunds with a one-tap audit trail."
+      ],
+      "ecosystem": [
+        "Stock Management with multi-location transfers and low-stock alerts.",
+        "Payment Terminal accepts every Moroccan card flavor — CMI included.",
+        "Back Office reporting drills from sale to product to supplier."
+      ],
+      "scaling": "One store, ten stores, a hundred SKUs or ten thousand — the system grows with the inventory."
+    }
+  },
   "productCard": {
     "from": "From",
     "vatExcluded": "HT",

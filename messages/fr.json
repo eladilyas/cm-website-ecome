@@ -523,6 +523,132 @@
       "access-presence": "Accès & Présence"
     }
   },
+  "industryPages": {
+    "labels": {
+      "workflowTitle": "Comment se déroule la journée.",
+      "ecosystemTitle": "Ce qui se branche dessus.",
+      "scalingTitle": "Évolue avec vous.",
+      "ctaTrial": "Démarrer l'essai gratuit",
+      "ctaTalk": "Parler aux ventes",
+      "ctaTrySimGeneric": "Essayer le simulateur POS",
+      "ctaTrySim": "Essayer le simulateur — {activity}",
+      "ctaTrySimDesc": "Lancez une caisse pré-configurée pour {activity} en quelques secondes — sans inscription.",
+      "backToIndustries": "← Retour à tous les secteurs"
+    },
+    "cafe": {
+      "eyebrow": "Café & comptoir",
+      "title": "Cafés",
+      "standfirst": "Du comptoir à la tasse, en quelques secondes. Pensé pour la cohue du matin, le déjeuner décontracté et les habitués qui savent déjà ce qu'ils veulent.",
+      "workflow": [
+        "Modificateurs en un toucher — taille, lait, shot supplémentaire — sans ralentir la file.",
+        "La fidélité s'applique à la caisse ; les baristas ne gèrent pas deux systèmes.",
+        "Le stock recette-aware déduit grains, lait et gobelets à chaque vente."
+      ],
+      "ecosystem": [
+        "Menu QR pour le service à table transforme la salle en kiosque de commande.",
+        "L'application mobile permet au gérant de suivre les ventes depuis n'importe où.",
+        "L'afficheur client fait du comptoir une surface de marque."
+      ],
+      "scaling": "Un seul café ? Restez léger. Une chaîne d'adresses ? Visualisez le flux de chaque comptoir depuis un seul tableau de bord."
+    },
+    "fast-food": {
+      "eyebrow": "Service rapide",
+      "title": "Fast food",
+      "standfirst": "Du volume sans le chaos. Combos, modificateurs, tickets cuisine — tout est calibré pour l'heure de pointe.",
+      "workflow": [
+        "L'assistant combo guide le client à travers plat + accompagnement + boisson en quelques secondes.",
+        "Les tickets partent en cuisine dès que le paiement est validé.",
+        "Imprimante reçu + tiroir-caisse intégrés sur chaque poste."
+      ],
+      "ecosystem": [
+        "Le kiosque self-service décharge la file d'attente du caissier.",
+        "Les commandes en ligne arrivent dans le même KDS que la file comptoir.",
+        "L'application mobile permet au management de suivre la rapidité de service."
+      ],
+      "scaling": "Le multi-site quick service tourne sur la même logique de caisse — chaque adresse remonte vers un seul back-office."
+    },
+    "dine-in": {
+      "eyebrow": "Hôtellerie & restauration",
+      "title": "Restaurants",
+      "standfirst": "Service rapide, salle pleine. Prenez les commandes, envoyez-les en cuisine, encaissez — sans jamais quitter la salle.",
+      "workflow": [
+        "Ouvrez les commandes par table, modifiez à la volée, divisez ou fusionnez les additions en un toucher.",
+        "Envoi en cuisine instantané — plus de cris à travers le passe, plus de tickets perdus.",
+        "Encaissez à table, au tiroir, ou au terminal — même flux de travail."
+      ],
+      "ecosystem": [
+        "Le KDS répartit par poste avec une urgence en code couleur.",
+        "L'afficheur client montre la commande en direct pendant que l'équipe la passe.",
+        "Le terminal de paiement se docke à la caisse pour le sans-contact.",
+        "Les commandes en ligne et le menu QR alimentent la même file cuisine."
+      ],
+      "scaling": "Un restaurant ou quarante — le back-office consolide chiffre d'affaires, stock et heures du personnel de chaque caisse dans une seule console."
+    },
+    "bakery": {
+      "eyebrow": "Production quotidienne",
+      "title": "Boulangerie",
+      "standfirst": "Un stock qui suit le four. Suivez chaque pain, croissant et gâteau, de la production au comptoir.",
+      "workflow": [
+        "Les fournées déduisent les matières premières ; les ventes déduisent les produits finis.",
+        "Le compte de production du jour visible à chaque comptoir — pas de surproduction, pas de rupture.",
+        "Gestion des lots et dates limites pour les produits périssables."
+      ],
+      "ecosystem": [
+        "Le module stock connaît la recette derrière chaque produit.",
+        "L'afficheur client met en avant les spécialités du jour devant la file.",
+        "Menu QR pour les pré-commandes de traiteur."
+      ],
+      "scaling": "Laboratoire central + plusieurs points de vente ? Le back-office orchestre production et distribution."
+    },
+    "beauty": {
+      "eyebrow": "Sur rendez-vous",
+      "title": "Beauté & services",
+      "standfirst": "Réservations, équipe et caisse — une seule application. Du walk-in au rendez-vous fixe.",
+      "workflow": [
+        "Vue calendrier par membre d'équipe avec re-planification par glisser-déposer.",
+        "Ajoutez des prestations à un rendez-vous actif ; encaissez à la caisse en fin de séance.",
+        "Historique client attaché à chaque visite."
+      ],
+      "ecosystem": [
+        "L'application mobile transforme n'importe quel téléphone en terminal de réservation.",
+        "L'afficheur client présente les prestations choisies et le total.",
+        "Le module stock pour les produits revente accompagne les prestations."
+      ],
+      "scaling": "D'un salon unique à un groupe franchisé — plannings, commissions et stock tout centralisé."
+    },
+    "barber": {
+      "eyebrow": "Coupes & rasage",
+      "title": "Salons de coiffure",
+      "standfirst": "Rapides ou minutieux, les rendez-vous se gèrent en un geste. Suivez chaque barbier, chaque produit, chaque encaissement.",
+      "workflow": [
+        "Calendrier par barbier avec créneaux flexibles et walk-ins en un toucher.",
+        "Prestation + revente (huile, cire, peigne) sur la même addition.",
+        "Commissions par barbier calculées automatiquement en fin de journée."
+      ],
+      "ecosystem": [
+        "L'application mobile permet la réservation client autonome.",
+        "L'afficheur client affiche prestation, durée et prix avant la chaise.",
+        "Le module stock pour les produits revente vendus en salon."
+      ],
+      "scaling": "Un seul salon ou une enseigne multi-villes — les plannings et le chiffre d'affaires consolidés au même endroit."
+    },
+    "market": {
+      "eyebrow": "Surface de vente",
+      "title": "Commerce de détail",
+      "standfirst": "Un stock auquel vous pouvez vous fier. Vendez, réapprovisionnez, transférez entre magasins — au même rythme.",
+      "workflow": [
+        "Scan de code-barres ou recherche produit — les deux mènent à la même caisse.",
+        "Comptes de stock en direct : l'écran ne montre jamais ce que le rayon n'a plus.",
+        "Retours, échanges et remboursements avec piste d'audit en un toucher."
+      ],
+      "ecosystem": [
+        "Gestion de stock avec transferts multi-sites et alertes seuils.",
+        "Terminal de paiement accepte tous les modes marocains — CMI inclus.",
+        "Le reporting back-office descend de la vente au produit au fournisseur."
+      ],
+      "scaling": "Un magasin, dix magasins, cent SKUs ou dix mille — le système s'adapte au stock."
+    }
+  },
   "productCard": {
     "from": "À partir de",
     "vatExcluded": "HT",
