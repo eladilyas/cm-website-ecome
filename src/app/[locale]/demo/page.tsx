@@ -30,6 +30,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ACTIVITIES, ACTIVITY_LIST } from "@/data/demo/activities";
 import { ACTIVITY_CAPS } from "@/data/demo/activityCapabilities";
 import { useDemoStore } from "@/lib/demoStore";
+import { rememberDemoReturn } from "@/lib/demoReturn";
 import type { ActivityKey, DemoActivity } from "@/data/demo/types";
 
 const APPLE_EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -88,7 +89,10 @@ export default function DemoLandingPage() {
           <FeaturedCard
             activity={FEATURED}
             displayName={tAct(FEATURED.key)}
-            onSelect={() => select(FEATURED_KEY)}
+            onSelect={() => {
+            rememberDemoReturn("/");
+            select(FEATURED_KEY);
+          }}
           />
         </Reveal>
 
@@ -100,7 +104,10 @@ export default function DemoLandingPage() {
                 activity={activity}
                 displayName={tAct(activity.key)}
                 index={ACTIVITY_LIST.findIndex((x) => x.key === activity.key)}
-                onSelect={() => select(activity.key)}
+                onSelect={() => {
+                  rememberDemoReturn("/");
+                  select(activity.key);
+                }}
               />
             </Reveal>
           ))}

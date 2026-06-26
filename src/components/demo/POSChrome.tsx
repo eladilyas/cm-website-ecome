@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useDemoStore } from "@/lib/demoStore";
+import { consumeDemoReturn } from "@/lib/demoReturn";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
 import { BrandLogoMark } from "@/components/ui/BrandLogoMark";
 import { ParkedOrdersSheet } from "./ParkedOrdersSheet";
@@ -126,7 +127,11 @@ export function POSChrome() {
         onConfirm={() => {
           setResetOpen(false);
           reset();
-          router.push("/demo");
+          // Return to the page that launched the simulator (set by
+          // TrySimulatorCTA when entering from an /industries/<slug>
+          // page). Falls back to "/" — never "/demo" — so the user
+          // doesn't bounce straight back into the activity picker.
+          router.push(consumeDemoReturn());
         }}
         title={tChrome("exitConfirmTitle")}
         body={tChrome("exitConfirmBody")}

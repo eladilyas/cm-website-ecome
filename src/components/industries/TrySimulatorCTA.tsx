@@ -1,8 +1,9 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { useDemoStore } from "@/lib/demoStore";
+import { rememberDemoReturn } from "@/lib/demoReturn";
 import type { ActivityKey } from "@/data/demo/types";
 
 // Pre-primes the demo simulator with a specific activity, then routes
@@ -18,6 +19,7 @@ type Props = {
 
 export function TrySimulatorCTA({ activity, label, description }: Props) {
   const router = useRouter();
+  const pathname = usePathname();
   const select = useDemoStore((s) => s.selectActivity);
   return (
     <div className="rounded-2xl border border-hairline bg-paper p-6 md:p-7 flex flex-col md:flex-row md:items-center gap-5 md:gap-6">
@@ -35,6 +37,7 @@ export function TrySimulatorCTA({ activity, label, description }: Props) {
         variant="primary"
         size="md"
         onClick={() => {
+          rememberDemoReturn(pathname ?? "/");
           select(activity);
           router.push("/demo/order");
         }}
