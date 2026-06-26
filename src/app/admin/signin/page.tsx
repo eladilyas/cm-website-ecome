@@ -17,6 +17,7 @@
 "use client";
 
 import { Suspense, useState } from "react";
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import { signIn } from "@/lib/auth-client";
@@ -126,12 +127,12 @@ function AdminSigninForm() {
           </h1>
           <p className="mt-2.5 text-[13px] text-paper/60 leading-[1.55]">
             Operator access only. Customers should{" "}
-            <a
+            <Link
               href="/signin"
               className="text-paper/85 underline underline-offset-[5px] decoration-paper/30 hover:decoration-paper/70 transition-colors"
             >
               sign in here
-            </a>
+            </Link>
             .
           </p>
         </div>

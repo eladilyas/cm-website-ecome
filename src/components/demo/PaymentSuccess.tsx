@@ -18,6 +18,7 @@
 // charge clears: the green check is the moment; the receipt arrives a
 // half-beat later as confirmation, not competing for attention.
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useDemoStore } from "@/lib/demoStore";
 import { ACTIVITY_CAPS } from "@/data/demo/activityCapabilities";
@@ -119,12 +120,12 @@ export function PaymentSuccess() {
               </p>
               <p className="text-[14px] md:text-[15px] leading-[1.5] text-paper/75">
                 Run this on your real counter with your menu, your team, and your tills.{" "}
-                <a
+                <Link
                   href="/start-free-trial"
                   className="text-paper underline-offset-4 hover:underline"
                 >
                   Talk to us &rarr;
-                </a>
+                </Link>
               </p>
             </div>
           </motion.div>

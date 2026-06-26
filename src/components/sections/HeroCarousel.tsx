@@ -274,12 +274,18 @@ function Carousel({
   renderSlide: (i: number, isActive: boolean) => React.ReactNode;
 }) {
   const [index, setIndex] = useState(0);
-  const [reducedMotion, setReducedMotion] = useState(false);
+  // Lazy-initialise from the matchMedia query so the first render
+  // already reflects the user's preference. Avoids the
+  // setState-in-effect cascade that fired when we read the value
+  // inside useEffect and then setState'd it.
+  const [reducedMotion, setReducedMotion] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  });
   const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mq.matches);
     const onChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);

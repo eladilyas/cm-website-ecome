@@ -105,13 +105,16 @@ export function POSWorkspace({ embedded = false }: POSWorkspaceProps = {}) {
   // barber), the render branch below would short-circuit to `null` and
   // we'd ship a blank pane until the operator manually picked a tab.
   //
-  // Fall back to POS — the universal default — whenever the current
-  // view is no longer valid. POS is always available (every activity
-  // has products to ring) so this is a safe terminal state.
-  useEffect(() => {
-    if (view === "kitchen" && !hasKitchen) setView("pos");
-    else if (view === "calendar" && !hasCalendar) setView("pos");
-  }, [view, hasKitchen, hasCalendar]);
+  // Derive the EFFECTIVE view inline instead of storing-and-correcting.
+  // POS is always available, so it's a safe fallback. This avoids the
+  // setState-in-effect cascade and lets every downstream consumer
+  // (tabs + render branch) read a consistent value in one pass.
+  const effectiveView: WorkspaceView =
+    view === "kitchen" && !hasKitchen
+      ? "pos"
+      : view === "calendar" && !hasCalendar
+        ? "pos"
+        : view;
 
   // EMBEDDED zero-friction guard: re-prime the activity ONLY when the
   // user is stuck on an onboarding screen, or when the workspace stage
@@ -183,14 +186,14 @@ export function POSWorkspace({ embedded = false }: POSWorkspaceProps = {}) {
         className="shrink-0 flex items-center gap-1 px-3 md:px-4 h-11 border-b border-white/[0.08] bg-night/95"
       >
         <ViewTabButton
-          active={view === "pos"}
+          active={effectiveView === "pos"}
           onClick={() => setView("pos")}
           icon={<PosIcon />}
           label={tTabs("pos")}
         />
         {hasKitchen && (
           <ViewTabButton
-            active={view === "kitchen"}
+            active={effectiveView === "kitchen"}
             onClick={() => setView("kitchen")}
             icon={<KitchenIcon />}
             label={tTabs("kitchen")}
@@ -198,19 +201,19 @@ export function POSWorkspace({ embedded = false }: POSWorkspaceProps = {}) {
         )}
         {hasCalendar && (
           <ViewTabButton
-            active={view === "calendar"}
+            active={effectiveView === "calendar"}
             onClick={() => setView("calendar")}
             icon={<CalendarIcon />}
             label={tTabs("calendar")}
           />
         )}
         <ViewTabButton
-          active={view === "backoffice"}
+          active={effectiveView === "backoffice"}
           onClick={() => setView("backoffice")}
           icon={<BackofficeIcon />}
           label={tTabs("backoffice")}
         />
-        {embedded && view === "pos" && (
+        {embedded && effectiveView === "pos" && (
           <button
             type="button"
             onClick={() => setParkedOpen(true)}
@@ -266,17 +269,17 @@ export function POSWorkspace({ embedded = false }: POSWorkspaceProps = {}) {
           {/* EMBEDDED: render whatever view the user picked.  */}
           {embedded && (
             <motion.div
-              key={`view-${view}`}
+              key={`view-${effectiveView}`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.18, ease: APPLE_EASE }}
               className="absolute inset-0"
             >
-              {view === "pos" && posGrid}
-              {view === "kitchen" && hasKitchen && <KitchenView />}
-              {view === "calendar" && hasCalendar && <CalendarView />}
-              {view === "backoffice" && <BackofficeView />}
+              {effectiveView === "pos" && posGrid}
+              {effectiveView === "kitchen" && hasKitchen && <KitchenView />}
+              {effectiveView === "calendar" && hasCalendar && <CalendarView />}
+              {effectiveView === "backoffice" && <BackofficeView />}
 
               {/* Payment overlays render over the active view — they
                   belong to the order flow, not to any one view. */}
@@ -309,10 +312,10 @@ export function POSWorkspace({ embedded = false }: POSWorkspaceProps = {}) {
               transition={{ duration: 0.18, ease: APPLE_EASE }}
               className="absolute inset-0"
             >
-              {view === "pos" && posGrid}
-              {view === "kitchen" && hasKitchen && <KitchenView />}
-              {view === "calendar" && hasCalendar && <CalendarView />}
-              {view === "backoffice" && <BackofficeView />}
+              {effectiveView === "pos" && posGrid}
+              {effectiveView === "kitchen" && hasKitchen && <KitchenView />}
+              {effectiveView === "calendar" && hasCalendar && <CalendarView />}
+              {effectiveView === "backoffice" && <BackofficeView />}
 
               {/* Payment overlays only make sense when the cashier is
                   on the POS view ringing an order — never over the

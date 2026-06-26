@@ -10,6 +10,7 @@
 // product detail's own CTAs, /start-free-trial — the user is IN the funnel).
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslations } from "next-intl";
@@ -83,13 +84,13 @@ export function StickyTrialCTA() {
           className="fixed bottom-0 inset-x-0 z-40 md:hidden pointer-events-none"
         >
           <div className="px-4 pb-4 pt-3 pointer-events-auto">
-            <a
+            <Link
               href="/start-free-trial"
               className="flex items-center justify-center h-12 rounded-full bg-ink text-paper text-[15px] font-medium shadow-[0_12px_28px_rgba(0,0,0,0.22)] active:scale-[0.98] transition-transform"
               style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
             >
               {t("startTrial")}
-            </a>
+            </Link>
           </div>
         </motion.div>
       )}

@@ -168,7 +168,7 @@ async function main() {
   //    untouched (with a warning) so the script never silently
   //    re-points unknown products to wrong categories.
   let mapped = 0;
-  let unmapped: string[] = [];
+  const unmapped: string[] = [];
   for (const p of prods) {
     const next = PRODUCT_REMAP[p.slug];
     if (!next) {
