@@ -56,6 +56,7 @@ const PRODUCT_REMAP: Record<string, string> = {
   "heron-1": "kiosk",
   "heron-1-mini": "kiosk",
   drawer: "peripherals",
+  "drawer-flip-top": "peripherals",
   "epson-printer": "peripherals",
   "2d-scanner": "peripherals",
   "signature-guest-pager": "syscall",

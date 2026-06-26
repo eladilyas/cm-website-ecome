@@ -433,6 +433,37 @@ const DRAWER: CatalogProduct = {
   complementaryWith: ["swan-1-gen-2", "epson-printer"],
 };
 
+const DRAWER_FLIP_TOP: CatalogProduct = {
+  slug: "drawer-flip-top",
+  name: "Drawer Flip-Top",
+  subline: "Slim · 460 mm · Top-opening",
+  tagline: "Slim profile, full till. Opens upward — saves the counter.",
+  category: "peripherals",
+  heroImage: "/hardware/drawer-flip-top.png",
+  alt: "Slim flip-top POS cash drawer with steel chassis and removable till insert.",
+  shortDescription:
+    "A low-profile flip-top cash drawer. The lid lifts up instead of sliding out, so it works under tight shelves and along narrow counters. Removable insert tray, key release, RJ-11 trigger.",
+  features: [
+    "Flip-top lid — lifts up, no slide-out clearance needed",
+    "Slim 460 mm body fits under shallow counters",
+    "4 bill compartments, 5 coin compartments (removable insert)",
+    "Electronic open via RJ-11 (printer-triggered)",
+    "Manual key release with 3-position lock",
+    "Powder-coated steel chassis, satin black",
+  ],
+  specs: [
+    { label: "Width", value: "460 mm" },
+    { label: "Opening", value: "Flip-top (vertical)" },
+    { label: "Compartments", value: "4 bill · 5 coin" },
+    { label: "Interface", value: "RJ-11 (12 V trigger)" },
+    { label: "Lock", value: "3-position cylinder, manual key" },
+    { label: "Chassis", value: "Powder-coated steel" },
+  ],
+  priceFrom: 1400,
+  availability: { status: "in-stock" },
+  complementaryWith: ["swan-1-gen-2", "epson-printer"],
+};
+
 // ── PRINTING ───────────────────────────────────────────────────────────
 
 const EPSON_PRINTER: CatalogProduct = {
@@ -555,6 +586,7 @@ export const CATALOG: CatalogProduct[] = [
   HERON_1_MINI,
   EPSON_PRINTER,
   DRAWER,
+  DRAWER_FLIP_TOP,
   SCANNER_2D,
   SIGNATURE_PAGER,
 ];
