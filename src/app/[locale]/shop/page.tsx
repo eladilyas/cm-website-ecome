@@ -75,7 +75,7 @@ export default async function ShopPage({
             human contact over silent browsing. Mobile collapses to a
             single column with the sidebar sitting under the wordmark. ── */}
       <section data-scheme="light" className="relative overflow-hidden bg-canvas">
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-10 md:pt-14 pb-6 md:pb-8">
+        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-24 md:pt-28 pb-8 md:pb-10">
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 md:gap-10 items-end">
             <div>
               <Reveal>

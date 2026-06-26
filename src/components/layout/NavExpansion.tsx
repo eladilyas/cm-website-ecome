@@ -150,11 +150,18 @@ export function NavExpansion({ item, onSelect, scheme }: Props) {
   }
 
   // ─── 3 · Simple list — items only, no supplementary groups ────────
-  // Long lists (≥ 7) wrap into a 2-column CSS column layout so the
-  // dropdown doesn't read as a tall sparse strip when the right side
-  // would otherwise be empty.
+  // Longer lists wrap across multiple CSS columns so the dropdown
+  // fills its horizontal space the way the hybrid layouts do. The
+  // breakpoint at 5 items keeps short menus on one column; 7+ items
+  // jumps to three columns so 8-entry menus (Store) read as a balanced
+  // 3-3-2 layout instead of two tall columns with empty middle.
   const items = item.items!;
-  const wantsTwoCols = items.length >= 7;
+  const colClass =
+    items.length >= 7
+      ? "md:columns-3"
+      : items.length >= 5
+        ? "md:columns-2"
+        : "";
   return (
     <div className="grid grid-cols-1">
       <div>
@@ -163,8 +170,8 @@ export function NavExpansion({ item, onSelect, scheme }: Props) {
         </p>
         <ul
           className={
-            wantsTwoCols
-              ? "md:columns-2 md:gap-x-10 space-y-1 [&>li]:break-inside-avoid"
+            colClass
+              ? `${colClass} md:gap-x-10 space-y-1 [&>li]:break-inside-avoid`
               : "space-y-1"
           }
         >
