@@ -181,7 +181,7 @@ const WDLINK_WD15M: CatalogProduct = {
   tagline: "A screen built for the front line. Designed for the long shift.",
   category: "pos-terminals",
   heroImage: "/hardware/wdlink-wd15m.png",
-  alt: "WDLink WD15M — 15.6-inch true-flat capacitive POS touch monitor on a foldable VESA-compatible aluminium stand, shown from the rear.",
+  alt: "WDLink WD15M 15.6-inch capacitive POS touch monitor with foldable VESA-compatible stand, front three-quarter view in matte black.",
   shortDescription:
     "A 15.6-inch true-flat capacitive touch monitor engineered for 24/7 counter use. Pairs with any Windows POS host over VGA + USB, folds flat for kiosk mode, and mounts to any VESA arm for tight-counter installs. Grade-A panel, metal chassis, fanless thermal design — built to survive a year of double shifts.",
   features: [
