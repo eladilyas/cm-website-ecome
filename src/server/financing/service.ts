@@ -457,10 +457,34 @@ export async function transitionFinancingStatus(input: {
     };
   }
 
+  // Fail-loud cascade guard.
+  //
+  // If the financing decision demands an order-status move (REJECTED
+  // → FINANCING_REJECTED, CANCELLED → CANCELLED, APPROVED → PROCESSING)
+  // but the order has ALREADY been advanced past
+  // PENDING_FINANCING_APPROVAL by a manual transition, refuse to
+  // silently desync. The admin must explicitly bring the order back
+  // into alignment first.
+  //
+  // The only flow that's safe to skip-cascade is APPROVED → PROCESSING
+  // when the order is already in PROCESSING+ (a different admin path
+  // arrived at the same end state). REJECTED / CANCELLED on a moving
+  // order is genuinely contradictory — a shipped order whose financing
+  // was later rejected is an ops emergency, not a routine state.
+  const orderTarget = orderStatusForFinancingDecision(input.toStatus);
+  if (
+    orderTarget &&
+    row.status !== "PENDING_FINANCING_APPROVAL" &&
+    (input.toStatus === "REJECTED" || input.toStatus === "CANCELLED")
+  ) {
+    return {
+      ok: false,
+      error: `Cannot ${input.toStatus.toLowerCase()} financing — order has already advanced to ${row.status}. Cancel the order explicitly first.`,
+    };
+  }
+
   try {
     const updated = await db.$transaction(async (tx) => {
-      const orderTarget = orderStatusForFinancingDecision(input.toStatus);
-
       const next = await tx.order.update({
         where: { id: input.requestId },
         data: {
@@ -474,7 +498,8 @@ export async function transitionFinancingStatus(input: {
             input.offeredMonths ?? row.financingOfferedTermMonths ?? null,
           // Cascade the order status when the financing decision
           // demands it. Only fires if the order is still parked in
-          // PENDING_FINANCING_APPROVAL — manual order moves win.
+          // PENDING_FINANCING_APPROVAL — APPROVED on an already-
+          // advanced order is allowed (covered by the no-op branch).
           ...(orderTarget && row.status === "PENDING_FINANCING_APPROVAL"
             ? { status: orderTarget }
             : {}),

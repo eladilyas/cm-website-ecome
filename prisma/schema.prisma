@@ -177,7 +177,14 @@ model Product {
   name             String
   subline          String?
   tagline          String
-  category         String // ProductCategory enum lives in the contract
+  /// Foreign key to Category.slug. Was a free-text string in v0 — now
+  /// enforced by Postgres so slug renames cascade and orphan-product
+  /// rows are impossible. ON UPDATE CASCADE so renaming a category
+  /// slug rewrites every product row in one statement; ON DELETE
+  /// RESTRICT so a category with live products can't be hard-deleted
+  /// (use Category.isActive = false instead).
+  category         String
+  categoryRef      Category @relation(fields: [category], references: [slug], onDelete: Restrict, onUpdate: Cascade)
   heroImage        String
   alt              String
   shortDescription String  @db.Text
@@ -239,6 +246,11 @@ model Category {
   parent   Category?  @relation("CategoryTree", fields: [parentId], references: [id], onDelete: SetNull)
   children Category[] @relation("CategoryTree")
 
+  /// Products referencing this category by slug. Enforced by the FK
+  /// on Product.category. Restricted-delete: a category with live
+  /// products refuses to be hard-deleted; use isActive=false to hide.
+  products Product[]
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -269,10 +281,13 @@ enum StockMovementKind {
   WASTE
 }
 
+/// Append-only inventory ledger. Restrict on the product FK so a
+/// hard `db.product.delete` can't silently erase the per-SKU
+/// movement history. Soft-delete via Product.deletedAt instead.
 model StockMovement {
   id          String            @id @default(uuid())
   productId   String
-  product     Product           @relation(fields: [productId], references: [id], onDelete: Cascade)
+  product     Product           @relation(fields: [productId], references: [id], onDelete: Restrict)
   delta       Int // positive = inbound, negative = outbound
   kind        StockMovementKind
   reason      String?
@@ -395,8 +410,15 @@ model Order {
   grandTotalMinor  Int
   currency         String @default("MAD")
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  /// Soft-delete tombstone. Orders are NEVER hard-deleted — too much
+  /// downstream depends on them (line items, status transitions,
+  /// follow-up notes, financing decision reasons). The cascade
+  /// relations below use onDelete: Restrict so any attempt to
+  /// `db.order.delete` errors loudly instead of silently erasing the
+  /// audit trail. Use deletedAt for all "remove an order" operations.
+  deletedAt DateTime?
 
   items           OrderItem[]
   transitions     OrderStatusTransition[]
@@ -405,6 +427,7 @@ model Order {
   @@index([customerId])
   @@index([status])
   @@index([createdAt])
+  @@index([deletedAt])
   /// Powers the "financing queue" admin view + dispatcher exclusion.
   @@index([orderType, status])
 }
@@ -416,7 +439,10 @@ model Order {
 model OrderFollowupNote {
   id          String   @id @default(uuid())
   orderId     String
-  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  /// Restrict (not Cascade): a stray `db.order.delete` should fail
+  /// loudly rather than silently erase the follow-up trail. Soft-
+  /// delete via Order.deletedAt is the supported path.
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Restrict)
   /// User who wrote the note (pre-sales / admin). Nullable for
   /// system-generated entries (status transitions, etc).
   actorUserId String?
@@ -432,7 +458,9 @@ model OrderFollowupNote {
 model OrderItem {
   id          String  @id @default(uuid())
   orderId     String
-  order       Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  /// Restrict (not Cascade): hard-deleting an Order would silently
+  /// destroy financial line-item history. Use Order.deletedAt.
+  order       Order   @relation(fields: [orderId], references: [id], onDelete: Restrict)
   productSlug String  // snapshot — survives product deletion
   // Snapshot fields — survive catalog edits.
   name        String
@@ -446,10 +474,13 @@ model OrderItem {
   @@index([productSlug])
 }
 
+/// Append-only audit trail of every status transition an order has
+/// gone through. Restrict on the parent FK so a hard Order delete
+/// can't silently erase the timeline.
 model OrderStatusTransition {
   id          String      @id @default(uuid())
   orderId     String
-  order       Order       @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  order       Order       @relation(fields: [orderId], references: [id], onDelete: Restrict)
   fromStatus  OrderStatus
   toStatus    OrderStatus
   actorUserId String

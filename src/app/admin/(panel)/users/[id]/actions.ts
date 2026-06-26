@@ -13,6 +13,7 @@ import { z } from "zod";
 import { db } from "@/server/db";
 import { requireSuperAdmin } from "@/server/auth-helpers";
 import { ROLE_SLUGS, ROLES, type RoleSlug } from "@/server/rbac/catalog";
+import { recordAuditEvent } from "@/server/audit/log";
 
 const RoleSlugSchema = z.enum(
   ROLES.map((r) => r.slug) as [RoleSlug, ...RoleSlug[]],
@@ -22,7 +23,9 @@ export async function setUserRoles(
   userId: string,
   selectedSlugs: RoleSlug[],
 ): Promise<{ ok: true } | { ok: false; error: string }> {
-  await requireSuperAdmin(`/admin/users/${userId}`);
+  const { userId: actorId } = await requireSuperAdmin(
+    `/admin/users/${userId}`,
+  );
 
   // Parse + dedupe.
   const parsed = z.array(RoleSlugSchema).safeParse(selectedSlugs);
@@ -34,10 +37,23 @@ export async function setUserRoles(
   const user = await db.user.findUnique({ where: { id: userId } });
   if (!user) return { ok: false, error: "User not found." };
 
+  // Snapshot the before-set so we can emit grant/revoke events per
+  // role diff. We only count rows whose role still exists.
+  const beforeRows = await db.userRole.findMany({
+    where: { userId },
+    include: { role: { select: { slug: true } } },
+  });
+  // Treat DB role slugs as the canonical RoleSlug enum — anything
+  // else would have been rejected by rbac:seed. The audit log records
+  // raw strings, so this cast is purely for type compatibility with
+  // afterSlugs.
+  const beforeSlugs = new Set(beforeRows.map((r) => r.role.slug as RoleSlug));
+
   const roles = await db.role.findMany({
     where: { slug: { in: slugs } },
   });
   const targetRoleIds = roles.map((r) => r.id);
+  const afterSlugs = new Set(slugs);
 
   // Replace the user's role set in one transaction.
   await db.$transaction([
@@ -46,6 +62,32 @@ export async function setUserRoles(
       data: targetRoleIds.map((roleId) => ({ userId, roleId })),
       skipDuplicates: true,
     }),
+  ]);
+
+  // Emit one audit event per role diff. recordAuditEvent is best-
+  // effort and never throws, so failures here can't block the
+  // already-committed role change.
+  const granted = [...afterSlugs].filter((s) => !beforeSlugs.has(s));
+  const revoked = [...beforeSlugs].filter((s) => !afterSlugs.has(s));
+  await Promise.all([
+    ...granted.map((slug) =>
+      recordAuditEvent({
+        action: "user.role.grant",
+        actorUserId: actorId,
+        resourceType: "User",
+        resourceId: userId,
+        metadata: { role: slug },
+      }),
+    ),
+    ...revoked.map((slug) =>
+      recordAuditEvent({
+        action: "user.role.revoke",
+        actorUserId: actorId,
+        resourceType: "User",
+        resourceId: userId,
+        metadata: { role: slug },
+      }),
+    ),
   ]);
 
   revalidatePath("/admin/users");
@@ -102,6 +144,14 @@ export async function setUserDisabled(
     if (disabled) {
       await tx.session.deleteMany({ where: { userId } });
     }
+  });
+
+  // Audit event — best-effort, never blocks the user-disable action.
+  await recordAuditEvent({
+    action: disabled ? "user.disable" : "user.enable",
+    actorUserId: actorId,
+    resourceType: "User",
+    resourceId: userId,
   });
 
   revalidatePath("/admin/users");
