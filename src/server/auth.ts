@@ -54,6 +54,37 @@ export const auth = betterAuth({
     autoSignIn: true,
     // We use short-lived sessions plus refresh — Better-Auth handles
     // refresh transparently if `session.expiresIn` is bumped later.
+
+    // sendResetPassword — Better-Auth calls this when a user requests a
+    // password reset. It hands us a one-time `url` (already includes the
+    // signed token + the `redirectTo` we passed from the client) plus
+    // the User row. We fan out via NotificationService so the channel
+    // strategy (Resend in prod, console-log in demo) stays centralised.
+    // Errors are swallowed — exposing them would let an attacker probe
+    // which emails are registered.
+    sendResetPassword: async ({ user, url }) => {
+      const { getNotificationService } = await import("@/services");
+      try {
+        await getNotificationService().notify({
+          recipientId: user.id,
+          event: "account.password-reset",
+          payload: {
+            resetUrl: url,
+            userName: user.name ?? user.email,
+            userEmail: user.email,
+          },
+          forceChannels: ["email"],
+        });
+      } catch (err) {
+        // Demo fallback so the link is recoverable from server logs
+        // when the NotificationService impl can't actually deliver
+        // (e.g. RESEND_API_KEY not configured in this environment).
+        console.warn(
+          `[auth] password-reset notify failed — link for ${user.email}: ${url}`,
+          err,
+        );
+      }
+    },
   },
 
   // Custom session config — 7 days, refresh in last 24 hours.

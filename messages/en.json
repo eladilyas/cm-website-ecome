@@ -1019,13 +1019,17 @@
       "passwordRequirement": "{min}+ characters",
       "passwordWeak": "Too short",
       "passwordOk": "Good",
-      "passwordStrong": "Strong"
+      "passwordStrong": "Strong",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm new password"
     },
     "validation": {
       "required": "Required",
       "invalidEmail": "Invalid email",
       "passwordLength": "{min}+ characters",
-      "generic": "Something went wrong. Please try again."
+      "generic": "Something went wrong. Please try again.",
+      "passwordShort": "Use at least 8 characters.",
+      "passwordMismatch": "The two passwords don't match."
     },
     "consent": "By continuing you agree to our <terms>Terms</terms> and <privacy>Privacy Policy</privacy>.",
     "consentSignUp": "By creating an account you agree to our <terms>Terms</terms> and <privacy>Privacy Policy</privacy>.",
@@ -1036,6 +1040,31 @@
       "financingNote": "Hardware financing available through our partner Wafasalaf, subject to eligibility.",
       "trustBadge": "Trusted by 500+ businesses",
       "deployment": "Cloud · Local · Offline"
+    },
+    "forgot": {
+      "eyebrow": "Account access",
+      "heading": "Reset your password.",
+      "subheading": "Enter your account email and we'll send you a one-time link to set a new password.",
+      "sentSubheading": "Check your inbox.",
+      "sentBanner": "If an account exists for {email}, a reset link is on its way.",
+      "sentHint": "The link expires in 1 hour. Don't see the email after a few minutes? Check your spam folder or request a new one.",
+      "submit": "Send reset link",
+      "submitting": "Sending…",
+      "footerQuestion": "Remember your password?",
+      "footerLink": "Back to sign in"
+    },
+    "reset": {
+      "eyebrow": "New password",
+      "heading": "Choose a new password.",
+      "subheading": "Pick something only you would know. We'll sign you out of any other sessions automatically.",
+      "submit": "Update password",
+      "submitting": "Updating…",
+      "failed": "We couldn't reset your password. The link may have expired — request a new one.",
+      "missingToken": "This reset link is invalid or has already been used.",
+      "missingTokenHint": "Request a new reset link to continue.",
+      "requestNewLink": "Request a new link",
+      "footerQuestion": "Need a fresh link?",
+      "footerLink": "Back to sign in"
     }
   },
   "startFreeTrial": {

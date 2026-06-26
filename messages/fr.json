@@ -1019,13 +1019,17 @@
       "passwordRequirement": "{min}+ caractères",
       "passwordWeak": "Trop court",
       "passwordOk": "Correct",
-      "passwordStrong": "Robuste"
+      "passwordStrong": "Robuste",
+      "newPassword": "Nouveau mot de passe",
+      "confirmPassword": "Confirmer le nouveau mot de passe"
     },
     "validation": {
       "required": "Requis",
       "invalidEmail": "Email invalide",
       "passwordLength": "{min}+ caractères",
-      "generic": "Une erreur est survenue. Réessayez."
+      "generic": "Une erreur est survenue. Réessayez.",
+      "passwordShort": "Utilisez au moins 8 caractères.",
+      "passwordMismatch": "Les deux mots de passe ne correspondent pas."
     },
     "consent": "En continuant vous acceptez nos <terms>Conditions</terms> et notre <privacy>politique de confidentialité</privacy>.",
     "consentSignUp": "En créant un compte vous acceptez nos <terms>Conditions</terms> et notre <privacy>politique de confidentialité</privacy>.",
@@ -1036,6 +1040,31 @@
       "financingNote": "Financement matériel proposé par notre partenaire Wafasalaf, sous conditions d'éligibilité.",
       "trustBadge": "Plus de 500 commerces nous font confiance",
       "deployment": "Cloud · Local · Hors-ligne"
+    },
+    "forgot": {
+      "eyebrow": "Accès au compte",
+      "heading": "Réinitialiser votre mot de passe.",
+      "subheading": "Saisissez l'e-mail de votre compte et nous vous enverrons un lien à usage unique pour définir un nouveau mot de passe.",
+      "sentSubheading": "Vérifiez votre boîte de réception.",
+      "sentBanner": "Si un compte existe pour {email}, un lien de réinitialisation est en route.",
+      "sentHint": "Le lien expire dans 1 heure. Vous ne voyez pas l'e-mail après quelques minutes ? Vérifiez votre dossier spam ou demandez-en un nouveau.",
+      "submit": "Envoyer le lien",
+      "submitting": "Envoi…",
+      "footerQuestion": "Vous vous souvenez de votre mot de passe ?",
+      "footerLink": "Retour à la connexion"
+    },
+    "reset": {
+      "eyebrow": "Nouveau mot de passe",
+      "heading": "Choisissez un nouveau mot de passe.",
+      "subheading": "Choisissez quelque chose que vous seul connaissez. Nous vous déconnecterons automatiquement de toutes les autres sessions.",
+      "submit": "Mettre à jour le mot de passe",
+      "submitting": "Mise à jour…",
+      "failed": "Impossible de réinitialiser votre mot de passe. Le lien a peut-être expiré — demandez-en un nouveau.",
+      "missingToken": "Ce lien de réinitialisation est invalide ou a déjà été utilisé.",
+      "missingTokenHint": "Demandez un nouveau lien de réinitialisation pour continuer.",
+      "requestNewLink": "Demander un nouveau lien",
+      "footerQuestion": "Besoin d'un nouveau lien ?",
+      "footerLink": "Retour à la connexion"
     }
   },
   "startFreeTrial": {
