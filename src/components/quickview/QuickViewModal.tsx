@@ -92,13 +92,16 @@ export function QuickViewModal({
             className="absolute inset-0 bg-ink/40 backdrop-blur-sm cursor-default"
           />
 
-          {/* Panel */}
+          {/* Panel — fixed height on desktop so no product ever forces
+              scroll. Mobile falls back to a slide-up sheet capped at
+              the viewport height. All text below is line-clamped to a
+              fixed line count, so every product fits the same shape. */}
           <motion.div
             initial={{ y: 24, opacity: 0, scale: 0.98 }}
             animate={{ y: 0, opacity: 1, scale: 1 }}
             exit={{ y: 16, opacity: 0, scale: 0.99 }}
             transition={{ duration: 0.24, ease: APPLE_EASE }}
-            className="relative w-full sm:max-w-[880px] sm:rounded-2xl bg-paper border border-hairline shadow-[0_24px_64px_rgba(0,0,0,0.18)] overflow-hidden max-h-[92vh] sm:max-h-[80vh] flex flex-col"
+            className="relative w-full sm:max-w-[920px] sm:rounded-2xl bg-paper border border-hairline shadow-[0_24px_64px_rgba(0,0,0,0.18)] overflow-hidden max-h-[100dvh] sm:h-[560px] sm:max-h-[88vh] flex flex-col"
           >
             {/* Close X */}
             <button
@@ -117,30 +120,31 @@ export function QuickViewModal({
               </svg>
             </button>
 
-            <div className="overflow-y-auto flex-1 grid grid-cols-1 sm:grid-cols-[1.1fr_1fr]">
-              {/* Image */}
-              <div className="relative bg-canvas border-b sm:border-b-0 sm:border-r border-hairline aspect-square sm:aspect-auto sm:min-h-[420px] flex items-center justify-center p-6">
-                <div className="relative w-full h-full max-h-[360px]">
-                  <Image
-                    src={product.heroImage}
-                    alt={product.alt}
-                    fill
-                    sizes="(min-width: 640px) 480px, 100vw"
-                    className="object-contain"
-                    priority
-                  />
-                </div>
+            <div className="flex-1 min-h-0 grid grid-cols-1 sm:grid-cols-[1.05fr_1fr]">
+              {/* Image — fills its column, never pushes the layout. */}
+              <div className="relative bg-canvas border-b sm:border-b-0 sm:border-r border-hairline aspect-square sm:aspect-auto flex items-center justify-center p-6">
+                <Image
+                  src={product.heroImage}
+                  alt={product.alt}
+                  fill
+                  sizes="(min-width: 640px) 480px, 100vw"
+                  className="object-contain p-4"
+                  priority
+                />
               </div>
 
-              {/* Body */}
-              <div className="p-5 sm:p-7 flex flex-col gap-4 min-w-0">
-                <div>
+              {/* Body — fixed shape. Every text element below carries
+                  a line-clamp so a long-copy product (Swan 1) and a
+                  short-copy product (signature pager) render the same
+                  height. No scroll anywhere. */}
+              <div className="p-5 sm:p-6 flex flex-col gap-3 min-w-0 overflow-hidden">
+                <div className="min-w-0">
                   <p className="text-[10.5px] uppercase tracking-[0.18em] text-ink-mute font-medium">
                     Quick view
                   </p>
                   <h2
                     id="qv-title"
-                    className="mt-1 text-[22px] sm:text-[26px] font-semibold tracking-[-0.014em] text-ink leading-[1.15]"
+                    className="mt-1 text-[19px] sm:text-[22px] font-semibold tracking-[-0.012em] text-ink leading-[1.18] line-clamp-2"
                   >
                     {product.name}
                     {product.subline ? (
@@ -150,7 +154,7 @@ export function QuickViewModal({
                       </span>
                     ) : null}
                   </h2>
-                  <p className="mt-1.5 text-[14px] text-ink-soft leading-snug">
+                  <p className="mt-1 text-[13px] text-ink-soft leading-[1.4] line-clamp-2">
                     {product.tagline}
                   </p>
                 </div>
@@ -165,34 +169,35 @@ export function QuickViewModal({
                   <span className="text-[11.5px] text-ink-mute">HT</span>
                 </div>
 
-                <AvailabilityBadge availability={product.availability} size="md" />
+                <div className="flex flex-col gap-1.5">
+                  <AvailabilityBadge availability={product.availability} size="md" />
+                  <WafasalafBadge amount={product.priceFrom} variant="inline" />
+                </div>
 
-                <WafasalafBadge
-                  amount={product.priceFrom}
-                  variant="inline"
-                />
-
-                {/* Top 3 features — keeps modal scannable */}
+                {/* Top 3 features — each clamped to 1 line so the
+                    block height is identical across products. */}
                 {product.features.length > 0 && (
-                  <ul className="space-y-1.5 text-[13.5px] text-ink-soft">
+                  <ul className="space-y-1 text-[12.5px] text-ink-soft min-w-0">
                     {product.features.slice(0, 3).map((f) => (
-                      <li key={f} className="flex items-start gap-2">
+                      <li key={f} className="flex items-start gap-2 min-w-0">
                         <span
                           aria-hidden
                           className="mt-[7px] w-1 h-1 rounded-full bg-ink-mute shrink-0"
                         />
-                        <span>{f}</span>
+                        <span className="line-clamp-1 leading-[1.4]" title={f}>
+                          {f}
+                        </span>
                       </li>
                     ))}
                   </ul>
                 )}
 
-                <div className="mt-auto pt-3 flex flex-col gap-2.5">
+                <div className="mt-auto pt-2 flex flex-col gap-2">
                   <button
                     type="button"
                     onClick={handleAdd}
                     className={
-                      "h-12 inline-flex items-center justify-center gap-2 rounded-full text-[14px] font-medium transition-colors duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] " +
+                      "h-11 inline-flex items-center justify-center gap-2 rounded-full text-[13.5px] font-medium transition-colors duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] " +
                       (inCart
                         ? "bg-emerald-50 border border-emerald-200 text-emerald-700 hover:bg-emerald-100"
                         : "bg-ink text-paper hover:bg-ink-soft")
@@ -205,7 +210,7 @@ export function QuickViewModal({
                   <Link
                     href={`/shop/${product.slug}`}
                     onClick={onClose}
-                    className="h-10 inline-flex items-center justify-center text-[12.5px] text-ink-mute hover:text-ink transition-colors"
+                    className="inline-flex items-center justify-center text-[12px] text-ink-mute hover:text-ink transition-colors"
                   >
                     See full details →
                   </Link>
