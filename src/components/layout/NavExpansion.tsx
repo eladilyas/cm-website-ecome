@@ -56,10 +56,17 @@ export function NavExpansion({ item, onSelect, scheme }: Props) {
   const renderHero = (
     eyebrow: string,
     list: { label: string; href: string }[],
+    twoCols = false,
   ) => (
     <div>
       <p className={`${eyebrowClass} mb-4`}>{eyebrow}</p>
-      <ul className="space-y-1">
+      <ul
+        className={
+          twoCols
+            ? "md:columns-2 md:gap-x-8 space-y-1 [&>li]:break-inside-avoid"
+            : "space-y-1"
+        }
+      >
         {list.map((sub) => (
           <li key={sub.href}>
             <Link
@@ -115,10 +122,10 @@ export function NavExpansion({ item, onSelect, scheme }: Props) {
 
     const cols =
       rest.length === 3
-        ? "grid-cols-1 md:grid-cols-[2.2fr_1fr_1.2fr_1fr]"
+        ? "grid-cols-1 md:grid-cols-4"
         : rest.length === 2
-          ? "grid-cols-1 md:grid-cols-[2.2fr_1fr_1fr]"
-          : "grid-cols-1 md:grid-cols-[2.2fr_1fr]";
+          ? "grid-cols-1 md:grid-cols-3"
+          : "grid-cols-1 md:grid-cols-2";
 
     return (
       <div className={`grid ${cols} gap-x-10 gap-y-10`}>
@@ -129,21 +136,37 @@ export function NavExpansion({ item, onSelect, scheme }: Props) {
   }
 
   // ─── 2 · Hybrid — items hero on the left + groups on the right ────
-  // Apple Vision pattern. Each `groups` entry becomes an aligned
-  // column to the right of the big-text items list. Column widths
-  // tuned so the right side fills available space at the same density
-  // as the Store dropdown — no empty whitespace beyond the items list.
+  // Long hero lists get a wider track (and an internal 2-column flow)
+  // so the dropdown doesn't show empty horizontal space between the
+  // hero list and the supplementary groups. Short hero lists stay in
+  // equal-width columns alongside the groups.
   if (hasGroups && hasItems) {
     const groupCount = item.groups!.length;
-    const cols =
-      groupCount === 3
-        ? "grid-cols-1 md:grid-cols-[2.2fr_1fr_1fr_1fr]"
-        : groupCount === 2
-          ? "grid-cols-1 md:grid-cols-[2.2fr_1fr_1fr]"
-          : "grid-cols-1 md:grid-cols-[2.2fr_1.4fr]";
+    const itemCount = item.items!.length;
+    const heroIsLong = itemCount >= 6;
+    let cols: string;
+    if (heroIsLong) {
+      cols =
+        groupCount === 3
+          ? "grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr]"
+          : groupCount === 2
+            ? "grid-cols-1 md:grid-cols-[2fr_1fr_1fr]"
+            : "grid-cols-1 md:grid-cols-[2fr_1fr]";
+    } else {
+      cols =
+        groupCount === 3
+          ? "grid-cols-1 md:grid-cols-4"
+          : groupCount === 2
+            ? "grid-cols-1 md:grid-cols-3"
+            : "grid-cols-1 md:grid-cols-2";
+    }
     return (
       <div className={`grid ${cols} gap-x-10 gap-y-10`}>
-        {renderHero(`Explore ${item.label.toLowerCase()}`, item.items!)}
+        {renderHero(
+          `Explore ${item.label.toLowerCase()}`,
+          item.items!,
+          heroIsLong,
+        )}
         {item.groups!.map(renderGroup)}
       </div>
     );
