@@ -1,40 +1,62 @@
-"use client";
-
 // Shop catalog page.
 //
 // Apple Store / Stripe hardware aesthetic — not an ecommerce checkout. Hero
 // is editorial typography on canvas; products are organized in a generous
 // grid below. Cards show a starting price ("From X MAD HT"); the cart +
 // checkout produce the formal total.
+//
+// SERVER COMPONENT. Products + categories are fetched server-side via
+// the catalog readers (cached + tagged 'catalog'). The search-param
+// filter is read from the route props (not useSearchParams). Reveal /
+// CategoryStrip / ProductCard remain client islands.
 
-import { useMemo } from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { CategoryStrip } from "@/components/shop/CategoryStrip";
-import { useCatalog } from "@/components/catalog/CatalogProvider";
-import type { CatalogProduct } from "@/server/catalog/types";
+import {
+  listPublicCategories,
+  listPublicProducts,
+  getActiveCategoryLabels,
+} from "@/server/catalog/service";
+import type {
+  CatalogCategory,
+  CatalogProduct,
+} from "@/server/catalog/types";
 
-export default function ShopPage() {
-  const params = useSearchParams();
-  const category = params.get("category");
-  const { products: allProducts, categoryLabels, categories } = useCatalog();
+type SearchParams = { category?: string | string[] };
+
+export default async function ShopPage({
+  searchParams,
+}: {
+  searchParams: Promise<SearchParams>;
+}) {
+  const params = await searchParams;
+  const categoryRaw = params.category;
+  const category =
+    typeof categoryRaw === "string" ? categoryRaw : categoryRaw?.[0] ?? null;
+
+  const [allProducts, categories, categoryLabels] = await Promise.all([
+    listPublicProducts(),
+    listPublicCategories(),
+    getActiveCategoryLabels(),
+  ]);
 
   // Resolve the active category — if the filter is a PARENT category,
   // include products from all of its children too. Lets the user click
   // "POS Périphériques" and see Écran + Scanner + Imprimante + … all
   // together instead of zero products.
-  const products = useMemo(() => {
-    if (!category) return allProducts;
-    const childSlugs = categories
-      .filter((c) => c.parentSlug === category)
-      .map((c) => c.slug);
-    const allowed = new Set<string>([category, ...childSlugs]);
-    return allProducts.filter((p) => allowed.has(p.category));
-  }, [allProducts, category, categories]);
+  const products: CatalogProduct[] = !category
+    ? [...allProducts]
+    : (() => {
+        const childSlugs = categories
+          .filter((c) => c.parentSlug === category)
+          .map((c) => c.slug);
+        const allowed = new Set<string>([category, ...childSlugs]);
+        return allProducts.filter((p) => allowed.has(p.category));
+      })();
 
   return (
     <>
@@ -44,17 +66,17 @@ export default function ShopPage() {
             human contact over silent browsing. Mobile collapses to a
             single column with the sidebar sitting under the wordmark. ── */}
       <section data-scheme="light" className="relative overflow-hidden bg-canvas">
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-14 md:pt-20 pb-8 md:pb-10">
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 md:gap-12 items-end">
+        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-10 md:pt-14 pb-6 md:pb-8">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 md:gap-10 items-end">
             <div>
               <Reveal>
-                <p className="text-[10.5px] font-medium uppercase tracking-[0.20em] text-ink-mute mb-3">
+                <p className="text-[10.5px] font-medium uppercase tracking-[0.20em] text-ink-mute mb-2.5">
                   Hardware
                 </p>
               </Reveal>
               <Reveal delay={0.04}>
                 <h1
-                  className="text-[clamp(2.5rem,6vw,5rem)] font-semibold tracking-[-0.022em] leading-[0.94] text-ink"
+                  className="text-[clamp(2rem,4.4vw,3.5rem)] font-semibold tracking-[-0.022em] leading-[0.96] text-ink"
                 >
                   Store
                 </h1>
@@ -89,9 +111,8 @@ export default function ShopPage() {
             </Reveal>
           </div>
 
-          {/* Category strip — horizontal product thumbnail navigation */}
           <Reveal delay={0.12}>
-            <div className="mt-10 md:mt-14">
+            <div className="mt-7 md:mt-10">
               <CategoryStrip />
             </div>
           </Reveal>
@@ -115,7 +136,10 @@ export default function ShopPage() {
               products={products}
             />
           ) : (
-            <GroupedCategoryView allProducts={allProducts} />
+            <GroupedCategoryView
+              allProducts={allProducts}
+              categories={categories}
+            />
           )}
         </div>
       </section>
@@ -226,7 +250,7 @@ function BenefitCard({
   delay = 0,
 }: {
   icon: React.ReactNode;
-  accent: string; // tailwind text color class, e.g. "text-emerald-600"
+  accent: string;
   title: React.ReactNode;
   delay?: number;
 }) {
@@ -306,7 +330,6 @@ function ShieldIcon() {
   );
 }
 
-// Apple-style up-right arrow used by the sidebar service links in the hero.
 function Arrow() {
   return (
     <svg
@@ -359,7 +382,7 @@ function FlatCategoryView({
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 auto-rows-fr">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6 auto-rows-fr">
           {products.map((p, i) => (
             <Reveal
               key={p.slug}
@@ -380,36 +403,27 @@ function FlatCategoryView({
  *  Iterates the categories in their stored displayOrder; for the
  *  parent "POS Périphériques" we also gather every child's products
  *  into one block (the header still says Périphériques, products are
- *  scoped to the whole branch). Sub-category headers appear inside
- *  the parent block to keep the buyer oriented. */
+ *  scoped to the whole branch). */
 function GroupedCategoryView({
   allProducts,
+  categories,
 }: {
   allProducts: readonly CatalogProduct[];
+  categories: readonly CatalogCategory[];
 }) {
-  const { categories } = useCatalog();
+  const tops = categories
+    .filter((c) => !c.parentSlug && c.isActive)
+    .slice()
+    .sort((a, b) => a.displayOrder - b.displayOrder);
 
-  // Top-level categories in display order, plus the "uncategorised"
-  // bucket for any product whose category was deleted mid-restructure.
-  const tops = useMemo(
-    () =>
-      categories
-        .filter((c) => !c.parentSlug && c.isActive)
-        .sort((a, b) => a.displayOrder - b.displayOrder),
-    [categories],
-  );
-
-  const productsByTop = useMemo(() => {
-    const m: Record<string, CatalogProduct[]> = {};
-    for (const top of tops) {
-      const childSlugs = categories
-        .filter((c) => c.parentSlug === top.slug)
-        .map((c) => c.slug);
-      const allowed = new Set<string>([top.slug, ...childSlugs]);
-      m[top.slug] = allProducts.filter((p) => allowed.has(p.category));
-    }
-    return m;
-  }, [allProducts, categories, tops]);
+  const productsByTop: Record<string, CatalogProduct[]> = {};
+  for (const top of tops) {
+    const childSlugs = categories
+      .filter((c) => c.parentSlug === top.slug)
+      .map((c) => c.slug);
+    const allowed = new Set<string>([top.slug, ...childSlugs]);
+    productsByTop[top.slug] = allProducts.filter((p) => allowed.has(p.category));
+  }
 
   return (
     <div className="space-y-14 md:space-y-20">
@@ -432,7 +446,7 @@ function GroupedCategoryView({
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 auto-rows-fr">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6 auto-rows-fr">
               {list.map((p, i) => (
                 <Reveal
                   key={p.slug}

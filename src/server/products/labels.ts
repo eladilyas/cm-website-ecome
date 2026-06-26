@@ -1,41 +1,24 @@
-// Product / category label helpers shared by admin pages.
+// Server-only helpers that read the live Category table.
 //
-// Status labels are static (Moroccan-French copy live in the brief).
-// Category labels are LIVE — derived from the Category table via
-// `listAllCategories()` so admin-managed renames flow through every
-// surface without redeploys.
+// The `server-only` import makes this file unusable from a `use client`
+// component: Next will refuse to compile any client module that
+// transitively imports it. Combined with the constants split in
+// `labels.constants.ts`, the boundary is enforced at build time.
+//
+// If you need PRODUCT_STATUS_LABEL / PRODUCT_STATUS_TONE / PRODUCT_STATUSES
+// from a client component, import from `labels.constants` instead.
 
-import type { ProductStatus } from "@prisma/client";
+import "server-only";
 
 import { listAllCategories } from "@/server/catalog/service";
 
-// ── Status labels ──────────────────────────────────────────────────────
-
-export const PRODUCT_STATUS_LABEL: Record<ProductStatus, string> = {
-  IN_STOCK: "En stock",
-  INCOMING: "En arrivage",
-  OUT_OF_STOCK: "Rupture",
-  DISABLED: "Désactivé",
-};
-
-export const PRODUCT_STATUS_TONE: Record<
-  ProductStatus,
-  "good" | "warn" | "bad" | "neutral"
-> = {
-  IN_STOCK: "good",
-  INCOMING: "warn",
-  OUT_OF_STOCK: "bad",
-  DISABLED: "neutral",
-};
-
-export const PRODUCT_STATUSES: ProductStatus[] = [
-  "IN_STOCK",
-  "INCOMING",
-  "OUT_OF_STOCK",
-  "DISABLED",
-];
-
-// ── Categories (live) ──────────────────────────────────────────────────
+// Re-export the pure constants for server callers that want a single
+// entry point. Server code is welcome to import from either file.
+export {
+  PRODUCT_STATUS_LABEL,
+  PRODUCT_STATUS_TONE,
+  PRODUCT_STATUSES,
+} from "./labels.constants";
 
 /** Map of `slug → label`, derived from the live Category table. Use
  *  inside server components / route handlers. */

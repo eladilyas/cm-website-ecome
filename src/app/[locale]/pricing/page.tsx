@@ -9,42 +9,24 @@
 //   6. FAQ accordion                — animated expanding rows
 //   7. Final CTA (night)            — start-trial + try-demo
 //
-// All three commitment tiers (Monthly headline + Yearly + 24 months) are
-// rendered passively on every card — no toggle interaction needed.
-// Server component apart from PricingCard / ComparisonMatrix / FaqAccordion
-// (client islands), with locale-aware copy via next-intl's server API.
+// SERVER COMPONENT. All static copy resolves via `getTranslations()`
+// at request time so the markup ships fully rendered. Interactive
+// pieces (Reveal animations, pricing card buttons, comparison matrix
+// hover state, FAQ accordion) live in narrow client islands.
 
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { SectionDivider } from "@/components/ui/SectionDivider";
-import { PricingCard } from "@/components/pricing/PricingCard";
 import { TrustStrip } from "@/components/pricing/TrustStrip";
 import { ComparisonMatrix } from "@/components/pricing/ComparisonMatrix";
 import { HardwareCallout } from "@/components/pricing/HardwareCallout";
-import { FaqAccordion, type FaqRow } from "@/components/pricing/FaqAccordion";
-import { usePlans } from "@/data/pricing";
+import { PricingPlansSection } from "@/components/pricing/PricingPlansSection";
+import { PricingFaqSection } from "@/components/pricing/PricingFaqSection";
 
-function usePricingFaqs(): FaqRow[] {
-  const t = useTranslations("pricing.faqs");
-  return [
-    { q: t("q1"), a: t("a1") },
-    { q: t("q2"), a: t("a2") },
-    { q: t("q3"), a: t("a3") },
-    { q: t("q4"), a: t("a4") },
-    { q: t("q5"), a: t("a5") },
-    { q: t("q6"), a: t("a6") },
-    { q: t("q7"), a: t("a7") },
-  ];
-}
-
-export default function PricingPage() {
-  const t = useTranslations("pricing");
-  const PLANS = usePlans();
-  const FAQS = usePricingFaqs();
+export default async function PricingPage() {
+  const t = await getTranslations("pricing");
 
   // Catalog stores the FAQ-body sentence with a <link>…</link> marker so
   // each locale can wrap the "Ask the team" link inside its natural
@@ -91,19 +73,7 @@ export default function PricingPage() {
       {/* ── PLANS — three cards with all 3 commitment tiers visible ──── */}
       <section data-scheme="light" className="relative bg-canvas">
         <div className="relative mx-auto max-w-[1280px] px-6 lg:px-10 pb-20 md:pb-28">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 items-stretch">
-            {PLANS.map((p, i) => (
-              <Reveal key={p.slug} delay={0.06 + i * 0.04} className="h-full">
-                <PricingCard plan={p} />
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal delay={0.22}>
-            <p className="mt-10 text-center text-[12.5px] text-ink-mute max-w-[44rem] mx-auto">
-              {t("plansReassure")}
-            </p>
-          </Reveal>
+          <PricingPlansSection reassureText={t("plansReassure")} />
         </div>
       </section>
 
@@ -205,7 +175,7 @@ export default function PricingPage() {
                 </p>
               </Reveal>
             </div>
-            <FaqAccordion items={FAQS} />
+            <PricingFaqSection />
           </div>
         </div>
       </section>

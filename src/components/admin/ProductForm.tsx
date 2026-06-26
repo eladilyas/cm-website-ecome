@@ -15,7 +15,7 @@ import { useRouter } from "next/navigation";
 import {
   PRODUCT_STATUS_LABEL,
   PRODUCT_STATUSES,
-} from "@/server/products/labels";
+} from "@/server/products/labels.constants";
 import type { ProductInputT } from "@/app/admin/(panel)/products/actions";
 
 /** Strip accents, collapse non-alphanumerics to single hyphens, lower-case.
