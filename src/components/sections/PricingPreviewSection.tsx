@@ -143,24 +143,20 @@ function PlanColumn({
         className={`relative p-7 md:p-8 flex flex-col border-b lg:border-b-0 ${
           !isLast ? "lg:border-r" : ""
         } border-hairline ${
-          isPro ? "bg-gradient-to-b from-[#E11D2A]/[0.035] to-transparent" : ""
+          isPro ? "bg-gradient-to-b from-canvas to-transparent" : ""
         }`}
       >
-        {/* Brand-red top rule — only on the recommended column. */}
-        {isPro && (
-          <span
-            aria-hidden
-            className="absolute inset-x-0 top-0 h-[2px] bg-[#E11D2A]"
-          />
-        )}
-
         {/* Header row — plan name + optional inline Popular tag */}
         <div className="flex items-center gap-2">
           <p className="text-[10.5px] font-medium uppercase tracking-[0.20em] text-ink-mute">
             {plan.name}
           </p>
           {isPro && (
-            <span className="inline-flex items-center h-[18px] px-1.5 rounded-[4px] bg-[#E11D2A]/10 text-[#E11D2A] text-[9.5px] font-medium uppercase tracking-[0.14em]">
+            <span className="inline-flex items-center gap-1.5 h-[18px] px-2 rounded-full bg-canvas ring-1 ring-hairline text-ink text-[9.5px] font-medium uppercase tracking-[0.14em]">
+              <span
+                aria-hidden
+                className="inline-block h-1 w-1 rounded-full bg-[#E11D2A]"
+              />
               {labels.popular}
             </span>
           )}
@@ -263,7 +259,7 @@ function PlanColumn({
           href={plan.ctaHref}
           className={`group/cta mt-6 inline-flex items-center justify-center w-full h-10 rounded-[8px] text-[13.5px] font-medium transition-all duration-300 ${
             isPro
-              ? "bg-[#E11D2A] text-white hover:bg-[#c8141f] shadow-[0_8px_20px_-8px_rgba(225,29,42,0.45)]"
+              ? "bg-[#E11D2A] text-white hover:bg-[#c8141f] shadow-[0_6px_16px_-10px_rgba(225,29,42,0.30)]"
               : "bg-ink text-paper hover:bg-ink-soft"
           }`}
           style={{ transitionTimingFunction: APPLE_EASE }}

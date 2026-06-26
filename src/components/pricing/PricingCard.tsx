@@ -37,13 +37,15 @@ export function PricingCard({ plan, compact = false }: Props) {
     <div
       className={`group relative h-full flex flex-col rounded-[18px] p-6 md:p-7 transition-all duration-500 hover:-translate-y-0.5 ${
         isRecommended
-          ? "bg-paper ring-1 ring-[#E11D2A]/40 shadow-[0_24px_60px_-30px_rgba(225,29,42,0.32),0_2px_8px_-2px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_70px_-30px_rgba(225,29,42,0.38),0_3px_10px_-2px_rgba(0,0,0,0.06)]"
+          ? "bg-paper ring-1 ring-hairline-strong shadow-[0_22px_55px_-32px_rgba(0,0,0,0.22),0_2px_8px_-2px_rgba(0,0,0,0.04)] hover:shadow-[0_28px_65px_-30px_rgba(0,0,0,0.26),0_3px_10px_-2px_rgba(0,0,0,0.06)]"
           : "bg-paper ring-1 ring-hairline hover:ring-hairline-strong hover:shadow-[0_18px_50px_-30px_rgba(0,0,0,0.18)]"
       }`}
       style={{ transitionTimingFunction: APPLE_EASE }}
     >
-      {/* Soft ambient red wash behind the Pro card — sits below content
-          via negative z-index; rounded-overflow guards the corners. */}
+      {/* Soft ambient warmth behind the Pro card — sits below content
+          via negative z-index; rounded-overflow guards the corners. Pure
+          neutral now: a faint paper-on-paper glow that lifts the card
+          without adding colour. */}
       {isRecommended && (
         <div
           aria-hidden
@@ -53,19 +55,24 @@ export function PricingCard({ plan, compact = false }: Props) {
             className="absolute inset-x-0 top-0 h-[55%]"
             style={{
               background:
-                "radial-gradient(80% 100% at 50% 0%, rgba(225,29,42,0.07) 0%, rgba(225,29,42,0.02) 60%, rgba(225,29,42,0) 100%)",
+                "radial-gradient(80% 100% at 50% 0%, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.015) 60%, rgba(0,0,0,0) 100%)",
             }}
           />
         </div>
       )}
 
-      {/* "Most popular" pill — anchored above the card edge so it reads
-          as a tag, not a label inside the card body. */}
+      {/* "Most popular" pill — anchored above the card edge. Neutral
+          chip with a single brand-red dot so the recommendation reads
+          as a precise mark, not a stamp. */}
       {isRecommended && (
         <span
-          className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center h-7 px-3 rounded-[8px] bg-[#E11D2A] text-white text-[10.5px] font-medium uppercase tracking-[0.16em]"
-          style={{ boxShadow: "0 6px 16px -6px rgba(225,29,42,0.55)" }}
+          className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-paper ring-1 ring-hairline-strong text-ink text-[10.5px] font-medium uppercase tracking-[0.16em]"
+          style={{ boxShadow: "0 6px 16px -8px rgba(0,0,0,0.18)" }}
         >
+          <span
+            aria-hidden
+            className="inline-block h-1.5 w-1.5 rounded-full bg-[#E11D2A]"
+          />
           {t("popular")}
         </span>
       )}
@@ -184,7 +191,7 @@ export function PricingCard({ plan, compact = false }: Props) {
         href={plan.ctaHref}
         className={`mt-7 inline-flex items-center justify-center w-full h-11 rounded-[10px] text-[13.5px] font-medium transition-all duration-300 ${
           isRecommended
-            ? "bg-[#E11D2A] text-white hover:bg-[#c8141f] shadow-[0_8px_24px_-6px_rgba(225,29,42,0.45)]"
+            ? "bg-[#E11D2A] text-white hover:bg-[#c8141f] shadow-[0_8px_20px_-10px_rgba(225,29,42,0.35)]"
             : "bg-ink text-paper hover:bg-ink-soft"
         }`}
         style={{ transitionTimingFunction: APPLE_EASE }}
