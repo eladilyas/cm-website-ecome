@@ -150,12 +150,37 @@ export function NavExpansion({ item, onSelect, scheme }: Props) {
   }
 
   // ─── 3 · Simple list — items only, no supplementary groups ────────
-  // Fallback for any top-level entry that doesn't warrant supplementary
-  // content. Today none of the canonical entries use this mode — all of
-  // Solutions / Support / Company now ship hybrid layouts.
+  // Long lists (≥ 7) wrap into a 2-column CSS column layout so the
+  // dropdown doesn't read as a tall sparse strip when the right side
+  // would otherwise be empty.
+  const items = item.items!;
+  const wantsTwoCols = items.length >= 7;
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[2.2fr_3fr]">
-      {renderHero(`Explore ${item.label.toLowerCase()}`, item.items!)}
+    <div className="grid grid-cols-1">
+      <div>
+        <p className={`${eyebrowClass} mb-4`}>
+          Explore {item.label.toLowerCase()}
+        </p>
+        <ul
+          className={
+            wantsTwoCols
+              ? "md:columns-2 md:gap-x-10 space-y-1 [&>li]:break-inside-avoid"
+              : "space-y-1"
+          }
+        >
+          {items.map((sub) => (
+            <li key={sub.href}>
+              <Link
+                href={sub.href}
+                onClick={onSelect}
+                className={`block text-[clamp(1.125rem,1.6vw,1.375rem)] font-medium tracking-[-0.012em] leading-[1.2] py-1 transition-opacity duration-200 ${heroItemClass}`}
+              >
+                {sub.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

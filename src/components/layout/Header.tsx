@@ -141,6 +141,14 @@ export function Header({
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  // Close every overlay on route change. Catches both in-dropdown link
+  // clicks AND top-level nav item navigation (e.g. clicking "Pricing"
+  // while the Store dropdown is open).
+  useEffect(() => {
+    setExpansion(null);
+    setMobileOpen(false);
+  }, [pathname]);
+
   // ── body scroll lock while search is open ──────────────────────────────
   useEffect(() => {
     if (expansion?.kind !== "search") return;

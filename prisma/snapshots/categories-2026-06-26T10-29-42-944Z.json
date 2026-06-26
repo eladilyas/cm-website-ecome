@@ -1,0 +1,330 @@
+{
+  "categories": [
+    {
+      "id": "0870fc9a-c732-4c3c-a5de-0f74f5b7e6f9",
+      "slug": "pos-terminals",
+      "label": "POS Terminals",
+      "description": null,
+      "heroImage": null,
+      "isActive": false,
+      "displayOrder": 10,
+      "parentId": null,
+      "createdAt": "2026-06-17T18:42:40.711Z",
+      "updatedAt": "2026-06-25T01:22:13.799Z"
+    },
+    {
+      "id": "48974d04-37bc-44ec-a3f3-7ee1624e9151",
+      "slug": "peripheriques-ecran",
+      "label": "Écran",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 10,
+      "parentId": "8e7507ba-f01f-4113-91a6-faa5d5cc8101",
+      "createdAt": "2026-06-25T01:22:10.298Z",
+      "updatedAt": "2026-06-25T01:22:10.298Z"
+    },
+    {
+      "id": "5d5dd065-3c4f-4f86-ba47-39e2c828ec30",
+      "slug": "pos-terminal",
+      "label": "POS Terminal",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 10,
+      "parentId": null,
+      "createdAt": "2026-06-25T01:22:08.033Z",
+      "updatedAt": "2026-06-25T01:22:08.033Z"
+    },
+    {
+      "id": "072c17ab-ccd7-438b-810a-ab63f3f9dae6",
+      "slug": "pos-tablette",
+      "label": "POS Tablette",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 20,
+      "parentId": null,
+      "createdAt": "2026-06-25T01:22:08.339Z",
+      "updatedAt": "2026-06-25T01:22:08.339Z"
+    },
+    {
+      "id": "a16a4f32-bbf4-4826-9c7b-9c9855a50a5a",
+      "slug": "peripheriques-scanner",
+      "label": "Scanner",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 20,
+      "parentId": "8e7507ba-f01f-4113-91a6-faa5d5cc8101",
+      "createdAt": "2026-06-25T01:22:10.489Z",
+      "updatedAt": "2026-06-25T01:22:10.489Z"
+    },
+    {
+      "id": "329d2fcc-bc65-44ab-a616-e062e37050d1",
+      "slug": "mobile-pos",
+      "label": "Mobile POS",
+      "description": null,
+      "heroImage": null,
+      "isActive": false,
+      "displayOrder": 20,
+      "parentId": null,
+      "createdAt": "2026-06-17T18:42:41.039Z",
+      "updatedAt": "2026-06-25T01:22:14.314Z"
+    },
+    {
+      "id": "40238fdf-8d1b-4c05-8c3c-0678e4bd634c",
+      "slug": "pos-portable",
+      "label": "POS Portable",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 30,
+      "parentId": null,
+      "createdAt": "2026-06-25T01:22:08.502Z",
+      "updatedAt": "2026-06-25T01:22:08.502Z"
+    },
+    {
+      "id": "35e77e8c-411e-489d-8b10-ff50de92b1fb",
+      "slug": "kiosks",
+      "label": "Self-Order Kiosks",
+      "description": null,
+      "heroImage": null,
+      "isActive": false,
+      "displayOrder": 30,
+      "parentId": null,
+      "createdAt": "2026-06-17T18:42:41.179Z",
+      "updatedAt": "2026-06-25T01:22:14.640Z"
+    },
+    {
+      "id": "c3a0e2a8-25bb-4581-9151-69a4d3e24cdb",
+      "slug": "peripheriques-imprimante",
+      "label": "Imprimante",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 30,
+      "parentId": "8e7507ba-f01f-4113-91a6-faa5d5cc8101",
+      "createdAt": "2026-06-25T01:22:10.674Z",
+      "updatedAt": "2026-06-25T01:22:10.674Z"
+    },
+    {
+      "id": "088c3deb-1c8e-446b-bd85-81f3b25b0477",
+      "slug": "peripheriques-tiroir-caisse",
+      "label": "Tiroir Caisse",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 40,
+      "parentId": "8e7507ba-f01f-4113-91a6-faa5d5cc8101",
+      "createdAt": "2026-06-25T01:22:10.882Z",
+      "updatedAt": "2026-06-25T01:22:10.882Z"
+    },
+    {
+      "id": "ada7746a-5117-4c8e-bc38-634ca7c296a5",
+      "slug": "kds",
+      "label": "Kitchen Display",
+      "description": null,
+      "heroImage": null,
+      "isActive": false,
+      "displayOrder": 40,
+      "parentId": null,
+      "createdAt": "2026-06-17T18:42:41.324Z",
+      "updatedAt": "2026-06-25T01:22:14.959Z"
+    },
+    {
+      "id": "8e7507ba-f01f-4113-91a6-faa5d5cc8101",
+      "slug": "pos-peripheriques",
+      "label": "POS Périphériques",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 40,
+      "parentId": null,
+      "createdAt": "2026-06-25T01:22:08.667Z",
+      "updatedAt": "2026-06-25T01:22:08.667Z"
+    },
+    {
+      "id": "6bc64f24-0e89-4de1-ae0e-93f8a96d966d",
+      "slug": "peripheriques-afficheur",
+      "label": "Afficheur",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 50,
+      "parentId": "8e7507ba-f01f-4113-91a6-faa5d5cc8101",
+      "createdAt": "2026-06-25T01:22:11.082Z",
+      "updatedAt": "2026-06-25T01:22:11.082Z"
+    },
+    {
+      "id": "b33aaa59-4b84-44db-9f6d-36f8f35f568b",
+      "slug": "pos-kiosk",
+      "label": "POS Kiosk",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 50,
+      "parentId": null,
+      "createdAt": "2026-06-25T01:22:08.832Z",
+      "updatedAt": "2026-06-25T01:22:08.832Z"
+    },
+    {
+      "id": "fbd10115-8d78-46ab-a428-ba3c8eaf1fa9",
+      "slug": "cash-drawers",
+      "label": "Cash Management",
+      "description": null,
+      "heroImage": null,
+      "isActive": false,
+      "displayOrder": 50,
+      "parentId": null,
+      "createdAt": "2026-06-17T18:42:41.475Z",
+      "updatedAt": "2026-06-25T01:22:15.276Z"
+    },
+    {
+      "id": "bcce8f0c-dc19-42cb-b008-c59a3703cebf",
+      "slug": "acces-presence",
+      "label": "Accès & Présence",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 60,
+      "parentId": null,
+      "createdAt": "2026-06-25T01:22:08.995Z",
+      "updatedAt": "2026-06-25T01:22:08.995Z"
+    },
+    {
+      "id": "cfce639d-4940-4d66-ad3d-c18a72c7ba8e",
+      "slug": "printers",
+      "label": "Printing",
+      "description": null,
+      "heroImage": null,
+      "isActive": false,
+      "displayOrder": 60,
+      "parentId": null,
+      "createdAt": "2026-06-17T18:42:41.627Z",
+      "updatedAt": "2026-06-25T01:22:15.628Z"
+    },
+    {
+      "id": "122126fa-2f94-4b9e-be1d-120a1a665774",
+      "slug": "peripheriques-lecteur",
+      "label": "Lecteur",
+      "description": null,
+      "heroImage": null,
+      "isActive": true,
+      "displayOrder": 60,
+      "parentId": "8e7507ba-f01f-4113-91a6-faa5d5cc8101",
+      "createdAt": "2026-06-25T01:22:11.274Z",
+      "updatedAt": "2026-06-25T01:22:11.274Z"
+    },
+    {
+      "id": "4eb5a6eb-45dc-4ce2-9bf8-37277d246bb7",
+      "slug": "scanners",
+      "label": "Scanning",
+      "description": null,
+      "heroImage": null,
+      "isActive": false,
+      "displayOrder": 70,
+      "parentId": null,
+      "createdAt": "2026-06-17T18:42:41.771Z",
+      "updatedAt": "2026-06-25T01:22:15.934Z"
+    },
+    {
+      "id": "1fc139d0-6327-4403-81d8-f6a760f47d82",
+      "slug": "paging",
+      "label": "Customer Paging",
+      "description": null,
+      "heroImage": null,
+      "isActive": false,
+      "displayOrder": 80,
+      "parentId": null,
+      "createdAt": "2026-06-17T18:42:41.933Z",
+      "updatedAt": "2026-06-25T01:22:16.237Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "4efa4847-9fe9-4733-99e0-12a9796561e0",
+      "slug": "swan-1k-gen-2",
+      "name": "Swan 1k",
+      "category": "peripheriques-ecran",
+      "displayOrder": 100
+    },
+    {
+      "id": "b1a62115-e512-45a2-b642-ff418080373b",
+      "slug": "swift-1-pro",
+      "name": "Swift 1 Pro",
+      "category": "pos-portable",
+      "displayOrder": 100
+    },
+    {
+      "id": "188baec8-0b3f-48fd-9ab1-685dc828f808",
+      "slug": "swift-2-pro",
+      "name": "Swift 2 Pro",
+      "category": "pos-portable",
+      "displayOrder": 100
+    },
+    {
+      "id": "1bdc6375-f845-4cd5-a1c2-aab530d0b477",
+      "slug": "heron-1",
+      "name": "Heron 1",
+      "category": "pos-kiosk",
+      "displayOrder": 100
+    },
+    {
+      "id": "27d8e188-b3b9-4630-a626-b0208582498c",
+      "slug": "heron-1-mini",
+      "name": "Heron 1 Mini",
+      "category": "pos-kiosk",
+      "displayOrder": 100
+    },
+    {
+      "id": "1752615a-ca87-47b3-b12e-53f1412d11e3",
+      "slug": "epson-printer",
+      "name": "Epson Printer",
+      "category": "peripheriques-imprimante",
+      "displayOrder": 100
+    },
+    {
+      "id": "47ff737b-5231-4078-ac8d-0ae3add6958a",
+      "slug": "swan-1-gen-2",
+      "name": "Swan 1",
+      "category": "pos-terminal",
+      "displayOrder": 100
+    },
+    {
+      "id": "74e066b7-7cf6-4abe-9d30-2a326de183b1",
+      "slug": "swift-2-ultra",
+      "name": "Swift 2 Ultra",
+      "category": "pos-portable",
+      "displayOrder": 100
+    },
+    {
+      "id": "d9b455b7-249a-47e5-867c-7bc835c74e70",
+      "slug": "wdlink-wd15m",
+      "name": "WDLink WD15M",
+      "category": "pos-terminal",
+      "displayOrder": 100
+    },
+    {
+      "id": "5623706e-0fcc-4bdb-87e7-d49110e0d04b",
+      "slug": "drawer",
+      "name": "Drawer",
+      "category": "peripheriques-tiroir-caisse",
+      "displayOrder": 100
+    },
+    {
+      "id": "4887ddb8-428f-470c-b9ac-1f1497da3599",
+      "slug": "2d-scanner",
+      "name": "2D Scanner",
+      "category": "peripheriques-scanner",
+      "displayOrder": 100
+    },
+    {
+      "id": "5933020b-74dc-4f34-a98f-34fde2b1228d",
+      "slug": "signature-guest-pager",
+      "name": "Signature Guest Pager",
+      "category": "peripheriques-lecteur",
+      "displayOrder": 100
+    }
+  ]
+}

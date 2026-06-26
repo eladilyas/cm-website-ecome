@@ -98,34 +98,20 @@ export function useNavMenu(): NavItem[] {
     },
 
     // ─── Store ─────────────────────────────────────────────────
-    // Hybrid layout (Apple Vision pattern) — left big-text list of
-    // the 6 top-level product families, right column unfolds the
-    // Périphériques sub-types. The grid widths used by NavExpansion's
-    // hybrid mode keep the dropdown compact and premium instead of
-    // sprawling into 6 anaemic columns.
+    // Flat 8-category taxonomy. POS first so the dropdown opens on
+    // the headline product family.
     {
       label: t("store"),
       href: "/shop",
       items: [
-        { label: "POS Terminal", href: "/shop?category=pos-terminal" },
-        { label: "POS Tablette", href: "/shop?category=pos-tablette" },
-        { label: "POS Portable", href: "/shop?category=pos-portable" },
-        { label: "POS Périphériques", href: "/shop?category=pos-peripheriques" },
-        { label: "POS Kiosk", href: "/shop?category=pos-kiosk" },
-        { label: "Accès & Présence", href: "/shop?category=acces-presence" },
-      ],
-      groups: [
-        {
-          title: "Périphériques",
-          items: [
-            { label: "Écran", href: "/shop?category=peripheriques-ecran" },
-            { label: "Scanner", href: "/shop?category=peripheriques-scanner" },
-            { label: "Imprimante", href: "/shop?category=peripheriques-imprimante" },
-            { label: "Tiroir caisse", href: "/shop?category=peripheriques-tiroir-caisse" },
-            { label: "Afficheur", href: "/shop?category=peripheriques-afficheur" },
-            { label: "Lecteur", href: "/shop?category=peripheriques-lecteur" },
-          ],
-        },
+        { label: "POS", href: "/shop?category=pos" },
+        { label: "Handheld", href: "/shop?category=handheld" },
+        { label: "Kiosk", href: "/shop?category=kiosk" },
+        { label: "Peripherals", href: "/shop?category=peripherals" },
+        { label: "Syscall", href: "/shop?category=syscall" },
+        { label: "Accessories", href: "/shop?category=accessories" },
+        { label: "Consumables", href: "/shop?category=consumables" },
+        { label: "Access & Presence", href: "/shop?category=access-presence" },
       ],
     },
 
