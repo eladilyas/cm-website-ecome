@@ -276,26 +276,36 @@ export function ProductForm({
         </Field>
       </Card>
 
-      {/* Imagery + alt */}
-      <Card title="Image" description="Hero image used on /shop cards + detail page.">
-        <div className="grid grid-cols-1 sm:grid-cols-[1fr_220px] gap-4">
-          <Field label="Hero image path" required>
+      {/* Featured image — one image per product in this version.
+          Used on every storefront surface: shop grid cards, the
+          horizontal home rail, the quick-view modal, and the product
+          detail hero. No separate "hero" / "thumbnail" / "gallery"
+          fields — this single path is the featured image everywhere. */}
+      <Card
+        title="Featured image"
+        description="One image per product. Shown on shop cards, the home rail, quick view, and the product detail page."
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-[1fr_180px] gap-4 items-start">
+          <Field label="Image path" required>
             <input
               type="text"
               value={values.heroImage}
               onChange={(e) => setField("heroImage", e.target.value)}
-              placeholder="/hardware/swan-1-gen-2.webp"
+              placeholder="/hardware/swan-1-gen-2.png"
               required
               className={inputCls}
             />
+            <p className="mt-1.5 text-[11.5px] text-ink-mute leading-[1.5]">
+              Path under <code className="font-mono text-[11px]">public/hardware/</code>. PNG with transparent background, ideally 750×750.
+            </p>
           </Field>
-          <div className="rounded-lg border border-hairline bg-canvas/60 h-[88px] flex items-center justify-center text-[11px] text-ink-mute overflow-hidden">
+          <div className="rounded-lg border border-hairline bg-canvas/60 h-[180px] w-full sm:w-[180px] flex items-center justify-center text-[11px] text-ink-mute overflow-hidden">
             {values.heroImage ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={values.heroImage}
                 alt=""
-                className="max-h-full max-w-full object-contain"
+                className="max-h-full max-w-full object-contain p-3"
               />
             ) : (
               "Preview"
@@ -311,6 +321,9 @@ export function ProductForm({
             required
             className={inputCls}
           />
+          <p className="mt-1.5 text-[11.5px] text-ink-mute leading-[1.5]">
+            Descriptive sentence for screen readers + image-search SEO. Include the model name and a key feature.
+          </p>
         </Field>
       </Card>
 
@@ -492,10 +505,10 @@ export function ProductForm({
             />
             <span>
               <span className="block text-[13px] font-medium text-ink">
-                Featured
+                Highlight on home
               </span>
               <span className="block text-[11.5px] text-ink-soft mt-0.5 leading-[1.45]">
-                Shows up in the home page rail + any &ldquo;featured products&rdquo; section.
+                Adds this product to the home page rail. Independent of the featured image — every product has a featured image regardless of this flag.
               </span>
             </span>
           </label>
