@@ -59,18 +59,20 @@ jobs:
         env:
           DATABASE_URL: postgresql://ci:ci@localhost:5432/ci?sslmode=disable
           DIRECT_DATABASE_URL: postgresql://ci:ci@localhost:5432/ci?sslmode=disable
-          BETTER_AUTH_SECRET: ci-placeholder-secret-not-used
+          # Build resolves env at module evaluation; .env.local isn't
+          # available on the runner. These placeholders satisfy the
+          # Zod schema in src/server/env.ts without touching any real
+          # service: BETTER_AUTH_SECRET needs ≥ 32 chars; RESEND_API_KEY
+          # must start with "re_".
+          BETTER_AUTH_SECRET: ci-placeholder-secret-not-used-min-32-chars
           BETTER_AUTH_URL: http://localhost:3000
           NEXT_PUBLIC_SITE_URL: http://localhost:3000
           NODE_ENV: production
-          # Build resolves env at module evaluation; .env.local isn't
-          # available on the runner. These placeholders satisfy the
-          # validated schema without touching any real service.
           R2_ACCOUNT_ID: ci
           R2_ACCESS_KEY_ID: ci
           R2_SECRET_ACCESS_KEY: ci
           R2_BUCKET: ci
-          RESEND_API_KEY: ci
+          RESEND_API_KEY: re_ci_placeholder_value
           EMAIL_FROM: ci@example.com
 
       # Schema drift detection would need a shadow Postgres service
