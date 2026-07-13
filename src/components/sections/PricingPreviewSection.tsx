@@ -46,7 +46,7 @@ export function PricingPreviewSection() {
       <div className="relative mx-auto max-w-[1240px] px-6 lg:px-10 py-12 md:py-14 lg:py-16">
         <Reveal>
           <div className="rounded-[16px] bg-paper ring-1 ring-hairline overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr_1.05fr_1fr]">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr_1fr]">
               {/* ── Column 1 — section header + cross-link ────────────── */}
               <div className="relative p-7 md:p-9 flex flex-col border-b lg:border-b-0 lg:border-r border-hairline">
                 <p className="text-[10.5px] font-medium uppercase tracking-[0.20em] text-ink-mute">
@@ -91,14 +91,11 @@ export function PricingPreviewSection() {
                   delay={0.06 + i * 0.04}
                   labels={{
                     popular: tCommon("popular"),
-                    free: tCommon("free"),
                     currency: tCommon("currency"),
-                    freeForever: tCommon("freeForever"),
                     perMonthPerCounter: tCommon("perMonthPerCounter"),
+                    perYear: tCommon("perYear"),
                     yearly: tCommon("yearly"),
                     biennial: tCommon("biennial"),
-                    save25: tCommon("save25"),
-                    save50: tCommon("save50"),
                   }}
                 />
               ))}
@@ -114,14 +111,11 @@ export function PricingPreviewSection() {
 
 type PlanColumnLabels = {
   popular: string;
-  free: string;
   currency: string;
-  freeForever: string;
   perMonthPerCounter: string;
+  perYear: string;
   yearly: string;
   biennial: string;
-  save25: string;
-  save50: string;
 };
 
 function PlanColumn({
@@ -169,47 +163,36 @@ function PlanColumn({
 
         {/* Price block */}
         <div className="mt-5">
-          {plan.isFree ? (
-            <div className="flex items-baseline">
-              <span className="text-[clamp(2rem,3.4vw,2.5rem)] font-semibold tracking-[-0.025em] leading-none text-ink">
-                {labels.free}
-              </span>
-            </div>
-          ) : (
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-[clamp(2rem,3.4vw,2.5rem)] font-semibold tracking-[-0.025em] leading-none tabular-nums text-ink">
-                {plan.prices.monthly}
-              </span>
-              <span className="text-[11.5px] font-medium uppercase tracking-[0.14em] text-ink-mute">
-                {labels.currency}
-              </span>
-            </div>
-          )}
+          <div className="flex items-baseline gap-1.5">
+            <span className="text-[clamp(2rem,3.4vw,2.5rem)] font-semibold tracking-[-0.025em] leading-none tabular-nums text-ink">
+              {plan.prices.monthly}
+            </span>
+            <span className="text-[11.5px] font-medium uppercase tracking-[0.14em] text-ink-mute">
+              MAD HT
+            </span>
+          </div>
           <p className="mt-1.5 text-[11.5px] text-ink-mute">
-            {plan.isFree ? labels.freeForever : labels.perMonthPerCounter}
+            {labels.perMonthPerCounter}
           </p>
         </div>
 
-        {/* Commitment discount tiles — passive, no toggle. Pro/Enterprise
-            only; Basic stays on its single "Free" line. */}
-        {!plan.isFree && plan.prices.yearly && plan.prices.biennial && (
-          <div className="mt-4 space-y-1.5">
-            <DiscountTile
-              label={labels.yearly}
-              save={labels.save25}
-              amount={plan.prices.yearly}
-              variant="soft"
-              density="compact"
-            />
-            <DiscountTile
-              label={labels.biennial}
-              save={labels.save50}
-              amount={plan.prices.biennial}
-              variant="bold"
-              density="compact"
-            />
-          </div>
-        )}
+        {/* Commitment tiles — dual HT/TTC. */}
+        <div className="mt-4 space-y-1.5">
+          <DiscountTile
+            label={labels.yearly}
+            amount={plan.prices.yearly}
+            totalLabel={`${(plan.prices.yearly * 12).toLocaleString("en-US")} DH / ${labels.perYear}`}
+            variant="soft"
+            density="compact"
+          />
+          <DiscountTile
+            label={labels.biennial}
+            amount={plan.prices.biennial}
+            totalLabel={`${(plan.prices.biennial * 24).toLocaleString("en-US")} DH / 24mo`}
+            variant="bold"
+            density="compact"
+          />
+        </div>
 
         {/* Feature zone — anchored to the bottom of the column via mt-auto
             so the divider line aligns across all three plans regardless of

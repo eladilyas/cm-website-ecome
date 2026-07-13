@@ -24,6 +24,7 @@ import { ComparisonMatrix } from "@/components/pricing/ComparisonMatrix";
 import { HardwareCallout } from "@/components/pricing/HardwareCallout";
 import { PricingPlansSection } from "@/components/pricing/PricingPlansSection";
 import { PricingFaqSection } from "@/components/pricing/PricingFaqSection";
+import { ModulesGrid } from "@/components/pricing/ModulesGrid";
 
 export default async function PricingPage() {
   const t = await getTranslations("pricing");
@@ -70,10 +71,17 @@ export default async function PricingPage() {
         </div>
       </section>
 
-      {/* ── PLANS — three cards with all 3 commitment tiers visible ──── */}
+      {/* ── PLANS — editorial header column + Pro + Enterprise ────── */}
       <section data-scheme="light" className="relative bg-canvas">
-        <div className="relative mx-auto max-w-[1280px] px-6 lg:px-10 pb-20 md:pb-28">
+        <div className="relative mx-auto max-w-[1280px] px-6 lg:px-10 pb-14 md:pb-20">
           <PricingPlansSection reassureText={t("plansReassure")} />
+        </div>
+      </section>
+
+      {/* ── MODULES COMPLÉMENTAIRES — five à-la-carte add-on cards ─── */}
+      <section data-scheme="light" className="bg-canvas">
+        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 pb-20 md:pb-28">
+          <ModulesGrid />
         </div>
       </section>
 

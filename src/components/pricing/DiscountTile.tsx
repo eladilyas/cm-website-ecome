@@ -1,26 +1,29 @@
-// DiscountTile — commitment tile used to surface the Yearly (Save 25%)
-// and 24-month (Save 50%) prices directly on each plan card, without a
-// billing-cycle toggle.
+// DiscountTile — commitment tile used to surface the Yearly and
+// 24-month prices directly on each plan card. Displays BOTH the HT
+// price (top row) and the TTC-equivalent per month (bottom row) so a
+// Moroccan buyer never has to compute VAT themselves.
 //
-// Visual language is a monochrome commitment ladder, not a colour wash:
-//   • soft → light canvas surface + ink text   (Yearly · medium commitment)
-//   • bold → ink surface + paper text          (24-month · deepest commitment)
+// Two variants form a monochrome commitment ladder rather than a
+// colour wash:
+//   • soft → light canvas surface + ink text   (Yearly, medium commitment)
+//   • bold → ink surface + paper text          (24-month, deepest commitment)
 //
-// The savings claim (e.g. "Save 25%") gets a tiny brand-red dot as its
-// only accent — a single point of colour per tile, so a column of two
-// tiles doesn't read as a wall of red.
+// Layout (left → right):
+//   [ eyebrow: cycle label       ]          [ amount HT  ]
+//   [ small: HT total for cycle  ]          [ TTC / mo   ]
+
+import { ttc } from "@/data/pricing";
 
 type Variant = "soft" | "bold";
 
 type Props = {
-  /** Top label, e.g. "YEARLY" or "24 MONTHS" */
+  /** Top label — "ANNUEL" or "24 MOIS" */
   label: string;
-  /** Savings copy, e.g. "Save 25%" */
-  save: string;
-  /** Monthly-equivalent amount in MAD */
+  /** Monthly-equivalent amount HT in MAD (the headline number). */
   amount: number;
+  /** Whole-period HT total (e.g. yearly = amount × 12 = 2340). */
+  totalLabel: string;
   variant: Variant;
-  /** Tighter (home preview) or default (pricing page). Default = default. */
   density?: "default" | "compact";
 };
 
@@ -30,57 +33,64 @@ function formatMad(n: number): string {
 
 export function DiscountTile({
   label,
-  save,
   amount,
+  totalLabel,
   variant,
   density = "default",
 }: Props) {
   const isBold = variant === "bold";
-  const pad = density === "compact" ? "px-3 py-2" : "px-3.5 py-2.5";
-  const priceSize = density === "compact" ? "text-[14px]" : "text-[15.5px]";
+  const pad = density === "compact" ? "px-3 py-2.5" : "px-4 py-3";
+  const amountSize =
+    density === "compact"
+      ? "text-[15px]"
+      : "text-[clamp(1.05rem,1.4vw,1.25rem)]";
+  const monthlyTtc = ttc(amount);
 
   return (
     <div
-      className={`flex items-center justify-between gap-3 rounded-[8px] ${pad} ${
+      className={`flex items-center justify-between gap-3 rounded-[10px] ${pad} ${
         isBold
           ? "bg-ink text-paper"
           : "bg-canvas text-ink ring-1 ring-hairline"
       }`}
     >
-      <div className="flex flex-col leading-tight">
+      <div className="flex flex-col leading-tight min-w-0">
         <span
-          className={`font-semibold uppercase tracking-[0.10em] ${
-            density === "compact" ? "text-[9.5px]" : "text-[10.5px]"
+          className={`font-semibold uppercase tracking-[0.11em] ${
+            density === "compact" ? "text-[10px]" : "text-[10.5px]"
           } ${isBold ? "text-paper" : "text-ink"}`}
         >
           {label}
         </span>
         <span
-          className={`mt-0.5 inline-flex items-center gap-1.5 ${
-            density === "compact" ? "text-[10px]" : "text-[10.5px]"
-          } ${isBold ? "text-paper/70" : "text-ink-mute"}`}
+          className={`mt-1 ${
+            density === "compact" ? "text-[10.5px]" : "text-[11px]"
+          } ${isBold ? "text-paper/70" : "text-ink-mute"} tabular-nums truncate`}
         >
-          <span
-            aria-hidden
-            className="inline-block h-1 w-1 rounded-full bg-[#E11D2A]"
-          />
-          {save}
+          {totalLabel}
         </span>
       </div>
-      <div className="flex flex-col items-end leading-tight">
+      <div className="flex flex-col items-end leading-tight shrink-0">
         <span
-          className={`font-semibold tabular-nums ${priceSize} ${
+          className={`font-semibold tabular-nums ${amountSize} ${
             isBold ? "text-paper" : "text-ink"
           }`}
         >
-          {formatMad(amount)} MAD
+          {formatMad(amount)}{" "}
+          <span
+            className={`text-[10px] font-medium uppercase tracking-[0.14em] ${
+              isBold ? "text-paper/70" : "text-ink-mute"
+            }`}
+          >
+            HT
+          </span>
         </span>
         <span
-          className={`mt-0.5 ${
-            density === "compact" ? "text-[9.5px]" : "text-[10px]"
-          } ${isBold ? "text-paper/60" : "text-ink-mute"}`}
+          className={`mt-1 tabular-nums ${
+            density === "compact" ? "text-[10px]" : "text-[10.5px]"
+          } ${isBold ? "text-paper/65" : "text-ink-mute"}`}
         >
-          / mo
+          {formatMad(monthlyTtc)} TTC /mo
         </span>
       </div>
     </div>

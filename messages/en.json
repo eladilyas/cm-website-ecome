@@ -345,7 +345,7 @@
     "heroSubtitle": "Start free, move to Pro when your operation calls for it. Three prices per plan: monthly, yearly (-25%), or 24-month (-50%). No commitment, no hidden fees.",
     "matrixTitle": "Compare features",
     "matrixSubtitle": "Everything included in every plan — no asterisks.",
-    "popular": "Popular",
+    "popular": "POPULAR",
     "free": "Free",
     "currency": "MAD",
     "freeForever": "Forever — no card",
@@ -407,43 +407,36 @@
       "a7": "All sales, inventory, and customer data sync over TLS to our hosted backoffice. Enterprise plans include extended retention, SSO, and a contractual uptime SLA. We process data inside the EU; Morocco-hosting on request."
     },
     "plans": {
-      "basic": {
-        "name": "Basic",
-        "tagline": "Your first POS, free forever.",
-        "description": "One counter, zero cost. Everything you need to ring your first sale.",
-        "ctaLabel": "Start free trial",
-        "highlights": {
-          "h1": "Single counter (mono post)",
-          "h2": "Chat & email support",
-          "h3": "Remote access",
-          "h4": "Data storage",
-          "h5": "API integrations"
-        }
-      },
       "pro": {
-        "name": "Pro",
-        "tagline": "POS software that runs the whole operation.",
-        "description": "Multi-station, kitchen-synced, delivery and integrations built in — one POS for sales, team, and stock.",
+        "name": "PRO",
+        "tagline": "Run the whole counter.",
+        "description": "Everything a busy till needs, priced for a single-location operator.",
         "ctaLabel": "Start free trial",
         "highlights": {
           "h1": "Multi-POS support",
-          "h2": "Chat, email & phone support",
+          "h2": "Chat, email & phone",
           "h3": "Remote access",
           "h4": "Data storage",
           "h5": "API integrations"
         }
       },
       "enterprise": {
-        "name": "Enterprise",
-        "tagline": "A POS platform shaped around your operation.",
-        "description": "Multi-store, custom integrations, dedicated rollout — a POS calibrated for networks and mission-critical operations.",
-        "ctaLabel": "Contact sales",
+        "name": "ENTERPRISE",
+        "tagline": "Built for your operation.",
+        "description": "Multi-site, backup-heavy, integration-ready. For groups running several counters.",
+        "ctaLabel": "Talk to sales",
         "highlights": {
           "h1": "Multi-POS support",
-          "h2": "Chat, email & phone support",
+          "h2": "Chat, email & phone",
           "h3": "Remote access",
           "h4": "Data storage",
           "h5": "API integrations"
+        },
+        "storage": {
+          "includedLine": "Included: daily · 30 d · 25 GB · encrypted (EU)",
+          "addonPlus": "Plus +100 · 6 h / 90 d",
+          "addonMax": "Max +220 · hourly / 1 y",
+          "overageLine": "+15 DH / GB above 25 GB"
         }
       }
     },
@@ -455,7 +448,6 @@
       "rows": {
         "counters": "Counters",
         "countersHint": "POS stations included in the plan",
-        "countersBasic": "1 counter",
         "countersPro": "Multi-counter",
         "countersEnterprise": "Multi-counter + multi-store",
         "multiSync": "Multi-POS sync",
@@ -480,6 +472,34 @@
         "hwPeripheral": "Receipt printer, drawer, scanner support",
         "hwKitchen": "Kitchen printer + KDS support",
         "hwBundles": "Custom hardware bundles"
+      }
+    },
+    "perMonth": "month",
+    "perYear": "year",
+    "per24": "24 months",
+    "plansHeaderLine1": "Plans",
+    "plansHeaderLine2": "Caisse Manager.",
+    "plansHeaderTagline": "One simple price. One counter, no limits.",
+    "plansHeaderBody": "Priced per counter, never per seat. Switch tier the moment your operation changes — pro-rated, no penalty.",
+    "plansHeaderVat": "All prices in MAD. 20% VAT applied.",
+    "addonsEyebrow": "ADD-ON MODULES",
+    "addonsTitle": "Layer on the tools your team runs on.",
+    "addonsBody": "À-la-carte modules, priced per counter per month. Mix and match onto Pro or Enterprise — same commitment ladder as your plan.",
+    "addons": {
+      "kds": {
+        "name": "KDS subscription"
+      },
+      "mobilePos": {
+        "name": "Mobile POS"
+      },
+      "kiosk": {
+        "name": "Self-order kiosk"
+      },
+      "inventory": {
+        "name": "Inventory"
+      },
+      "webApp": {
+        "name": "Web app"
       }
     }
   },

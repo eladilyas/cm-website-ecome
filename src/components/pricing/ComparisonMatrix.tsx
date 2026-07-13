@@ -12,7 +12,7 @@ import { useTranslations } from "next-intl";
 import { BrandCheck } from "@/components/ui/BrandCheck";
 import { usePlans, useComparison, type MatrixCell } from "@/data/pricing";
 
-const PLAN_SLUGS = ["basic", "pro", "enterprise"] as const;
+const PLAN_SLUGS = ["pro", "enterprise"] as const;
 
 function Cell({ value, recommended }: { value: MatrixCell; recommended?: boolean }) {
   if (typeof value === "boolean") {
@@ -51,7 +51,7 @@ export function ComparisonMatrix() {
           {/* Plan header row — empty first cell on the desktop matrix lets
               the feature labels sit underneath without a "Compare" caption
               competing with the section eyebrow above. */}
-          <div className="grid grid-cols-[1.4fr_1fr_1fr_1fr] gap-x-8 px-8 lg:px-10 py-7 border-b border-hairline">
+          <div className="grid grid-cols-[1.6fr_1fr_1fr] gap-x-8 px-8 lg:px-10 py-7 border-b border-hairline">
             <span aria-hidden />
             {PLANS.map((p) => (
               <div
@@ -71,16 +71,10 @@ export function ComparisonMatrix() {
                   )}
                 </div>
                 <p className="text-[17px] font-semibold tracking-[-0.018em] text-ink">
-                  {p.isFree ? (
-                    t("free")
-                  ) : (
-                    <>
-                      <span className="tabular-nums">{p.prices.yearly}</span>{" "}
-                      <span className="text-[12px] font-medium uppercase tracking-[0.12em] text-ink-mute">
-                        {t("currency")} / {t("perMonthPerCounter").replace(/^\/\s*/, "").split(" ")[0]}
-                      </span>
-                    </>
-                  )}
+                  <span className="tabular-nums">{p.prices.monthly}</span>{" "}
+                  <span className="text-[12px] font-medium uppercase tracking-[0.12em] text-ink-mute">
+                    MAD HT
+                  </span>
                 </p>
               </div>
             ))}
@@ -91,7 +85,7 @@ export function ComparisonMatrix() {
             <div key={group.title}>
               {/* Group header */}
               <div
-                className={`grid grid-cols-[1.4fr_1fr_1fr_1fr] gap-x-8 px-8 lg:px-10 py-4 bg-canvas/60 ${
+                className={`grid grid-cols-[1.6fr_1fr_1fr] gap-x-8 px-8 lg:px-10 py-4 bg-canvas/60 ${
                   gi > 0 ? "border-t border-hairline" : ""
                 }`}
               >
@@ -100,12 +94,11 @@ export function ComparisonMatrix() {
                 </p>
                 <span aria-hidden />
                 <span aria-hidden />
-                <span aria-hidden />
               </div>
               {group.rows.map((row) => (
                 <div
                   key={row.label}
-                  className="grid grid-cols-[1.4fr_1fr_1fr_1fr] gap-x-8 px-8 lg:px-10 py-4 border-t border-hairline items-start hover:bg-canvas/40 transition-colors duration-200"
+                  className="grid grid-cols-[1.6fr_1fr_1fr] gap-x-8 px-8 lg:px-10 py-4 border-t border-hairline items-start hover:bg-canvas/40 transition-colors duration-200"
                 >
                   <div>
                     <p className="text-[14.5px] font-medium tracking-[-0.005em] text-ink">
@@ -147,7 +140,7 @@ export function ComparisonMatrix() {
                 {p.name}
               </p>
               <p className="text-[14px] font-semibold text-ink">
-                {p.isFree ? t("free") : `${p.prices.yearly} ${t("currency")}/mo`}
+                {p.prices.monthly} MAD HT/mo
               </p>
             </div>
 

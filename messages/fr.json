@@ -345,11 +345,11 @@
     "heroSubtitle": "Démarrez gratuitement, passez en Pro quand votre activité l'exige. Trois prix par plan : mensuel, annuel (-25 %) ou 24 mois (-50 %). Pas d'engagement, pas de frais cachés.",
     "matrixTitle": "Comparez les fonctionnalités",
     "matrixSubtitle": "Tout ce qui est inclus dans chaque plan, sans note de bas de page.",
-    "popular": "Populaire",
+    "popular": "POPULAIRE",
     "free": "Gratuit",
     "currency": "MAD",
     "freeForever": "Pour toujours — sans carte",
-    "perMonthPerCounter": "/ mois par caisse",
+    "perMonthPerCounter": "/ mois par comptoir",
     "yearly": "Annuel",
     "biennial": "24 mois",
     "save25": "Économisez 25 %",
@@ -407,43 +407,36 @@
       "a7": "Toutes les ventes, le stock et les données client sont synchronisés en TLS vers notre back-office hébergé. Les plans Enterprise incluent une rétention étendue, le SSO et un SLA de disponibilité contractuel. Hébergement UE par défaut ; hébergement Maroc sur demande."
     },
     "plans": {
-      "basic": {
-        "name": "Basic",
-        "tagline": "Votre premier logiciel de caisse, gratuitement.",
-        "description": "Une caisse, zéro coût. Tout le nécessaire pour encaisser votre première vente.",
-        "ctaLabel": "Démarrer l'essai gratuit",
-        "highlights": {
-          "h1": "Caisse unique (mono-poste)",
-          "h2": "Assistance chat & email",
-          "h3": "Accès à distance",
-          "h4": "Stockage des données",
-          "h5": "Intégrations API"
-        }
-      },
       "pro": {
-        "name": "Pro",
-        "tagline": "Le logiciel de caisse qui pilote toute l'exploitation.",
-        "description": "Multi-postes, cuisine synchronisée, livraisons et intégrations natives — un seul logiciel pour piloter ventes, équipe et stock.",
-        "ctaLabel": "Démarrer l'essai gratuit",
+        "name": "PRO",
+        "tagline": "Gérez tout le comptoir.",
+        "description": "Tout ce dont un comptoir actif a besoin, tarifé pour un exploitant mono-site.",
+        "ctaLabel": "Essai gratuit",
         "highlights": {
-          "h1": "Multi-caisses",
-          "h2": "Assistance chat, email & téléphone",
-          "h3": "Accès à distance",
-          "h4": "Stockage des données",
+          "h1": "Multi-POS support",
+          "h2": "Chat, email & téléphone",
+          "h3": "Accès distant",
+          "h4": "Stockage données",
           "h5": "Intégrations API"
         }
       },
       "enterprise": {
-        "name": "Enterprise",
-        "tagline": "Une plateforme de caisse modelée sur votre activité.",
-        "description": "Multi-magasins, intégrations sur mesure, déploiement dédié — un logiciel de caisse calibré pour les réseaux et les opérations critiques.",
-        "ctaLabel": "Contacter le commercial",
+        "name": "ENTREPRISE",
+        "tagline": "Bâti pour votre opération.",
+        "description": "Multi-site, sauvegardes lourdes, intégrations. Pour les groupes qui exploitent plusieurs comptoirs.",
+        "ctaLabel": "Contacter les ventes",
         "highlights": {
-          "h1": "Multi-caisses",
-          "h2": "Assistance chat, email & téléphone",
-          "h3": "Accès à distance",
-          "h4": "Stockage des données",
+          "h1": "Multi-POS support",
+          "h2": "Chat, email & téléphone",
+          "h3": "Accès distant",
+          "h4": "Stockage données",
           "h5": "Intégrations API"
+        },
+        "storage": {
+          "includedLine": "Inclus : quotidienne · 30 j · 25 GB · chiffrée (UE)",
+          "addonPlus": "Plus +100 · 6 h / 90 j",
+          "addonMax": "Max +220 · horaire / 1 an",
+          "overageLine": "+15 DH / GB au-delà de 25 GB"
         }
       }
     },
@@ -455,7 +448,6 @@
       "rows": {
         "counters": "Caisses",
         "countersHint": "Postes POS inclus dans le plan",
-        "countersBasic": "1 caisse",
         "countersPro": "Multi-caisses",
         "countersEnterprise": "Multi-caisses + multi-magasins",
         "multiSync": "Synchronisation multi-POS",
@@ -480,6 +472,34 @@
         "hwPeripheral": "Compatibilité imprimante reçu, tiroir, scanner",
         "hwKitchen": "Compatibilité imprimante cuisine + KDS",
         "hwBundles": "Packs matériel sur mesure"
+      }
+    },
+    "perMonth": "mois",
+    "perYear": "an",
+    "per24": "24 mois",
+    "plansHeaderLine1": "Plans",
+    "plansHeaderLine2": "Caisse Manager.",
+    "plansHeaderTagline": "Un prix simple, une caisse sans limite.",
+    "plansHeaderBody": "Par comptoir, jamais par siège. Changez de tier à tout moment — pro-ratisé, sans pénalité.",
+    "plansHeaderVat": "Tous les prix en MAD. TVA 20% appliquée.",
+    "addonsEyebrow": "MODULES COMPLÉMENTAIRES",
+    "addonsTitle": "Ajoutez les outils dont votre équipe a besoin.",
+    "addonsBody": "Modules à la carte, tarifés par comptoir par mois. Combinez-les à Pro ou Entreprise — même échelle d'engagement que votre plan.",
+    "addons": {
+      "kds": {
+        "name": "Abonnement KDS"
+      },
+      "mobilePos": {
+        "name": "Caisse Mobile"
+      },
+      "kiosk": {
+        "name": "Borne"
+      },
+      "inventory": {
+        "name": "Gestion de Stock"
+      },
+      "webApp": {
+        "name": "Application Web"
       }
     }
   },
