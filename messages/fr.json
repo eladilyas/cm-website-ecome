@@ -346,7 +346,8 @@
         "pin": "PIN"
       },
       "fullDemoCta": "Ouvrir la démo complète",
-      "iframeTitle": "Caisse Manager POS — démo boulangerie en direct"
+      "iframeTitle": "Caisse Manager POS — démo boulangerie en direct",
+      "openInTab": "Ouvrir dans un nouvel onglet"
     }
   },
   "pricing": {
@@ -374,8 +375,8 @@
     "faqBody": "Vous ne trouvez pas votre question ? <link>Écrivez-nous</link> — nous répondons généralement dans l'heure aux horaires d'ouverture.",
     "metaTitle2": "Tarifs — Caisse Manager",
     "heroEyebrow": "Tarifs",
-    "heroHeadline": "Une tarification adaptée à votre façon d'opérer.",
-    "heroBody": "Par caisse, jamais par utilisateur. Démarrez gratuitement sur une seule caisse, évoluez vers le multi-magasins avec intégrations sur mesure — et changez de palier dès que votre activité l'exige.",
+    "heroHeadline": "Une tarification pensée pour votre façon de travailler.",
+    "heroBody": "Facturé par caisse, jamais par poste. Une caisse ou dix, le prix suit votre activité — pas l'inverse. Changez de palier dès que votre exploitation évolue, sans jamais payer pour ce que vous n'utilisez pas.",
     "plansReassure": "Tous les prix en MAD, hors taxe. Tarif par caisse, calculé au prorata à l'ajout ou au retrait d'un poste. Le matériel est vendu séparément ; financement Wafasalaf disponible.",
     "hardware": {
       "eyebrow": "Matériel",
@@ -421,12 +422,12 @@
     "plans": {
       "pro": {
         "name": "PRO",
-        "tagline": "Gérez tout la caisse.",
-        "description": "Tout ce dont une caisse active a besoin, tarifé pour un exploitant mono-site.",
+        "tagline": "Faites tourner toute la caisse.",
+        "description": "Idéal pour un restaurant simple, une seule caisse.",
         "ctaLabel": "Essai gratuit",
         "highlights": {
           "h1": "Multi-POS support",
-          "h2": "Chat, email & téléphone",
+          "h2": "Chat, email et téléphone, 7j/7",
           "h3": "Accès distant",
           "h4": "Stockage données",
           "h5": "Intégrations API"
@@ -434,12 +435,12 @@
       },
       "enterprise": {
         "name": "ENTREPRISE",
-        "tagline": "Bâti pour votre opération.",
-        "description": "Multi-site, sauvegardes lourdes, intégrations. Pour les groupes qui exploitent plusieurs caisses.",
+        "tagline": "Conçu pour votre exploitation.",
+        "description": "Idéal pour les franchises et le multi-boutique.",
         "ctaLabel": "Contacter les ventes",
         "highlights": {
           "h1": "Multi-POS support",
-          "h2": "Chat, email & téléphone",
+          "h2": "Chat, email et téléphone, 7j/7",
           "h3": "Accès distant",
           "h4": "Stockage données",
           "h5": "Intégrations API"
@@ -505,15 +506,35 @@
         "name": "Caisse Mobile"
       },
       "kiosk": {
-        "name": "Borne"
+        "name": "Kiosque libre-service"
       },
       "inventory": {
-        "name": "Gestion de Stock"
+        "name": "Inventaire"
       },
       "webApp": {
         "name": "Application Web"
       }
-    }
+    },
+    "whyEyebrow": "Pourquoi les équipes nous choisissent",
+    "whyTitle": "Une plateforme premium. Sans la lourdeur d'une grande entreprise.",
+    "whyItems": [
+      {
+        "title": "Installation incluse",
+        "body": "Import du menu, appairage du matériel et session guidée — généralement opérationnel en moins d'une heure."
+      },
+      {
+        "title": "Annulez à tout moment",
+        "body": "Les offres sont sans engagement, au mois. Les engagements annuels ou 24 mois débloquent des réductions, jamais un enfermement."
+      },
+      {
+        "title": "Matériel agnostique",
+        "body": "Fonctionne sur tout terminal POS Android que nous livrons — et sur la plupart des terminaux tiers. Combinez avec la caisse que vous avez déjà."
+      },
+      {
+        "title": "Équipe locale au Maroc",
+        "body": "Installation, réparations et support gérés localement. Visites le jour même à Casablanca, Rabat et Marrakech."
+      }
+    ]
   },
   "shop": {
     "eyebrow": "Matériel",

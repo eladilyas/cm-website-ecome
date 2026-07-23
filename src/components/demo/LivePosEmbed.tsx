@@ -176,12 +176,27 @@ export function LivePosEmbed() {
                 }
                 className="absolute inset-0 w-full h-full border-0"
                 loading="lazy"
-                referrerPolicy="no-referrer"
+                allow="clipboard-write; fullscreen"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2, ease: APPLE_EASE }}
               />
+              {/* Fallback link — if the iframe doesn't render (some
+                  browsers block third-party cookies which the POS SPA
+                  needs to bootstrap), the visitor gets an obvious way
+                  out to a real tab where cookies aren't sandboxed. */}
+              <a
+                href={target.url}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="absolute top-3 right-3 z-10 inline-flex items-center gap-1.5 h-8 px-3 rounded-full bg-paper/95 text-ink text-[11.5px] font-medium ring-1 ring-hairline hover:bg-paper hover:shadow-[0_8px_20px_-8px_rgba(0,0,0,0.25)] transition-shadow"
+              >
+                {t("openFullscreen")}
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden>
+                  <path d="M4 8l4-4M4.5 4H8v3.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
             </AnimatePresence>
           </div>
         </div>

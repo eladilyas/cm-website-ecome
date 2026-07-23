@@ -88,8 +88,19 @@ export function LivePosPreviewSection() {
                 title={t("iframeTitle")}
                 className="absolute inset-0 w-full h-full border-0"
                 loading="lazy"
-                referrerPolicy="no-referrer"
+                allow="clipboard-write; fullscreen"
               />
+              <a
+                href={POS_URL}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="absolute top-3 right-3 z-10 inline-flex items-center gap-1.5 h-8 px-3 rounded-full bg-paper/95 text-ink text-[11.5px] font-medium ring-1 ring-hairline hover:bg-paper hover:shadow-[0_8px_20px_-8px_rgba(0,0,0,0.25)] transition-shadow"
+              >
+                {t("openInTab")}
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden>
+                  <path d="M4 8l4-4M4.5 4H8v3.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
             </div>
           </div>
         </Reveal>

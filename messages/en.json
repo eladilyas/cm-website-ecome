@@ -346,7 +346,8 @@
         "pin": "PIN"
       },
       "fullDemoCta": "Open full demo",
-      "iframeTitle": "Caisse Manager POS — live bakery demo"
+      "iframeTitle": "Caisse Manager POS — live bakery demo",
+      "openInTab": "Open in a new tab"
     }
   },
   "pricing": {
@@ -374,8 +375,8 @@
     "faqBody": "Can't see your question? <link>Ask the team</link> — we typically reply within an hour during business hours.",
     "metaTitle2": "Pricing — Caisse Manager",
     "heroEyebrow": "Pricing",
-    "heroHeadline": "Pricing built for the way you operate.",
-    "heroBody": "Per counter, never per seat. Start free on a single till, scale to multi-store with custom integrations — and switch tier the moment your operation does.",
+    "heroHeadline": "Pricing built around how you work.",
+    "heroBody": "Billed per register, never per seat. One counter or ten, the price follows your business — not the other way around. Move tiers the moment your operation shifts, and never pay for what you don't use.",
     "plansReassure": "All prices in MAD, excluding VAT. Priced per counter, pro-rated when you add or remove a station. Hardware sold separately; Wafasalaf financing available.",
     "hardware": {
       "eyebrow": "Hardware",
@@ -422,11 +423,11 @@
       "pro": {
         "name": "PRO",
         "tagline": "Run the whole counter.",
-        "description": "Everything a busy till needs, priced for a single-location operator.",
+        "description": "Ideal for a single-counter restaurant.",
         "ctaLabel": "Start free trial",
         "highlights": {
           "h1": "Multi-POS support",
-          "h2": "Chat, email & phone",
+          "h2": "Chat, email & phone, 7 days a week",
           "h3": "Remote access",
           "h4": "Data storage",
           "h5": "API integrations"
@@ -435,11 +436,11 @@
       "enterprise": {
         "name": "ENTERPRISE",
         "tagline": "Built for your operation.",
-        "description": "Multi-site, backup-heavy, integration-ready. For groups running several counters.",
+        "description": "Built for franchises and multi-store operators.",
         "ctaLabel": "Talk to sales",
         "highlights": {
           "h1": "Multi-POS support",
-          "h2": "Chat, email & phone",
+          "h2": "Chat, email & phone, 7 days a week",
           "h3": "Remote access",
           "h4": "Data storage",
           "h5": "API integrations"
@@ -513,7 +514,27 @@
       "webApp": {
         "name": "Web app"
       }
-    }
+    },
+    "whyEyebrow": "Why teams pick us",
+    "whyTitle": "A premium platform. Without the enterprise drag.",
+    "whyItems": [
+      {
+        "title": "Installation included",
+        "body": "Menu import, hardware pairing, and a guided session — usually operational in under an hour."
+      },
+      {
+        "title": "Cancel anytime",
+        "body": "Monthly plans are no-commitment. Annual and 24-month commitments unlock discounts, never a lock-in."
+      },
+      {
+        "title": "Hardware-agnostic",
+        "body": "Works on every Android POS terminal we ship — and on most third-party terminals. Combine with the register you already have."
+      },
+      {
+        "title": "Local team in Morocco",
+        "body": "Install, repair, and support handled locally. Same-day visits in Casablanca, Rabat, and Marrakech."
+      }
+    ]
   },
   "shop": {
     "eyebrow": "Hardware",
