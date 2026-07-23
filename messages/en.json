@@ -1910,6 +1910,40 @@
         "title": "Recent activity",
         "empty": "Activity appears here as orders, stock changes, and kitchen events happen."
       }
+    },
+    "live": {
+      "metaTitle": "Try Caisse Manager live — bakery demo",
+      "metaDescription": "Hands-on with the real Bakery-demo tenant. POS + back-office, sign in with the demo credentials on the left.",
+      "eyebrow": "LIVE DEMO",
+      "title": "Try the real Caisse Manager, right here.",
+      "body": "The exact software our merchants run — Bakery tenant, fully wired. Sign in with the credentials on the left, ring an order in the POS, watch it land in the back-office.",
+      "tabsLabel": "Choose a surface",
+      "tabPos": "POS",
+      "tabPosHint": "Till + kitchen",
+      "tabBackoffice": "Back-office",
+      "tabBackofficeHint": "Reports + admin",
+      "credentialsEyebrow": "Sign in",
+      "credentialsTitle": "Demo credentials",
+      "credentialsBody": "Click a value to copy, then paste it into the app on the right.",
+      "fields": {
+        "user": "User",
+        "pin": "PIN",
+        "email": "Email",
+        "password": "Password"
+      },
+      "copy": "Copy",
+      "copied": "Copied",
+      "stepGuide": "Type or paste each credential into the matching field inside the demo.",
+      "openFullscreen": "Open in a new tab",
+      "iframeTitlePos": "Caisse Manager POS — live bakery demo",
+      "iframeTitleBackoffice": "Caisse Manager Back-office — live bakery demo",
+      "mobileHint": "The live POS is designed for tablet + desktop displays. On mobile, tap 'Open in a new tab' for a proper experience."
+    },
+    "livePromo": {
+      "eyebrow": "New — try the real app",
+      "title": "Or run the actual Bakery tenant.",
+      "body": "Sign into the live POS + back-office with our shared demo credentials — the exact software our customers run every day.",
+      "cta": "Open live demo"
     }
   },
   "demoLanding": {

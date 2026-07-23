@@ -1910,6 +1910,40 @@
         "title": "Activité récente",
         "empty": "L'activité apparaît ici dès qu'une commande, un ajustement de stock ou un événement cuisine survient."
       }
+    },
+    "live": {
+      "metaTitle": "Essayer Caisse Manager en direct — démo boulangerie",
+      "metaDescription": "Testez le vrai tenant démo Boulangerie. POS + back-office, connectez-vous avec les identifiants affichés à gauche.",
+      "eyebrow": "DÉMO LIVE",
+      "title": "Testez le vrai Caisse Manager, ici même.",
+      "body": "Exactement le logiciel utilisé par nos marchands — tenant Boulangerie, entièrement câblé. Connectez-vous avec les identifiants à gauche, passez une commande dans le POS, retrouvez-la dans le back-office.",
+      "tabsLabel": "Choisir une surface",
+      "tabPos": "POS",
+      "tabPosHint": "Caisse + cuisine",
+      "tabBackoffice": "Back-office",
+      "tabBackofficeHint": "Rapports + admin",
+      "credentialsEyebrow": "Connexion",
+      "credentialsTitle": "Identifiants de démo",
+      "credentialsBody": "Cliquez pour copier une valeur, puis collez-la dans l'application à droite.",
+      "fields": {
+        "user": "Utilisateur",
+        "pin": "PIN",
+        "email": "E-mail",
+        "password": "Mot de passe"
+      },
+      "copy": "Copier",
+      "copied": "Copié",
+      "stepGuide": "Saisissez ou collez chaque identifiant dans le champ correspondant dans la démo.",
+      "openFullscreen": "Ouvrir dans un nouvel onglet",
+      "iframeTitlePos": "Caisse Manager POS — démo boulangerie en direct",
+      "iframeTitleBackoffice": "Caisse Manager Back-office — démo boulangerie en direct",
+      "mobileHint": "Le POS en direct est conçu pour les tablettes et les écrans desktop. Sur mobile, appuyez sur « Ouvrir dans un nouvel onglet » pour une meilleure expérience."
+    },
+    "livePromo": {
+      "eyebrow": "Nouveau — tester l'app réelle",
+      "title": "Ou explorez le tenant Boulangerie réel.",
+      "body": "Connectez-vous au POS + back-office en direct avec nos identifiants de démo — exactement le logiciel utilisé chaque jour par nos clients.",
+      "cta": "Ouvrir la démo live"
     }
   },
   "demoLanding": {
