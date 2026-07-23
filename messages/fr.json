@@ -717,21 +717,97 @@
       "scaling": "Rejoignez les enseignes fast-food qui synchronisent déjà caisse, cuisine et livraison sur Caisse Manager. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration ciblée sur votre volume et vos partenaires de livraison."
     },
     "dine-in": {
-      "eyebrow": "Hôtellerie & restauration",
-      "title": "Restaurants",
-      "standfirst": "Service rapide, salle pleine. Prenez les commandes, envoyez-les en cuisine, encaissez — sans jamais quitter la salle.",
+      "eyebrow": "Secteur · Restaurants",
+      "title": "Un restaurant se pilote table par table, pas ticket par ticket.",
+      "standfirst": "Le service sur place a ses propres règles : suivre l'état de chaque table, envoyer les plats à la cuisine dans le bon ordre, gérer des additions qui se partagent rarement à parts égales. Un système pensé pour la vente rapide à la caisse ne suffit pas — il faut penser en salle, pas seulement en caisse.",
       "workflow": [
-        "Ouvrez les commandes par table, modifiez à la volée, divisez ou fusionnez les additions en un toucher.",
-        "Envoi en cuisine instantané — plus de cris à travers le passe, plus de tickets perdus.",
-        "Encaissez à table, au tiroir, ou au terminal — même flux de travail."
+        {
+          "pain": "Partager l'addition ralentit la table suivante",
+          "solutionTitle": "Partage d'addition en un geste, quelle que soit la méthode",
+          "solutionBody": "L'addition se divise en un geste, par personne, par plat ou en parts égales, selon ce que demandent les clients. Le paiement se fait sans recalcul manuel."
+        },
+        {
+          "pain": "Les plats arrivent en décalage avec la cuisine",
+          "solutionTitle": "Tickets par plat déclenchés sur leur propre minuterie",
+          "solutionBody": "Chaque plat déclenche son propre ticket de cuisine, au bon moment du service. La cuisine prépare dans l'ordre attendu par la salle, pas dans l'ordre où les tickets tombent."
+        },
+        {
+          "pain": "L'état des tables est une supposition depuis l'autre bout de la salle",
+          "solutionTitle": "Plan de salle en direct, table par table",
+          "solutionBody": "Un plan de salle affiche en temps réel l'état de chaque table — en cours de commande, en attente de plat, prête pour l'addition, libre. Le personnel sait où intervenir sans faire le tour de la salle."
+        },
+        {
+          "pain": "Un imprévu interrompt une table en plein service",
+          "solutionTitle": "L'addition reste ouverte, une nouvelle table démarre sur un autre onglet",
+          "solutionBody": "L'addition de la table concernée reste ouverte sur son propre onglet, sans bloquer le reste du service. Le personnel peut continuer à servir les autres tables normalement."
+        },
+        {
+          "pain": "Le tiroir-caisse s'ouvre à la main à chaque paiement",
+          "solutionTitle": "Le tiroir-caisse s'ouvre automatiquement après validation de l'encaissement",
+          "solutionBody": "Dès que le paiement est validé, le tiroir s'ouvre automatiquement, sans étape supplémentaire pour le personnel de salle."
+        }
       ],
+      "ecosystemIntro": "Des établissements réels, dans votre secteur, qui font tourner leur activité sur Caisse Manager.",
       "ecosystem": [
-        "Le KDS répartit par poste avec une urgence en code couleur.",
-        "L'afficheur client montre la commande en direct pendant que l'équipe la passe.",
-        "Le terminal de paiement se docke à la caisse pour le sans-contact.",
-        "Les commandes en ligne et le menu QR alimentent la même file cuisine."
+        {
+          "name": "Panda Sushi",
+          "tag": "Restaurant · Sur place",
+          "body": "La rotation des tables dépend du timing. Panda Sushi utilise un plan de salle en direct, des tickets de cuisine envoyés plat par plat, et un partage d'addition en un geste, sans faire attendre la table suivante."
+        },
+        {
+          "name": "75 Flavours",
+          "tag": "Café-restaurant",
+          "body": "Un café-restaurant qui sert du petit-déjeuner au dîner tardif. 75 Flavours garde un plan de salle en direct et partage l'addition en un geste, sans ralentir la table suivante."
+        },
+        {
+          "name": "L'Artisan",
+          "tag": "Boucherie · Épicerie fine · Restaurant",
+          "body": "Boucherie, volaille et épicerie fine d'un côté, restaurant au feu de bois de l'autre, sous le même toit. L'Artisan encaisse un produit de l'épicerie et passe une commande au restaurant sur le même ticket, en même temps, sans jongler entre deux caisses."
+        },
+        {
+          "name": "Elbayt Eldimashki"
+        },
+        {
+          "name": "La Grande Tente"
+        },
+        {
+          "name": "Turkish Steak House"
+        },
+        {
+          "name": "Saraya"
+        },
+        {
+          "name": "Restaurant Moma"
+        },
+        {
+          "name": "HY Sushi"
+        },
+        {
+          "name": "Zanmai"
+        },
+        {
+          "name": "Restaurant Abwab Elmansour"
+        },
+        {
+          "name": "Restaurant Seafood"
+        },
+        {
+          "name": "Ait Bougumaz"
+        },
+        {
+          "name": "Venchi"
+        },
+        {
+          "name": "Food Yard"
+        }
       ],
-      "scaling": "Un restaurant ou quarante — le back-office consolide chiffre d'affaires, stock et heures du personnel de chaque caisse dans une seule console."
+      "goDeeper": {
+        "title": "Boutons d'appel",
+        "body": "Des boutons d'appel élégants sur chaque table — le client demande le service ou l'addition d'un simple geste, sans lever la main ni crier à travers la salle, et le serveur est notifié directement, où qu'il soit.",
+        "ctaLabel": "Voir les tarifs →",
+        "ctaHref": "/pricing"
+      },
+      "scaling": "Rejoignez les restaurants qui pilotent déjà leur salle table par table sur Caisse Manager. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration adaptée à votre carte et votre volume."
     },
     "bakery": {
       "eyebrow": "Secteur · Boulangerie",
@@ -788,52 +864,155 @@
       "scaling": "Rejoignez les boulangeries qui ont déjà rendu leur four rentable. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration adaptée à votre production et votre catalogue."
     },
     "beauty": {
-      "eyebrow": "Sur rendez-vous",
-      "title": "Beauté & services",
-      "standfirst": "Réservations, équipe et caisse — une seule application. Du walk-in au rendez-vous fixe.",
+      "eyebrow": "Secteur · Salons de beauté",
+      "title": "Un fauteuil vide coûte plus cher qu'un rendez-vous manqué.",
+      "standfirst": "Dans un salon de beauté, le planning est la vraie caisse enregistreuse : chaque rendez-vous manqué, chaque commission mal calculée, chaque minute perdue à l'encaissement se répercute sur la journée. L'écosystème est pensé pour que la gestion administrative ne prenne jamais le pas sur le temps passé avec la clientèle.",
       "workflow": [
-        "Vue calendrier par membre d'équipe avec re-planification par glisser-déposer.",
-        "Ajoutez des prestations à un rendez-vous actif ; encaissez à la caisse en fin de séance.",
-        "Historique client attaché à chaque visite."
+        {
+          "pain": "Une vente de produit semble impossible sans prestation associée",
+          "solutionTitle": "Un produit peut être rattaché au profil de la cliente, même sans prestation",
+          "solutionBody": "Une vente de produit se rattache au profil de la cliente en quelques secondes, qu'il y ait ou non une prestation associée."
+        },
+        {
+          "pain": "La commission se suit sur un tableur",
+          "solutionTitle": "Répartition automatique calculée par prestation",
+          "solutionBody": "Chaque prestation encaissée calcule automatiquement la part qui revient au professionnel qui l'a réalisée. Plus de tableur à tenir à jour, ni de désaccord sur le calcul."
+        },
+        {
+          "pain": "Il faut resaisir séparément le service et le produit à l'encaissement",
+          "solutionTitle": "La prestation est sélectionnée en fin de rendez-vous, le produit ajouté à la douchette, total unique et exact",
+          "solutionBody": "La prestation réalisée est sélectionnée à la fin du rendez-vous, et si la cliente souhaite un produit, celui-ci est simplement scanné à la douchette et ajouté à la même addition. Un seul total, sans ressaisie."
+        },
+        {
+          "pain": "Un imprévu oblige à interrompre une prestation en cours",
+          "solutionTitle": "Mise en attente de la prestation le jour même, le temps de s'occuper d'un autre client",
+          "solutionBody": "La prestation en cours peut être mise en attente le temps de s'occuper d'un imprévu, puis reprise exactement où elle en était, le même jour, sans perdre le fil de l'addition."
+        }
       ],
+      "ecosystemIntro": "Des établissements réels, dans votre secteur, qui font tourner leur activité sur Caisse Manager.",
       "ecosystem": [
-        "L'application mobile transforme n'importe quel téléphone en terminal de réservation.",
-        "L'afficheur client présente les prestations choisies et le total.",
-        "Le module stock pour les produits revente accompagne les prestations."
+        {
+          "name": "Hammam Almaz"
+        },
+        {
+          "name": "Soly Beauty"
+        }
       ],
-      "scaling": "D'un salon unique à un groupe franchisé — plannings, commissions et stock tout centralisé."
+      "goDeeper": {
+        "title": "Swan 2",
+        "body": "Le terminal Swan 2 associe un écran principal et un écran client dédié, avec lecteur NFC en option — idéal à l'accueil d'un salon pour un encaissement rapide et une expérience client soignée.",
+        "ctaLabel": "Voir la boutique →",
+        "ctaHref": "/shop/swan-1-gen-2"
+      },
+      "scaling": "Rejoignez les salons de beauté qui ont déjà mis leur planning et leur encaissement au service de leur clientèle. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration adaptée à votre équipe et vos prestations."
     },
     "barber": {
-      "eyebrow": "Coupes & rasage",
-      "title": "Salons de coiffure",
-      "standfirst": "Rapides ou minutieux, les rendez-vous se gèrent en un geste. Suivez chaque barbier, chaque produit, chaque encaissement.",
+      "eyebrow": "Secteur · Barbershops",
+      "title": "Entre les clients sans rendez-vous et les habitués qui réservent, il faut un seul écran.",
+      "standfirst": "Un barbershop vit un double rythme : les clients qui passent sans prévenir, et ceux qui réservent leur créneau. Gérer les deux flux sans confusion, sur plusieurs fauteuils, avec un encaissement rapide entre chaque coupe, demande un système pensé pour cette réalité précise.",
       "workflow": [
-        "Calendrier par barbier avec créneaux flexibles et walk-ins en un toucher.",
-        "Prestation + revente (huile, cire, peigne) sur la même addition.",
-        "Commissions par barbier calculées automatiquement en fin de journée."
+        {
+          "pain": "Les clients sans rendez-vous et les réservations se percutent à l'entrée",
+          "solutionTitle": "File d'attente et rendez-vous sur le même écran",
+          "solutionBody": "La file d'attente des clients sans rendez-vous et le calendrier des réservations s'affichent sur le même écran. Le personnel sait à tout moment qui passe après qui, sans arbitrage à l'improvisation."
+        },
+        {
+          "pain": "L'encaissement entre deux clients prend trop de temps",
+          "solutionTitle": "Reprise en un geste des prestations enregistrées",
+          "solutionBody": "Les prestations habituelles se rappellent en un geste, sans ressaisie. L'encaissement entre deux clients devient quasi instantané."
+        },
+        {
+          "pain": "Les habitués veulent un abonnement, vous n'en avez pas",
+          "solutionTitle": "Abonnements et forfaits prépayés intégrés",
+          "solutionBody": "Les abonnements et forfaits prépayés se créent et se suivent directement dans le système : nombre de coupes restantes, date de renouvellement, tout est visible en un coup d'œil."
+        },
+        {
+          "pain": "Chaque fauteuil a sa propre caisse, aucune vue commune",
+          "solutionTitle": "Un seul back-office pour tous les fauteuils du salon",
+          "solutionBody": "Tous les fauteuils remontent leurs ventes dans un back-office unique. Le gérant a une vue d'ensemble de la journée sans avoir à consolider quoi que ce soit manuellement."
+        },
+        {
+          "pain": "Il faut resaisir séparément la coupe et le produit à l'encaissement",
+          "solutionTitle": "La prestation est sélectionnée en fin de coupe, le produit ajouté à la douchette, total unique et exact",
+          "solutionBody": "La coupe réalisée est sélectionnée en fin de rendez-vous, et le produit est simplement scanné à la douchette pour s'ajouter à la même addition — un seul total, sans erreur."
+        },
+        {
+          "pain": "Un imprévu oblige à interrompre une coupe en cours",
+          "solutionTitle": "Mise en attente de la prestation le jour même",
+          "solutionBody": "La coupe en cours peut être mise en attente, le temps de gérer l'imprévu, puis reprise exactement où elle en était, le même jour."
+        }
       ],
+      "ecosystemIntro": "Des établissements réels, dans votre secteur, qui font tourner leur activité sur Caisse Manager.",
       "ecosystem": [
-        "L'application mobile permet la réservation client autonome.",
-        "L'afficheur client affiche prestation, durée et prix avant la chaise.",
-        "Le module stock pour les produits revente vendus en salon."
+        {
+          "name": "Barber Plus"
+        },
+        {
+          "name": "Barber's Star"
+        }
       ],
-      "scaling": "Un seul salon ou une enseigne multi-villes — les plannings et le chiffre d'affaires consolidés au même endroit."
+      "goDeeper": {
+        "title": "Swan 2",
+        "body": "Le terminal Swan 2 associe un écran principal et un écran client dédié, avec lecteur NFC en option — idéal à l'accueil d'un barbershop pour un encaissement rapide entre deux coupes, sans faire patienter le client suivant.",
+        "ctaLabel": "Voir la boutique →",
+        "ctaHref": "/shop/swan-1-gen-2"
+      },
+      "scaling": "Rejoignez les barbershops qui ont déjà unifié file d'attente, réservations et encaissement sur Caisse Manager. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration adaptée à vos fauteuils et vos abonnements."
     },
     "market": {
-      "eyebrow": "Surface de vente",
-      "title": "Commerce de détail",
-      "standfirst": "Un stock auquel vous pouvez vous fier. Vendez, réapprovisionnez, transférez entre magasins — au même rythme.",
+      "eyebrow": "Secteur · Commerce · Marché",
+      "title": "Gérer plusieurs fournisseurs ne devrait pas ralentir votre caisse.",
+      "standfirst": "Entre les codes-barres qui ne correspondent jamais tout à fait, le stock qui se réconcilie fournisseur par fournisseur, et la balance qui devrait parler directement à la caisse, un commerce de proximité passe autant de temps sur son back-office que sur son commerce. L'écosystème est pensé pour que cette gestion se fasse en arrière-plan, pas au prix du temps de vente.",
       "workflow": [
-        "Scan de code-barres ou recherche produit — les deux mènent à la même caisse.",
-        "Comptes de stock en direct : l'écran ne montre jamais ce que le rayon n'a plus.",
-        "Retours, échanges et remboursements avec piste d'audit en un toucher."
+        {
+          "pain": "Des codes-barres de cinq fournisseurs, un catalogue en désordre",
+          "solutionTitle": "Catalogue universel de codes-barres et fournisseurs",
+          "solutionBody": "Tous les codes-barres, quel que soit le fournisseur, se rattachent au même catalogue central. Un produit scanné une fois reste reconnu partout, pour toutes les prochaines commandes."
+        },
+        {
+          "pain": "Le stock ne se réconcilie jamais vraiment",
+          "solutionTitle": "Réconciliation automatique, fournisseur par fournisseur",
+          "solutionBody": "Le stock se réconcilie automatiquement, fournisseur par fournisseur, à partir des livraisons enregistrées et des ventes réalisées — sans tableur ni recomptage manuel."
+        },
+        {
+          "pain": "La balance et la caisse ne communiquent pas",
+          "solutionTitle": "Balance intégrée nativement à la caisse",
+          "solutionBody": "La balance est directement connectée à la caisse : le poids est lu automatiquement, et le prix calculé sans ressaisie."
+        },
+        {
+          "pain": "Une vente en épicerie et une commande au restaurant se gèrent sur deux tickets séparés",
+          "solutionTitle": "Encaissement du produit et commande resto sur le même ticket, en même temps",
+          "solutionBody": "Un produit d'épicerie et une commande passée au restaurant se combinent sur le même ticket, encaissés en même temps — sans avoir à ouvrir deux caisses différentes pour un même client."
+        }
       ],
+      "ecosystemIntro": "Des établissements réels, dans votre secteur, qui font tourner leur activité sur Caisse Manager.",
       "ecosystem": [
-        "Gestion de stock avec transferts multi-sites et alertes seuils.",
-        "Terminal de paiement accepte tous les modes marocains — CMI inclus.",
-        "Le reporting back-office descend de la vente au produit au fournisseur."
+        {
+          "name": "Le Beldi",
+          "tag": "Commerce de proximité",
+          "body": "Une supérette de quartier où le stock arrive de plusieurs fournisseurs à la fois. Le Beldi centralise son catalogue de codes-barres et réconcilie son stock fournisseur par fournisseur, sans surprise en fin de mois."
+        },
+        {
+          "name": "Kasba",
+          "tag": "Commerce · Marché",
+          "body": "Un commerce qui combine plusieurs rayons et fournisseurs sous un même toit. Kasba garde un catalogue de codes-barres unifié et une balance connectée nativement à la caisse pour les ventes au poids."
+        },
+        {
+          "name": "L'Artisan",
+          "tag": "Boucherie · Épicerie fine · Restaurant",
+          "body": "Boucherie, volaille et épicerie fine d'un côté, restaurant au feu de bois de l'autre, sous le même toit. L'Artisan encaisse un produit de l'épicerie et passe une commande au restaurant sur le même ticket, en même temps, sans jongler entre deux caisses."
+        },
+        {
+          "name": "Pop-Up Store"
+        }
       ],
-      "scaling": "Un magasin, dix magasins, cent SKUs ou dix mille — le système s'adapte au stock."
+      "goDeeper": {
+        "title": "Swan 2 Pro",
+        "body": "Le terminal Swan 2 Pro associe un écran principal et un écran client dédié, avec lecteur NFC en option — pensé pour encaisser vite en rayon, sur un stand ou à une caisse principale à fort passage.",
+        "ctaLabel": "Voir la boutique →",
+        "ctaHref": "/shop/swan-1-gen-2"
+      },
+      "scaling": "Rejoignez les commerces de proximité qui ont déjà mis leur catalogue, leur stock et leur balance en ordre sur Caisse Manager. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration adaptée à votre nombre de fournisseurs et vos rayons."
     }
   },
   "productCard": {

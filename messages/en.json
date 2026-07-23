@@ -717,21 +717,97 @@
       "scaling": "Join the fast-food chains already syncing counter, kitchen, and delivery on Caisse Manager. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your volume and delivery partners."
     },
     "dine-in": {
-      "eyebrow": "Hospitality",
-      "title": "Restaurants",
-      "standfirst": "Fast service, full house. Ring orders, fire to kitchen, take payment — without ever leaving the floor.",
+      "eyebrow": "Sector · Restaurants",
+      "title": "A restaurant is run table by table, not ticket by ticket.",
+      "standfirst": "Table service has its own rules: track each table's state, send courses to the kitchen in the right order, handle checks that rarely split evenly. A system built for counter-speed retail doesn't cut it — you have to think dining-room, not just checkout.",
       "workflow": [
-        "Open orders by table, modify on the fly, split or merge tabs in one tap.",
-        "Send to kitchen instantly — no shouting across the line, no lost tickets.",
-        "Take payment at the table, cash drawer, or terminal — same workflow."
+        {
+          "pain": "Splitting a check slows the next table",
+          "solutionTitle": "One-gesture check splitting, whichever way it goes",
+          "solutionBody": "Split the check in one gesture — per person, per dish, or evenly, depending on what the guests want. Payment happens without a manual recalculation."
+        },
+        {
+          "pain": "Courses arrive out of sync with the kitchen",
+          "solutionTitle": "Course-by-course tickets on their own timer",
+          "solutionBody": "Each course fires its own kitchen ticket at the right service moment. The kitchen preps in the order the dining room expects, not in the order tickets land."
+        },
+        {
+          "pain": "Table state is a guess from across the room",
+          "solutionTitle": "Live floor plan, table by table",
+          "solutionBody": "A floor plan shows every table's state in real time — ordering, waiting for a course, ready for the check, free. Staff know where to step in without walking the whole room."
+        },
+        {
+          "pain": "An interruption halts a table mid-service",
+          "solutionTitle": "The check stays open; a new table starts on another tab",
+          "solutionBody": "That table's check stays open on its own tab without blocking the rest of the service. Staff keep serving the other tables normally."
+        },
+        {
+          "pain": "The cash drawer opens by hand at every payment",
+          "solutionTitle": "The drawer opens automatically after payment is accepted",
+          "solutionBody": "The moment payment is confirmed, the drawer opens on its own — no extra step for the floor staff."
+        }
       ],
+      "ecosystemIntro": "Real establishments, in your sector, running their operation on Caisse Manager.",
       "ecosystem": [
-        "Kitchen Display routes by station with color-coded urgency.",
-        "Customer Display shows the order live as your team rings it.",
-        "Payment Terminal docks at the till for tap-and-go.",
-        "Online Ordering and QR Menu drop straight into the same kitchen queue."
+        {
+          "name": "Panda Sushi",
+          "tag": "Restaurant · Dine-in",
+          "body": "Table turnover depends on timing. Panda Sushi uses a live floor plan, kitchen tickets sent course by course, and one-gesture check splitting — without holding up the next table."
+        },
+        {
+          "name": "75 Flavours",
+          "tag": "Café-restaurant",
+          "body": "A café-restaurant serving from breakfast through late dinner. 75 Flavours keeps a live floor plan and splits checks in one gesture, without slowing the next table."
+        },
+        {
+          "name": "L'Artisan",
+          "tag": "Butchery · Fine grocery · Restaurant",
+          "body": "Butchery, poultry, and fine grocery on one side; a wood-fire restaurant on the other, under the same roof. L'Artisan rings a grocery item and orders from the restaurant on the same ticket, at the same time, without juggling two registers."
+        },
+        {
+          "name": "Elbayt Eldimashki"
+        },
+        {
+          "name": "La Grande Tente"
+        },
+        {
+          "name": "Turkish Steak House"
+        },
+        {
+          "name": "Saraya"
+        },
+        {
+          "name": "Restaurant Moma"
+        },
+        {
+          "name": "HY Sushi"
+        },
+        {
+          "name": "Zanmai"
+        },
+        {
+          "name": "Restaurant Abwab Elmansour"
+        },
+        {
+          "name": "Restaurant Seafood"
+        },
+        {
+          "name": "Ait Bougumaz"
+        },
+        {
+          "name": "Venchi"
+        },
+        {
+          "name": "Food Yard"
+        }
       ],
-      "scaling": "One restaurant or forty — Back Office consolidates every till's revenue, stock, and staff hours into one console."
+      "goDeeper": {
+        "title": "Table-side call buttons",
+        "body": "Elegant call buttons on every table — the guest requests service or the check with a single tap, without raising a hand or calling across the room, and the server is notified directly, wherever they are.",
+        "ctaLabel": "See pricing →",
+        "ctaHref": "/pricing"
+      },
+      "scaling": "Join the restaurants already running their dining room table by table on Caisse Manager. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your menu and volume."
     },
     "bakery": {
       "eyebrow": "Sector · Bakery",
@@ -788,52 +864,155 @@
       "scaling": "Join the bakeries that have already made their oven pay off. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your production and catalog."
     },
     "beauty": {
-      "eyebrow": "Appointments",
-      "title": "Beauty & services",
-      "standfirst": "Bookings, staff, and till — one app. From walk-ins to standing appointments.",
+      "eyebrow": "Sector · Beauty salons",
+      "title": "An empty chair costs more than a missed appointment.",
+      "standfirst": "In a beauty salon, the schedule is the real cash register: every missed appointment, every miscalculated commission, every minute lost at checkout comes straight off the day. The ecosystem is built so admin never eats into time spent with your clients.",
       "workflow": [
-        "Calendar view per staff member with drag-and-drop rebooking.",
-        "Add services to active appointments; ring through the till at checkout.",
-        "Customer history attached to every visit."
+        {
+          "pain": "Selling a product feels impossible without an attached service",
+          "solutionTitle": "A product can be tied to a client's profile, with or without a service",
+          "solutionBody": "A product sale attaches to a client's profile in seconds, whether or not a service is booked."
+        },
+        {
+          "pain": "Commission tracking lives in a spreadsheet",
+          "solutionTitle": "Automatic per-service split",
+          "solutionBody": "Every rung-up service automatically computes the share owed to the professional who performed it. No spreadsheet to maintain, no month-end disagreements."
+        },
+        {
+          "pain": "Service and product have to be rung up separately",
+          "solutionTitle": "Pick the service at the end of the appointment, scan the product, one accurate total",
+          "solutionBody": "The service is selected at the end of the appointment, and if the client wants a product, it's simply scanned in and added to the same check. One total, no re-entry."
+        },
+        {
+          "pain": "An emergency forces you to pause a service mid-way",
+          "solutionTitle": "Hold the service the same day, handle the other client, resume where you left off",
+          "solutionBody": "The in-progress service can be held while you deal with an interruption, then resumed exactly where it was, the same day, without losing the check."
+        }
       ],
+      "ecosystemIntro": "Real establishments, in your sector, running their operation on Caisse Manager.",
       "ecosystem": [
-        "Mobile Application turns any phone into a booking terminal.",
-        "Customer Display shows the customer's selected services + total.",
-        "Stock Management for retail products sold alongside services."
+        {
+          "name": "Hammam Almaz"
+        },
+        {
+          "name": "Soly Beauty"
+        }
       ],
-      "scaling": "Single salon to franchise group — staff schedules, commissions, and inventory all centralized."
+      "goDeeper": {
+        "title": "Swan 2",
+        "body": "The Swan 2 terminal pairs a main screen with a dedicated customer-facing display, with optional NFC reader — ideal at a salon reception for fast checkout and a polished customer experience.",
+        "ctaLabel": "See the shop →",
+        "ctaHref": "/shop/swan-1-gen-2"
+      },
+      "scaling": "Join the beauty salons that have already put their schedule and checkout to work for their clients. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your team and services."
     },
     "barber": {
-      "eyebrow": "Cuts & shaves",
-      "title": "Barbershops",
-      "standfirst": "Quick or detailed, every appointment runs in one gesture. Track each barber, each product, each transaction.",
+      "eyebrow": "Sector · Barbershops",
+      "title": "Between walk-ins and regulars who book ahead, one screen has to handle both.",
+      "standfirst": "A barbershop runs on two rhythms: people who walk in and those who reserve. Handling both without confusion, across several chairs, with a fast checkout between cuts, needs a system built for that exact reality.",
       "workflow": [
-        "Per-barber calendar with flexible slots and one-tap walk-ins.",
-        "Service + retail (oil, wax, comb) on the same check.",
-        "Per-barber commissions calculated automatically at end of day."
+        {
+          "pain": "Walk-ins and reservations clash at the door",
+          "solutionTitle": "Queue and calendar on the same screen",
+          "solutionBody": "The walk-in queue and the reservations calendar show on the same screen. Staff know at every moment who's next, without ad-hoc arbitration."
+        },
+        {
+          "pain": "Checkout between two clients takes too long",
+          "solutionTitle": "One-tap recall of saved services",
+          "solutionBody": "Regular services are recalled in one gesture, no re-entry. Checkout between clients becomes near-instant."
+        },
+        {
+          "pain": "Regulars want a subscription — you don't have one",
+          "solutionTitle": "Subscriptions and prepaid packs built in",
+          "solutionBody": "Subscriptions and prepaid packs are created and tracked in the system: remaining cuts, renewal date, everything visible at a glance."
+        },
+        {
+          "pain": "Every chair has its own register, no shared view",
+          "solutionTitle": "One back-office for every chair in the shop",
+          "solutionBody": "All chairs stream their sales to a single back-office. The manager has a full-day view without consolidating anything manually."
+        },
+        {
+          "pain": "Service and product have to be rung up separately",
+          "solutionTitle": "Pick the cut at the end, scan the product, one accurate total",
+          "solutionBody": "The cut is selected at the end of the appointment, and the product is simply scanned to be added to the same check — one total, no error."
+        },
+        {
+          "pain": "An emergency forces you to pause a cut mid-way",
+          "solutionTitle": "Hold the service the same day",
+          "solutionBody": "The in-progress cut can be held while you handle the interruption, then resumed exactly where it was, the same day."
+        }
       ],
+      "ecosystemIntro": "Real establishments, in your sector, running their operation on Caisse Manager.",
       "ecosystem": [
-        "Mobile Application allows self-service customer booking.",
-        "Customer Display shows the service, duration and price before the chair.",
-        "Stock Management for retail products sold in the shop."
+        {
+          "name": "Barber Plus"
+        },
+        {
+          "name": "Barber's Star"
+        }
       ],
-      "scaling": "A single shop or a multi-city brand — schedules and revenue consolidated in one place."
+      "goDeeper": {
+        "title": "Swan 2",
+        "body": "The Swan 2 terminal pairs a main screen with a dedicated customer-facing display, with optional NFC reader — ideal at a barbershop reception for fast checkout between two cuts, without keeping the next client waiting.",
+        "ctaLabel": "See the shop →",
+        "ctaHref": "/shop/swan-1-gen-2"
+      },
+      "scaling": "Join the barbershops already unifying queue, reservations, and checkout on Caisse Manager. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your chairs and subscription plans."
     },
     "market": {
-      "eyebrow": "Shop floor",
-      "title": "Retail",
-      "standfirst": "Inventory you can trust. Sell, restock, transfer between stores — all in one rhythm.",
+      "eyebrow": "Sector · Retail · Market",
+      "title": "Managing several suppliers shouldn't slow your register down.",
+      "standfirst": "Between barcodes that never quite match, stock that reconciles supplier by supplier, and a scale that ought to talk straight to the register, a neighbourhood shop spends as much time on its back office as on its floor. The ecosystem is built so that admin runs in the background, not at the cost of selling time.",
       "workflow": [
-        "Barcode scan or product search — both routes lead to the same till.",
-        "Live stock counts so the screen never shows what the shelf doesn't have.",
-        "Returns, exchanges, and refunds with a one-tap audit trail."
+        {
+          "pain": "Barcodes from five suppliers, a chaotic catalog",
+          "solutionTitle": "Universal barcode + supplier catalog",
+          "solutionBody": "Every barcode, whichever supplier, ties to the same central catalog. A product scanned once is recognized everywhere for every future order."
+        },
+        {
+          "pain": "Stock never quite reconciles",
+          "solutionTitle": "Automatic reconciliation, supplier by supplier",
+          "solutionBody": "Stock reconciles automatically, supplier by supplier, from recorded deliveries and completed sales — no spreadsheet, no manual recount."
+        },
+        {
+          "pain": "The scale and the register don't talk",
+          "solutionTitle": "Scale integrated natively with the register",
+          "solutionBody": "The scale is wired directly into the register: weight is read automatically, and the price computed without re-entry."
+        },
+        {
+          "pain": "A grocery sale and a restaurant order run on two separate tickets",
+          "solutionTitle": "Ring up the product and the restaurant order on the same ticket, at the same time",
+          "solutionBody": "A grocery item and an order placed with the restaurant combine on the same ticket, rung up together — no need to open two different registers for the same customer."
+        }
       ],
+      "ecosystemIntro": "Real establishments, in your sector, running their operation on Caisse Manager.",
       "ecosystem": [
-        "Stock Management with multi-location transfers and low-stock alerts.",
-        "Payment Terminal accepts every Moroccan card flavor — CMI included.",
-        "Back Office reporting drills from sale to product to supplier."
+        {
+          "name": "Le Beldi",
+          "tag": "Neighbourhood shop",
+          "body": "A neighbourhood grocery where stock arrives from several suppliers at once. Le Beldi centralises its barcode catalog and reconciles stock supplier by supplier — no month-end surprise."
+        },
+        {
+          "name": "Kasba",
+          "tag": "Retail · Market",
+          "body": "A shop combining several sections and suppliers under one roof. Kasba keeps a unified barcode catalog and a scale wired natively to the register for weighed sales."
+        },
+        {
+          "name": "L'Artisan",
+          "tag": "Butchery · Fine grocery · Restaurant",
+          "body": "Butchery, poultry, and fine grocery on one side; a wood-fire restaurant on the other, under the same roof. L'Artisan rings a grocery item and orders from the restaurant on the same ticket, at the same time, without juggling two registers."
+        },
+        {
+          "name": "Pop-Up Store"
+        }
       ],
-      "scaling": "One store, ten stores, a hundred SKUs or ten thousand — the system grows with the inventory."
+      "goDeeper": {
+        "title": "Swan 2 Pro",
+        "body": "The Swan 2 Pro terminal pairs a main screen with a dedicated customer-facing display, with optional NFC reader — built to ring fast on the floor, at a stand, or at a high-traffic main register.",
+        "ctaLabel": "See the shop →",
+        "ctaHref": "/shop/swan-1-gen-2"
+      },
+      "scaling": "Join the neighbourhood shops that have already put their catalog, stock, and scale in order on Caisse Manager. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your supplier count and sections."
     }
   },
   "productCard": {
