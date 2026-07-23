@@ -335,6 +335,18 @@
       "subtitle": "Per counter, never per seat. Switch tier the moment your operation does — pro-rated, no penalty.",
       "compareCta": "Compare every feature",
       "compareHint": "From 120 MAD / mo"
+    },
+    "livePos": {
+      "eyebrow": "LIVE DEMO",
+      "title": "Try the real Caisse Manager, right here.",
+      "body": "The exact software our merchants run. Sign in with the demo credentials below, ring an order, watch it land — no download, no signup.",
+      "credentialsLabel": "Sign in with",
+      "fields": {
+        "user": "User",
+        "pin": "PIN"
+      },
+      "fullDemoCta": "Open full demo",
+      "iframeTitle": "Caisse Manager POS — live bakery demo"
     }
   },
   "pricing": {
@@ -1531,44 +1543,83 @@
     }
   },
   "partnership": {
-    "metaTitle": "Partnership",
-    "metaDescription": "Partner with Caisse Manager — referrals, reseller programs, and integrations. We share the upside with the people who bring us counters that grow.",
-    "eyebrow": "Partnership",
-    "heroHeadline": "Grow the counter ecosystem with us.",
-    "heroBody": "Three ways to partner with Caisse Manager — refer, resell, or integrate. Each one shares the upside fairly with the people who help our platform reach the counters that need it.",
-    "tracksEyebrow": "Three programs",
-    "tracksTitle": "Pick the track that matches how you work.",
-    "tracks": {
-      "affiliation": {
-        "eyebrow": "Affiliation",
-        "title": "Refer a counter, earn on every shift.",
-        "body": "Recurring revenue share on every active subscription you bring in. Best for agencies, consultants, and independent restaurateurs with networks."
+    "metaTitle": "Become a partner — Caisse Manager",
+    "metaDescription": "Three ways to build value together — refer, resell, or integrate. Recurring commissions, reseller pricing, co-marketing budget.",
+    "eyebrow": "Partner program",
+    "heroHeadline": "Your network deserves a real POS behind it.",
+    "heroBody": "Three ways to create value together — refer, resell, or integrate. Each track has its own rhythm: some start immediately, others deserve a real onboarding.",
+    "earningsEyebrow": "Earnings simulator",
+    "earningsTitle": "How much can you earn?",
+    "earningsBody": "You refer a restaurant to Caisse Manager. They subscribe. You earn a commission every month, automatically.",
+    "earningsExampleBody": "You introduce Caisse Manager to a restaurateur. They subscribe (600 Dh/month on average). You receive 15% of their subscription every month, for as long as they stay a customer. Zero installation, zero support on your side.",
+    "earningsTiles": [
+      {
+        "period": "This month",
+        "amount": "900 Dh",
+        "hint": "from the 1st invoice"
       },
-      "reseller": {
-        "eyebrow": "Reseller",
-        "title": "Sell the hardware lineup with us.",
-        "body": "Authorized reseller pricing on the full Swan / Swift / Heron lineup, plus co-marketing budget once your pipeline is qualified. Built for hardware distributors and IT integrators."
+      {
+        "period": "In 1 year",
+        "amount": "10,800 Dh",
+        "hint": "without doing anything more"
       },
-      "technology": {
-        "eyebrow": "Technology",
-        "title": "Build on top of the API.",
-        "body": "Deep integrations — delivery platforms, accounting suites, marketing tools. Bring a product our customers already use and we'll wire it into the platform."
+      {
+        "period": "In 3 years",
+        "amount": "32,400 Dh",
+        "hint": "cumulative passive income"
       }
-    },
-    "howEyebrow": "How it works",
-    "howTitle": "Three steps from intro to first payout.",
-    "steps": {
-      "step1Title": "Apply",
-      "step1Body": "Send a short note about your network or product. One email, no forms — we read each one.",
-      "step2Title": "Onboarding",
-      "step2Body": "A 30-minute call to map fit, then access to demo accounts, sales collateral, and your partner manager.",
-      "step3Title": "Earn",
-      "step3Body": "Referrals start paying out from the first invoice your client settles. Reseller margins clear monthly."
-    },
-    "finalTitle": "Apply to partner.",
-    "finalBody": "One email is enough — tell us which track and what you bring. We'll come back within two business days.",
-    "finalPrimary": "Email partners@",
-    "finalSecondary": "Talk to sales first"
+    ],
+    "whyEyebrow": "Why partner",
+    "whyTitle": "Building your own POS offer costs time. Partnership skips that.",
+    "whyBody1": "Building a point-of-sale offer alone means negotiating with hardware vendors, training a technical team, handling warranty, and financing inventory. It's heavy, slow, and risky for a business that isn't yours.",
+    "whyBody2": "With Caisse Manager, you bring the network or the product, and we handle the POS, installation, support, and billing. You capture the value without carrying the operational risk.",
+    "tracksEyebrow": "Three tracks",
+    "tracksTitle": "Pick the track that matches what you bring.",
+    "tracks": [
+      {
+        "slug": "affiliate",
+        "name": "Affiliate",
+        "body": "Refer a business, earn a recurring commission on every active subscription. No paperwork, no hardware to manage — a tracking link and a monthly payout.",
+        "ctaLabel": "See the program"
+      },
+      {
+        "slug": "reseller",
+        "name": "Reseller",
+        "body": "Approved reseller pricing on a product range, plus a co-marketing budget once your pipeline is qualified. Built for hardware distributors and IT integrators.",
+        "ctaLabel": "See the program"
+      },
+      {
+        "slug": "technology",
+        "name": "Technology",
+        "body": "Build on our API. Deep integrations — delivery platforms, accounting software, marketing tools. Bring a product our customers already use and we plug it into the platform.",
+        "ctaLabel": "See the program"
+      }
+    ],
+    "processEyebrow": "The journey",
+    "processTitle": "The journey depends on the track you pick.",
+    "processSteps": [
+      {
+        "title": "Affiliate — immediate start",
+        "body": "Fill in the form, receive your tracking link within 24 hours, start referring immediately."
+      },
+      {
+        "title": "Reseller & Technology — qualification",
+        "body": "After the form, a detailed questionnaire tailored to your profile, then a 30-minute call to validate fit."
+      },
+      {
+        "title": "Onboarding & activation",
+        "body": "Access to tools, sales materials, and a dedicated point of contact. Commissions start with the first paid invoice."
+      }
+    ],
+    "applyEyebrow": "Apply",
+    "applyTitle": "Apply to become a partner.",
+    "applyBody": "Fill in our partner questionnaire. You'll get a reply within 2 business days. No heavy paperwork, no mandatory meeting — a real person on our partnerships team reads every application.",
+    "applyDownload": "Download the questionnaire (.docx)",
+    "applyContact": "Contact the partnerships team",
+    "supportEyebrow": "Partner support",
+    "supportTitle": "You bring the customers. We protect your reputation.",
+    "supportBody": "When you refer or resell Caisse Manager, your credibility is on the line. Here's what we guarantee to your customers — and to you.",
+    "supportCta": "See support details"
   },
   "careers": {
     "metaTitle": "Careers",

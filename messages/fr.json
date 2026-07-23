@@ -335,6 +335,18 @@
       "subtitle": "Par caisse, jamais par utilisateur. Changez de palier dès que votre activité évolue — au prorata, sans pénalité.",
       "compareCta": "Comparer toutes les fonctionnalités",
       "compareHint": "À partir de 120 MAD / mois"
+    },
+    "livePos": {
+      "eyebrow": "DÉMO LIVE",
+      "title": "Testez le vrai Caisse Manager, ici même.",
+      "body": "Le logiciel exact utilisé par nos marchands. Connectez-vous avec les identifiants de démo ci-dessous, passez une commande, voyez-la arriver — sans téléchargement, sans inscription.",
+      "credentialsLabel": "Connectez-vous avec",
+      "fields": {
+        "user": "Utilisateur",
+        "pin": "PIN"
+      },
+      "fullDemoCta": "Ouvrir la démo complète",
+      "iframeTitle": "Caisse Manager POS — démo boulangerie en direct"
     }
   },
   "pricing": {
@@ -1531,44 +1543,83 @@
     }
   },
   "partnership": {
-    "metaTitle": "Partenariat",
-    "metaDescription": "Devenez partenaire de Caisse Manager — affiliation, revente, intégrations. Nous partageons la valeur avec les personnes qui nous amènent les caisses qui grandissent.",
-    "eyebrow": "Partenariat",
-    "heroHeadline": "Faisons grandir l'écosystème de la caisse ensemble.",
-    "heroBody": "Trois façons de devenir partenaire de Caisse Manager — référer, revendre, intégrer. Chacune partage équitablement la valeur avec celles et ceux qui nous aident à atteindre les commerces qui en ont besoin.",
-    "tracksEyebrow": "Trois programmes",
-    "tracksTitle": "Choisissez la piste qui correspond à votre façon de travailler.",
-    "tracks": {
-      "affiliation": {
-        "eyebrow": "Affiliation",
-        "title": "Référez une caisse, gagnez à chaque service.",
-        "body": "Revenu récurrent sur chaque abonnement actif que vous apportez. Idéal pour les agences, consultants et restaurateurs indépendants disposant d'un réseau."
+    "metaTitle": "Devenir partenaire — Caisse Manager",
+    "metaDescription": "Trois façons de créer de la valeur ensemble — recommander, revendre, ou intégrer. Commissions récurrentes, tarifs revendeur, budget co-marketing.",
+    "eyebrow": "Programme partenaires",
+    "heroHeadline": "Votre réseau mérite une caisse derrière lui.",
+    "heroBody": "Trois façons de créer de la valeur ensemble — recommander, revendre, ou intégrer. Chaque piste a son propre rythme : certaines démarrent tout de suite, d'autres méritent un vrai accompagnement.",
+    "earningsEyebrow": "Simulateur de gains",
+    "earningsTitle": "Combien pouvez-vous gagner ?",
+    "earningsBody": "Vous recommandez un restaurant à Caisse Manager. Il s'abonne. Vous touchez une commission chaque mois, automatiquement.",
+    "earningsExampleBody": "Vous présentez Caisse Manager à un restaurateur. Il s'abonne (600 Dh/mois en moyenne). Vous recevez 15% de son abonnement chaque mois, aussi longtemps qu'il reste client. Zéro installation, zéro support de votre côté.",
+    "earningsTiles": [
+      {
+        "period": "Ce mois-ci",
+        "amount": "900 Dh",
+        "hint": "dès la 1ère facture"
       },
-      "reseller": {
-        "eyebrow": "Revente",
-        "title": "Vendez la gamme matériel avec nous.",
-        "body": "Tarifs revendeur agréé sur toute la gamme Swan / Swift / Heron, plus un budget co-marketing dès que votre pipeline est qualifié. Conçu pour les distributeurs matériel et intégrateurs IT."
+      {
+        "period": "Dans 1 an",
+        "amount": "10 800 Dh",
+        "hint": "sans rien faire de plus"
       },
-      "technology": {
-        "eyebrow": "Technologie",
-        "title": "Construisez sur notre API.",
-        "body": "Intégrations en profondeur — plateformes de livraison, logiciels comptables, outils marketing. Apportez un produit que nos clients utilisent déjà et nous le branchons sur la plateforme."
+      {
+        "period": "Dans 3 ans",
+        "amount": "32 400 Dh",
+        "hint": "revenu passif cumulé"
       }
-    },
-    "howEyebrow": "Comment ça marche",
-    "howTitle": "Trois étapes, de la rencontre au premier paiement.",
-    "steps": {
-      "step1Title": "Postulez",
-      "step1Body": "Envoyez un mot bref sur votre réseau ou votre produit. Un email, pas de formulaire — nous lisons chaque message.",
-      "step2Title": "Onboarding",
-      "step2Body": "Un appel de 30 minutes pour valider le fit, puis accès à des comptes de démo, à la documentation commerciale et à votre interlocuteur partenaire.",
-      "step3Title": "Encaissez",
-      "step3Body": "Les références se rémunèrent dès la première facture honorée par votre client. Les marges revendeur sont versées chaque mois."
-    },
-    "finalTitle": "Postulez pour devenir partenaire.",
-    "finalBody": "Un email suffit — précisez la piste qui vous intéresse et ce que vous apportez. Nous revenons vers vous sous deux jours ouvrés.",
-    "finalPrimary": "Écrire à partners@",
-    "finalSecondary": "Parler d'abord à un commercial"
+    ],
+    "whyEyebrow": "Pourquoi le partenariat",
+    "whyTitle": "Monter votre propre activité caisse coûte du temps. Le partenariat vous l'évite.",
+    "whyBody1": "Construire une offre point de vente seul implique de négocier avec des fournisseurs de matériel, de former une équipe technique, de gérer le SAV et de financer du stock. C'est lourd, lent, et risqué pour une activité qui n'est pas la vôtre.",
+    "whyBody2": "Avec Caisse Manager, vous apportez le réseau ou le produit, et nous gérons la caisse, l'installation, le support et la facturation. Vous touchez la valeur sans porter le risque opérationnel.",
+    "tracksEyebrow": "Trois pistes",
+    "tracksTitle": "Choisissez la piste qui correspond à ce que vous apportez.",
+    "tracks": [
+      {
+        "slug": "affiliate",
+        "name": "Affiliation",
+        "body": "Recommandez un commerce, touchez une commission récurrente sur chaque abonnement actif. Pas de dossier, pas de matériel à gérer — un lien de suivi et un versement mensuel.",
+        "ctaLabel": "Découvrir le programme"
+      },
+      {
+        "slug": "reseller",
+        "name": "Revendeur",
+        "body": "Tarifs agréés sur une gamme de produits, plus un budget co-marketing dès que votre pipeline est qualifié. Conçu pour les distributeurs matériel et intégrateurs IT.",
+        "ctaLabel": "Découvrir le programme"
+      },
+      {
+        "slug": "technology",
+        "name": "Technologie",
+        "body": "Construisez sur notre API. Intégrations en profondeur — plateformes de livraison, logiciels comptables, outils marketing. Apportez un produit que nos clients utilisent déjà et nous le branchons sur la plateforme.",
+        "ctaLabel": "Découvrir le programme"
+      }
+    ],
+    "processEyebrow": "Le parcours",
+    "processTitle": "Le parcours dépend de la piste choisie.",
+    "processSteps": [
+      {
+        "title": "Affiliation — démarrage immédiat",
+        "body": "Vous remplissez le formulaire, recevez votre lien de suivi sous 24h, et commencez à recommander immédiatement."
+      },
+      {
+        "title": "Revendeur & Technologie — qualification",
+        "body": "Après le formulaire, un questionnaire détaillé selon votre profil, puis un appel de 30 minutes pour valider l'adéquation."
+      },
+      {
+        "title": "Onboarding & activation",
+        "body": "Accès aux outils, supports et interlocuteur dédié. Les commissions démarrent dès la première facture réglée."
+      }
+    ],
+    "applyEyebrow": "Candidature",
+    "applyTitle": "Postulez pour devenir partenaire.",
+    "applyBody": "Remplissez notre questionnaire partenaire. Vous recevez une réponse sous 2 jours ouvrés. Pas de dossier lourd, pas de rendez-vous obligatoire — un vrai humain de notre équipe partenariats lit chaque candidature.",
+    "applyDownload": "Télécharger le questionnaire (.docx)",
+    "applyContact": "Contacter l'équipe partenariats",
+    "supportEyebrow": "Support partenaires",
+    "supportTitle": "Vous amenez les clients. On protège votre réputation.",
+    "supportBody": "Quand vous recommandez ou revendez Caisse Manager, votre crédibilité est en jeu. Voici ce que nous garantissons à vos clients — et à vous.",
+    "supportCta": "Voir le détail du support"
   },
   "careers": {
     "metaTitle": "Carrières",

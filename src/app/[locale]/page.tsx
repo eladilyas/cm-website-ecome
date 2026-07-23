@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { POSImmersionSection } from "@/components/sections/POSImmersionSection";
+import { LivePosPreviewSection } from "@/components/sections/LivePosPreviewSection";
 import { SolutionsShowcaseSection } from "@/components/sections/SolutionsShowcaseSection";
 import { IntegrationsSection } from "@/components/sections/IntegrationsSection";
 import { PricingPreviewSection } from "@/components/sections/PricingPreviewSection";
@@ -53,7 +53,7 @@ export default async function HomePage() {
   return (
     <>
       <HeroSection />
-      <POSImmersionSection />
+      <LivePosPreviewSection />
       <SolutionsShowcaseSection />
       <IntegrationsSection />
       <PricingPreviewSection />
