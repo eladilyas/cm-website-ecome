@@ -89,10 +89,10 @@ export default async function PricingPage() {
       <section data-scheme="light" className="bg-paper">
         <SectionDivider scheme="light" />
         <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-20 md:py-24">
-          <div className="max-w-[40rem] mb-10 md:mb-14">
+          <div className="max-w-[42rem] mb-10 md:mb-14">
             <Reveal>
               <p className="text-[11px] font-medium uppercase tracking-[0.20em] text-ink-mute mb-3">
-                {t("whyTeamsEyebrow")}
+                {t("whyEyebrow")}
               </p>
             </Reveal>
             <Reveal delay={0.04}>
@@ -100,8 +100,7 @@ export default async function PricingPage() {
                 className="text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[-0.018em] leading-[1.1] text-ink"
                 style={{ textWrap: "balance" }}
               >
-                {t("whyTeamsTitleA")}{" "}
-                <span className="text-ink-mute">{t("whyTeamsTitleB")}</span>
+                {t("whyTitle")}
               </h2>
             </Reveal>
           </div>
