@@ -2425,5 +2425,112 @@
     "ctaTitle": "Ready to move your counter forward?",
     "ctaSales": "Talk to sales",
     "ctaDemo": "Try the demo →"
+  },
+  "whyPage": {
+    "metaTitle": "Why Caisse Manager",
+    "metaDescription": "A connected ecosystem, not another platform — POS + stock + HR in development, trusted integrations (CMI, Glovo, Odoo, Yassir…), hardware warranty and Wafasalaf financing.",
+    "eyebrow": "Why Caisse Manager",
+    "title": "A connected ecosystem, not another platform.",
+    "body": "Most businesses pile up tools: a POS, a spreadsheet for stock, an app for time-off — each with its own login, its own logic. Caisse Manager works differently: one brain for every module, from the register to the payroll slip.",
+    "modulesEyebrow": "One brain, several modules",
+    "modulesTitle": "One system, not a stack of disconnected tools.",
+    "modulesBody": "POS is our core, with stock tracking already integrated. A new HR module is in development to extend the ecosystem without fragmenting it.",
+    "statusCore": "Core product",
+    "statusConnected": "POS-connected",
+    "statusInDev": "In development",
+    "modules": [
+      {
+        "status": "Core product",
+        "name": "POS",
+        "body": "Register, kitchen, reservations, and core stock — everything that runs the counter day to day, already deployed with our customers.",
+        "bullets": [
+          "Checkout, cash drawer, multi-tab orders",
+          "Kitchen display, floor plan, reservations",
+          "Live sales dashboard"
+        ]
+      },
+      {
+        "status": "POS-connected",
+        "name": "Stock",
+        "body": "Stock tracking is wired to the POS so you always know what's available or not — in-store as much as in-restaurant.",
+        "bullets": [
+          "Detailed product records",
+          "Stock and expiry alerts",
+          "Availability synced with the POS",
+          "Stock analysis and inventory",
+          "Customer and supplier invoicing",
+          "Cheque reconciliation"
+        ]
+      },
+      {
+        "status": "In development",
+        "name": "Human resources",
+        "body": "An app for time clock, attendance, leave, and sick days — with the employee record for payroll generation. Not a daily HR management tool, but the essentials, connected to the same system as the register.",
+        "bullets": [
+          "Time clock and attendance tracking",
+          "Leave and sick-day management",
+          "Employee record + payroll generation"
+        ]
+      }
+    ],
+    "integrationsEyebrow": "Trusted integrations",
+    "integrationsTitle": "Connected to the tools you already use.",
+    "integrationsBody": "The ecosystem plugs into the tools you already use for payment, financing, delivery, and reservations management.",
+    "integrations": [
+      {
+        "slug": "cmi",
+        "name": "CMI",
+        "body": "Electronic payment — accept card without a separate system. 1% rate — the best in the market."
+      },
+      {
+        "slug": "glovo",
+        "name": "Glovo",
+        "body": "Delivery orders centralised on the same screen as your in-house orders."
+      },
+      {
+        "slug": "odoo",
+        "name": "Odoo",
+        "body": "Reservations, pre-orders, and appointments managed through this integration."
+      },
+      {
+        "slug": "done",
+        "name": "Done",
+        "body": "Delivery, wired into the same screen as your in-house orders."
+      },
+      {
+        "slug": "brehm",
+        "name": "Brehm",
+        "body": "Scale brand, natively connected to the register."
+      },
+      {
+        "slug": "yassir",
+        "name": "Yassir",
+        "body": "Delivery, integrated onto the same screen as your in-house orders."
+      },
+      {
+        "slug": "insurance",
+        "name": "Insurance",
+        "body": "Insurance coverage integrated into the sales journey."
+      }
+    ],
+    "commitmentsEyebrow": "Our commitments to you",
+    "commitmentsTitle": "Beyond the software, two concrete commitments.",
+    "commitmentsBody": "Beyond the software, two concrete commitments that protect your investment and ease your cash flow.",
+    "commitments": [
+      {
+        "eyebrow": "Hardware warranty",
+        "title": "Quality suppliers, a warranty that lasts",
+        "body": "Caisse Manager commits to selecting quality suppliers for all its hardware. Depending on the equipment, the product warranty can run up to two years — so your hardware investment lasts as long as your business needs it to."
+      },
+      {
+        "eyebrow": "Wafasalaf financing",
+        "title": "Payment facilities with Wafasalaf",
+        "body": "Caisse Manager collaborates directly with Wafasalaf to offer payment facilities to its customers. Both hardware and the ecosystem subscription can be spread over time instead of hitting cash flow at once — a partnership built to make equipment accessible, not to delay it."
+      }
+    ],
+    "ctaEyebrow": "Ready when you are",
+    "ctaTitle": "Ready to explore the ecosystem?",
+    "ctaTrial": "Start free trial",
+    "ctaDemo": "Try the demo →"
   }
 }

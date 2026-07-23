@@ -2425,5 +2425,112 @@
     "ctaTitle": "Prêt à faire avancer votre caisse ?",
     "ctaSales": "Parler aux ventes",
     "ctaDemo": "Essayer la démo →"
+  },
+  "whyPage": {
+    "metaTitle": "Pourquoi Caisse Manager",
+    "metaDescription": "Un écosystème connecté, pas une plateforme de plus — POS + stock + RH en développement, intégrations de confiance (CMI, Glovo, Odoo, Yassir…), garantie matériel et facilités Wafasalaf.",
+    "eyebrow": "Pourquoi Caisse Manager",
+    "title": "Un écosystème connecté, pas une plateforme de plus.",
+    "body": "La plupart des commerces empilent les outils : une caisse, un tableur pour le stock, une appli pour les congés — chacun avec son propre login, sa propre logique. Caisse Manager fonctionne autrement : un seul cerveau pour tous les modules, de la caisse jusqu'à la fiche de paie.",
+    "modulesEyebrow": "Un cerveau, plusieurs modules",
+    "modulesTitle": "Un seul système, pas une pile d'outils déconnectés.",
+    "modulesBody": "Le POS est notre cœur de métier, avec le suivi de stock déjà intégré. Un nouveau module Ressources humaines est en cours de développement pour élargir l'écosystème sans jamais le fragmenter.",
+    "statusCore": "Cœur du produit",
+    "statusConnected": "Connecté au POS",
+    "statusInDev": "En développement",
+    "modules": [
+      {
+        "status": "Cœur du produit",
+        "name": "POS",
+        "body": "La caisse, la cuisine, les réservations et le stock de base — tout ce qui fait tourner la caisse au quotidien, déjà déployé chez nos clients.",
+        "bullets": [
+          "Encaissement, tiroir-caisse, tickets multiples",
+          "Écran cuisine, plan de salle, réservations",
+          "Tableau de bord des ventes en direct"
+        ]
+      },
+      {
+        "status": "Connecté au POS",
+        "name": "Stock",
+        "body": "Le suivi de stock est connecté au POS pour toujours savoir ce qui est disponible ou non, en boutique comme en restaurant.",
+        "bullets": [
+          "Fiches produits détaillées",
+          "Alertes de stock et de péremption",
+          "Disponibilité synchronisée avec le POS",
+          "Analyse et inventaire de stock",
+          "Factures clients et fournisseurs",
+          "Réconciliation des chèques"
+        ]
+      },
+      {
+        "status": "En développement",
+        "name": "Ressources humaines",
+        "body": "Une application pour le pointage, la présence, les congés et les arrêts maladie — avec la fiche employé pour générer la paie. Pas un outil de gestion RH au quotidien, mais l'essentiel connecté au même système que la caisse.",
+        "bullets": [
+          "Pointage et suivi de présence",
+          "Gestion des congés et des arrêts maladie",
+          "Fiche employé et génération de la paie"
+        ]
+      }
+    ],
+    "integrationsEyebrow": "Intégrations de confiance",
+    "integrationsTitle": "Connecté aux outils que vous utilisez déjà.",
+    "integrationsBody": "L'écosystème se connecte aux outils que vous utilisez déjà pour le paiement, le financement, la livraison et la gestion des réservations.",
+    "integrations": [
+      {
+        "slug": "cmi",
+        "name": "CMI",
+        "body": "Paiement électronique, pour encaisser par carte sans système séparé. Taux de 1% — le meilleur taux du marché."
+      },
+      {
+        "slug": "glovo",
+        "name": "Glovo",
+        "body": "Commandes livraison centralisées sur le même écran que les commandes internes."
+      },
+      {
+        "slug": "odoo",
+        "name": "Odoo",
+        "body": "Réservations, précommandes et rendez-vous gérés via cette intégration."
+      },
+      {
+        "slug": "done",
+        "name": "Done",
+        "body": "Livraison, intégrée au même écran que les commandes internes."
+      },
+      {
+        "slug": "brehm",
+        "name": "Brehm",
+        "body": "Marque de balances, connectée nativement à la caisse."
+      },
+      {
+        "slug": "yassir",
+        "name": "Yassir",
+        "body": "Livraison, intégrée sur le même écran que les commandes internes."
+      },
+      {
+        "slug": "insurance",
+        "name": "Assurance",
+        "body": "Couverture assurance intégrée au parcours de vente."
+      }
+    ],
+    "commitmentsEyebrow": "Nos engagements envers vous",
+    "commitmentsTitle": "Au-delà du logiciel, deux engagements concrets.",
+    "commitmentsBody": "Au-delà du logiciel, deux engagements concrets qui protègent votre investissement et facilitent votre trésorerie.",
+    "commitments": [
+      {
+        "eyebrow": "Garantie matériel",
+        "title": "Des fournisseurs de qualité, une garantie qui dure",
+        "body": "Caisse Manager s'engage à sélectionner des fournisseurs de qualité pour l'ensemble de son matériel. Selon l'équipement, la garantie produit peut aller jusqu'à deux ans — pour que votre investissement matériel tienne aussi longtemps que votre activité en a besoin."
+      },
+      {
+        "eyebrow": "Financement Wafasalaf",
+        "title": "Des facilités de paiement, avec Wafasalaf",
+        "body": "Caisse Manager collabore directement avec Wafasalaf pour offrir des facilités de paiement à ses clients. Le matériel comme l'abonnement à l'écosystème peuvent s'étaler dans le temps plutôt que de peser d'un coup sur la trésorerie — une collaboration pensée pour rendre l'équipement accessible, pas pour le retarder."
+      }
+    ],
+    "ctaEyebrow": "Pour commencer",
+    "ctaTitle": "Prêt à découvrir l'écosystème ?",
+    "ctaTrial": "Essai gratuit",
+    "ctaDemo": "Essayer la démo →"
   }
 }
