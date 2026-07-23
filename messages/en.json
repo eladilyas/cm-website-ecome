@@ -2532,5 +2532,236 @@
     "ctaTitle": "Ready to explore the ecosystem?",
     "ctaTrial": "Start free trial",
     "ctaDemo": "Try the demo →"
+  },
+  "aboutPage": {
+    "metaTitle": "About Caisse Manager",
+    "metaDescription": "Caisse Manager, the Moroccan POS ecosystem born in Agadir, deployed across 5 cities, used by 500+ brands. Making the register calmer, one screen at a time.",
+    "eyebrow": "About",
+    "title": "Making the register calmer.",
+    "body": "Restaurants run on rhythm. Every interruption — a clumsy modifier modal, a screen fighting the cashier's hands, a kitchen ticket printing late — breaks that rhythm. We're obsessed with removing those interruptions, one screen at a time.",
+    "storyEyebrow": "Our story",
+    "storyTitle": "From Agadir to all of Morocco.",
+    "storyBody": "Since the first deployment in Agadir, the company has grown to cover Morocco's main cities — Rabat, Casablanca, Marrakech, Tangier — with local field teams able to install and train the same day. Today, 500+ brands trust Caisse Manager to run their registers, from fast food to retail, from independent cafés to international chains.",
+    "timeline": [
+      {
+        "year": "2018",
+        "title": "Founded in Agadir",
+        "body": "Caisse Manager is founded in Agadir. First field deployment."
+      },
+      {
+        "year": "2020–2023",
+        "title": "National expansion",
+        "body": "Deployment teams open in Casablanca, Rabat, Marrakech, and Tangier."
+      },
+      {
+        "year": "2025",
+        "title": "500 active brands",
+        "body": "500-active-brand milestone reached."
+      },
+      {
+        "year": "2026",
+        "title": "AI in the ecosystem",
+        "body": "By year-end, integrate AI across the entire Caisse Manager ecosystem."
+      }
+    ],
+    "visionEyebrow": "Our vision",
+    "visionTitle": "One system, several modules.",
+    "visionBody": "Register, kitchen, orders, and back-office — designed to behave as a single system, because for the team using them, they should be.",
+    "visionBullets": [
+      "Complete POS ecosystem — apps, integrations, and APIs to smooth every operation.",
+      "AI integration by end of 2026 — sharper business insights and faster decisions, built into the ecosystem.",
+      "Partner network — extending the ecosystem via affiliates, resellers, and tech integrators."
+    ],
+    "coverageEyebrow": "Field presence",
+    "coverageTitle": "Across Morocco, from Tangier to Dakhla.",
+    "coverageBody": "Our deployment teams are based in 5 primary cities — Tangier, Rabat, Casablanca, Marrakech, and Agadir. But our reach doesn't stop there. Our support team can travel to every city in Morocco, from Laâyoune to Oujda. If your business needs us, we come.",
+    "coverage": [
+      {
+        "title": "5 cities with permanent teams",
+        "body": "Tangier · Rabat · Casablanca · Marrakech · Agadir"
+      },
+      {
+        "title": "Nationwide field service",
+        "body": "From Dakhla to Oujda, our team travels on site"
+      },
+      {
+        "title": "Next-day installation in major cities",
+        "body": "Deployment, configuration, and training the following day"
+      },
+      {
+        "title": "Support 7 days a week",
+        "body": "Assistance available every day, no exception"
+      }
+    ],
+    "partnersEyebrow": "Partners",
+    "partnersTitle": "The companies we build with.",
+    "partnersBody": "Our open API enables deep integrations with delivery platforms, accounting software, and payment solutions.",
+    "partners": [
+      {
+        "name": "iMin",
+        "body": "Non-exclusive authorised reseller of iMin Technology Pte Ltd (Singapore). Smart POS terminal distribution in Morocco."
+      },
+      {
+        "name": "Syscall",
+        "body": "Caisse Manager's strategic technology partner. Collaboration on infrastructure and advanced technical solutions."
+      },
+      {
+        "name": "Glovo",
+        "body": "Delivery orders centralised on a single screen."
+      },
+      {
+        "name": "Done",
+        "body": "Delivery integrated into the in-house order flow."
+      },
+      {
+        "name": "Yassir",
+        "body": "Delivery integrated onto the same screen as in-house orders."
+      },
+      {
+        "name": "Odoo",
+        "body": "Reservations, pre-orders, and appointments through this integration."
+      },
+      {
+        "name": "CMI",
+        "body": "Electronic payment, 1% rate — the best on the market."
+      }
+    ],
+    "reasonsEyebrow": "Why us",
+    "reasonsTitle": "Why customers pick us.",
+    "reasons": [
+      {
+        "title": "Close to the customer",
+        "body": "We take the time to understand each business's needs. No generic solution — an answer tailored to every operation."
+      },
+      {
+        "title": "7-day support",
+        "body": "Our team is available every day. When a register has a problem, we're there — not a ticket form with a 48-hour SLA."
+      },
+      {
+        "title": "National presence",
+        "body": "Field teams in 5 Moroccan cities. On-site install, team training, fast interventions — never outsourced."
+      },
+      {
+        "title": "Fast cycle",
+        "body": "From demo to activation in 3 days on average. No months of negotiation — we get to the point."
+      },
+      {
+        "title": "Proven reliability",
+        "body": "99.9% uptime over the last 3 months. 1.4 million tickets processed every month without interruption."
+      },
+      {
+        "title": "Continuous innovation",
+        "body": "AI integration, new APIs, new integrations — we invest in technology so our customers stay ahead."
+      }
+    ],
+    "ctaEyebrow": "Ready when you are",
+    "ctaTitle": "Ready to move your register forward?",
+    "ctaBody": "Try the demo or talk to our team. A real person replies — not a bot.",
+    "ctaTrial": "Start free trial",
+    "ctaDemo": "Try the demo →"
+  },
+  "careersPage": {
+    "metaTitle": "Careers — Caisse Manager",
+    "metaDescription": "Join the Caisse Manager team. Field culture, fast growth, gear provided, performance bonuses, continuous training.",
+    "eyebrow": "Careers",
+    "title": "Build the POS ecosystem with us.",
+    "body": "Driven by entrepreneurial spirit and grounded in field experience since 2018, we combine a demand for quality with a culture of innovation, with a clear goal: sustainably support Moroccan businesses and invest in the future of our ecosystem.",
+    "benefitsEyebrow": "Beyond the salary",
+    "benefitsTitle": "What we put on the table.",
+    "benefits": [
+      {
+        "title": "Health coverage",
+        "body": "Health insurance covered for you and your dependents from full-time hire."
+      },
+      {
+        "title": "Fast growth",
+        "body": "Still a small team: responsibilities grow fast for those who deliver."
+      },
+      {
+        "title": "Field flexibility",
+        "body": "For deployment and support roles, schedules built around covered cities, no wasted travel."
+      },
+      {
+        "title": "Continuous training",
+        "body": "Dedicated budget for technical certifications, languages, or product/POS training."
+      },
+      {
+        "title": "Gear provided",
+        "body": "Laptop, phone, and test terminal provided from day one — no \"we'll see later\"."
+      },
+      {
+        "title": "Performance bonuses",
+        "body": "For sales and deployment roles: bonuses tied to successful activations, not just volume."
+      }
+    ],
+    "processEyebrow": "Our process",
+    "processTitle": "Your application deserves to be read all the way through.",
+    "processBody": "At Caisse Manager, every application is reviewed by a real person — not an automatic keyword filter. We take the time to understand your background, what you really want, and whether it fits on both sides.",
+    "processHeading": "Four steps, not ten.",
+    "process": [
+      {
+        "title": "Apply online",
+        "body": "You apply online. A human reads your profile within 3 business days — not an automatic keyword filter."
+      },
+      {
+        "title": "First conversation",
+        "body": "30 minutes to talk about you, the role, and to check that expectations are aligned on both sides."
+      },
+      {
+        "title": "Technical interview",
+        "body": "Conversation with the team and direct manager: concrete cases tied to the role, no trick questions."
+      },
+      {
+        "title": "Fast reply",
+        "body": "Fast reply either way. If it's a yes, the offer arrives within 48 hours."
+      }
+    ],
+    "spontaneousEyebrow": "Spontaneous application",
+    "spontaneousTitle": "No open role fits, but you're interested?",
+    "spontaneousBody": "Send us a spontaneous application. We keep interesting profiles on file for future openings.",
+    "spontaneousCta": "Contact us"
+  },
+  "eventsPage": {
+    "metaTitle": "Events — Caisse Manager",
+    "metaDescription": "Trade shows, sector meetups, live demonstrations — the events where Caisse Manager has been present.",
+    "eyebrow": "Events",
+    "title": "We like to be where the field meets.",
+    "body": "Trade shows, sector meetups, live demonstrations — below are the events where Caisse Manager has been present, alongside Moroccan merchants, restaurateurs, and hoteliers.",
+    "videoPlaceholder": "VIDEO COMING SOON",
+    "events": [
+      {
+        "slug": "marocotel-2024",
+        "name": "Marocotel 2024",
+        "date": "May 8–12, 2024",
+        "location": "Mohammed VI Exhibition Park · El Jadida",
+        "body": "Caisse Manager was present at the 18th edition of Marocotel, the International Trade Show for Professional Equipment for Hospitality, Restaurants, Food Trades, Wellness, and Leisure. A reference event on the African continent that gathered more than 21,800 professional visitors and 250 national and international exhibitors — the occasion for our teams to present our register ecosystem to decision-makers in Moroccan hospitality and restaurants."
+      },
+      {
+        "slug": "cremai-2025",
+        "name": "Cremaï 2025",
+        "date": "2025",
+        "location": "Marrakech",
+        "body": "Caisse Manager was present at Cremaï 2025 in Marrakech, the reference meeting point for restaurant and agri-food professionals in Morocco. The occasion to present our register ecosystem to restaurateurs, chains, and future partners. Our teams showed our terminals and interface to visitors, and spoke with them directly on site."
+      },
+      {
+        "slug": "marocotel-2026",
+        "name": "Marocotel 2026",
+        "date": "April 2026",
+        "location": "Mohammed VI Exhibition Park · El Jadida",
+        "body": "Caisse Manager was present at the 19th edition of Marocotel, held under the aegis of the Ministry of Tourism. A must-attend event for hospitality and restaurant decision-makers in Morocco and across the African continent, bringing together hundreds of exhibitors and tens of thousands of professional visitors. Our teams presented our register ecosystem to hoteliers and restaurateurs on site, with live demonstrations of our terminals and interface."
+      },
+      {
+        "slug": "franchise-2026",
+        "name": "Franchise Exhibition Morocco 2026",
+        "date": "April 2026",
+        "location": "Casablanca · Moroccan Franchise Federation",
+        "body": "Caisse Manager was present at the Franchise Exhibition Morocco 2026, organised by the Moroccan Franchise Federation (FMF). After a well-received first edition in 2025, this major sector event brought together more than 150 flagship brands, around thirty conferences, and dedicated space for young ventures. Our teams spoke with Moroccan and international franchise networks looking for a reliable register system to equip their points of sale."
+      }
+    ],
+    "ctaEyebrow": "Were you on site?",
+    "ctaTitle": "Let's talk about your business.",
+    "ctaBody": "Talk to our team to organise a demo tailored to your business, wherever you are.",
+    "ctaSales": "Talk to sales",
+    "ctaDemo": "Try the demo →"
   }
 }

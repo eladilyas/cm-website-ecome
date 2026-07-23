@@ -2532,5 +2532,236 @@
     "ctaTitle": "Prêt à découvrir l'écosystème ?",
     "ctaTrial": "Essai gratuit",
     "ctaDemo": "Essayer la démo →"
+  },
+  "aboutPage": {
+    "metaTitle": "À propos de Caisse Manager",
+    "metaDescription": "Caisse Manager, l'écosystème POS marocain né à Agadir, déployé dans 5 villes, utilisé par plus de 500 marques. Rendre la caisse plus calme, un écran à la fois.",
+    "eyebrow": "À propos",
+    "title": "Rendre la caisse plus calme.",
+    "body": "Les restaurants tournent sur un rythme. Chaque interruption — une modale de modification maladroite, un écran qui lutte contre les mains du caissier, un ticket de cuisine qui s'imprime en retard — brise ce rythme. Nous sommes obsédés par la suppression de ces interruptions, un écran à la fois.",
+    "storyEyebrow": "Notre histoire",
+    "storyTitle": "D'Agadir à tout le Maroc.",
+    "storyBody": "Depuis le premier déploiement à Agadir, la société a grandi pour couvrir les principales villes du Maroc — Rabat, Casablanca, Marrakech, Tanger — avec des équipes terrain locales capables d'installer et de former le jour même. Aujourd'hui, plus de 500 marques font confiance à Caisse Manager pour gérer leurs caisses, de la restauration rapide au retail, des cafés indépendants aux chaînes internationales.",
+    "timeline": [
+      {
+        "year": "2018",
+        "title": "Création à Agadir",
+        "body": "Création de Caisse Manager à Agadir. Premier déploiement terrain."
+      },
+      {
+        "year": "2020–2023",
+        "title": "Expansion nationale",
+        "body": "Ouverture des équipes de déploiement à Casablanca, Rabat, Marrakech et Tanger."
+      },
+      {
+        "year": "2025",
+        "title": "500 marques actives",
+        "body": "Franchissement du cap des 500 marques actives."
+      },
+      {
+        "year": "2026",
+        "title": "IA dans l'écosystème",
+        "body": "D'ici la fin de l'année, intégrer l'IA dans tout l'écosystème Caisse Manager."
+      }
+    ],
+    "visionEyebrow": "Notre vision",
+    "visionTitle": "Un seul système, plusieurs modules.",
+    "visionBody": "Caisse, cuisine, commandes et back-office — conçus pour se comporter comme un seul système, parce que pour l'équipe qui les utilise, ils devraient l'être.",
+    "visionBullets": [
+      "Écosystème POS complet — applications, intégrations et API pour fluidifier toutes les opérations.",
+      "Intégration de l'IA d'ici fin 2026 — des insights métier plus pertinents et des décisions plus rapides, intégrés dans tout l'écosystème.",
+      "Réseau partenaires — agrandir l'écosystème via des affiliés, revendeurs et intégrateurs technologiques."
+    ],
+    "coverageEyebrow": "Présence terrain",
+    "coverageTitle": "Partout au Maroc, de Tanger à Dakhla.",
+    "coverageBody": "Nos équipes de déploiement sont basées dans 5 villes principales — Tanger, Rabat, Casablanca, Marrakech et Agadir. Mais notre capacité d'intervention ne s'arrête pas là. Notre équipe support peut se déplacer dans toutes les villes du Maroc, de Laâyoune à Oujda. Si votre commerce en a besoin, nous venons.",
+    "coverage": [
+      {
+        "title": "5 villes avec équipes permanentes",
+        "body": "Tanger · Rabat · Casablanca · Marrakech · Agadir"
+      },
+      {
+        "title": "Déplacements dans tout le Maroc",
+        "body": "De Dakhla à Oujda, notre équipe se déplace sur site"
+      },
+      {
+        "title": "Installation J+1 dans les grandes villes",
+        "body": "Déploiement, configuration et formation le lendemain"
+      },
+      {
+        "title": "Support 7 jours sur 7",
+        "body": "Assistance disponible tous les jours, sans exception"
+      }
+    ],
+    "partnersEyebrow": "Partenaires",
+    "partnersTitle": "Les entreprises avec lesquelles nous construisons.",
+    "partnersBody": "Notre API ouverte permet des intégrations poussées avec les plateformes de livraison, logiciels comptables et solutions de paiement.",
+    "partners": [
+      {
+        "name": "iMin",
+        "body": "Revendeur agréé non-exclusif de iMin Technology Pte Ltd (Singapour). Distribution des terminaux POS intelligents au Maroc."
+      },
+      {
+        "name": "Syscall",
+        "body": "Partenaire technologique stratégique de Caisse Manager. Collaboration sur l'infrastructure et les solutions techniques avancées."
+      },
+      {
+        "name": "Glovo",
+        "body": "Commandes livraison centralisées sur un seul écran."
+      },
+      {
+        "name": "Done",
+        "body": "Livraison intégrée au flux des commandes internes."
+      },
+      {
+        "name": "Yassir",
+        "body": "Livraison intégrée sur le même écran que les commandes internes."
+      },
+      {
+        "name": "Odoo",
+        "body": "Réservations, précommandes et rendez-vous via cette intégration."
+      },
+      {
+        "name": "CMI",
+        "body": "Paiement électronique, taux 1% — le meilleur du marché."
+      }
+    ],
+    "reasonsEyebrow": "Pourquoi nous",
+    "reasonsTitle": "Pourquoi les clients nous choisissent.",
+    "reasons": [
+      {
+        "title": "Proximité client",
+        "body": "Nous prenons le temps de comprendre les besoins de chaque commerce. Pas de solution générique — une réponse adaptée à chaque opération."
+      },
+      {
+        "title": "Support 7j/7",
+        "body": "Notre équipe est disponible tous les jours. Quand une caisse a un problème, nous sommes là — pas un formulaire de ticket avec 48h de délai."
+      },
+      {
+        "title": "Présence nationale",
+        "body": "Des équipes terrain dans 5 villes marocaines. Installation sur site, formation des équipes, interventions rapides — sans sous-traiter."
+      },
+      {
+        "title": "Cycle rapide",
+        "body": "De la démo à l'activation en moyenne 3 jours. Pas de mois de négociation — nous allons à l'essentiel."
+      },
+      {
+        "title": "Fiabilité prouvée",
+        "body": "Une disponibilité de 99,9% sur les 3 derniers mois. 1,4 million de tickets traités chaque mois sans interruption."
+      },
+      {
+        "title": "Innovation continue",
+        "body": "Intégration de l'IA, nouvelles APIs, nouvelles intégrations — nous investissons dans la technologie pour que nos clients gardent une longueur d'avance."
+      }
+    ],
+    "ctaEyebrow": "Pour commencer",
+    "ctaTitle": "Prêt à bouger votre caisse vers l'avant ?",
+    "ctaBody": "Essayez la démo ou parlez à notre équipe. Une personne vous répond, pas un bot.",
+    "ctaTrial": "Essai gratuit",
+    "ctaDemo": "Essayer la démo →"
+  },
+  "careersPage": {
+    "metaTitle": "Carrières — Caisse Manager",
+    "metaDescription": "Rejoignez l'équipe Caisse Manager. Culture de terrain, évolution rapide, matériel fourni, primes sur objectifs, formation continue.",
+    "eyebrow": "Carrières",
+    "title": "Construisez l'écosystème POS avec nous.",
+    "body": "Animés par un esprit entrepreneurial et forts de notre expérience du terrain depuis 2018, nous allions une exigence de qualité à une culture de l'innovation, avec un objectif clair : accompagner durablement les commerces marocains et investir dans l'avenir de notre écosystème.",
+    "benefitsEyebrow": "Au-delà du salaire",
+    "benefitsTitle": "Ce qu'on met sur la table.",
+    "benefits": [
+      {
+        "title": "Couverture santé",
+        "body": "Mutuelle prise en charge pour vous et vos ayants droit dès la titularisation."
+      },
+      {
+        "title": "Évolution rapide",
+        "body": "Équipe encore petite : les responsabilités grandissent vite pour ceux qui livrent."
+      },
+      {
+        "title": "Flexibilité terrain",
+        "body": "Pour les rôles déploiement et support, plannings organisés autour des villes couvertes, pas d'aller-retour inutile."
+      },
+      {
+        "title": "Formation continue",
+        "body": "Budget dédié pour certifications techniques, langues, ou formations produit/POS."
+      },
+      {
+        "title": "Matériel fourni",
+        "body": "Ordinateur, téléphone et terminal de test fournis dès le premier jour, pas de « on verra plus tard »."
+      },
+      {
+        "title": "Primes sur objectifs",
+        "body": "Pour les rôles commerciaux et déploiement : primes liées aux activations réussies, pas seulement au volume."
+      }
+    ],
+    "processEyebrow": "Notre processus",
+    "processTitle": "Votre candidature mérite d'être lue jusqu'au bout.",
+    "processBody": "Chez Caisse Manager, chaque candidature est étudiée par une vraie personne — pas un tri automatique par mots-clés. On prend le temps de comprendre votre parcours, ce que vous cherchez vraiment, et si ça peut coller des deux côtés.",
+    "processHeading": "Quatre étapes, pas dix.",
+    "process": [
+      {
+        "title": "Candidature en ligne",
+        "body": "Vous postulez en ligne. Un humain lit votre profil sous 3 jours ouvrés — pas un tri automatique par mots-clés."
+      },
+      {
+        "title": "Premier échange",
+        "body": "30 minutes pour parler de vous, du poste, et vérifier que les attentes des deux côtés sont alignées."
+      },
+      {
+        "title": "Entretien technique",
+        "body": "Discussion avec l'équipe et le manager direct : cas concrets liés au poste, pas de questions pièges."
+      },
+      {
+        "title": "Retour rapide",
+        "body": "Réponse rapide dans un sens ou dans l'autre. Si c'est oui, l'offre arrive sous 48h."
+      }
+    ],
+    "spontaneousEyebrow": "Candidature spontanée",
+    "spontaneousTitle": "Aucun poste ne correspond, mais l'envie est là ?",
+    "spontaneousBody": "Envoyez-nous une candidature spontanée. On garde les profils intéressants pour les prochaines ouvertures.",
+    "spontaneousCta": "Nous contacter"
+  },
+  "eventsPage": {
+    "metaTitle": "Événements — Caisse Manager",
+    "metaDescription": "Salons professionnels, rencontres sectorielles, démonstrations en direct — retrouvez les événements où Caisse Manager a été présent.",
+    "eyebrow": "Événements",
+    "title": "On aime être là où le terrain se retrouve.",
+    "body": "Salons professionnels, rencontres sectorielles, démonstrations en direct — retrouvez ci-dessous les événements où Caisse Manager a été présent, aux côtés des commerçants, restaurateurs et hôteliers marocains.",
+    "videoPlaceholder": "VIDÉO À VENIR",
+    "events": [
+      {
+        "slug": "marocotel-2024",
+        "name": "Marocotel 2024",
+        "date": "8–12 mai 2024",
+        "location": "Parc d'Exposition Mohammed VI · El Jadida",
+        "body": "Caisse Manager était présent à la 18ème édition de Marocotel, le Salon International de l'Équipement Professionnel pour l'Hôtellerie, la Restauration, les Métiers de bouche, le Bien-être et les Loisirs. Un événement de référence sur le continent africain, qui a réuni plus de 21 800 visiteurs professionnels et 250 exposants nationaux et internationaux. L'occasion pour nos équipes de présenter notre écosystème de caisse aux décideurs de l'hôtellerie et de la restauration marocaine."
+      },
+      {
+        "slug": "cremai-2025",
+        "name": "Salon Cremaï 2025",
+        "date": "2025",
+        "location": "Marrakech",
+        "body": "Caisse Manager était présent au Salon Cremaï 2025 à Marrakech, le rendez-vous de référence des professionnels de la restauration et de l'agroalimentaire au Maroc. L'occasion de présenter notre écosystème de caisse à un public de restaurateurs, de chaînes et de futurs partenaires. Nos équipes ont fait découvrir nos terminaux et notre interface aux visiteurs, et échangé directement avec eux sur place."
+      },
+      {
+        "slug": "marocotel-2026",
+        "name": "Marocotel 2026",
+        "date": "Avril 2026",
+        "location": "Parc d'Exposition Mohammed VI · El Jadida",
+        "body": "Caisse Manager était présent à la 19ème édition de Marocotel, organisée sous l'égide du Ministère du Tourisme. Un rendez-vous incontournable pour les décideurs de l'hôtellerie et de la restauration au Maroc et sur le continent africain, réunissant plusieurs centaines d'exposants et des dizaines de milliers de visiteurs professionnels. Nos équipes y ont présenté notre écosystème de caisse aux hôteliers et restaurateurs présents, avec des démonstrations en direct de nos terminaux et de notre interface."
+      },
+      {
+        "slug": "franchise-2026",
+        "name": "Franchise Exhibition Morocco 2026",
+        "date": "Avril 2026",
+        "location": "Casablanca · Fédération Marocaine de la Franchise",
+        "body": "Caisse Manager était présent au Franchise Exhibition Morocco 2026, organisé par la Fédération Marocaine de la Franchise (FMF). Après une première édition remarquée en 2025, ce grand rendez-vous du secteur a réuni plus de 150 marques phares, une trentaine de conférences et des espaces dédiés aux jeunes pousses. Nos équipes y ont échangé avec des réseaux de franchise marocains et internationaux à la recherche d'un système de caisse fiable pour équiper leurs points de vente."
+      }
+    ],
+    "ctaEyebrow": "Vous étiez sur place ?",
+    "ctaTitle": "Parlons de votre commerce.",
+    "ctaBody": "Parlez à notre équipe pour organiser une démo adaptée à votre commerce, où que vous soyez.",
+    "ctaSales": "Parler aux ventes",
+    "ctaDemo": "Essayer la démo →"
   }
 }
