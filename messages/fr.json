@@ -96,7 +96,7 @@
     },
     "storeDropdown": {
       "terminalsTitle": "Terminaux POS",
-      "swan1Desc": "POS de comptoir, 15,6″",
+      "swan1Desc": "POS de caisse, 15,6″",
       "swan1kDesc": "Écran commercial tout métal, fixation VESA",
       "mobileTitle": "POS mobiles",
       "swift1ProDesc": "Terminal de poche avec NFC",
@@ -104,7 +104,7 @@
       "swift2UltraDesc": "Flagship — impression reçu + étiquettes",
       "kiosksTitle": "Bornes de commande",
       "heron1Desc": "Borne au sol 23,8″",
-      "heron1MiniDesc": "Borne de comptoir 15,6″",
+      "heron1MiniDesc": "Borne de caisse 15,6″",
       "browseTitle": "Parcourir",
       "allHardwareLabel": "Tout le matériel",
       "allHardwareDesc": "Voir la gamme complète"
@@ -215,7 +215,7 @@
       "trustBadge": "Sans engagement · Configuration en 10 minutes"
     },
     "finalCta": {
-      "heading": "Voyez-le sur votre comptoir.",
+      "heading": "Voyez-le sur votre caisse.",
       "body": "Lancez votre essai gratuit aujourd'hui. Apportez votre carte, votre équipe et vos caisses.",
       "primaryCta": "Démarrer l'essai gratuit",
       "secondaryCta": "Découvrir le produit"
@@ -255,9 +255,9 @@
           "tagline": "Service rapide, salle pleine."
         },
         "cafes": {
-          "eyebrow": "Café & comptoir",
+          "eyebrow": "Café & caisse",
           "title": "Cafés",
-          "tagline": "Du comptoir à la tasse, en quelques secondes."
+          "tagline": "De la caisse à la tasse, en quelques secondes."
         },
         "retail": {
           "eyebrow": "Surface de vente",
@@ -349,14 +349,14 @@
     "free": "Gratuit",
     "currency": "MAD",
     "freeForever": "Pour toujours — sans carte",
-    "perMonthPerCounter": "/ mois par comptoir",
+    "perMonthPerCounter": "/ mois par caisse",
     "yearly": "Annuel",
     "biennial": "24 mois",
     "save25": "Économisez 25 %",
     "save50": "Économisez 50 %",
     "trustEyebrow": "La confiance, à la marocaine",
     "trustTitle": "Conçu, hébergé et opéré au Maroc.",
-    "trustSubtitle": "Des centaines de commerçants à travers le Royaume pilotent leur comptoir avec Caisse Manager.",
+    "trustSubtitle": "Des centaines de commerçants à travers le Royaume pilotent leur caisse avec Caisse Manager.",
     "faqEyebrow": "Questions fréquentes",
     "faqTitle": "Le détail du contrat tarifaire.",
     "faqBody": "Vous ne trouvez pas votre question ? <link>Écrivez-nous</link> — nous répondons généralement dans l'heure aux horaires d'ouverture.",
@@ -409,8 +409,8 @@
     "plans": {
       "pro": {
         "name": "PRO",
-        "tagline": "Gérez tout le comptoir.",
-        "description": "Tout ce dont un comptoir actif a besoin, tarifé pour un exploitant mono-site.",
+        "tagline": "Gérez tout la caisse.",
+        "description": "Tout ce dont une caisse active a besoin, tarifé pour un exploitant mono-site.",
         "ctaLabel": "Essai gratuit",
         "highlights": {
           "h1": "Multi-POS support",
@@ -423,7 +423,7 @@
       "enterprise": {
         "name": "ENTREPRISE",
         "tagline": "Bâti pour votre opération.",
-        "description": "Multi-site, sauvegardes lourdes, intégrations. Pour les groupes qui exploitent plusieurs comptoirs.",
+        "description": "Multi-site, sauvegardes lourdes, intégrations. Pour les groupes qui exploitent plusieurs caisses.",
         "ctaLabel": "Contacter les ventes",
         "highlights": {
           "h1": "Multi-POS support",
@@ -457,7 +457,7 @@
         "branded": "Commande client à votre marque",
         "brandedHint": "Votre carte sur une page QR ou web",
         "remote": "Accès à distance",
-        "remoteHint": "Pilotez votre comptoir depuis n'importe où",
+        "remoteHint": "Pilotez votre caisse depuis n'importe où",
         "storage": "Stockage des données",
         "storageHint": "Historique des ventes, du stock et des rapports conservé à grande échelle",
         "api": "Intégrations API",
@@ -480,11 +480,11 @@
     "plansHeaderLine1": "Plans",
     "plansHeaderLine2": "Caisse Manager.",
     "plansHeaderTagline": "Un prix simple, une caisse sans limite.",
-    "plansHeaderBody": "Par comptoir, jamais par siège. Changez de tier à tout moment — pro-ratisé, sans pénalité.",
+    "plansHeaderBody": "Par caisse, jamais par siège. Changez de tier à tout moment — pro-ratisé, sans pénalité.",
     "plansHeaderVat": "Tous les prix en MAD. TVA 20% appliquée.",
     "addonsEyebrow": "MODULES COMPLÉMENTAIRES",
     "addonsTitle": "Ajoutez les outils dont votre équipe a besoin.",
-    "addonsBody": "Modules à la carte, tarifés par comptoir par mois. Combinez-les à Pro ou Entreprise — même échelle d'engagement que votre plan.",
+    "addonsBody": "Modules à la carte, tarifés par caisse par mois. Combinez-les à Pro ou Entreprise — même échelle d'engagement que votre plan.",
     "addons": {
       "kds": {
         "name": "Abonnement KDS"
@@ -553,39 +553,168 @@
       "ctaTrySimGeneric": "Essayer le simulateur POS",
       "ctaTrySim": "Essayer le simulateur — {activity}",
       "ctaTrySimDesc": "Lancez une caisse pré-configurée pour {activity} en quelques secondes — sans inscription.",
-      "backToIndustries": "← Retour à tous les secteurs"
+      "backToIndustries": "← Retour à tous les secteurs",
+      "painLabel": "Ce qui bloque",
+      "solutionLabel": "Ce qu'on fait",
+      "goDeeperEyebrow": "Pour aller plus loin"
     },
     "cafe": {
-      "eyebrow": "Café & comptoir",
-      "title": "Cafés",
-      "standfirst": "Du comptoir à la tasse, en quelques secondes. Pensé pour la cohue du matin, le déjeuner décontracté et les habitués qui savent déjà ce qu'ils veulent.",
+      "eyebrow": "Secteur · Cafés",
+      "title": "La caisse d'un café ne s'arrête jamais vraiment.",
+      "standfirst": "Entre la cohue du matin, les modificateurs à répétition et les clients qui hésitent au moment de payer, une caisse de café doit rester fluide sans jamais faire attendre.",
       "workflow": [
-        "Modificateurs en un toucher — taille, lait, shot supplémentaire — sans ralentir la file.",
-        "La fidélité s'applique à la caisse ; les baristas ne gèrent pas deux systèmes.",
-        "Le stock recette-aware déduit grains, lait et gobelets à chaque vente."
+        {
+          "pain": "La cohue du matin s'accumule à la caisse",
+          "solutionTitle": "Un flux de modificateurs en deux clics",
+          "solutionBody": "Caisse Manager regroupe les options fréquentes sur un seul écran de commande : deux clics suffisent pour spécifier taille, lait et sirop, sans changer d'écran. Le temps de prise de commande baisse mécaniquement, même aux heures de pointe."
+        },
+        {
+          "pain": "Impossible de savoir quelle succursale est la plus fréquentée",
+          "solutionTitle": "Tableau de bord des ventes en direct, point de vente par point de vente",
+          "solutionBody": "Chaque succursale remonte ses ventes en temps réel dans un tableau de bord central. Le gérant voit en un coup d'œil quelle boutique est en surcharge, laquelle est calme, et ajuste le staffing en conséquence — sans attendre la clôture de caisse du soir."
+        },
+        {
+          "pain": "Un client interrompu en plein achat bloque toute la file",
+          "solutionTitle": "La commande reste ouverte, un nouvel onglet démarre pour le client suivant",
+          "solutionBody": "Plutôt que de bloquer la caisse, la commande en cours reste ouverte sur un onglet dédié pendant qu'un nouvel onglet s'ouvre pour la personne suivante. La caisse continue de tourner, et on revient à la commande interrompue dès qu'elle est prête à être finalisée."
+        },
+        {
+          "pain": "Le tiroir-caisse s'ouvre à la main, ça ralentit l'encaissement",
+          "solutionTitle": "Le tiroir-caisse s'ouvre automatiquement dès la validation de l'encaissement",
+          "solutionBody": "Dès que le paiement est validé sur Caisse Manager, le tiroir-caisse s'ouvre automatiquement. Le caissier rend la monnaie et passe au client suivant sans étape intermédiaire."
+        }
       ],
+      "ecosystemIntro": "Des établissements réels, dans votre secteur, qui font tourner leur activité sur Caisse Manager.",
       "ecosystem": [
-        "Menu QR pour le service à table transforme la salle en kiosque de commande.",
-        "L'application mobile permet au gérant de suivre les ventes depuis n'importe où.",
-        "L'afficheur client fait du comptoir une surface de marque."
+        {
+          "name": "Room 21",
+          "tag": "Café · Pâtisserie",
+          "body": "Un salon café-pâtisserie toujours plein aux heures de pointe. Room 21 laisse la commande d'un client ouverte pendant qu'un nouvel onglet démarre pour le suivant, et le tiroir-caisse s'ouvre automatiquement à chaque encaissement — deux détails qui, cumulés sur une journée entière, changent la fluidité du service."
+        },
+        {
+          "name": "Wake Up"
+        },
+        {
+          "name": "La Tasse Joyeuse"
+        },
+        {
+          "name": "Amazon Juices"
+        },
+        {
+          "name": "Bunnie's"
+        },
+        {
+          "name": "Social Coffee"
+        },
+        {
+          "name": "Saloon 33"
+        },
+        {
+          "name": "Cafe Agrafay"
+        }
       ],
-      "scaling": "Un seul café ? Restez léger. Une chaîne d'adresses ? Visualisez le flux de chaque comptoir depuis un seul tableau de bord."
+      "goDeeper": {
+        "title": "Kiosque libre-service",
+        "body": "Aux heures de pointe, un kiosque libre-service absorbe une partie du flux de commandes sans ajouter de personnel à la caisse — utile dès que la file du matin dépasse ce qu'une seule caisse peut encaisser.",
+        "ctaLabel": "Voir les tarifs →",
+        "ctaHref": "/pricing"
+      },
+      "scaling": "Rejoignez les cafés qui ont déjà rendu leur caisse plus fluide. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration ciblée sur votre volume et votre carte."
     },
     "fast-food": {
-      "eyebrow": "Service rapide",
-      "title": "Fast food",
-      "standfirst": "Du volume sans le chaos. Combos, modificateurs, tickets cuisine — tout est calibré pour l'heure de pointe.",
+      "eyebrow": "Secteur · Fast-food",
+      "title": "En fast-food, chaque seconde d'attente se traduit en ventes perdues.",
+      "standfirst": "La promesse du fast-food, c'est la vitesse — et cette promesse se joue autant en cuisine et en livraison qu'à la caisse. Un ticket qui n'arrive pas au bon poste, une commande livraison perdue entre deux écrans : chaque friction se voit directement dans le temps de service.",
       "workflow": [
-        "L'assistant combo guide le client à travers plat + accompagnement + boisson en quelques secondes.",
-        "Les tickets partent en cuisine dès que le paiement est validé.",
-        "Imprimante reçu + tiroir-caisse intégrés sur chaque poste."
+        {
+          "pain": "Chaque seconde d'attente en file coûte une vente",
+          "solutionTitle": "Écran cuisine synchronisé en direct avec la caisse",
+          "solutionBody": "Chaque commande validée à la caisse apparaît instantanément sur l'écran cuisine, dans l'ordre de préparation optimal. Il n'y a plus de délai entre l'encaissement et le lancement de la préparation."
+        },
+        {
+          "pain": "Les commandes livraison arrivent de partout à la fois",
+          "solutionTitle": "Un seul écran pour Glovo, Yassir et Done",
+          "solutionBody": "Les commandes Glovo, Yassir et Done arrivent directement dans le même flux que les commandes internes, sur le même écran. Plus besoin de basculer entre plusieurs tablettes de livraison et la caisse — tout converge au même endroit."
+        },
+        {
+          "pain": "La caisse et la cuisine travaillent sur deux tickets différents",
+          "solutionTitle": "Les commandes sont routées directement au bon poste",
+          "solutionBody": "Chaque commande est automatiquement envoyée au poste de préparation concerné, sans re-saisie ni impression manuelle. Caisse et cuisine travaillent sur la même source d'information, en temps réel."
+        },
+        {
+          "pain": "Une commande interrompue bloque la file à la caisse",
+          "solutionTitle": "La commande reste en attente, un nouvel onglet s'ouvre pour le client suivant",
+          "solutionBody": "La commande en cours passe en attente sur son propre onglet, et la caisse peut immédiatement démarrer une nouvelle commande pour le client suivant, sans perdre la première."
+        },
+        {
+          "pain": "Le tiroir-caisse s'ouvre à la main à chaque encaissement",
+          "solutionTitle": "Le tiroir-caisse s'ouvre automatiquement après validation du paiement",
+          "solutionBody": "Dès que le paiement est validé, le tiroir s'ouvre tout seul. Un geste de moins, à chaque transaction, sur des centaines de transactions par jour."
+        }
       ],
+      "ecosystemIntro": "Des établissements réels, dans votre secteur, qui font tourner leur activité sur Caisse Manager.",
       "ecosystem": [
-        "Le kiosque self-service décharge la file d'attente du caissier.",
-        "Les commandes en ligne arrivent dans le même KDS que la file comptoir.",
-        "L'application mobile permet au management de suivre la rapidité de service."
+        {
+          "name": "Texas Chicken",
+          "tag": "Franchise internationale",
+          "body": "Une franchise multi-sites doit garder le même menu partout. Les tickets de cuisine se synchronisent en direct avec la caisse, les commandes livraison arrivent sur un seul écran, et les prix restent identiques d'un point de vente à l'autre — quel que soit le nombre de succursales."
+        },
+        {
+          "name": "Crusty",
+          "tag": "Poulet & riz",
+          "body": "Une chaîne poulet-riz multi-sites où chaque seconde en file compte. Crusty garde l'écran cuisine synchronisé en direct avec la caisse et centralise ses commandes livraison sur un seul écran, plutôt que de jongler entre plusieurs tablettes."
+        },
+        {
+          "name": "Primos",
+          "tag": "Poulet",
+          "body": "Une enseigne de poulet fast-food où la rapidité fait la différence. Primos synchronise cuisine et caisse en direct et regroupe ses commandes livraison sur un seul écran."
+        },
+        {
+          "name": "Panini Grill",
+          "tag": "Paninis & grill",
+          "body": "Entre paninis, tacos et grillades, chaque commande doit sortir vite. Panini Grill route ses tickets directement au bon poste de cuisine et garde la caisse fluide pendant les coups de feu grâce aux onglets multiples."
+        },
+        {
+          "name": "Area Food"
+        },
+        {
+          "name": "Panini Baba"
+        },
+        {
+          "name": "Burger'n Shake Iberia"
+        },
+        {
+          "name": "CTR Chicken Yacoub Mansour"
+        },
+        {
+          "name": "CTR Chicken Anfa"
+        },
+        {
+          "name": "Kleat"
+        },
+        {
+          "name": "Mr Bnin"
+        },
+        {
+          "name": "Pizza Philestini"
+        },
+        {
+          "name": "Mr Daddy"
+        },
+        {
+          "name": "Uncle Crespy"
+        },
+        {
+          "name": "Wok 4 You"
+        },
+        {
+          "name": "Snack Ham"
+        },
+        {
+          "name": "Only Chicken"
+        }
       ],
-      "scaling": "Le multi-site quick service tourne sur la même logique de caisse — chaque adresse remonte vers un seul back-office."
+      "scaling": "Rejoignez les enseignes fast-food qui synchronisent déjà caisse, cuisine et livraison sur Caisse Manager. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration ciblée sur votre volume et vos partenaires de livraison."
     },
     "dine-in": {
       "eyebrow": "Hôtellerie & restauration",
@@ -605,20 +734,58 @@
       "scaling": "Un restaurant ou quarante — le back-office consolide chiffre d'affaires, stock et heures du personnel de chaque caisse dans une seule console."
     },
     "bakery": {
-      "eyebrow": "Production quotidienne",
-      "title": "Boulangerie",
-      "standfirst": "Un stock qui suit le four. Suivez chaque pain, croissant et gâteau, de la production au comptoir.",
+      "eyebrow": "Secteur · Boulangerie",
+      "title": "La journée d'une boulangerie commence avant celle de tout le monde.",
+      "standfirst": "Une boulangerie ne fonctionne pas comme un commerce classique — four allumé avant l'aube, produits à courte durée de vie, commandes d'événements planifiées des mois à l'avance. Son système de caisse doit connaître ces contraintes.",
+      "intro": "Le four est allumé avant l'aube, les premiers clients arrivent avant même que la connexion internet du quartier ne soit stable, et chaque miche a une durée de vie limitée.",
       "workflow": [
-        "Les fournées déduisent les matières premières ; les ventes déduisent les produits finis.",
-        "Le compte de production du jour visible à chaque comptoir — pas de surproduction, pas de rupture.",
-        "Gestion des lots et dates limites pour les produits périssables."
+        {
+          "pain": "La caisse doit fonctionner avant même le réveil d'internet",
+          "solutionTitle": "Caisse prête hors connexion pour les ouvertures avant l'aube",
+          "solutionBody": "La caisse continue d'encaisser normalement même sans connexion, et synchronise automatiquement les données dès que le réseau revient. L'ouverture matinale n'attend jamais internet."
+        },
+        {
+          "pain": "Le pain rassit, personne ne suit la perte",
+          "solutionTitle": "Alertes de gaspillage et de péremption sur chaque lot, via l'intégration Odoo",
+          "solutionBody": "Chaque lot de production est suivi avec sa date de péremption. L'intégration Odoo déclenche une alerte avant que le produit ne devienne invendable, ce qui permet d'ajuster les prix ou la production du lendemain en connaissance de cause."
+        },
+        {
+          "pain": "Les commandes de mariage et d'événements se perdent dans un carnet",
+          "solutionTitle": "Précommandes et acomptes gérés via l'intégration Odoo",
+          "solutionBody": "Les commandes d'événements sont enregistrées avec acompte, date de retrait et détails de la commande directement dans le système, via l'intégration Odoo — consultables par toute l'équipe, pas seulement par la personne qui a pris l'appel."
+        },
+        {
+          "pain": "Vendre au poids invite les erreurs de prix",
+          "solutionTitle": "Intégration native de la balance, prix calculé automatiquement",
+          "solutionBody": "La balance est connectée directement à la caisse : le poids du produit est lu automatiquement et le prix calculé sans intervention manuelle, du premier au dernier gramme."
+        }
       ],
+      "ecosystemIntro": "Des établissements réels, dans votre secteur, qui font tourner leur activité sur Caisse Manager.",
       "ecosystem": [
-        "Le module stock connaît la recette derrière chaque produit.",
-        "L'afficheur client met en avant les spécialités du jour devant la file.",
-        "Menu QR pour les pré-commandes de traiteur."
+        {
+          "name": "Maison Adena",
+          "tag": "Boulangerie · Café",
+          "body": "Une boulangerie-café où viennoiseries et service doivent suivre le même rythme aux heures de pointe. Maison Adena garde la caisse prête même hors connexion et reçoit une alerte avant que le stock ne tourne, pour ajuster la production du lendemain plutôt que de constater la perte après coup."
+        },
+        {
+          "name": "Ikbal Gourmandise",
+          "tag": "Pâtisserie",
+          "body": "Une pâtisserie-gourmandise où chaque lot a sa propre date de péremption à surveiller. Ikbal Gourmandise reçoit des alertes de gaspillage sur chaque lot et vend au poids sans erreur de prix, grâce à la balance connectée nativement à la caisse."
+        },
+        {
+          "name": "Patisserie Rhouni"
+        },
+        {
+          "name": "Le Croissant"
+        }
       ],
-      "scaling": "Laboratoire central + plusieurs points de vente ? Le back-office orchestre production et distribution."
+      "goDeeper": {
+        "title": "Précommandes via Odoo",
+        "body": "Les précommandes et acomptes pour vos gâteaux de mariage ou d'événement se gèrent directement via notre intégration Odoo — pas d'outil supplémentaire à apprendre, tout reste connecté à votre caisse.",
+        "ctaLabel": "Voir les tarifs →",
+        "ctaHref": "/pricing"
+      },
+      "scaling": "Rejoignez les boulangeries qui ont déjà rendu leur four rentable. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration adaptée à votre production et votre catalogue."
     },
     "beauty": {
       "eyebrow": "Sur rendez-vous",
@@ -1089,9 +1256,9 @@
   },
   "startFreeTrial": {
     "metaTitle": "Démarrer l'essai gratuit",
-    "metaDescription": "Lancez votre essai gratuit Caisse Manager. Quatre champs et un appel d'onboarding guidé — votre comptoir tourne dans l'heure.",
+    "metaDescription": "Lancez votre essai gratuit Caisse Manager. Quatre champs et un appel d'onboarding guidé — votre caisse tourne dans l'heure.",
     "eyebrow": "Démarrez votre essai gratuit",
-    "heroHeadline": "Chaque comptoir, prêt en une heure.",
+    "heroHeadline": "Chaque caisse, prêt en une heure.",
     "heroBody": "Quatre champs rapides et un appel d'onboarding guidé — c'est tout l'embarquement. Sans installateur, sans engagement.",
     "benefits": {
       "b1": "Opérationnel sur votre matériel en un seul appel d'onboarding.",
@@ -1100,7 +1267,7 @@
       "b4": "Assistance WhatsApp prioritaire pendant vos 30 premiers jours."
     },
     "trustedByEyebrow": "Ils nous font confiance",
-    "trustedByBody": "200+ comptoirs dans 13 villes au Maroc. Du café indépendant aux groupes de restauration multi-sites.",
+    "trustedByBody": "200+ caisses dans 13 villes au Maroc. Du café indépendant aux groupes de restauration multi-sites.",
     "formEyebrow": "Parlez-nous de vous",
     "formTitle": "Quatre champs, et nous reviendrons vers vous.",
     "fields": {
@@ -1186,16 +1353,16 @@
   },
   "partnership": {
     "metaTitle": "Partenariat",
-    "metaDescription": "Devenez partenaire de Caisse Manager — affiliation, revente, intégrations. Nous partageons la valeur avec les personnes qui nous amènent les comptoirs qui grandissent.",
+    "metaDescription": "Devenez partenaire de Caisse Manager — affiliation, revente, intégrations. Nous partageons la valeur avec les personnes qui nous amènent les caisses qui grandissent.",
     "eyebrow": "Partenariat",
-    "heroHeadline": "Faisons grandir l'écosystème du comptoir ensemble.",
+    "heroHeadline": "Faisons grandir l'écosystème de la caisse ensemble.",
     "heroBody": "Trois façons de devenir partenaire de Caisse Manager — référer, revendre, intégrer. Chacune partage équitablement la valeur avec celles et ceux qui nous aident à atteindre les commerces qui en ont besoin.",
     "tracksEyebrow": "Trois programmes",
     "tracksTitle": "Choisissez la piste qui correspond à votre façon de travailler.",
     "tracks": {
       "affiliation": {
         "eyebrow": "Affiliation",
-        "title": "Référez un comptoir, gagnez à chaque service.",
+        "title": "Référez une caisse, gagnez à chaque service.",
         "body": "Revenu récurrent sur chaque abonnement actif que vous apportez. Idéal pour les agences, consultants et restaurateurs indépendants disposant d'un réseau."
       },
       "reseller": {
@@ -1226,10 +1393,10 @@
   },
   "careers": {
     "metaTitle": "Carrières",
-    "metaDescription": "Rejoignez Caisse Manager — nous construisons le comptoir le plus serein du Maroc. Postes ingénierie, design, succès client et opérations à Casablanca.",
+    "metaDescription": "Rejoignez Caisse Manager — nous construisons la caisse la plus sereine du Maroc. Postes ingénierie, design, succès client et opérations à Casablanca.",
     "eyebrow": "Carrières",
-    "heroHeadline": "Construisez le comptoir le plus serein du Maroc.",
-    "heroBody": "Nous sommes une petite équipe à Casablanca qui construit le système POS, cuisine et back-office sur lequel des centaines de comptoirs marocains font tourner leur quotidien. Si livrer un logiciel utilisé par de vraies personnes à chaque service vous parle, nous aimerions vous rencontrer.",
+    "heroHeadline": "Construisez la caisse la plus sereine du Maroc.",
+    "heroBody": "Nous sommes une petite équipe à Casablanca qui construit le système POS, cuisine et back-office sur lequel des centaines de caisses marocains font tourner leur quotidien. Si livrer un logiciel utilisé par de vraies personnes à chaque service vous parle, nous aimerions vous rencontrer.",
     "lookForEyebrow": "Ce que nous cherchons",
     "lookForTitle": "Des créateurs qui soignent le septième détail.",
     "lookForBody1": "La restauration et le commerce vivent au rythme du service. Le logiciel qui les soutient doit s'effacer dans ce rythme — pas de modal lourd, pas de surprise, pas d'attente. Nous recrutons des personnes qui le ressentent et livrent en conséquence.",
@@ -1246,12 +1413,12 @@
   },
   "about": {
     "metaTitle": "À propos",
-    "metaDescription": "Caisse Manager rend le comptoir plus serein — moins d'écrans, des décisions plus rapides, un système auquel chaque équipe peut se fier.",
+    "metaDescription": "Caisse Manager rend la caisse plus serein — moins d'écrans, des décisions plus rapides, un système auquel chaque équipe peut se fier.",
     "eyebrow": "À propos",
-    "heroHeadline": "Le comptoir que nous aurions voulu utiliser, nous l'avons construit.",
+    "heroHeadline": "La caisse que nous aurions voulu utiliser, nous l'avons construit.",
     "heroBody": "Caisse Manager a commencé dans la cuisine d'un seul restaurant, avec un carnet plein de frustrations face aux POS testés auparavant. C'est devenu l'outil qu'ils voulaient vraiment.",
     "visionEyebrow": "Notre vision",
-    "visionTitle": "Rendre le comptoir plus serein.",
+    "visionTitle": "Rendre la caisse plus serein.",
     "visionBody1": "La restauration vit au rythme du service. Chaque interruption — un modal de modificateurs maladroit, un écran qui combat le caissier, un ticket cuisine imprimé en retard — casse ce rythme. Nous obsédons sur la suppression de ces frictions, écran après écran.",
     "visionBody2": "POS, cuisine, prise de commande, livraison et back-office — conçus pour se comporter comme un seul système, parce que c'est ce que vit l'équipe qui l'utilise.",
     "numbersEyebrow": "En chiffres",
@@ -1262,7 +1429,7 @@
       "tickets": "tickets / mois",
       "uptime": "disponibilité, le trimestre dernier"
     },
-    "finalTitle": "Voyez-le sur votre comptoir.",
+    "finalTitle": "Voyez-le sur votre caisse.",
     "finalBody": "Démarrez un essai gratuit. Apportez votre carte, votre équipe et vos caisses.",
     "finalPrimary": "Démarrer l'essai gratuit",
     "finalSecondary": "Essayer la démo"
@@ -1273,7 +1440,7 @@
       "title": "Confidentialité.",
       "intro": "Résumé en langage clair de ce que Caisse Manager collecte, pourquoi nous le collectons et comment nous le protégeons. La politique légale complète est en cours de finalisation — cette page sera mise à jour avant le lancement public.",
       "h1": "Ce que nous collectons",
-      "p1": "Lorsque vous démarrez un essai gratuit, nous vous demandons votre nom complet, le nom de votre enseigne, votre ville et votre numéro de téléphone. Lorsque vous utilisez la plateforme, nous enregistrons les données opérationnelles produites par votre équipe — commandes, articles, prix, services, reçus. Nous ne collectons aucune donnée personnelle sur les clients de votre comptoir, sauf si vous activez vous-même les profils clients.",
+      "p1": "Lorsque vous démarrez un essai gratuit, nous vous demandons votre nom complet, le nom de votre enseigne, votre ville et votre numéro de téléphone. Lorsque vous utilisez la plateforme, nous enregistrons les données opérationnelles produites par votre équipe — commandes, articles, prix, services, reçus. Nous ne collectons aucune donnée personnelle sur les clients de votre caisse, sauf si vous activez vous-même les profils clients.",
       "h2": "Comment nous les utilisons",
       "p2": "Vos informations de prospect servent à créer votre compte, programmer l'onboarding et rester en contact à propos du produit. Vos données opérationnelles alimentent les rapports et tableaux de bord du Backoffice. Nous ne vendons rien à des tiers.",
       "h3": "Où elles sont hébergées",
@@ -1396,7 +1563,7 @@
       },
       "swan1": {
         "title": "Swan 1",
-        "description": "Caisse comptoir desktop 15,6″"
+        "description": "Caisse caisse desktop 15,6″"
       },
       "swan1k": {
         "title": "Swan 1k",
@@ -1420,7 +1587,7 @@
       },
       "heron1Mini": {
         "title": "Heron 1 Mini",
-        "description": "Borne libre-service comptoir 15,6″"
+        "description": "Borne libre-service caisse 15,6″"
       },
       "platform": {
         "title": "Vue d'ensemble de la plateforme",
@@ -1709,7 +1876,7 @@
       "dineIn": "Sur place",
       "glovo": "Glovo",
       "done": "Done",
-      "takeAwaySub": "Retrait au comptoir",
+      "takeAwaySub": "Retrait à la caisse",
       "dineInSub": "Service en salle",
       "glovoSub": "Livraison Glovo",
       "doneSub": "Livraison Done",
@@ -1975,7 +2142,7 @@
     "activity": {
       "cafe": {
         "tagline": "Café, viennoiseries et rush matinal serein.",
-        "description": "Espressos servis au comptoir, viennoiseries fraîches et boissons froides de saison. Pensé pour le retrait rapide et la consommation sur place près de la vitrine."
+        "description": "Espressos servis à la caisse, viennoiseries fraîches et boissons froides de saison. Pensé pour le retrait rapide et la consommation sur place près de la vitrine."
       },
       "fast-food": {
         "tagline": "Pensé pour le coup de feu du midi — burgers, formules, livraison.",
@@ -1987,11 +2154,11 @@
       },
       "market": {
         "tagline": "Pain, lait, œufs — et 200 autres articles, vite.",
-        "description": "Encaissement épicerie et convenience. Tarification à l'article, navigation dense par catégorie, sans routage cuisine. Pensé pour que la file derrière le comptoir avance."
+        "description": "Encaissement épicerie et convenience. Tarification à l'article, navigation dense par catégorie, sans routage cuisine. Pensé pour que la file derrière la caisse avance."
       },
       "bakery": {
         "tagline": "Pains, viennoiseries et la file du matin.",
-        "description": "Production artisanale qui tourne au fil de la journée — pains, viennoiseries, gâteaux signature et café au comptoir. Pensé pour le retrait rapide et une file qui avance."
+        "description": "Production artisanale qui tourne au fil de la journée — pains, viennoiseries, gâteaux signature et café à la caisse. Pensé pour le retrait rapide et une file qui avance."
       },
       "beauty": {
         "tagline": "Services, soins et retail en boutique sur une seule caisse.",
@@ -2008,5 +2175,76 @@
       "body": "Pizzeria, bar à jus, glacier, food truck — le moteur reste le même. Démarrez un essai et nous configurons votre carte, votre stock et votre équipe en un seul appel d'onboarding.",
       "cta": "Démarrer l'essai gratuit"
     }
+  },
+  "industryOverview": {
+    "metaTitle": "Solutions — Caisse Manager",
+    "metaDescription": "Cafés, boulangeries, fast-food, restaurants, salons, barbershops, commerces — Caisse Manager, l'écosystème connecté construit à partir de vrais problèmes de caisse.",
+    "eyebrow": "Nos solutions",
+    "title": "Chaque caisse a son point de blocage. On l'a déjà résolu.",
+    "body": "Caisse Manager est un écosystème connecté — caisse, cuisine, stock, réservations — construit à partir de vrais problèmes de terrain : cafés, boulangeries, fast-food, restaurants, salons, barbershops et commerces. Réservations, précommandes et rendez-vous s'appuient sur notre intégration Odoo.",
+    "proofEyebrow": "Preuves de terrain",
+    "proofTitle": "Éprouvé à la caisse, pas seulement sur papier.",
+    "proofBody": "Quelques établissements qui font déjà tourner leur écosystème sur Caisse Manager.",
+    "proof": [
+      {
+        "name": "Texas Chicken",
+        "tag": "Fast-food · Franchise internationale",
+        "body": "Une franchise multi-sites doit garder le même menu partout. Les tickets de cuisine se synchronisent en direct avec la caisse, les commandes livraison arrivent sur un seul écran, et les prix restent identiques d'un point de vente à l'autre."
+      },
+      {
+        "name": "Crusty",
+        "tag": "Fast-food",
+        "body": "Une chaîne poulet-riz multi-sites où chaque seconde en file compte. Crusty garde l'écran cuisine synchronisé en direct avec la caisse et centralise ses commandes livraison sur un seul écran."
+      },
+      {
+        "name": "Panda Sushi",
+        "tag": "Restaurants · Sur place",
+        "body": "La rotation des tables dépend du timing. Panda Sushi utilise un plan de salle en direct, des tickets de cuisine envoyés plat par plat, et un partage d'addition en un geste, sans faire attendre la table suivante."
+      },
+      {
+        "name": "L'Artisan",
+        "tag": "Commerce · Marché & Restaurant",
+        "body": "Boucherie, volaille et épicerie fine d'un côté, restaurant au feu de bois de l'autre, sous le même toit. L'Artisan encaisse un produit de l'épicerie et passe une commande au restaurant sur le même ticket, en même temps, sans jongler entre deux caisses."
+      },
+      {
+        "name": "Primos",
+        "tag": "Fast-food",
+        "body": "Une enseigne de poulet fast-food où la rapidité fait la différence. Primos synchronise cuisine et caisse en direct et regroupe ses commandes livraison sur un seul écran."
+      },
+      {
+        "name": "Panini Grill",
+        "tag": "Fast-food",
+        "body": "Entre paninis, tacos et grillades, chaque commande doit sortir vite. Panini Grill route ses tickets directement au bon poste de cuisine et garde la caisse fluide pendant les coups de feu grâce aux onglets multiples."
+      },
+      {
+        "name": "Room 21",
+        "tag": "Cafés",
+        "body": "Un salon café-pâtisserie toujours plein aux heures de pointe. Room 21 laisse la commande d'un client ouverte pendant qu'un nouvel onglet démarre pour le suivant, et le tiroir-caisse s'ouvre automatiquement à chaque encaissement."
+      },
+      {
+        "name": "75 Flavours",
+        "tag": "Restaurants · Sur place",
+        "body": "Un café-restaurant qui sert du petit-déjeuner au dîner tardif. 75 Flavours garde un plan de salle en direct et partage l'addition en un geste, sans ralentir la table suivante."
+      },
+      {
+        "name": "Thé-Mara",
+        "tag": "Pâtisserie · Café",
+        "body": "Une pâtisserie-café où chaque produit doit être suivi aussi bien en boutique qu'en salle. Thé-Mara gère ses fiches produits, ses alertes de péremption et son stock directement depuis la caisse, sans jongler entre plusieurs outils."
+      },
+      {
+        "name": "Maison Adena",
+        "tag": "Boulangerie",
+        "body": "Une boulangerie-café où viennoiseries et service doivent suivre le même rythme aux heures de pointe. Maison Adena garde la caisse prête même hors connexion et reçoit une alerte avant que le stock ne tourne."
+      },
+      {
+        "name": "Ikbal Gourmandise",
+        "tag": "Boulangerie",
+        "body": "Une pâtisserie-gourmandise où chaque lot a sa propre date de péremption à surveiller. Ikbal Gourmandise reçoit des alertes de gaspillage et de péremption sur chaque lot, et vend au poids sans erreur de prix."
+      }
+    ],
+    "ctaEyebrow": "Pour commencer",
+    "ctaTitle": "Prêt à faire avancer votre caisse ?",
+    "ctaSales": "Parler aux ventes",
+    "ctaDemo": "Essayer la démo →"
   }
 }

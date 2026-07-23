@@ -553,39 +553,168 @@
       "ctaTrySimGeneric": "Try the POS simulator",
       "ctaTrySim": "Try the simulator — {activity}",
       "ctaTrySimDesc": "Open a till pre-configured for {activity} in seconds — no signup.",
-      "backToIndustries": "← Back to all industries"
+      "backToIndustries": "← Back to all industries",
+      "painLabel": "What blocks you",
+      "solutionLabel": "What we do",
+      "goDeeperEyebrow": "Going further"
     },
     "cafe": {
-      "eyebrow": "Coffee & counter",
-      "title": "Cafés",
-      "standfirst": "Counter to cup, in seconds. Built for the morning rush, the casual lunch, and the regulars who already know what they want.",
+      "eyebrow": "Sector · Cafés",
+      "title": "A café counter never quite closes.",
+      "standfirst": "Between the morning rush, modifier after modifier, and the customer who hesitates at payment — a café counter has to stay fluid without ever making people wait.",
       "workflow": [
-        "One-tap modifiers — size, milk, extra shot — without slowing the line.",
-        "Loyalty redeems at the till; baristas don't manage two systems.",
-        "Recipe-aware stock deducts beans, milk, and cups on every sale."
+        {
+          "pain": "The morning rush piles up at the counter",
+          "solutionTitle": "A two-click modifier flow",
+          "solutionBody": "Caisse Manager groups frequent options on a single order screen: two clicks are enough to specify size, milk, and syrup — no screen switching. Order-taking time drops mechanically, even at peak hours."
+        },
+        {
+          "pain": "No way to tell which branch is busiest",
+          "solutionTitle": "Live per-branch sales dashboard",
+          "solutionBody": "Each branch streams its sales in real time to a central dashboard. The manager sees at a glance which store is overloaded and which is quiet — and adjusts staffing, without waiting for tonight's close."
+        },
+        {
+          "pain": "A customer interrupting a purchase blocks the whole line",
+          "solutionTitle": "The order stays open; a new tab starts for the next customer",
+          "solutionBody": "Rather than blocking the register, the in-progress order stays open on its own tab while a new tab opens for the next person. The counter keeps moving, and you come back to the paused order the moment it's ready to close."
+        },
+        {
+          "pain": "The cash drawer opens by hand — that slows checkout",
+          "solutionTitle": "The drawer opens automatically the moment payment is accepted",
+          "solutionBody": "The instant the payment is confirmed in Caisse Manager, the cash drawer pops open. The cashier gives change and moves to the next customer without an extra step."
+        }
       ],
+      "ecosystemIntro": "Real establishments, in your sector, running their operation on Caisse Manager.",
       "ecosystem": [
-        "QR Menu for table-service flips dine-in into a kiosk ordering experience.",
-        "Mobile Application lets the manager check sales from anywhere.",
-        "Customer Display turns the counter into a brand surface."
+        {
+          "name": "Room 21",
+          "tag": "Café · Pastry",
+          "body": "A pastry café that's always packed at peak. Room 21 keeps a customer's order open while a new tab starts for the next, and the cash drawer opens automatically at every checkout — two details that, added up across a full day, change how smoothly the service feels."
+        },
+        {
+          "name": "Wake Up"
+        },
+        {
+          "name": "La Tasse Joyeuse"
+        },
+        {
+          "name": "Amazon Juices"
+        },
+        {
+          "name": "Bunnie's"
+        },
+        {
+          "name": "Social Coffee"
+        },
+        {
+          "name": "Saloon 33"
+        },
+        {
+          "name": "Cafe Agrafay"
+        }
       ],
-      "scaling": "Single café? Run it lean. Chain of locations? See every counter's flow from one dashboard."
+      "goDeeper": {
+        "title": "Self-order kiosk",
+        "body": "At peak hours, a self-order kiosk absorbs part of the order flow without adding counter staff — useful as soon as the morning line grows past what a single register can handle.",
+        "ctaLabel": "See pricing →",
+        "ctaHref": "/pricing"
+      },
+      "scaling": "Join the cafés that have already made their counter smoother. Try the demo in seconds, or talk to an advisor for a targeted walkthrough based on your volume and menu."
     },
     "fast-food": {
-      "eyebrow": "Quick service",
-      "title": "Fast food",
-      "standfirst": "Volume without chaos. Combos, modifiers, kitchen tickets — all tuned for peak hour.",
+      "eyebrow": "Sector · Fast food",
+      "title": "In fast food, every second of waiting is a lost sale.",
+      "standfirst": "The fast-food promise is speed — and that promise plays out in the kitchen and in delivery as much as at the counter. A ticket that doesn't reach the right station, a delivery order lost between two screens: every friction shows up directly in service time.",
       "workflow": [
-        "Combo wizard walks customers through main + side + drink in seconds.",
-        "Tickets fire to kitchen the moment payment hits.",
-        "Receipt printer + cash drawer integration on every counter."
+        {
+          "pain": "Every second of line time costs a sale",
+          "solutionTitle": "Kitchen display synced live with the register",
+          "solutionBody": "Every order confirmed at the register appears instantly on the kitchen display, in the optimal prep order. There's no lag between checkout and firing."
+        },
+        {
+          "pain": "Delivery orders arrive from everywhere at once",
+          "solutionTitle": "A single screen for Glovo, Yassir, and Done",
+          "solutionBody": "Glovo, Yassir, and Done orders land in the same flow as internal orders, on the same screen. No more toggling between delivery tablets and the register — everything converges in one place."
+        },
+        {
+          "pain": "Counter and kitchen work off two different tickets",
+          "solutionTitle": "Orders are routed straight to the right station",
+          "solutionBody": "Every order is automatically sent to the relevant prep station, without re-entry or manual printing. Counter and kitchen work off the same source of truth, in real time."
+        },
+        {
+          "pain": "An interrupted order blocks the counter line",
+          "solutionTitle": "The order stays on hold; a new tab opens for the next customer",
+          "solutionBody": "The in-progress order goes on hold in its own tab, and the counter can immediately start a new order for the next customer — without losing the first."
+        },
+        {
+          "pain": "The cash drawer opens by hand at every checkout",
+          "solutionTitle": "The drawer opens automatically after payment is accepted",
+          "solutionBody": "The moment payment is confirmed, the drawer pops open on its own. One gesture removed from every transaction, across hundreds of transactions a day."
+        }
       ],
+      "ecosystemIntro": "Real establishments, in your sector, running their operation on Caisse Manager.",
       "ecosystem": [
-        "Self-Order Kiosk pulls orders out of the cashier queue.",
-        "Online Ordering routes to the same KDS as the counter line.",
-        "Mobile Application lets management track speed-of-service."
+        {
+          "name": "Texas Chicken",
+          "tag": "International franchise",
+          "body": "A multi-site franchise has to keep the same menu everywhere. Kitchen tickets sync live with the register, delivery orders land on a single screen, and prices stay identical across locations — no matter the branch count."
+        },
+        {
+          "name": "Crusty",
+          "tag": "Chicken & rice",
+          "body": "A multi-site chicken-and-rice chain where every second in line counts. Crusty keeps the kitchen display synced live with the counter and centralises delivery orders on a single screen, instead of juggling multiple tablets."
+        },
+        {
+          "name": "Primos",
+          "tag": "Chicken",
+          "body": "A fast-food chicken chain where speed makes the difference. Primos syncs kitchen and counter live and consolidates delivery orders on a single screen."
+        },
+        {
+          "name": "Panini Grill",
+          "tag": "Paninis & grill",
+          "body": "Between paninis, tacos, and grilled items, every order has to come out fast. Panini Grill routes tickets straight to the right kitchen station and keeps the register fluid during rushes with multi-tab orders."
+        },
+        {
+          "name": "Area Food"
+        },
+        {
+          "name": "Panini Baba"
+        },
+        {
+          "name": "Burger'n Shake Iberia"
+        },
+        {
+          "name": "CTR Chicken Yacoub Mansour"
+        },
+        {
+          "name": "CTR Chicken Anfa"
+        },
+        {
+          "name": "Kleat"
+        },
+        {
+          "name": "Mr Bnin"
+        },
+        {
+          "name": "Pizza Philestini"
+        },
+        {
+          "name": "Mr Daddy"
+        },
+        {
+          "name": "Uncle Crespy"
+        },
+        {
+          "name": "Wok 4 You"
+        },
+        {
+          "name": "Snack Ham"
+        },
+        {
+          "name": "Only Chicken"
+        }
       ],
-      "scaling": "Multi-store quick service runs on the same till logic — every location reports into one Back Office."
+      "scaling": "Join the fast-food chains already syncing counter, kitchen, and delivery on Caisse Manager. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your volume and delivery partners."
     },
     "dine-in": {
       "eyebrow": "Hospitality",
@@ -605,20 +734,58 @@
       "scaling": "One restaurant or forty — Back Office consolidates every till's revenue, stock, and staff hours into one console."
     },
     "bakery": {
-      "eyebrow": "Daily bake",
-      "title": "Bakery",
-      "standfirst": "Stock that matches the oven. Track every loaf, croissant, and cake from production to till.",
+      "eyebrow": "Sector · Bakery",
+      "title": "A bakery's day starts before everyone else's.",
+      "standfirst": "A bakery doesn't run like a regular shop — the oven's lit before dawn, products have a short shelf life, and event orders are booked months ahead. Its POS has to know these constraints.",
+      "intro": "The oven is lit before dawn, the first customers arrive before the neighbourhood's internet is even stable, and every loaf has a limited lifespan.",
       "workflow": [
-        "Production runs deduct raw materials; sales deduct finished goods.",
-        "Daily prep counts visible at every counter — no over-baking, no shortages.",
-        "Batch and expiry tracking for perishable items."
+        {
+          "pain": "The register has to work before the internet even wakes up",
+          "solutionTitle": "Offline-ready POS for pre-dawn openings",
+          "solutionBody": "The register keeps ringing normally without a connection, and syncs automatically the moment the network returns. The morning opening never waits on the internet."
+        },
+        {
+          "pain": "Bread goes stale — nobody tracks the loss",
+          "solutionTitle": "Waste and expiry alerts on every batch, via the Odoo integration",
+          "solutionBody": "Each production batch is tracked with its expiry. The Odoo integration triggers an alert before a product becomes unsellable, so you can adjust prices or tomorrow's production with full awareness."
+        },
+        {
+          "pain": "Wedding and event orders get lost in a paper notebook",
+          "solutionTitle": "Pre-orders and deposits managed via the Odoo integration",
+          "solutionBody": "Event orders are recorded with deposit, pickup date, and order details directly in the system, via the Odoo integration — visible to the whole team, not just the person who took the call."
+        },
+        {
+          "pain": "Selling by weight invites pricing mistakes",
+          "solutionTitle": "Native scale integration, price calculated automatically",
+          "solutionBody": "The scale is wired straight into the register: product weight is read automatically and the price computed without manual entry, from the first gram to the last."
+        }
       ],
+      "ecosystemIntro": "Real establishments, in your sector, running their operation on Caisse Manager.",
       "ecosystem": [
-        "Stock Management knows the recipe behind every product.",
-        "Customer Display shows daily specials to the queue.",
-        "QR Menu for catering pre-orders."
+        {
+          "name": "Maison Adena",
+          "tag": "Bakery · Café",
+          "body": "A bakery-café where pastries and service have to keep the same rhythm at peak hours. Maison Adena keeps the register ready even offline and receives an alert before stock rolls over, adjusting tomorrow's production instead of learning about the loss after the fact."
+        },
+        {
+          "name": "Ikbal Gourmandise",
+          "tag": "Pastry",
+          "body": "A pastry-gourmandise where every batch has its own expiry to watch. Ikbal Gourmandise gets per-batch waste alerts and sells by weight with zero pricing error, thanks to the scale wired natively into the register."
+        },
+        {
+          "name": "Patisserie Rhouni"
+        },
+        {
+          "name": "Le Croissant"
+        }
       ],
-      "scaling": "Central kitchen + multiple retail counters? Back Office orchestrates production and distribution."
+      "goDeeper": {
+        "title": "Pre-orders via Odoo",
+        "body": "Pre-orders and deposits for your wedding cakes or event catering are handled directly via our Odoo integration — no extra tool to learn, everything stays connected to your register.",
+        "ctaLabel": "See pricing →",
+        "ctaHref": "/pricing"
+      },
+      "scaling": "Join the bakeries that have already made their oven pay off. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your production and catalog."
     },
     "beauty": {
       "eyebrow": "Appointments",
@@ -2008,5 +2175,76 @@
       "body": "Pizzeria, juice bar, ice cream stand, food truck — the engine is the same. Start a trial and we'll wire your menu, stock, and team in one onboarding call.",
       "cta": "Start free trial"
     }
+  },
+  "industryOverview": {
+    "metaTitle": "Solutions — Caisse Manager",
+    "metaDescription": "Cafés, bakeries, fast food, restaurants, beauty, barbers, retail — Caisse Manager, the connected ecosystem built from real counter problems.",
+    "eyebrow": "Our solutions",
+    "title": "Every counter has its blocker. We've already solved it.",
+    "body": "Caisse Manager is a connected ecosystem — POS, kitchen, inventory, reservations — built from real field problems: cafés, bakeries, fast food, restaurants, beauty salons, barbershops, and retail. Reservations, pre-orders, and appointments run on our Odoo integration.",
+    "proofEyebrow": "Field-proven",
+    "proofTitle": "Battle-tested at the counter, not just on paper.",
+    "proofBody": "A few establishments already running their ecosystem on Caisse Manager.",
+    "proof": [
+      {
+        "name": "Texas Chicken",
+        "tag": "Fast food · International franchise",
+        "body": "A multi-site franchise has to keep the same menu everywhere. Kitchen tickets sync live with the register, delivery orders land on a single screen, and prices stay identical across locations."
+      },
+      {
+        "name": "Crusty",
+        "tag": "Fast food",
+        "body": "A multi-site chicken-and-rice chain where every second in line counts. Crusty keeps the kitchen display synced live with the counter and centralises delivery orders on a single screen."
+      },
+      {
+        "name": "Panda Sushi",
+        "tag": "Restaurants · Dine-in",
+        "body": "Table turnover comes down to timing. Panda Sushi uses a live floor plan, kitchen tickets sent course by course, and one-gesture check splitting — without holding up the next table."
+      },
+      {
+        "name": "L'Artisan",
+        "tag": "Retail · Market & Restaurant",
+        "body": "Butchery, poultry, and fine grocery on one side; a wood-fire restaurant on the other, under the same roof. L'Artisan rings a grocery item and orders from the restaurant on the same ticket, at the same time, without juggling two registers."
+      },
+      {
+        "name": "Primos",
+        "tag": "Fast food",
+        "body": "A fast-food chicken chain where speed makes the difference. Primos syncs kitchen and counter live and consolidates delivery orders on a single screen."
+      },
+      {
+        "name": "Panini Grill",
+        "tag": "Fast food",
+        "body": "Between paninis, tacos, and grilled items, every order has to come out fast. Panini Grill routes tickets straight to the right kitchen station and keeps the register fluid during rushes with multi-tab orders."
+      },
+      {
+        "name": "Room 21",
+        "tag": "Cafés",
+        "body": "A pastry café that's always packed at peak. Room 21 keeps a customer's order open while a new tab starts for the next, and the cash drawer opens automatically at every checkout."
+      },
+      {
+        "name": "75 Flavours",
+        "tag": "Restaurants · Dine-in",
+        "body": "A café-restaurant serving from breakfast through late dinner. 75 Flavours keeps a live floor plan and splits checks in one gesture, without slowing the next table."
+      },
+      {
+        "name": "Thé-Mara",
+        "tag": "Pastry · Café",
+        "body": "A pastry café where every product has to be tracked both in-shop and in the tea room. Thé-Mara manages product records, expiry alerts, and inventory straight from the register, without juggling multiple tools."
+      },
+      {
+        "name": "Maison Adena",
+        "tag": "Bakery",
+        "body": "A bakery-café where pastries and service have to keep the same rhythm at peak hours. Maison Adena keeps the register ready even offline and receives an alert before stock rolls over."
+      },
+      {
+        "name": "Ikbal Gourmandise",
+        "tag": "Bakery",
+        "body": "A pastry-gourmandise where every batch has its own expiry to watch. Ikbal Gourmandise gets per-batch waste and expiry alerts, and sells by weight with zero pricing error."
+      }
+    ],
+    "ctaEyebrow": "Ready when you are",
+    "ctaTitle": "Ready to move your counter forward?",
+    "ctaSales": "Talk to sales",
+    "ctaDemo": "Try the demo →"
   }
 }
