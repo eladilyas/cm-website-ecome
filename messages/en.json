@@ -1640,7 +1640,295 @@
     "supportEyebrow": "Partner support",
     "supportTitle": "You bring the customers. We protect your reputation.",
     "supportBody": "When you refer or resell Caisse Manager, your credibility is on the line. Here's what we guarantee to your customers — and to you.",
-    "supportCta": "See support details"
+    "supportCta": "See support details",
+    "programs": {
+      "affiliate": {
+        "metaTitle": "Affiliate Program — Caisse Manager",
+        "metaDescription": "Refer a business, earn a recurring monthly commission. 90-day cookie, automatic payout, dedicated contact.",
+        "crumb": "Partnership",
+        "eyebrow": "Affiliate Program",
+        "title": "Refer. We handle the rest.",
+        "body": "Share your unique link with restaurateurs and merchants. Earn a recurring commission every month, for as long as they stay subscribed. Zero installation, zero support.",
+        "stepsEyebrow": "How it works",
+        "stepsTitle": "Four steps, from introduction to payment.",
+        "steps": [
+          {
+            "title": "You apply",
+            "body": "Fill in the form. Your personalised tracking link is live within 24 hours."
+          },
+          {
+            "title": "You share your link",
+            "body": "Send your link via WhatsApp, email, or in a meeting. Every click is tracked."
+          },
+          {
+            "title": "We take over",
+            "body": "Caisse Manager handles the demo, sale, installation, and support. You have nothing to do."
+          },
+          {
+            "title": "You're paid every month",
+            "body": "Commission lands the moment the first invoice is paid. Then every month, automatically."
+          }
+        ],
+        "toolsEyebrow": "Partner tools",
+        "toolsTitle": "Everything you need to refer effectively.",
+        "tools": [
+          {
+            "title": "Unique tracking link",
+            "body": "A personalised link with your identifier. Every visit, every demo, every subscription from your link is attributed to you automatically."
+          },
+          {
+            "title": "Partner dashboard",
+            "body": "Track your clicks, demos, and active subscriptions in real time. See your commission history and upcoming payouts."
+          },
+          {
+            "title": "Automatic monthly payout",
+            "body": "Your commissions are calculated on the 1st of the month and paid within 5 business days. No paperwork on your side."
+          },
+          {
+            "title": "Sales materials ready",
+            "body": "Brochures, demo videos, customer pitches. Everything to present Caisse Manager without having to prepare anything."
+          },
+          {
+            "title": "Dedicated contact",
+            "body": "A direct contact at Caisse Manager to help you convert your prospects. You're never alone facing a client question."
+          },
+          {
+            "title": "90-day cookie",
+            "body": "If a prospect clicks your link today and subscribes in 3 months, the commission is still yours. No attribution loss."
+          }
+        ],
+        "ctaEyebrow": "Apply",
+        "ctaTitle": "Ready to receive your link?",
+        "ctaBody": "Fill in the application form. Your tracking link is live within 24 hours. No paperwork, no mandatory meeting.",
+        "ctaPrimary": "Apply",
+        "ctaSecondary": "Back to partnership"
+      },
+      "reseller": {
+        "metaTitle": "Reseller Program — Caisse Manager",
+        "metaDescription": "Become an authorised Caisse Manager reseller. Reseller pricing, co-marketing budget, dedicated technical training.",
+        "crumb": "Partnership",
+        "eyebrow": "Reseller Program",
+        "title": "Sell. We give you the margins.",
+        "body": "Become an authorised Caisse Manager reseller. Access reseller pricing, a co-marketing budget, and dedicated technical training. You sell, we support.",
+        "stepsEyebrow": "How it works",
+        "stepsTitle": "Four steps to get started.",
+        "steps": [
+          {
+            "title": "Application",
+            "body": "Form + qualification questionnaire. Reply within 2 business days."
+          },
+          {
+            "title": "Qualification call",
+            "body": "30-minute call with our team. Profile and zone validation."
+          },
+          {
+            "title": "Reseller agreement",
+            "body": "Reseller agreement signed. Access to pricing, tools, and training."
+          },
+          {
+            "title": "You sell, we operate",
+            "body": "You sell, we install and support. Your margin is paid within 30 days."
+          }
+        ],
+        "criteriaEyebrow": "Profile we look for",
+        "criteriaTitle": "What we look for in a reseller.",
+        "criteriaBody": "Exact pricing terms are communicated after qualification. They depend on your geographic zone, your projected volume, and your installation capacity.",
+        "criteria": [
+          "You must be a registered business, not an individual. SARL, sole proprietorship, or company — any form works.",
+          "You have a clear service zone (city, region) and knowledge of the local commercial fabric.",
+          "You have a team or technician capable of installing and training users on site.",
+          "You already have relationships with restaurants, cafés, or retail businesses in your zone."
+        ],
+        "benefitsEyebrow": "What you get",
+        "benefitsTitle": "Everything to sell with confidence.",
+        "benefits": [
+          {
+            "title": "Authorised reseller pricing",
+            "body": "Access to reseller prices on the entire hardware range from the moment you sign."
+          },
+          {
+            "title": "Co-marketing budget",
+            "body": "A budget allocated once your pipeline is qualified — to fund your local commercial actions."
+          },
+          {
+            "title": "Dedicated technical training",
+            "body": "Installation, configuration, and first-level support training for your team."
+          },
+          {
+            "title": "Partner contact",
+            "body": "A dedicated contact at Caisse Manager for your commercial, technical, and logistical questions."
+          },
+          {
+            "title": "Guaranteed SAV support",
+            "body": "Caisse Manager handles level-2 support and complex technical interventions."
+          },
+          {
+            "title": "Zone exclusivity",
+            "body": "Depending on volumes, geographic exclusivity can be negotiated in your reseller agreement."
+          }
+        ],
+        "ctaEyebrow": "Apply",
+        "ctaTitle": "Ready to become an authorised reseller?",
+        "ctaBody": "Fill in the application. Our partnerships team replies within 2 business days.",
+        "ctaPrimary": "Apply",
+        "ctaSecondary": "Back to partnership"
+      },
+      "technology": {
+        "metaTitle": "Technology Program — Caisse Manager",
+        "metaDescription": "Build on the Caisse Manager API. Delivery, accounting, marketing — connect your product to our platform.",
+        "crumb": "Partnership",
+        "eyebrow": "Technology Program",
+        "title": "Build on our API.",
+        "body": "Connect your product to Caisse Manager. Delivery, accounting, marketing — bring a solution our customers already use and we plug it into the platform.",
+        "buildEyebrow": "Use cases",
+        "buildTitle": "What partners build.",
+        "build": [
+          {
+            "title": "Delivery platforms",
+            "body": "Orders placed on your delivery platform appear directly on the register. Zero re-entry, zero error."
+          },
+          {
+            "title": "Accounting software",
+            "body": "Register transactions are sent in real time to your accounting software. Automatic close-of-day."
+          },
+          {
+            "title": "Marketing and loyalty",
+            "body": "Access anonymised sales data to power your loyalty programs or marketing campaigns."
+          },
+          {
+            "title": "Multi-location management",
+            "body": "Aggregate performance across multiple registers in your management tool. Ideal for chains and franchises."
+          }
+        ],
+        "connectedEyebrow": "Already connected",
+        "connectedTitle": "Partners already connected.",
+        "connected": [
+          {
+            "title": "Glovo",
+            "body": "Real-time order sync. Available on every active register."
+          },
+          {
+            "title": "Yassir",
+            "body": "Order and delivery-tracking integration from the register."
+          },
+          {
+            "title": "Odoo",
+            "body": "Automatic accounting export. Currently in test with a pilot customer group."
+          },
+          {
+            "title": "Done",
+            "body": "Active delivery integration. Orders synced in real time from the register."
+          },
+          {
+            "title": "CMI",
+            "body": "Automatic reconciliation of card payments. Available on every active register."
+          },
+          {
+            "title": "Your product here?",
+            "body": "We're actively looking for partners to complete the ecosystem. Describe your use case — our technical team replies within 24 hours."
+          }
+        ],
+        "processEyebrow": "The journey",
+        "processTitle": "From application to production.",
+        "process": [
+          {
+            "title": "Application",
+            "body": "Describe your product, your user base, and the planned use case. Reply within 2 business days."
+          },
+          {
+            "title": "Test API access",
+            "body": "Your technical team receives access keys to our test API. Complete documentation provided."
+          },
+          {
+            "title": "Development and validation",
+            "body": "You develop the integration, we review and validate. A technical contact is available throughout."
+          },
+          {
+            "title": "Go live",
+            "body": "Deployment to shared customers. Revenue-share or visibility agreement per negotiated terms."
+          }
+        ],
+        "docsEyebrow": "Documentation",
+        "docsTitle": "The documentation is coming soon.",
+        "docsBody": "API reference, endpoints, code examples, and SDKs are being written. In the meantime, contact us directly — our technical team sends specs within 24 hours.",
+        "ctaEyebrow": "Apply",
+        "ctaTitle": "Ready to connect your product?",
+        "ctaBody": "Describe your use case in a few lines. Our technical team replies within 24 hours.",
+        "ctaPrimary": "Contact the technical team",
+        "ctaSecondary": "Back to partnership"
+      },
+      "support": {
+        "metaTitle": "Partner Support — Caisse Manager",
+        "metaDescription": "What we guarantee to your customers — and to you. Installation, support, updates, billing, repairs, and training are all handled.",
+        "crumb": "Partnership",
+        "eyebrow": "Partner Support",
+        "title": "You bring the customers. We protect your reputation.",
+        "body": "When you refer or resell Caisse Manager, your credibility is on the line. Here's exactly what we guarantee to your customers — and to you.",
+        "operateEyebrow": "What you can promise",
+        "operateTitle": "You sell. We operate.",
+        "operate": [
+          {
+            "title": "On-site installation",
+            "body": "Our technicians install and configure the hardware at the end customer. You don't have to travel."
+          },
+          {
+            "title": "Direct user support",
+            "body": "The end customer can contact us directly by phone, WhatsApp, or email. You're not the single point of contact."
+          },
+          {
+            "title": "Software updates",
+            "body": "Every update is deployed automatically. No intervention required on your side."
+          },
+          {
+            "title": "Billing and renewals",
+            "body": "Caisse Manager handles monthly subscription billing. You receive your commissions or margins automatically."
+          },
+          {
+            "title": "Hardware repairs",
+            "body": "For hardware failures, we handle repair or replacement per the warranty conditions."
+          },
+          {
+            "title": "User training",
+            "body": "Every new customer receives hands-on training. In-person or remote sessions depending on the city."
+          }
+        ],
+        "promisesEyebrow": "Our commitments",
+        "promisesTitle": "What you're entitled to expect from us.",
+        "promisesBody": "What we guarantee to every partner — written, measured, honoured.",
+        "promises": [
+          "Reply within 24 hours to every partner question — commercial, technical, or logistical.",
+          "Full transparency on your customers' status — you know in real time if a customer is active, behind on payment, or has a technical issue.",
+          "No direct approach to your referred customers without informing you first.",
+          "Guaranteed payment of your commissions or margins within agreed deadlines, with a detailed statement.",
+          "Dedicated contact — no generic call center. A human contact who knows your account."
+        ],
+        "channelsEyebrow": "Contact channels",
+        "channelsTitle": "A problem? We reply fast.",
+        "channels": [
+          {
+            "title": "Partner email",
+            "body": "For all your commercial, contractual, or commission-tracking questions."
+          },
+          {
+            "title": "Technical support",
+            "body": "For urgent technical issues or on-site installation questions."
+          },
+          {
+            "title": "Partner WhatsApp",
+            "body": "Dedicated line for active partners. Guaranteed reply in under 4 business hours."
+          },
+          {
+            "title": "Partner portal",
+            "body": "Dashboard, commission history, customer status, sales materials."
+          }
+        ],
+        "ctaEyebrow": "A question?",
+        "ctaTitle": "Questions about support?",
+        "ctaBody": "Contact our partnerships team directly. A real person replies — not a bot.",
+        "ctaPrimary": "Contact the partnerships team",
+        "ctaSecondary": "Back to partnership"
+      }
+    }
   },
   "careers": {
     "metaTitle": "Careers",
@@ -1688,18 +1976,98 @@
   "legal": {
     "lastUpdated": "June 2026",
     "privacy": {
-      "title": "Privacy.",
-      "intro": "A short, plain-language description of what Caisse Manager collects, why we collect it, and how we keep it safe. The full legal policy is being finalized — this page will be updated before public launch.",
-      "h1": "What we collect",
-      "p1": "When you start a free trial we ask for your full name, brand name, city, and phone number. When you use the platform, we record the operational data your team produces — orders, items, prices, shifts, receipts. We do not collect personal data about the diners or shoppers at your counter unless you choose to enable customer profiles.",
-      "h2": "How we use it",
-      "p2": "Your lead information is used to set up your account, schedule onboarding, and stay in touch about the product. Your operational data powers the reports and dashboards you see in the Backoffice. We do not sell either to third parties.",
-      "h3": "Where it lives",
-      "p3": "Operational data is stored on encrypted servers in the European Union. Backups are encrypted at rest. Access to production data is limited to a small number of engineers under audit logging.",
-      "h4": "Your rights",
-      "p4": "You can request a copy of every record we hold about your account, ask us to correct it, or ask us to delete it. Email the support team and we'll respond within five business days.",
-      "h5": "Updates",
-      "p5": "Material changes are announced in the Backoffice and via the email address on file at least 30 days before they take effect. Continuing to use the platform after that constitutes acceptance."
+      "title": "Privacy Policy",
+      "effectiveDate": "Effective 17 July 2026 — supersedes any earlier version.",
+      "intro": "This policy explains how Caisse Manager SARL (\"Caisse Manager\", \"we\") collects, uses, and protects the information you send us — whether you're a merchant using our POS software, a visitor to our site, or an end customer of a business equipped with Caisse Manager. By using our site, our POS software, or our mobile app, you accept the practices described here.",
+      "sections": [
+        {
+          "heading": "1. What information we collect",
+          "paragraphs": [
+            "Depending on your relationship with Caisse Manager, we may collect:"
+          ],
+          "bullets": [
+            "Identity information — name, role, company name, email, and phone number when you create an account, request a demo, or apply to our partner program.",
+            "Transaction data — receipts, amounts, payment methods, and items sold, generated by daily use of the POS software.",
+            "Loyalty data (optional) — name and contact details of an end customer, only if they provide these voluntarily as part of a loyalty program you enable.",
+            "Technical data — IP address, device and browser type, connection logs, necessary for platform operation and security.",
+            "Site navigation data — pages viewed, visit duration, for audience-measurement purposes."
+          ]
+        },
+        {
+          "heading": "2. What we do with this information",
+          "paragraphs": [
+            "We use the collected information to:"
+          ],
+          "bullets": [
+            "Provide, maintain, and secure the POS service and associated features (sales reports, inventory, loyalty).",
+            "Provide technical support and reply to your requests.",
+            "Process billing for your subscription.",
+            "Improve our products using aggregated and anonymised usage statistics.",
+            "Inform you of important software or policy updates.",
+            "Send you, if you consent, information about our news, offers, or events."
+          ]
+        },
+        {
+          "heading": "3. Mobile app and mobile POS",
+          "paragraphs": [
+            "The mobile POS and the web ordering app access only the data strictly necessary for checkout: sales, receipts, and the connected device identifier. They never access the contacts, photos, or continuous location of the device they're installed on, and are not used for advertising."
+          ]
+        },
+        {
+          "heading": "4. Security",
+          "paragraphs": [
+            "We implement reasonable physical, electronic, and organisational measures to protect the information we collect against unauthorised access, loss, or disclosure. Communications between your register and our servers are encrypted. Card payments are processed by our certified banking partner (CMI); Caisse Manager never stores a full card number.",
+            "As no system is infallible, we can't guarantee absolute security, but we commit to informing you without undue delay in case of an incident affecting your data."
+          ]
+        },
+        {
+          "heading": "5. Cookies",
+          "paragraphs": [
+            "Our site uses cookies: small files placed on your device that let us recognise your browser and improve your experience."
+          ],
+          "bullets": [
+            "Necessary cookies — connection to your account, language preferences. The site doesn't function correctly without them.",
+            "Audience-measurement cookies — used only for statistical purposes to understand which pages are useful, then aggregated."
+          ]
+        },
+        {
+          "heading": "6. Sharing with third parties and external links",
+          "paragraphs": [
+            "We share information only with providers strictly necessary for the service (payment processing via CMI, hosting, delivery integrations you activate yourself like Glovo, Yassir, or Done). Each of these providers is contractually required to protect the data they process on our behalf.",
+            "Our site may contain links to third-party sites. Once you leave our site via one of these links, we no longer have control over that site and can't be held responsible for the protection of information you provide there. We invite you to review the privacy policy of any third-party site you visit."
+          ]
+        },
+        {
+          "heading": "7. Retention period",
+          "paragraphs": [
+            "We retain your information for the duration of the contractual relationship, then archive it for the period required by accounting and tax obligations applicable in Morocco, before deletion or anonymisation."
+          ]
+        },
+        {
+          "heading": "8. Your rights and how to exercise them",
+          "paragraphs": [
+            "In accordance with law 09-08 on the protection of individuals regarding the processing of personal data, you have rights of access, rectification, deletion, and objection concerning data about you."
+          ],
+          "bullets": [
+            "To request a copy of the information we hold about you, write to us at contact@caissemanager.com.",
+            "If you believe information we hold is incorrect or incomplete, tell us and we'll correct it promptly.",
+            "If you no longer want to receive marketing communications, an unsubscribe link appears in every email, or you can write to us directly.",
+            "If you're the end customer of a business using Caisse Manager and want your loyalty data deleted, first contact that business, which remains responsible for your data; we support them technically in this process."
+          ]
+        },
+        {
+          "heading": "9. Changes to this policy",
+          "paragraphs": [
+            "We may modify this policy from time to time to reflect legal, technical, or practice changes. The update date at the top of this page is refreshed with each change. We encourage you to review it periodically."
+          ]
+        },
+        {
+          "heading": "10. Contact us",
+          "paragraphs": [
+            "For any question about this privacy policy, contact us at contact@caissemanager.com. We reply to every request within 30 days."
+          ]
+        }
+      ]
     },
     "terms": {
       "title": "Terms.",

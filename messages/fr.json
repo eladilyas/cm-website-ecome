@@ -1640,7 +1640,295 @@
     "supportEyebrow": "Support partenaires",
     "supportTitle": "Vous amenez les clients. On protège votre réputation.",
     "supportBody": "Quand vous recommandez ou revendez Caisse Manager, votre crédibilité est en jeu. Voici ce que nous garantissons à vos clients — et à vous.",
-    "supportCta": "Voir le détail du support"
+    "supportCta": "Voir le détail du support",
+    "programs": {
+      "affiliate": {
+        "metaTitle": "Programme Affiliation — Caisse Manager",
+        "metaDescription": "Recommandez un commerce, touchez une commission récurrente chaque mois. Cookie 90 jours, versement automatique, interlocuteur dédié.",
+        "crumb": "Partenariat",
+        "eyebrow": "Programme Affiliation",
+        "title": "Recommandez. On s'occupe du reste.",
+        "body": "Partagez votre lien unique avec des restaurateurs et commerçants. Touchez une commission récurrente chaque mois, aussi longtemps qu'ils restent abonnés. Zéro installation, zéro support.",
+        "stepsEyebrow": "Comment ça marche",
+        "stepsTitle": "Quatre étapes, de l'introduction au paiement.",
+        "steps": [
+          {
+            "title": "Vous candidatez",
+            "body": "Remplissez le formulaire. Votre lien de suivi personnalisé est actif sous 24h."
+          },
+          {
+            "title": "Vous partagez votre lien",
+            "body": "Envoyez votre lien par WhatsApp, email ou en rendez-vous. Chaque clic est tracké."
+          },
+          {
+            "title": "Nous prenons le relais",
+            "body": "Caisse Manager gère la démo, la vente, l'installation et le support. Vous n'avez rien à faire."
+          },
+          {
+            "title": "Vous êtes payé chaque mois",
+            "body": "La commission tombe dès la première facture réglée. Puis chaque mois, automatiquement."
+          }
+        ],
+        "toolsEyebrow": "Outils du partenaire",
+        "toolsTitle": "Tout ce dont vous avez besoin pour recommander efficacement.",
+        "tools": [
+          {
+            "title": "Lien de suivi unique",
+            "body": "Un lien personnalisé avec votre identifiant. Chaque visite, chaque démo, chaque abonnement venu de votre lien vous est attribué automatiquement."
+          },
+          {
+            "title": "Tableau de bord partenaire",
+            "body": "Suivez vos clics, démos et abonnements actifs en temps réel. Consultez votre historique de commissions et vos prochains versements."
+          },
+          {
+            "title": "Versement mensuel automatique",
+            "body": "Vos commissions sont calculées le 1er du mois et versées sous 5 jours ouvrés. Aucune démarche de votre côté."
+          },
+          {
+            "title": "Supports de vente prêts",
+            "body": "Brochures, vidéos de démonstration, argumentaires client. Tout pour présenter Caisse Manager sans avoir à préparer quoi que ce soit."
+          },
+          {
+            "title": "Interlocuteur dédié",
+            "body": "Un contact direct chez Caisse Manager pour vous aider à convertir vos prospects. Vous n'êtes jamais seul face à une question client."
+          },
+          {
+            "title": "Cookie de 90 jours",
+            "body": "Si un prospect clique sur votre lien aujourd'hui et s'abonne dans 3 mois, la commission vous revient quand même. Aucune perte d'attribution."
+          }
+        ],
+        "ctaEyebrow": "Postulez",
+        "ctaTitle": "Prêt à recevoir votre lien ?",
+        "ctaBody": "Remplissez le formulaire de candidature. Votre lien de suivi est actif sous 24h. Pas de dossier, pas de réunion préalable.",
+        "ctaPrimary": "Postuler",
+        "ctaSecondary": "Retour au partenariat"
+      },
+      "reseller": {
+        "metaTitle": "Programme Revendeur — Caisse Manager",
+        "metaDescription": "Devenez revendeur agréé Caisse Manager. Tarifs revendeur, budget co-marketing, formation technique dédiée.",
+        "crumb": "Partenariat",
+        "eyebrow": "Programme Revendeur",
+        "title": "Vendez. On vous donne les marges.",
+        "body": "Devenez revendeur agréé Caisse Manager. Accédez aux tarifs revendeur, au budget co-marketing et à une formation technique dédiée. Vous vendez, nous supportons.",
+        "stepsEyebrow": "Comment ça marche",
+        "stepsTitle": "Quatre étapes pour démarrer.",
+        "steps": [
+          {
+            "title": "Candidature",
+            "body": "Formulaire + questionnaire de qualification. Réponse sous 2 jours ouvrés."
+          },
+          {
+            "title": "Appel de qualification",
+            "body": "Appel de 30 minutes avec notre équipe. Validation du profil et de la zone."
+          },
+          {
+            "title": "Accord revendeur",
+            "body": "Signature de l'accord revendeur. Accès aux tarifs, outils et formation."
+          },
+          {
+            "title": "Vous vendez, nous opérons",
+            "body": "Vous vendez, nous installons et supportons. Votre marge est versée sous 30 jours."
+          }
+        ],
+        "criteriaEyebrow": "Profil recherché",
+        "criteriaTitle": "Ce que nous recherchons chez un revendeur.",
+        "criteriaBody": "Les conditions tarifaires exactes sont communiquées après qualification. Elles dépendent de votre zone géographique, de votre volume prévisionnel et de votre capacité d'installation.",
+        "criteria": [
+          "Vous devez être une entreprise enregistrée, pas un particulier. SARL, auto-entrepreneur ou société — peu importe la forme.",
+          "Vous avez une zone d'intervention claire (ville, région) et une connaissance du tissu commercial local.",
+          "Vous avez une équipe ou un technicien capable d'installer et de former les utilisateurs sur site.",
+          "Vous avez déjà des relations avec des restaurants, cafés ou commerces de détail dans votre zone."
+        ],
+        "benefitsEyebrow": "Ce que vous obtenez",
+        "benefitsTitle": "Tout pour vendre avec sérieux.",
+        "benefits": [
+          {
+            "title": "Tarifs revendeur agréés",
+            "body": "Accès aux prix revendeur sur l'ensemble de la gamme matériel dès la signature de l'accord."
+          },
+          {
+            "title": "Budget co-marketing",
+            "body": "Un budget alloué une fois votre pipeline qualifié — pour financer vos actions commerciales locales."
+          },
+          {
+            "title": "Formation technique dédiée",
+            "body": "Formation à l'installation, à la configuration et au support de premier niveau pour votre équipe."
+          },
+          {
+            "title": "Interlocuteur partenaire",
+            "body": "Un contact dédié chez Caisse Manager pour vos questions commerciales, techniques et logistiques."
+          },
+          {
+            "title": "Support SAV garanti",
+            "body": "Caisse Manager prend en charge le support niveau 2 et les interventions techniques complexes."
+          },
+          {
+            "title": "Exclusivité de zone",
+            "body": "Selon les volumes, une exclusivité géographique peut être négociée dans votre accord revendeur."
+          }
+        ],
+        "ctaEyebrow": "Postulez",
+        "ctaTitle": "Prêt à devenir revendeur agréé ?",
+        "ctaBody": "Remplissez la candidature. Notre équipe partenariats vous répond sous 2 jours ouvrés.",
+        "ctaPrimary": "Postuler",
+        "ctaSecondary": "Retour au partenariat"
+      },
+      "technology": {
+        "metaTitle": "Programme Technologie — Caisse Manager",
+        "metaDescription": "Construisez sur l'API Caisse Manager. Livraison, comptabilité, marketing — connectez votre produit à notre plateforme.",
+        "crumb": "Partenariat",
+        "eyebrow": "Programme Technologie",
+        "title": "Construisez sur notre API.",
+        "body": "Connectez votre produit à Caisse Manager. Livraison, comptabilité, marketing — apportez une solution que nos clients utilisent déjà et nous la branchons sur la plateforme.",
+        "buildEyebrow": "Cas d'usage",
+        "buildTitle": "Ce que les partenaires construisent.",
+        "build": [
+          {
+            "title": "Plateformes de livraison",
+            "body": "Les commandes passées sur votre plateforme de livraison apparaissent directement sur la caisse. Zéro ressaisie, zéro erreur."
+          },
+          {
+            "title": "Logiciels comptables",
+            "body": "Les transactions de la caisse sont envoyées en temps réel vers votre logiciel comptable. Clôture de caisse automatique."
+          },
+          {
+            "title": "Marketing et fidélité",
+            "body": "Accédez aux données de vente anonymisées pour alimenter vos programmes de fidélité ou vos campagnes marketing."
+          },
+          {
+            "title": "Outils de gestion multi-site",
+            "body": "Agrégez les performances de plusieurs caisses dans votre outil de gestion. Idéal pour les chaînes et franchises."
+          }
+        ],
+        "connectedEyebrow": "Déjà connectés",
+        "connectedTitle": "Les partenaires déjà connectés.",
+        "connected": [
+          {
+            "title": "Glovo",
+            "body": "Synchronisation des commandes en temps réel. Disponible sur toutes les caisses actives."
+          },
+          {
+            "title": "Yassir",
+            "body": "Intégration commandes et suivi des livraisons depuis la caisse."
+          },
+          {
+            "title": "Odoo",
+            "body": "Export comptable automatique. Actuellement en test avec un groupe de clients pilotes."
+          },
+          {
+            "title": "Done",
+            "body": "Intégration livraison active. Commandes synchronisées en temps réel depuis la caisse."
+          },
+          {
+            "title": "CMI",
+            "body": "Réconciliation automatique des paiements par carte. Disponible sur toutes les caisses actives."
+          },
+          {
+            "title": "Votre produit ici ?",
+            "body": "Nous cherchons activement des partenaires pour compléter l'écosystème. Décrivez votre cas d'usage — notre équipe technique revient vers vous sous 24h."
+          }
+        ],
+        "processEyebrow": "Le parcours",
+        "processTitle": "De la candidature à la mise en production.",
+        "process": [
+          {
+            "title": "Candidature",
+            "body": "Décrivez votre produit, votre base d'utilisateurs et le cas d'usage envisagé. Réponse sous 2 jours ouvrés."
+          },
+          {
+            "title": "Accès à l'API de test",
+            "body": "Votre équipe technique reçoit les clés d'accès à notre API de test. Documentation complète fournie."
+          },
+          {
+            "title": "Développement et validation",
+            "body": "Vous développez l'intégration, nous reviewons et validons. Un interlocuteur technique est disponible tout au long."
+          },
+          {
+            "title": "Mise en production",
+            "body": "Déploiement sur les clients communs. Accord de revenue share ou de visibilité selon les termes négociés."
+          }
+        ],
+        "docsEyebrow": "Documentation",
+        "docsTitle": "La documentation arrive bientôt.",
+        "docsBody": "Référence API, endpoints, exemples de code et SDKs en cours de rédaction. En attendant, contactez-nous directement — notre équipe technique vous envoie les specs sous 24h.",
+        "ctaEyebrow": "Postulez",
+        "ctaTitle": "Prêt à connecter votre produit ?",
+        "ctaBody": "Décrivez votre cas d'usage en quelques lignes. Notre équipe technique revient vers vous sous 24h.",
+        "ctaPrimary": "Contacter l'équipe technique",
+        "ctaSecondary": "Retour au partenariat"
+      },
+      "support": {
+        "metaTitle": "Support Partenaires — Caisse Manager",
+        "metaDescription": "Ce que nous garantissons à vos clients — et à vous. Installation, support, mises à jour, facturation, réparations et formation, tout est pris en charge.",
+        "crumb": "Partenariat",
+        "eyebrow": "Support Partenaires",
+        "title": "Vous amenez les clients. On protège votre réputation.",
+        "body": "Quand vous recommandez ou revendez Caisse Manager, votre crédibilité est en jeu. Voici exactement ce que nous garantissons à vos clients — et à vous.",
+        "operateEyebrow": "Ce que vous pouvez promettre",
+        "operateTitle": "Vous vendez. Nous opérons.",
+        "operate": [
+          {
+            "title": "Installation sur site",
+            "body": "Nos techniciens installent et configurent le matériel chez le client final. Vous n'avez pas à vous déplacer."
+          },
+          {
+            "title": "Support utilisateur direct",
+            "body": "Le client final peut nous contacter directement par téléphone, WhatsApp ou email. Vous n'êtes pas le point de contact unique."
+          },
+          {
+            "title": "Mises à jour logicielles",
+            "body": "Toutes les mises à jour sont déployées automatiquement. Aucune intervention de votre part requise."
+          },
+          {
+            "title": "Facturation et renouvellements",
+            "body": "Caisse Manager gère la facturation mensuelle des abonnements. Vous recevez vos commissions ou marges automatiquement."
+          },
+          {
+            "title": "Réparations matérielles",
+            "body": "En cas de panne matérielle, nous prenons en charge la réparation ou le remplacement selon les conditions de garantie."
+          },
+          {
+            "title": "Formation utilisateurs",
+            "body": "Chaque nouveau client reçoit une formation à la prise en main. Sessions en présentiel ou à distance selon la ville."
+          }
+        ],
+        "promisesEyebrow": "Nos engagements",
+        "promisesTitle": "Ce que vous êtes en droit d'attendre de nous.",
+        "promisesBody": "Ce que nous garantissons à chacun de nos partenaires — écrit, mesuré, tenu.",
+        "promises": [
+          "Réponse sous 24h à toutes vos questions partenaires — commerciales, techniques ou logistiques.",
+          "Transparence totale sur le statut de vos clients — vous savez en temps réel si un client est actif, en retard de paiement ou a un problème technique.",
+          "Aucune approche directe de vos clients référencés sans vous en informer au préalable.",
+          "Versement garanti de vos commissions ou marges dans les délais convenus, avec relevé détaillé.",
+          "Interlocuteur dédié — pas de centre d'appel générique. Un contact humain qui connaît votre compte."
+        ],
+        "channelsEyebrow": "Canaux de contact",
+        "channelsTitle": "Un problème ? On répond vite.",
+        "channels": [
+          {
+            "title": "Email partenaires",
+            "body": "Pour toutes vos questions commerciales, contractuelles ou de suivi de commissions."
+          },
+          {
+            "title": "Support technique",
+            "body": "Pour les problèmes techniques urgents ou les questions d'installation sur site."
+          },
+          {
+            "title": "WhatsApp partenaires",
+            "body": "Ligne dédiée aux partenaires actifs. Réponse garantie en moins de 4 heures ouvrées."
+          },
+          {
+            "title": "Espace partenaire",
+            "body": "Tableau de bord, historique de commissions, statut des clients, supports commerciaux."
+          }
+        ],
+        "ctaEyebrow": "Une question ?",
+        "ctaTitle": "Des questions sur le support ?",
+        "ctaBody": "Contactez directement notre équipe partenariats. Une personne vous répond, pas un bot.",
+        "ctaPrimary": "Contacter l'équipe partenariats",
+        "ctaSecondary": "Retour au partenariat"
+      }
+    }
   },
   "careers": {
     "metaTitle": "Carrières",
@@ -1688,18 +1976,98 @@
   "legal": {
     "lastUpdated": "Juin 2026",
     "privacy": {
-      "title": "Confidentialité.",
-      "intro": "Résumé en langage clair de ce que Caisse Manager collecte, pourquoi nous le collectons et comment nous le protégeons. La politique légale complète est en cours de finalisation — cette page sera mise à jour avant le lancement public.",
-      "h1": "Ce que nous collectons",
-      "p1": "Lorsque vous démarrez un essai gratuit, nous vous demandons votre nom complet, le nom de votre enseigne, votre ville et votre numéro de téléphone. Lorsque vous utilisez la plateforme, nous enregistrons les données opérationnelles produites par votre équipe — commandes, articles, prix, services, reçus. Nous ne collectons aucune donnée personnelle sur les clients de votre caisse, sauf si vous activez vous-même les profils clients.",
-      "h2": "Comment nous les utilisons",
-      "p2": "Vos informations de prospect servent à créer votre compte, programmer l'onboarding et rester en contact à propos du produit. Vos données opérationnelles alimentent les rapports et tableaux de bord du Backoffice. Nous ne vendons rien à des tiers.",
-      "h3": "Où elles sont hébergées",
-      "p3": "Les données opérationnelles sont stockées sur des serveurs chiffrés dans l'Union européenne. Les sauvegardes sont chiffrées au repos. L'accès aux données de production est limité à un petit nombre d'ingénieurs, journalisé et audité.",
-      "h4": "Vos droits",
-      "p4": "Vous pouvez demander une copie de chaque enregistrement détenu sur votre compte, demander correction ou suppression. Écrivez à l'équipe support et nous répondrons sous cinq jours ouvrés.",
-      "h5": "Mises à jour",
-      "p5": "Les changements substantiels sont annoncés dans le Backoffice et à l'adresse email enregistrée au moins 30 jours avant leur entrée en vigueur. Continuer à utiliser la plateforme après ce délai vaut acceptation."
+      "title": "Politique de confidentialité",
+      "effectiveDate": "En vigueur depuis le 17 juillet 2026 — remplace toute version antérieure.",
+      "intro": "Cette politique explique comment Caisse Manager SARL (« Caisse Manager », « nous ») collecte, utilise et protège les informations que vous nous transmettez, que vous soyez commerçant utilisant notre logiciel de caisse, visiteur de notre site, ou client final d'un commerce équipé de Caisse Manager. En utilisant notre site, notre logiciel de caisse ou notre application mobile, vous acceptez les pratiques décrites ici.",
+      "sections": [
+        {
+          "heading": "1. Quelles informations nous collectons",
+          "paragraphs": [
+            "Selon votre relation avec Caisse Manager, nous pouvons collecter :"
+          ],
+          "bullets": [
+            "Informations d'identification — nom, fonction, raison sociale, email et numéro de téléphone, lorsque vous créez un compte, demandez une démonstration, ou candidatez à notre programme partenaire.",
+            "Données de transaction — tickets de caisse, montants, moyens de paiement et articles vendus, générés par l'utilisation quotidienne du logiciel de caisse.",
+            "Données de fidélité (optionnelles) — nom et contact d'un client final, uniquement si celui-ci les fournit volontairement dans le cadre d'un programme de fidélité que vous activez.",
+            "Données techniques — adresse IP, type d'appareil et de navigateur, journaux de connexion, nécessaires au fonctionnement et à la sécurité de la plateforme.",
+            "Données de navigation sur le site — pages consultées, durée de visite, à des fins de mesure d'audience."
+          ]
+        },
+        {
+          "heading": "2. Ce que nous faisons de ces informations",
+          "paragraphs": [
+            "Nous utilisons les informations collectées pour :"
+          ],
+          "bullets": [
+            "Fournir, maintenir et sécuriser le service de caisse et les fonctionnalités associées (rapports de vente, gestion de stock, fidélité).",
+            "Assurer le support technique et répondre à vos demandes.",
+            "Traiter la facturation de votre abonnement.",
+            "Améliorer nos produits à partir de statistiques d'usage agrégées et anonymisées.",
+            "Vous informer des mises à jour importantes du logiciel ou de cette politique.",
+            "Vous envoyer, si vous y avez consenti, des informations sur nos nouveautés, offres ou événements."
+          ]
+        },
+        {
+          "heading": "3. Application mobile et caisse mobile",
+          "paragraphs": [
+            "La caisse mobile et l'application web de commande n'accèdent qu'aux données strictement nécessaires à l'encaissement : ventes, tickets et identifiant de l'appareil connecté. Elles n'accèdent jamais aux contacts, aux photos ou à la localisation en continu de l'appareil sur lequel elles sont installées, et ne sont pas utilisées à des fins publicitaires."
+          ]
+        },
+        {
+          "heading": "4. Sécurité",
+          "paragraphs": [
+            "Nous mettons en place des mesures physiques, électroniques et organisationnelles raisonnables pour protéger les informations que nous collectons contre l'accès non autorisé, la perte ou la divulgation. Les communications entre votre caisse et nos serveurs sont chiffrées. Les paiements par carte sont traités par notre partenaire bancaire certifié (CMI) ; Caisse Manager ne stocke jamais de numéro de carte complet.",
+            "Aucun système n'étant infaillible, nous ne pouvons garantir une sécurité absolue, mais nous nous engageons à vous informer sans délai injustifié en cas d'incident affectant vos données."
+          ]
+        },
+        {
+          "heading": "5. Cookies",
+          "paragraphs": [
+            "Notre site utilise des cookies : de petits fichiers déposés sur votre appareil qui nous permettent de reconnaître votre navigateur et d'améliorer votre expérience."
+          ],
+          "bullets": [
+            "Cookies nécessaires — connexion à votre espace, préférences de langue. Le site ne fonctionne pas correctement sans eux.",
+            "Cookies de mesure d'audience — utilisés uniquement à des fins statistiques, pour comprendre quelles pages sont utiles, puis agrégés."
+          ]
+        },
+        {
+          "heading": "6. Partage avec des tiers et liens externes",
+          "paragraphs": [
+            "Nous partageons des informations uniquement avec les prestataires strictement nécessaires au fonctionnement du service (traitement des paiements via CMI, hébergement, intégrations de livraison que vous activez vous-même comme Glovo, Yassir ou Done). Chacun de ces prestataires est tenu contractuellement de protéger les données qu'il traite pour notre compte.",
+            "Notre site peut contenir des liens vers des sites tiers. Une fois que vous avez quitté notre site via l'un de ces liens, nous n'avons plus de contrôle sur ce site et ne pouvons être tenus responsables de la protection des informations que vous y fournissez. Nous vous invitons à consulter la politique de confidentialité de tout site tiers que vous visitez."
+          ]
+        },
+        {
+          "heading": "7. Durée de conservation",
+          "paragraphs": [
+            "Nous conservons vos informations pendant la durée de la relation contractuelle, puis les archivons pour la durée requise par les obligations comptables et fiscales applicables au Maroc, avant suppression ou anonymisation."
+          ]
+        },
+        {
+          "heading": "8. Vos droits et comment les exercer",
+          "paragraphs": [
+            "Conformément à la loi 09-08 relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition sur les données vous concernant."
+          ],
+          "bullets": [
+            "Pour demander une copie des informations que nous détenons sur vous, écrivez-nous à contact@caissemanager.com.",
+            "Si vous pensez qu'une information que nous détenons est incorrecte ou incomplète, signalez-le-nous ; nous la corrigeons rapidement.",
+            "Si vous ne souhaitez plus recevoir de communications marketing, un lien de désinscription figure dans chaque email, ou vous pouvez nous écrire directement.",
+            "Si vous êtes le client final d'un commerce utilisant Caisse Manager et souhaitez faire supprimer vos données de fidélité, adressez-vous en priorité à ce commerce, qui reste responsable de vos données ; nous l'accompagnons techniquement dans cette démarche."
+          ]
+        },
+        {
+          "heading": "9. Modifications de cette politique",
+          "paragraphs": [
+            "Nous pouvons modifier cette politique de temps à autre pour refléter des évolutions légales, techniques ou de nos pratiques. La date de mise à jour en haut de cette page est actualisée à chaque changement. Nous vous encourageons à la consulter périodiquement."
+          ]
+        },
+        {
+          "heading": "10. Nous contacter",
+          "paragraphs": [
+            "Pour toute question relative à cette politique de confidentialité, contactez-nous à contact@caissemanager.com. Nous répondons à toute demande sous 30 jours."
+          ]
+        }
+      ]
     },
     "terms": {
       "title": "Conditions.",

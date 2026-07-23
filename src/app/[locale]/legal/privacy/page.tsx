@@ -1,13 +1,21 @@
-// Privacy — locale-aware, server-rendered.
+// Privacy policy — locale-aware, server-rendered.
 //
-// Placeholder copy. Replace with the finalized policy from your legal
-// counsel before launch. The structure here is a starting outline only —
-// it should not be relied on as a complete legal policy.
+// Copy sourced from Caisse Manager's official policy (loi 09-08
+// compliant, effective 17 July 2026). Every section is keyed under
+// `legal.privacy.sections[i]` in the i18n catalog so future updates
+// touch one place per locale.
 
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { LegalLayout, LegalH2, LegalP } from "@/components/legal/LegalLayout";
 
-export async function generateMetadata() {
+type Section = {
+  heading: string;
+  paragraphs: string[];
+  bullets?: string[];
+};
+
+export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("legal");
   return {
     title: t("metaPrivacyTitle"),
@@ -18,26 +26,28 @@ export async function generateMetadata() {
 export default async function PrivacyPage() {
   const t = await getTranslations("legal");
   const tP = await getTranslations("legal.privacy");
+  const sections = tP.raw("sections") as Section[];
   return (
     <LegalLayout
       title={tP("title")}
-      lastUpdated={t("lastUpdated")}
+      lastUpdated={tP("effectiveDate")}
       intro={tP("intro")}
     >
-      <LegalH2>{tP("h1")}</LegalH2>
-      <LegalP>{tP("p1")}</LegalP>
-
-      <LegalH2>{tP("h2")}</LegalH2>
-      <LegalP>{tP("p2")}</LegalP>
-
-      <LegalH2>{tP("h3")}</LegalH2>
-      <LegalP>{tP("p3")}</LegalP>
-
-      <LegalH2>{tP("h4")}</LegalH2>
-      <LegalP>{tP("p4")}</LegalP>
-
-      <LegalH2>{tP("h5")}</LegalH2>
-      <LegalP>{tP("p5")}</LegalP>
+      {sections.map((s) => (
+        <div key={s.heading}>
+          <LegalH2>{s.heading}</LegalH2>
+          {s.paragraphs.map((p, i) => (
+            <LegalP key={i}>{p}</LegalP>
+          ))}
+          {s.bullets && s.bullets.length > 0 && (
+            <ul className="mt-3 mb-6 space-y-2 pl-5 list-disc marker:text-ink-mute text-[14.5px] leading-[1.6] text-ink-soft">
+              {s.bullets.map((b, i) => (
+                <li key={i}>{b}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
     </LegalLayout>
   );
 }
