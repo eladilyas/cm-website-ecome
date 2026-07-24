@@ -2971,7 +2971,9 @@
     "ctaEyebrow": "Ready when you are",
     "ctaTitle": "Ready to explore the ecosystem?",
     "ctaTrial": "Start free trial",
-    "ctaDemo": "Try the demo →"
+    "ctaDemo": "Try the demo →",
+    "brollCaption": "Behind the scenes",
+    "brollAlt": "Caisse Manager team behind the scenes"
   },
   "aboutPage": {
     "metaTitle": "About Caisse Manager",
@@ -3159,7 +3161,9 @@
     "spontaneousEyebrow": "Spontaneous application",
     "spontaneousTitle": "No open role fits, but you're interested?",
     "spontaneousBody": "Send us a spontaneous application. We keep interesting profiles on file for future openings.",
-    "spontaneousCta": "Contact us"
+    "spontaneousCta": "Contact us",
+    "interviewAlt": "Anas — a Caisse Manager team member — shares what it's like to work on the field team.",
+    "interviewCaption": "Team interview · Anas"
   },
   "eventsPage": {
     "metaTitle": "Events — Caisse Manager",

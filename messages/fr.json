@@ -2971,7 +2971,9 @@
     "ctaEyebrow": "Pour commencer",
     "ctaTitle": "Prêt à découvrir l'écosystème ?",
     "ctaTrial": "Essai gratuit",
-    "ctaDemo": "Essayer la démo →"
+    "ctaDemo": "Essayer la démo →",
+    "brollCaption": "En coulisses",
+    "brollAlt": "Équipe Caisse Manager en coulisses"
   },
   "aboutPage": {
     "metaTitle": "À propos de Caisse Manager",
@@ -3159,7 +3161,9 @@
     "spontaneousEyebrow": "Candidature spontanée",
     "spontaneousTitle": "Aucun poste ne correspond, mais l'envie est là ?",
     "spontaneousBody": "Envoyez-nous une candidature spontanée. On garde les profils intéressants pour les prochaines ouvertures.",
-    "spontaneousCta": "Nous contacter"
+    "spontaneousCta": "Nous contacter",
+    "interviewAlt": "Anas — membre de l'équipe Caisse Manager — raconte ce que c'est de faire partie de l'équipe terrain.",
+    "interviewCaption": "Entretien équipe · Anas"
   },
   "eventsPage": {
     "metaTitle": "Événements — Caisse Manager",

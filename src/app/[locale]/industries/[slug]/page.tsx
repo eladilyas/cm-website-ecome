@@ -21,6 +21,7 @@
 //     of the workflow section (e.g. Cafés' Kiosque libre-service)
 //   • scaling — CTA paragraph closing the page
 
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
@@ -28,6 +29,19 @@ import { Button } from "@/components/ui/Button";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { TrySimulatorCTA } from "@/components/industries/TrySimulatorCTA";
 import type { ActivityKey } from "@/data/demo/types";
+
+// Photography source of truth — one WebP per canonical slug, taken
+// from the Website CM/Solutions design brief and optimized to
+// ~1600px WebP for hero display. Alt copy lives in i18n.
+const HERO_IMAGE_FOR: Record<CanonicalSlug, string> = {
+  cafe: "/media/industries/cafe.webp",
+  bakery: "/media/industries/bakery.webp",
+  "fast-food": "/media/industries/fast-food.webp",
+  "dine-in": "/media/industries/dine-in.webp",
+  beauty: "/media/industries/beauty.webp",
+  barber: "/media/industries/barber.webp",
+  market: "/media/industries/market.webp",
+};
 
 const CANONICAL_SLUGS = [
   "cafe",
@@ -123,25 +137,47 @@ export default async function IndustryPage({ params }: { params: Params }) {
     <main className="bg-canvas text-ink">
       <SectionDivider scheme="light" />
 
-      {/* Hero */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-28 md:pt-36 pb-12 md:pb-16">
-        <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-ink-mute mb-4">
-          {eyebrow}
-        </p>
-        <h1
-          className="text-[clamp(2.25rem,5vw,4rem)] font-semibold tracking-[-0.022em] leading-[1.04] text-ink max-w-[22ch]"
-          style={{ textWrap: "balance" }}
-        >
-          {title}
-        </h1>
-        <p className="mt-6 text-[17px] md:text-[20px] leading-[1.5] text-ink-soft max-w-[44rem]">
-          {standfirst}
-        </p>
-        {intro && (
-          <p className="mt-5 text-[15px] md:text-[16px] leading-[1.6] text-ink-soft max-w-[44rem]">
-            {intro}
-          </p>
-        )}
+      {/* Hero — copy on the left, editorial industry photo on the right */}
+      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-28 md:pt-36 pb-12 md:pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center">
+          <div>
+            <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-ink-mute mb-4">
+              {eyebrow}
+            </p>
+            <h1
+              className="text-[clamp(2.25rem,4.6vw,3.75rem)] font-semibold tracking-[-0.022em] leading-[1.04] text-ink max-w-[22ch]"
+              style={{ textWrap: "balance" }}
+            >
+              {title}
+            </h1>
+            <p className="mt-6 text-[17px] md:text-[19px] leading-[1.5] text-ink-soft max-w-[44rem]">
+              {standfirst}
+            </p>
+            {intro && (
+              <p className="mt-5 text-[15px] md:text-[16px] leading-[1.6] text-ink-soft max-w-[44rem]">
+                {intro}
+              </p>
+            )}
+          </div>
+          <div className="relative w-full aspect-[4/5] lg:aspect-[3/4] rounded-[24px] overflow-hidden ring-1 ring-hairline">
+            <Image
+              src={HERO_IMAGE_FOR[slug]}
+              alt={title}
+              fill
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              priority
+              className="object-cover"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.15) 100%)",
+              }}
+            />
+          </div>
+        </div>
       </section>
 
       {/* Try-the-simulator CTA — prominently placed under the hero so

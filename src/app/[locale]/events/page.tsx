@@ -12,6 +12,7 @@ import { getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionDivider } from "@/components/ui/SectionDivider";
+import { videoAsset } from "@/lib/mediaConfig";
 
 type EventItem = {
   slug: string;
@@ -19,6 +20,13 @@ type EventItem = {
   date: string;
   location: string;
   body: string;
+};
+
+const EVENT_VIDEO_KEY: Record<string, string> = {
+  "marocotel-2024": "marocotel-2024",
+  "cremai-2025": "cremai-2025",
+  "marocotel-2026": "marocotel-2026",
+  "franchise-2026": "franchise-2026",
 };
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -60,40 +68,53 @@ export default async function EventsPage() {
       {/* Events grid */}
       <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pb-16 md:pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-          {events.map((e, i) => (
-            <Reveal key={e.slug} delay={0.06 + i * 0.04}>
-              <article className="h-full rounded-2xl bg-paper ring-1 ring-hairline overflow-hidden">
-                {/* Video placeholder — matches the source HTML pattern.
-                    When the events MP4s are hosted (Cloudflare Stream,
-                    Vimeo, etc.), swap this <div> for an <iframe> or a
-                    poster + <video> element keyed by slug. */}
-                <div className="relative aspect-[16/9] bg-ink flex items-center justify-center">
-                  <div
-                    aria-hidden
-                    className="absolute inset-0"
-                    style={{
-                      background:
-                        "radial-gradient(60% 80% at 50% 40%, rgba(255,255,255,0.06), rgba(0,0,0,0) 70%)",
-                    }}
-                  />
-                  <p className="relative text-[10.5px] font-semibold uppercase tracking-[0.22em] text-paper/55">
-                    {placeholder} · {e.name}
-                  </p>
-                </div>
-                <div className="p-6 md:p-7">
-                  <p className="text-[10.5px] font-semibold uppercase tracking-[0.16em] text-ink-mute">
-                    {e.date} · {e.location}
-                  </p>
-                  <h3 className="mt-3 text-[19px] md:text-[20px] font-semibold text-ink tracking-[-0.014em] leading-[1.25]">
-                    {e.name}
-                  </h3>
-                  <p className="mt-3.5 text-[13.5px] md:text-[14px] leading-[1.6] text-ink-soft">
-                    {e.body}
-                  </p>
-                </div>
-              </article>
-            </Reveal>
-          ))}
+          {events.map((e, i) => {
+            const key = EVENT_VIDEO_KEY[e.slug];
+            const asset = key ? videoAsset(key) : { src: "", kind: "missing" as const };
+            return (
+              <Reveal key={e.slug} delay={0.06 + i * 0.04}>
+                <article className="h-full rounded-2xl bg-paper ring-1 ring-hairline overflow-hidden">
+                  <div className="relative aspect-[16/9] bg-ink flex items-center justify-center overflow-hidden">
+                    {asset.kind !== "missing" ? (
+                      // eslint-disable-next-line jsx-a11y/media-has-caption
+                      <video
+                        src={asset.src}
+                        controls
+                        preload="metadata"
+                        playsInline
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <>
+                        <div
+                          aria-hidden
+                          className="absolute inset-0"
+                          style={{
+                            background:
+                              "radial-gradient(60% 80% at 50% 40%, rgba(255,255,255,0.06), rgba(0,0,0,0) 70%)",
+                          }}
+                        />
+                        <p className="relative text-[10.5px] font-semibold uppercase tracking-[0.22em] text-paper/55">
+                          {placeholder} · {e.name}
+                        </p>
+                      </>
+                    )}
+                  </div>
+                  <div className="p-6 md:p-7">
+                    <p className="text-[10.5px] font-semibold uppercase tracking-[0.16em] text-ink-mute">
+                      {e.date} · {e.location}
+                    </p>
+                    <h3 className="mt-3 text-[19px] md:text-[20px] font-semibold text-ink tracking-[-0.014em] leading-[1.25]">
+                      {e.name}
+                    </h3>
+                    <p className="mt-3.5 text-[13.5px] md:text-[14px] leading-[1.6] text-ink-soft">
+                      {e.body}
+                    </p>
+                  </div>
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 
