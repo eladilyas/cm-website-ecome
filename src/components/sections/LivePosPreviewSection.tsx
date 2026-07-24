@@ -50,7 +50,7 @@ export function LivePosPreviewSection() {
       className="relative bg-canvas overflow-hidden"
     >
       <SectionDivider scheme="light" />
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-10 py-16 md:py-24">
+      <div className="mx-auto max-w-[1200px] px-6 lg:px-10 py-14 md:py-20">
         {/* Header row — copy left, tabs right */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 lg:gap-10 items-end mb-8 md:mb-10">
           <div className="max-w-[46rem]">
@@ -129,9 +129,12 @@ export function LivePosPreviewSection() {
           </div>
         </Reveal>
 
-        {/* Iframe host — clean bezel, no fake chrome, no overlay. */}
+        {/* Iframe host — clean bezel, no fake chrome, no overlay.
+            Cap the container so the preview feels like a product-shot
+            (not a takeover) while the 16:10 internal ratio keeps the
+            simulator's own layout looking natural. */}
         <Reveal delay={0.18}>
-          <div className="rounded-2xl bg-ink ring-1 ring-hairline overflow-hidden shadow-[0_20px_50px_-24px_rgba(0,0,0,0.28)]">
+          <div className="mx-auto w-full max-w-[1080px] rounded-2xl bg-ink ring-1 ring-hairline overflow-hidden shadow-[0_20px_50px_-24px_rgba(0,0,0,0.28)]">
             <div
               className="relative w-full bg-paper"
               style={{ aspectRatio: "16 / 10" }}
