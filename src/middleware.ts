@@ -78,6 +78,10 @@ function buildCsp(nonce: string): string {
     "img-src 'self' data: blob: https:",
     "font-src 'self' data:",
     "connect-src 'self' https://*.cloudflarestorage.com https://api.resend.com",
+    // frame-src — allow the live demo tenants (POS + back-office) to
+    // render inside our /demo iframe. Without this the browser falls
+    // back to `default-src 'self'` and shows "This content is blocked".
+    "frame-src 'self' https://*.demo.caisse-manager.ma https://*.caisse-manager.ma",
     "frame-ancestors 'none'",
     "base-uri 'self'",
     "form-action 'self'",
