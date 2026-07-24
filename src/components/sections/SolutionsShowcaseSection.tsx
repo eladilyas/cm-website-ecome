@@ -191,19 +191,18 @@ function MasonryGrid() {
         background="linear-gradient(180deg, #f3f5f8 0%, #e1e5ec 100%)"
         textTone="ink"
         visual={
-          <div className="relative w-full h-full flex items-center justify-center px-2">
+          <div className="relative w-full h-full flex items-end justify-center px-3 pb-2">
             <Image
-              src="/hardware/heron-1.webp"
-              alt="Heron 1 self-order kiosk — real product photo of the floor-standing customer terminal we ship for café and fast-food deployments"
-              width={1000}
-              height={1000}
-              sizes="(min-width: 1024px) 220px, 45vw"
-              className="object-contain w-auto h-full max-h-[500px]"
+              src="/mockups/ecosystem-kiosk.webp"
+              alt="Self-order kiosk — Heron 1 floor-standing customer terminal running the Caisse Manager ordering interface"
+              width={900}
+              height={1617}
+              sizes="(min-width: 1024px) 200px, 45vw"
+              className="object-contain w-auto h-full max-h-[440px]"
               style={{
                 filter:
                   "drop-shadow(0 28px 44px rgba(20,25,35,0.22)) drop-shadow(0 6px 12px rgba(0,0,0,0.06))",
               }}
-              priority={false}
             />
           </div>
         }
@@ -222,9 +221,21 @@ function MasonryGrid() {
         textTone="ink"
         accent
         visual={
-          <CardSvg viewBox="0 0 280 360">
-            <HeroPos x={10} y={10} />
-          </CardSvg>
+          <div className="relative w-full h-full flex items-center justify-center px-4 py-2">
+            <Image
+              src="/mockups/ecosystem-pos.webp"
+              alt="Caisse Manager POS terminal — Swan 1 desktop till running the live order interface with menu categories and cart panel"
+              width={1200}
+              height={1048}
+              sizes="(min-width: 1024px) 420px, 90vw"
+              className="object-contain w-auto h-full max-h-[300px] md:max-h-[340px]"
+              style={{
+                filter:
+                  "drop-shadow(0 32px 48px rgba(20,25,35,0.22)) drop-shadow(0 8px 14px rgba(0,0,0,0.08))",
+              }}
+              priority
+            />
+          </div>
         }
       />
 
@@ -265,13 +276,20 @@ function MasonryGrid() {
         background="linear-gradient(180deg, #eef0f3 0%, #dde0e5 100%)"
         textTone="ink"
         visual={
-          <CardSvg viewBox="0 0 360 240">
-            <DeviceKdsTablet
-              x={20}
-              y={10}
-              uiSrc="/mockups/kds-light.png"
+          <div className="relative w-full h-full flex items-center justify-center px-3 py-2">
+            <Image
+              src="/mockups/ecosystem-kds.webp"
+              alt="Kitchen display system — wall-mounted screen showing the live cooking-stage kanban with active tickets"
+              width={1131}
+              height={895}
+              sizes="(min-width: 1024px) 360px, 90vw"
+              className="object-contain w-auto h-full max-h-[220px]"
+              style={{
+                filter:
+                  "drop-shadow(0 22px 36px rgba(20,25,35,0.20)) drop-shadow(0 6px 12px rgba(0,0,0,0.08))",
+              }}
             />
-          </CardSvg>
+          </div>
         }
       />
 
@@ -297,9 +315,20 @@ function MasonryGrid() {
         background="linear-gradient(180deg, #f4f6f9 0%, #e3e7ed 100%)"
         textTone="ink"
         visual={
-          <CardSvg viewBox="0 0 190 250">
-            <DeviceQueueDisplay x={8} y={10} />
-          </CardSvg>
+          <div className="relative w-full h-full flex items-center justify-center px-3 py-2">
+            <Image
+              src="/mockups/ecosystem-guest-pager.webp"
+              alt="Syscall Signature guest pager — vibrates and glows when the customer's order is ready"
+              width={654}
+              height={854}
+              sizes="(min-width: 1024px) 160px, 45vw"
+              className="object-contain w-auto h-full max-h-[190px]"
+              style={{
+                filter:
+                  "drop-shadow(0 18px 30px rgba(20,25,35,0.20)) drop-shadow(0 4px 10px rgba(0,0,0,0.08))",
+              }}
+            />
+          </div>
         }
       />
 
