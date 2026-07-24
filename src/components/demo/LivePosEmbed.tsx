@@ -123,7 +123,7 @@ export function LivePosEmbed() {
           — the iframe reads as the real app. */}
       <div
         className="relative w-full rounded-2xl overflow-hidden ring-1 ring-hairline bg-ink"
-        style={{ height: "min(74vh, 800px)" }}
+        style={{ height: "min(84vh, 920px)", minHeight: "560px" }}
       >
         <AnimatePresence mode="wait">
           <motion.iframe

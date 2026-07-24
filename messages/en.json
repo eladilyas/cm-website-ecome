@@ -339,14 +339,20 @@
     "livePos": {
       "eyebrow": "LIVE DEMO",
       "title": "Try the real Caisse Manager, right here.",
-      "body": "The exact software our merchants run. Sign in with the demo credentials below, ring an order, watch it land — no download, no signup.",
+      "body": "The exact software our merchants run. Flip between POS and back-office, sign in with the demo credentials, ring an order, watch it land — no download, no signup.",
+      "tabsLabel": "Choose a surface",
+      "tabPos": "POS",
+      "tabBackoffice": "Back-office",
       "credentialsLabel": "Sign in with",
       "fields": {
         "user": "User",
-        "pin": "PIN"
+        "pin": "PIN",
+        "email": "Email",
+        "password": "Password"
       },
       "fullDemoCta": "Open full demo",
       "iframeTitle": "Caisse Manager POS — live bakery demo",
+      "iframeTitleBackoffice": "Caisse Manager Back-office — live bakery demo",
       "openInTab": "Open in a new tab"
     }
   },
@@ -2711,6 +2717,7 @@
       "credentialsEyebrow": "Sign in",
       "credentialsTitle": "Demo credentials",
       "credentialsBody": "Click a value to copy, then paste it into the app on the right.",
+      "credentialsLabel": "Sign in with",
       "fields": {
         "user": "User",
         "pin": "PIN",

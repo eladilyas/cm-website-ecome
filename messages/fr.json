@@ -339,14 +339,20 @@
     "livePos": {
       "eyebrow": "DÉMO LIVE",
       "title": "Testez le vrai Caisse Manager, ici même.",
-      "body": "Le logiciel exact utilisé par nos marchands. Connectez-vous avec les identifiants de démo ci-dessous, passez une commande, voyez-la arriver — sans téléchargement, sans inscription.",
+      "body": "Le logiciel exact utilisé par nos marchands. Basculez entre POS et back-office, connectez-vous avec les identifiants de démo, passez une commande, voyez-la arriver — sans téléchargement, sans inscription.",
+      "tabsLabel": "Choisir une surface",
+      "tabPos": "POS",
+      "tabBackoffice": "Back-office",
       "credentialsLabel": "Connectez-vous avec",
       "fields": {
         "user": "Utilisateur",
-        "pin": "PIN"
+        "pin": "PIN",
+        "email": "E-mail",
+        "password": "Mot de passe"
       },
       "fullDemoCta": "Ouvrir la démo complète",
       "iframeTitle": "Caisse Manager POS — démo boulangerie en direct",
+      "iframeTitleBackoffice": "Caisse Manager Back-office — démo boulangerie en direct",
       "openInTab": "Ouvrir dans un nouvel onglet"
     }
   },
@@ -2711,6 +2717,7 @@
       "credentialsEyebrow": "Connexion",
       "credentialsTitle": "Identifiants de démo",
       "credentialsBody": "Cliquez pour copier une valeur, puis collez-la dans l'application à droite.",
+      "credentialsLabel": "Connectez-vous avec",
       "fields": {
         "user": "Utilisateur",
         "pin": "PIN",
