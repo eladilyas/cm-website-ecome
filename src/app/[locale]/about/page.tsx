@@ -12,6 +12,7 @@
 // All copy lives in i18n under `aboutPage.*`.
 
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
@@ -40,26 +41,54 @@ export default async function AboutPage() {
     <main className="bg-canvas text-ink">
       <SectionDivider scheme="light" />
 
-      {/* Hero */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-28 md:pt-36 pb-16 md:pb-20">
-        <Reveal>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-5">
-            {t("eyebrow")}
-          </p>
-        </Reveal>
-        <Reveal delay={0.04}>
-          <h1
-            className="text-[clamp(2.25rem,5vw,4.25rem)] font-semibold tracking-[-0.024em] leading-[1.02] text-ink max-w-[22ch]"
-            style={{ textWrap: "balance" }}
-          >
-            {t("title")}
-          </h1>
-        </Reveal>
-        <Reveal delay={0.08}>
-          <p className="mt-6 text-[17px] md:text-[19px] leading-[1.55] text-ink-soft max-w-[46rem]">
-            {t("body")}
-          </p>
-        </Reveal>
+      {/* Hero — copy left, product-in-use diptych right */}
+      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-28 md:pt-36 pb-16 md:pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-14 items-center">
+          <div>
+            <Reveal>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-5">
+                {t("eyebrow")}
+              </p>
+            </Reveal>
+            <Reveal delay={0.04}>
+              <h1
+                className="text-[clamp(2.25rem,4.6vw,3.75rem)] font-semibold tracking-[-0.024em] leading-[1.02] text-ink max-w-[22ch]"
+                style={{ textWrap: "balance" }}
+              >
+                {t("title")}
+              </h1>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <p className="mt-6 text-[17px] md:text-[19px] leading-[1.55] text-ink-soft max-w-[42rem]">
+                {t("body")}
+              </p>
+            </Reveal>
+          </div>
+          <Reveal delay={0.12}>
+            <div className="relative grid grid-cols-2 gap-3 md:gap-4">
+              <div className="relative aspect-[3/4] rounded-[20px] overflow-hidden ring-1 ring-hairline translate-y-4">
+                <Image
+                  src="/media/about/pos-in-use.webp"
+                  alt={t("heroPhotoAltPos")}
+                  fill
+                  sizes="(min-width: 1024px) 22vw, 45vw"
+                  priority
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative aspect-[3/4] rounded-[20px] overflow-hidden ring-1 ring-hairline -translate-y-4">
+                <Image
+                  src="/media/about/app-in-hand.webp"
+                  alt={t("heroPhotoAltApp")}
+                  fill
+                  sizes="(min-width: 1024px) 22vw, 45vw"
+                  priority
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </Reveal>
+        </div>
       </section>
 
       {/* Story + timeline */}

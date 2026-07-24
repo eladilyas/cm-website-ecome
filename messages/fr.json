@@ -3100,7 +3100,9 @@
     "ctaTitle": "Prêt à bouger votre caisse vers l'avant ?",
     "ctaBody": "Essayez la démo ou parlez à notre équipe. Une personne vous répond, pas un bot.",
     "ctaTrial": "Essai gratuit",
-    "ctaDemo": "Essayer la démo →"
+    "ctaDemo": "Essayer la démo →",
+    "heroPhotoAltPos": "Terminal Caisse Manager en usage dans un restaurant marocain",
+    "heroPhotoAltApp": "Application mobile Caisse Manager en usage dans un restaurant"
   },
   "careersPage": {
     "metaTitle": "Carrières — Caisse Manager",

@@ -3100,7 +3100,9 @@
     "ctaTitle": "Ready to move your register forward?",
     "ctaBody": "Try the demo or talk to our team. A real person replies — not a bot.",
     "ctaTrial": "Start free trial",
-    "ctaDemo": "Try the demo →"
+    "ctaDemo": "Try the demo →",
+    "heroPhotoAltPos": "Caisse Manager POS terminal in use at a Moroccan restaurant",
+    "heroPhotoAltApp": "Caisse Manager mobile app running in a restaurant"
   },
   "careersPage": {
     "metaTitle": "Careers — Caisse Manager",
