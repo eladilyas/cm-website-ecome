@@ -2,12 +2,14 @@
 
 // Home-page live POS preview — the "try the real product" moment.
 //
-// Iframes the Bakery-demo tenant with the same POS ↔ Back-office tab
-// toggle as /demo, so a visitor's first impression is a full working
-// product they can flip between and click into. No URL bar, no
-// floating "open in tab" overlay that hides part of the app.
+// Iframes the Bakery-demo tenant with a POS ↔ Back-office tab toggle.
+// A single "Sign in" button dispatches a postMessage to the tenant
+// asking it to auto-fill and submit the demo credentials — no copy,
+// no paste, no typing. Cross-origin browser sandboxing means the
+// parent can't reach into the iframe's form directly; the handshake
+// is the standard workaround for embedded auth flows.
 
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "@/i18n/navigation";
@@ -16,8 +18,10 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 
 const APPLE_EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+const PREFILL_MESSAGE_TYPE = "cm:demo:prefill" as const;
 
 type Tab = "pos" | "backoffice";
+type SignInState = "idle" | "signing" | "done";
 
 const TARGETS: Record<
   Tab,
@@ -42,7 +46,32 @@ const TARGETS: Record<
 export function LivePosPreviewSection() {
   const t = useTranslations("home.livePos");
   const [tab, setTab] = useState<Tab>("pos");
+  const [signInState, setSignInState] = useState<SignInState>("idle");
+  const [showCreds, setShowCreds] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   const target = TARGETS[tab];
+
+  const handleSignIn = useCallback(() => {
+    const iframe = iframeRef.current;
+    if (!iframe?.contentWindow) return;
+    const origin = new URL(target.url).origin;
+    const credentials = Object.fromEntries(
+      target.credentials.map((c) => [c.field, c.value]),
+    );
+    iframe.contentWindow.postMessage(
+      { type: PREFILL_MESSAGE_TYPE, surface: tab, credentials },
+      origin,
+    );
+    setSignInState("signing");
+    window.setTimeout(() => setSignInState("done"), 400);
+    window.setTimeout(() => setSignInState("idle"), 2600);
+  }, [tab, target]);
+
+  const handleTabChange = (next: Tab) => {
+    setTab(next);
+    setSignInState("idle");
+    setShowCreds(false);
+  };
 
   return (
     <section
@@ -81,13 +110,13 @@ export function LivePosPreviewSection() {
             >
               <TabButton
                 active={tab === "pos"}
-                onClick={() => setTab("pos")}
+                onClick={() => handleTabChange("pos")}
                 label={t("tabPos")}
                 icon={<PosIcon />}
               />
               <TabButton
                 active={tab === "backoffice"}
-                onClick={() => setTab("backoffice")}
+                onClick={() => handleTabChange("backoffice")}
                 label={t("tabBackoffice")}
                 icon={<BackofficeIcon />}
               />
@@ -95,30 +124,26 @@ export function LivePosPreviewSection() {
           </Reveal>
         </div>
 
-        {/* Credentials + full-demo link */}
+        {/* One-click sign-in row */}
         <Reveal delay={0.14}>
-          <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-4">
-            <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-ink-mute">
-              {t("credentialsLabel")}
+          <div className="mx-auto w-full max-w-[1080px] flex flex-wrap items-center gap-3 mb-4">
+            <SignInButton
+              state={signInState}
+              idleLabel={t("signInCta")}
+              signingLabel={t("signInSigning")}
+              doneLabel={t("signInDone")}
+              onClick={handleSignIn}
+            />
+            <p className="text-[12.5px] text-ink-mute">
+              {t("signInHint")}
             </p>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={tab}
-                initial={{ opacity: 0, y: 2 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -2 }}
-                transition={{ duration: 0.15, ease: APPLE_EASE }}
-                className="flex flex-wrap items-center gap-2"
-              >
-                {target.credentials.map((c) => (
-                  <CopyChip
-                    key={c.field}
-                    label={t(`fields.${c.field}` as "user")}
-                    value={c.value}
-                  />
-                ))}
-              </motion.div>
-            </AnimatePresence>
+            <button
+              type="button"
+              onClick={() => setShowCreds((s) => !s)}
+              className="text-[12px] text-ink-mute hover:text-ink underline underline-offset-2 decoration-hairline hover:decoration-current transition-colors"
+            >
+              {showCreds ? t("hideCredentials") : t("showCredentials")}
+            </button>
             <Link
               href="/demo"
               className="ml-auto inline-flex items-center gap-1 text-[12.5px] font-medium text-ink hover:text-[#E11D2A] transition-colors"
@@ -128,6 +153,30 @@ export function LivePosPreviewSection() {
             </Link>
           </div>
         </Reveal>
+
+        {/* Credentials disclosure — collapsed by default */}
+        <AnimatePresence initial={false}>
+          {showCreds && (
+            <motion.div
+              key={`creds-${tab}`}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2, ease: APPLE_EASE }}
+              className="overflow-hidden"
+            >
+              <div className="mx-auto w-full max-w-[1080px] flex flex-wrap items-center gap-2 mb-4">
+                {target.credentials.map((c) => (
+                  <CredentialTile
+                    key={c.field}
+                    label={t(`fields.${c.field}` as "user")}
+                    value={c.value}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Iframe host — clean bezel, no fake chrome, no overlay.
             Cap the container so the preview feels like a product-shot
@@ -142,6 +191,7 @@ export function LivePosPreviewSection() {
               <AnimatePresence mode="wait">
                 <motion.iframe
                   key={tab}
+                  ref={iframeRef}
                   src={target.url}
                   title={
                     tab === "pos"
@@ -162,6 +212,51 @@ export function LivePosPreviewSection() {
         </Reveal>
       </div>
     </section>
+  );
+}
+
+function SignInButton({
+  state,
+  idleLabel,
+  signingLabel,
+  doneLabel,
+  onClick,
+}: {
+  state: SignInState;
+  idleLabel: string;
+  signingLabel: string;
+  doneLabel: string;
+  onClick: () => void;
+}) {
+  const label =
+    state === "signing" ? signingLabel : state === "done" ? doneLabel : idleLabel;
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={state !== "idle"}
+      className={
+        "inline-flex items-center gap-2 h-10 px-5 rounded-full text-[13.5px] font-semibold transition-all duration-200 " +
+        (state === "done"
+          ? "bg-emerald-600 text-white"
+          : "bg-ink text-paper hover:bg-black shadow-[0_8px_20px_-8px_rgba(0,0,0,0.35)]")
+      }
+      style={{ transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)" }}
+    >
+      {state === "done" ? <CheckIcon /> : state === "signing" ? <SpinnerIcon /> : <KeyIcon />}
+      <span>{label}</span>
+    </button>
+  );
+}
+
+function CredentialTile({ label, value }: { label: string; value: string }) {
+  return (
+    <span className="inline-flex items-center gap-1.5 h-8 px-3 rounded-full bg-paper ring-1 ring-hairline text-[12px] font-medium text-ink">
+      <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-mute">
+        {label}
+      </span>
+      <span className="tabular-nums select-all">{value}</span>
+    </span>
   );
 }
 
@@ -196,45 +291,29 @@ function TabButton({
   );
 }
 
-function CopyChip({ label, value }: { label: string; value: string }) {
-  const [copied, setCopied] = useState(false);
-  const onCopy = useCallback(() => {
-    navigator.clipboard.writeText(value).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
-    });
-  }, [value]);
+function KeyIcon() {
   return (
-    <button
-      type="button"
-      onClick={onCopy}
-      aria-live="polite"
-      className={
-        "inline-flex items-center gap-1.5 h-8 pl-2.5 pr-2.5 rounded-full text-[12px] font-medium transition-colors duration-200 " +
-        (copied
-          ? "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200"
-          : "bg-paper text-ink ring-1 ring-hairline hover:bg-ink hover:text-paper")
-      }
-      style={{ transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)" }}
-    >
-      <span className="text-[10px] font-semibold uppercase tracking-[0.14em] opacity-70">
-        {label}
-      </span>
-      <span className="font-semibold tabular-nums break-all">{value}</span>
-      {copied ? (
-        <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden>
-          <path d="M2.5 6L5 8.5 9.5 3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      ) : (
-        <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden>
-          <rect x="3" y="3" width="7" height="7" rx="1.2" stroke="currentColor" strokeWidth="1.2" />
-          <path d="M2 8V2.5A0.5 0.5 0 012.5 2H8" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-        </svg>
-      )}
-    </button>
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden>
+      <circle cx="6" cy="10" r="3" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M8 8l5-5M11 5l1.5 1.5M13 3l1.5 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
   );
 }
-
+function SpinnerIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden className="animate-spin">
+      <circle cx="8" cy="8" r="6" stroke="currentColor" strokeOpacity="0.25" strokeWidth="1.6" />
+      <path d="M14 8a6 6 0 00-6-6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+function CheckIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden>
+      <path d="M3 8.5L6.5 12 13 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
 function PosIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden>
