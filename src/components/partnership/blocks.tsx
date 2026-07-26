@@ -44,6 +44,63 @@ export function ProgramHero({
   );
 }
 
+// ── Stats band ──────────────────────────────────────────────────────
+
+/** Big-figure commitment band — the numbers a partner can quote to
+ *  their own clients. `value` carries the figure, `label` the metric,
+ *  `note` the qualifier that keeps the claim honest. */
+export function StatsBand({
+  eyebrow,
+  title,
+  items,
+  scheme = "paper",
+}: {
+  eyebrow: string;
+  title: string;
+  items: { value: string; label: string; note: string }[];
+  scheme?: "paper" | "canvas";
+}) {
+  const bg = scheme === "paper" ? "bg-paper border-y border-hairline" : "";
+  const card = scheme === "paper" ? "bg-canvas" : "bg-paper";
+  return (
+    <section className={bg}>
+      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+        <div className="max-w-[44rem] mb-10 md:mb-14">
+          <Reveal>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-3">
+              {eyebrow}
+            </p>
+          </Reveal>
+          <Reveal delay={0.04}>
+            <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
+              {title}
+            </h2>
+          </Reveal>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">
+          {items.map((s, i) => (
+            <Reveal key={s.label} delay={0.06 + i * 0.05}>
+              <article
+                className={`h-full rounded-2xl ${card} ring-1 ring-hairline p-6 md:p-7`}
+              >
+                <p className="text-[clamp(2.25rem,4.4vw,3.25rem)] font-semibold tracking-[-0.03em] leading-[1] text-ink tabular-nums">
+                  {s.value}
+                </p>
+                <p className="mt-4 text-[14.5px] md:text-[15px] font-semibold text-ink tracking-[-0.006em]">
+                  {s.label}
+                </p>
+                <p className="mt-1.5 text-[13px] leading-[1.55] text-ink-soft">
+                  {s.note}
+                </p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ── Numbered steps ──────────────────────────────────────────────────
 
 export function NumberedSteps({

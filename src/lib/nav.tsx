@@ -48,19 +48,25 @@ export function useNavMenu(): NavItem[] {
     // ─── Solutions ─────────────────────────────────────────────
     {
       label: t("solutions"),
+      href: "/solutions",
       items: [
-        { label: s("cafes"), href: "/industries/cafe" },
-        { label: s("bakery"), href: "/industries/bakery" },
-        { label: s("fastFood"), href: "/industries/fast-food" },
-        { label: s("restaurants"), href: "/industries/dine-in" },
-        { label: s("beauty"), href: "/industries/beauty" },
-        { label: s("barber"), href: "/industries/barber" },
-        { label: s("market"), href: "/industries/market" },
+        { label: s("cafes"), href: "/solutions/cafe" },
+        { label: s("bakery"), href: "/solutions/bakery" },
+        { label: s("fastFood"), href: "/solutions/fast-food" },
+        { label: s("restaurants"), href: "/solutions/dine-in" },
+        { label: s("beauty"), href: "/solutions/beauty" },
+        { label: s("barber"), href: "/solutions/barber" },
+        { label: s("market"), href: "/solutions/market" },
       ],
       groups: [
         {
           title: s("whyTitle"),
           items: [
+            {
+              label: s("whyCmLabel"),
+              href: "/why",
+              description: s("whyCmDesc"),
+            },
             {
               label: s("platformLabel"),
               href: "/#platform",
@@ -155,6 +161,7 @@ export function useNavMenu(): NavItem[] {
         { label: co("about"), href: "/about" },
         { label: co("careers"), href: "/careers" },
         { label: co("partnership"), href: "/partnership" },
+        { label: co("events"), href: "/events" },
       ],
       groups: [
         {
@@ -162,6 +169,8 @@ export function useNavMenu(): NavItem[] {
           items: [
             { label: co("rolesLabel"), href: "/careers", description: co("rolesDesc") },
             { label: co("partnerLabel"), href: "/partnership", description: co("partnerDesc") },
+            { label: co("eventsLabel"), href: "/events", description: co("eventsDesc") },
+            { label: co("partnerSupportLabel"), href: "/partnership/support", description: co("partnerSupportDesc") },
             { label: co("talkSales"), href: "/support#contact" },
           ],
         },

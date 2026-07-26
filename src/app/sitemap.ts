@@ -84,20 +84,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const staticRoutes: RouteSpec[] = [
     { path: "/", changeFrequency: "weekly", priority: 1.0 },
+    { path: "/solutions", changeFrequency: "weekly", priority: 0.9 },
     { path: "/pricing", changeFrequency: "weekly", priority: 0.9 },
     { path: "/shop", changeFrequency: "weekly", priority: 0.9 },
     { path: "/demo", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/why", changeFrequency: "monthly", priority: 0.85 },
     { path: "/about", changeFrequency: "monthly", priority: 0.8 },
     { path: "/support", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/events", changeFrequency: "monthly", priority: 0.7 },
     { path: "/careers", changeFrequency: "monthly", priority: 0.7 },
     { path: "/partnership", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/partnership/affiliate", changeFrequency: "monthly", priority: 0.6 },
+    { path: "/partnership/reseller", changeFrequency: "monthly", priority: 0.6 },
+    { path: "/partnership/technology", changeFrequency: "monthly", priority: 0.6 },
+    { path: "/partnership/support", changeFrequency: "monthly", priority: 0.6 },
     { path: "/start-free-trial", changeFrequency: "monthly", priority: 0.6 },
     { path: "/legal/privacy", changeFrequency: "yearly", priority: 0.3 },
     { path: "/legal/terms", changeFrequency: "yearly", priority: 0.3 },
   ];
 
   const industryRoutes: RouteSpec[] = INDUSTRY_SLUGS.map((slug) => ({
-    path: `/industries/${slug}`,
+    path: `/solutions/${slug}`,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));

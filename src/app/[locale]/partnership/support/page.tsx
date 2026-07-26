@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import {
   ProgramHero,
+  StatsBand,
   FeatureCards,
   BulletList,
   ContactChannels,
@@ -17,6 +18,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function PartnerSupportPage() {
   const t = await getTranslations("partnership.programs.support");
+  const stats = t.raw("stats") as {
+    value: string;
+    label: string;
+    note: string;
+  }[];
   const operate = t.raw("operate") as { title: string; body: string }[];
   const promises = t.raw("promises") as string[];
   const channels = t.raw("channels") as { title: string; body: string }[];
@@ -29,19 +35,25 @@ export default async function PartnerSupportPage() {
         title={t("title")}
         body={t("body")}
       />
+      <StatsBand
+        eyebrow={t("statsEyebrow")}
+        title={t("statsTitle")}
+        items={stats}
+        scheme="paper"
+      />
       <FeatureCards
         eyebrow={t("operateEyebrow")}
         title={t("operateTitle")}
         items={operate}
         cols={3}
-        scheme="paper"
+        scheme="canvas"
       />
       <BulletList
         eyebrow={t("promisesEyebrow")}
         title={t("promisesTitle")}
         body={t("promisesBody")}
         items={promises}
-        scheme="canvas"
+        scheme="paper"
       />
       <ContactChannels
         eyebrow={t("channelsEyebrow")}

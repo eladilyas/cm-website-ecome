@@ -27,21 +27,25 @@ export function useFooterColumns(): FooterColumn[] {
     {
       title: cols("solutions"),
       links: [
-        { label: l("exploreSolutions"), href: "/#solutions" },
+        { label: l("exploreSolutions"), href: "/solutions" },
+        { label: l("whyCm"), href: "/why" },
         { label: l("demo"), href: "/demo" },
         { label: l("pricing"), href: "/pricing" },
         { label: l("freeTrial"), href: "/start-free-trial" },
       ],
     },
     {
+      // All seven trades, canonical slugs — these are the only sector
+      // pages that exist, so the column mirrors them exactly.
       title: cols("industries"),
       links: [
-        { label: l("restaurants"), href: "/industries/restaurants" },
-        { label: l("cafes"), href: "/industries/cafes" },
-        { label: l("bakeries"), href: "/industries/bakery" },
-        { label: l("retail"), href: "/industries/retail" },
-        { label: l("bars"), href: "/industries/bar" },
-        { label: l("beauty"), href: "/industries/beauty" },
+        { label: l("cafes"), href: "/solutions/cafe" },
+        { label: l("bakeries"), href: "/solutions/bakery" },
+        { label: l("fastFood"), href: "/solutions/fast-food" },
+        { label: l("restaurants"), href: "/solutions/dine-in" },
+        { label: l("beauty"), href: "/solutions/beauty" },
+        { label: l("barbershops"), href: "/solutions/barber" },
+        { label: l("retail"), href: "/solutions/market" },
       ],
     },
     {
@@ -59,6 +63,8 @@ export function useFooterColumns(): FooterColumn[] {
         { label: l("about"), href: "/about" },
         { label: l("careers"), href: "/careers" },
         { label: l("partnership"), href: "/partnership" },
+        { label: l("partnerSupport"), href: "/partnership/support" },
+        { label: l("events"), href: "/events" },
       ],
     },
     {

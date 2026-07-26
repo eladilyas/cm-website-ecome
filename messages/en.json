@@ -92,7 +92,9 @@
       "trialDesc": "Live in under an hour",
       "demoLabel": "Try the demo",
       "demoDesc": "Ring a real order, no signup",
-      "salesLabel": "Contact sales"
+      "salesLabel": "Contact sales",
+      "whyCmLabel": "Why Caisse Manager",
+      "whyCmDesc": "One connected ecosystem, not another platform"
     },
     "storeDropdown": {
       "terminalsTitle": "POS Terminals",
@@ -137,7 +139,12 @@
       "talkSales": "Talk to sales",
       "trustTitle": "Trust & legal",
       "privacy": "Privacy policy",
-      "terms": "Terms of service"
+      "terms": "Terms of service",
+      "events": "Events",
+      "eventsLabel": "Trade shows & events",
+      "eventsDesc": "Where we have met the trade in person",
+      "partnerSupportLabel": "Partner support",
+      "partnerSupportDesc": "What we guarantee your clients — and you"
     }
   },
   "footer": {
@@ -184,7 +191,6 @@
       "cafes": "Cafés",
       "bakeries": "Bakeries",
       "retail": "Retail",
-      "bars": "Bars",
       "beauty": "Beauty",
       "allHardware": "All hardware",
       "swan1": "Swan 1 — POS terminal",
@@ -192,7 +198,12 @@
       "heron1": "Heron 1 — Self-order kiosk",
       "supportCenter": "Support center",
       "faq": "FAQ",
-      "account": "Account"
+      "account": "Account",
+      "whyCm": "Why Caisse Manager",
+      "fastFood": "Fast food",
+      "barbershops": "Barbershops",
+      "partnerSupport": "Partner support",
+      "events": "Events"
     },
     "legalLinks": {
       "privacy": "Privacy",
@@ -1876,6 +1887,25 @@
         "eyebrow": "Partner Support",
         "title": "You bring the customers. We protect your reputation.",
         "body": "When you refer or resell Caisse Manager, your credibility is on the line. Here's exactly what we guarantee to your customers — and to you.",
+        "statsEyebrow": "OUR COMMITMENTS IN NUMBERS",
+        "statsTitle": "What you can promise your clients.",
+        "stats": [
+          {
+            "value": "98%",
+            "label": "Guaranteed uptime",
+            "note": "Across the platform, measured monthly."
+          },
+          {
+            "value": "4h",
+            "label": "Critical response time",
+            "note": "On business hours, for anything blocking a till."
+          },
+          {
+            "value": "D+1",
+            "label": "On-site installation",
+            "note": "In major cities, once hardware has shipped."
+          }
+        ],
         "operateEyebrow": "What you can promise",
         "operateTitle": "You sell. We operate.",
         "operate": [

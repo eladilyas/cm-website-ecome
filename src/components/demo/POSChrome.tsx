@@ -128,7 +128,7 @@ export function POSChrome() {
           setResetOpen(false);
           reset();
           // Return to the page that launched the simulator (set by
-          // TrySimulatorCTA when entering from an /industries/<slug>
+          // TrySimulatorCTA when entering from an /solutions/<slug>
           // page). Falls back to "/" — never "/demo" — so the user
           // doesn't bounce straight back into the activity picker.
           router.push(consumeDemoReturn());

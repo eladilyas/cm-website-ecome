@@ -193,7 +193,7 @@ function IndustryCard({ tile }: { tile: IndustryTile }) {
     <Link
       // Locale-aware Link from @/i18n/navigation: typed as a literal
       // template, locale prefix added automatically when EN is active.
-      href={`/industries/${tile.slug}` as never}
+      href={`/solutions/${tile.slug}` as never}
       className="snap-start relative overflow-hidden block"
       style={{
         background: tile.background,

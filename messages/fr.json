@@ -92,7 +92,9 @@
       "trialDesc": "Opérationnel en moins d'une heure",
       "demoLabel": "Essayer la démo",
       "demoDesc": "Encaissez une vraie commande, sans inscription",
-      "salesLabel": "Parler à un commercial"
+      "salesLabel": "Parler à un commercial",
+      "whyCmLabel": "Pourquoi Caisse Manager",
+      "whyCmDesc": "Un écosystème connecté, pas une plateforme de plus"
     },
     "storeDropdown": {
       "terminalsTitle": "Terminaux POS",
@@ -137,7 +139,12 @@
       "talkSales": "Parler à un commercial",
       "trustTitle": "Confiance & légal",
       "privacy": "Politique de confidentialité",
-      "terms": "Conditions d'utilisation"
+      "terms": "Conditions d'utilisation",
+      "events": "Événements",
+      "eventsLabel": "Salons & événements",
+      "eventsDesc": "Là où nous avons rencontré le terrain",
+      "partnerSupportLabel": "Support partenaires",
+      "partnerSupportDesc": "Ce que nous garantissons à vos clients — et à vous"
     }
   },
   "footer": {
@@ -184,7 +191,6 @@
       "cafes": "Cafés",
       "bakeries": "Boulangeries",
       "retail": "Commerce de détail",
-      "bars": "Bars",
       "beauty": "Beauté",
       "allHardware": "Tout le matériel",
       "swan1": "Swan 1 — terminal POS",
@@ -192,7 +198,12 @@
       "heron1": "Heron 1 — borne de commande",
       "supportCenter": "Centre d'assistance",
       "faq": "Questions fréquentes",
-      "account": "Mon compte"
+      "account": "Mon compte",
+      "whyCm": "Pourquoi Caisse Manager",
+      "fastFood": "Fast-food",
+      "barbershops": "Barbershops",
+      "partnerSupport": "Support partenaires",
+      "events": "Événements"
     },
     "legalLinks": {
       "privacy": "Confidentialité",
@@ -1876,6 +1887,25 @@
         "eyebrow": "Support Partenaires",
         "title": "Vous amenez les clients. On protège votre réputation.",
         "body": "Quand vous recommandez ou revendez Caisse Manager, votre crédibilité est en jeu. Voici exactement ce que nous garantissons à vos clients — et à vous.",
+        "statsEyebrow": "NOS ENGAGEMENTS EN CHIFFRES",
+        "statsTitle": "Ce que vous pouvez promettre à vos clients.",
+        "stats": [
+          {
+            "value": "98 %",
+            "label": "Uptime garanti",
+            "note": "Sur l’ensemble de la plateforme, mesuré chaque mois."
+          },
+          {
+            "value": "4 h",
+            "label": "Délai de réponse critique",
+            "note": "En heures ouvrées, pour tout blocage en caisse."
+          },
+          {
+            "value": "J+1",
+            "label": "Installation sur site",
+            "note": "Dans les grandes villes, dès la livraison du matériel."
+          }
+        ],
         "operateEyebrow": "Ce que vous pouvez promettre",
         "operateTitle": "Vous vendez. Nous opérons.",
         "operate": [
