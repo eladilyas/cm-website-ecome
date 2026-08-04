@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 // SiteChrome — pathname-aware wrapper for the marketing chrome
 // (Header, Footer, sticky trial CTA, cart toast).
 //
@@ -34,7 +36,6 @@ import { usePathname } from "next/navigation";
 
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { StickyTrialCTA } from "@/components/layout/StickyTrialCTA";
 import { MobileTabBar } from "@/components/layout/MobileTabBar";
 import { CartToast } from "@/components/cart/CartToast";
 import { AuthBridge } from "@/components/auth/AuthBridge";
@@ -74,6 +75,8 @@ export function SiteChrome({
   initialSessionHint?: boolean;
 }) {
   const pathname = usePathname();
+  const tA11y = useTranslations("common");
+  const skipLabel = tA11y("skipToContent");
   const bare = isBareRoute(pathname);
 
   if (bare) {
@@ -88,15 +91,33 @@ export function SiteChrome({
   return (
     <QuickViewProvider>
       <AuthBridge />
+      {/* Skip link — first focusable element on the page, visually hidden
+          until focused. Without it a keyboard or screen-reader visitor had
+          to traverse the entire header and its dropdowns on every page
+          before reaching content. */}
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:inline-flex focus:items-center focus:h-10 focus:px-4 focus:rounded-full focus:bg-ink focus:text-paper focus:text-[13px] focus:font-medium focus:ring-2 focus:ring-paper"
+      >
+        {skipLabel}
+      </a>
       <Header initialSessionHint={initialSessionHint} />
       {/* Bottom padding on mobile so content scrolls clear of the
           fixed tab bar (~56px + safe-area inset). md+ removes the
           padding since the tab bar hides there. */}
-      <main className="flex-1 pb-[calc(56px+env(safe-area-inset-bottom))] md:pb-0">
+      <main
+        id="main"
+        className="flex-1 pb-[calc(56px+env(safe-area-inset-bottom))] md:pb-0"
+      >
         {children}
       </main>
       <Footer />
-      <StickyTrialCTA />
+      {/* StickyTrialCTA removed. It was `fixed bottom-0 z-40 md:hidden`
+          while MobileTabBar is `fixed bottom-0 z-30` — the trial pill sat
+          on top of the primary mobile navigation and covered it. The
+          trial funnel is already carried by the header CTA and by the
+          mobile menu's own persistent bottom CTA, so deleting the third
+          copy costs nothing and gives the tab bar back to the visitor. */}
       <CartToast />
       <MobileTabBar />
     </QuickViewProvider>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
+import { seoAlternates } from "@/lib/seoAlternates";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { LivePosPreviewSection } from "@/components/sections/LivePosPreviewSection";
 import { SolutionsShowcaseSection } from "@/components/sections/SolutionsShowcaseSection";
@@ -10,23 +11,27 @@ import { IndustriesSection } from "@/components/sections/IndustriesSection";
 import { Button } from "@/components/ui/Button";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 
-// Home — the single most important indexable page on the site. Title +
-// description are tuned for both Moroccan French search ("logiciel de
-// caisse", "point de vente") and English ("POS software Morocco").
-// Canonical = "/" overrides the inherited root canonical only as an
-// explicit safety net.
-export const metadata: Metadata = {
-  title: "Modern POS for restaurants, cafés & retail in Morocco",
-  description:
-    "Caisse Manager is the all-in-one POS, inventory, kitchen, and multi-store platform built for Moroccan operators. Try the live simulator. Free Basic plan, Pro from 250 MAD/month.",
-  alternates: { canonical: "/" },
-  openGraph: {
-    title: "Caisse Manager — Modern POS for Morocco",
-    description:
-      "POS, inventory, kitchen, multi-store. Built for Moroccan restaurants, cafés, bakeries, and retail. Try the live simulator.",
-    url: "/",
-  },
-};
+// Home — the single most important indexable page on the site.
+//
+// This was `export const metadata` with hardcoded English strings, which
+// meant the FR-default site served an English title and description on
+// its highest-value URL. Now locale-aware: copy resolves from the
+// `home.meta*` catalog keys, and the canonical/hreflang set comes from
+// `seoAlternates` so `/` and `/en` each point at themselves.
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const t = await getTranslations("home");
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: seoAlternates("/", locale),
+    openGraph: {
+      title: t("metaTitle"),
+      description: t("metaOgDescription"),
+      url: locale === "fr" ? "/" : `/${locale}`,
+    },
+  };
+}
 
 // Real-product page spine — interaction-first conversion flow.
 //
@@ -76,7 +81,7 @@ export default async function HomePage() {
             <Button href="/start-free-trial" variant="invert" size="md">
               {t("primaryCta")}
             </Button>
-            <Button href="/products/pos" variant="outline" size="md">
+            <Button href="/why" variant="outline" size="md">
               {t("secondaryCta")}
             </Button>
           </div>

@@ -63,7 +63,7 @@ export function BackofficeSection() {
                 <Button href="/start-free-trial" variant="primary" size="sm">
                   Start free trial
                 </Button>
-                <Button href="/products/backoffice" variant="outline" size="sm">
+                <Button href="/why" variant="outline" size="sm">
                   Explore back office
                 </Button>
               </div>

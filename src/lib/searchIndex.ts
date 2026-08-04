@@ -120,7 +120,7 @@ const SEARCH_REFS: SearchRef[] = [
   // ─── Platform ───────────────────────────────────────────────────────
   {
     id: "platform",
-    href: "/#platform",
+    href: "/why",
     category: "platform",
     keywords: ["ecosystem", "pos", "kds", "kiosk", "qr menu", "customer display", "queue", "tpe", "écosystème", "borne", "afficheur"],
   },

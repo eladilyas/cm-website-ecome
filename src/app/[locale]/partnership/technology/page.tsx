@@ -1,6 +1,7 @@
 // /partnership/technology — API partner program (Partnership 4)
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { seoAlternates } from "@/lib/seoAlternates";
+import { getTranslations, getLocale } from "next-intl/server";
 import {
   ProgramHero,
   NumberedSteps,
@@ -11,8 +12,10 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 
 export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
   const t = await getTranslations("partnership.programs.technology");
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return {
+    alternates: seoAlternates("/partnership/technology", locale), title: t("metaTitle"), description: t("metaDescription") };
 }
 
 export default async function TechnologyPage() {

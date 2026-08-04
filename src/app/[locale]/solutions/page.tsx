@@ -6,8 +6,9 @@
 // so FR + EN stay in sync from one source of truth. Each proof card
 // exposes: name, tag (sector · sub-sector), and body.
 
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import type { Metadata } from "next";
+import { seoAlternates } from "@/lib/seoAlternates";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { Arrow } from "@/components/ui/Arrow";
@@ -40,8 +41,10 @@ const SECTOR_IMAGE: Record<(typeof CANONICAL_SLUGS)[number], string> = {
 type ProofCard = { name: string; tag: string; body: string };
 
 export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
   const t = await getTranslations("industryOverview");
   return {
+    alternates: seoAlternates("/solutions", locale),
     title: t("metaTitle"),
     description: t("metaDescription"),
   };

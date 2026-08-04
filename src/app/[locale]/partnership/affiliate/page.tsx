@@ -1,6 +1,7 @@
 // /partnership/affiliate — Affiliate program detail (Partnership 2)
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { seoAlternates } from "@/lib/seoAlternates";
+import { getTranslations, getLocale } from "next-intl/server";
 import {
   ProgramHero,
   NumberedSteps,
@@ -10,8 +11,10 @@ import {
 import { SectionDivider } from "@/components/ui/SectionDivider";
 
 export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
   const t = await getTranslations("partnership.programs.affiliate");
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return {
+    alternates: seoAlternates("/partnership/affiliate", locale), title: t("metaTitle"), description: t("metaDescription") };
 }
 
 export default async function AffiliatePage() {

@@ -6,7 +6,8 @@
 // touch one place per locale.
 
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { seoAlternates } from "@/lib/seoAlternates";
+import { getTranslations, getLocale } from "next-intl/server";
 import { LegalLayout, LegalH2, LegalP } from "@/components/legal/LegalLayout";
 
 type Section = {
@@ -16,8 +17,10 @@ type Section = {
 };
 
 export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
   const t = await getTranslations("legal");
   return {
+    alternates: seoAlternates("/legal/privacy", locale),
     title: t("metaPrivacyTitle"),
     description: t("metaPrivacyDesc"),
   };

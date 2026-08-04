@@ -67,11 +67,11 @@ export function useNavMenu(): NavItem[] {
               href: "/why",
               description: s("whyCmDesc"),
             },
-            {
-              label: s("platformLabel"),
-              href: "/#platform",
-              description: s("platformDesc"),
-            },
+            // "Plateforme connectée" used to sit here pointing at
+            // /#platform — an anchor whose only host section is never
+            // rendered, so the click scrolled nowhere. /why is the same
+            // story told properly, and the entry above already links it,
+            // so the duplicate is gone rather than repointed.
             {
               label: s("integrationsLabel"),
               href: "/#integrations",

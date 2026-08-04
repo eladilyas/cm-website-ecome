@@ -13,12 +13,15 @@
 // polished sales walkthrough rather than the raw production tenant.
 
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { seoAlternates } from "@/lib/seoAlternates";
+import { getTranslations, getLocale } from "next-intl/server";
 import { LivePosEmbed } from "@/components/demo/LivePosEmbed";
 
 export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
   const t = await getTranslations("demo.live");
   return {
+    alternates: seoAlternates("/demo", locale),
     title: t("metaTitle"),
     description: t("metaDescription"),
     robots: { index: false, follow: true },

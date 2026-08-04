@@ -12,8 +12,9 @@
 // All copy lives in i18n under `aboutPage.*`.
 
 import type { Metadata } from "next";
+import { seoAlternates } from "@/lib/seoAlternates";
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { BrandCheck } from "@/components/ui/BrandCheck";
@@ -25,8 +26,10 @@ type PartnerItem = { name: string; body: string };
 type ReasonItem = { title: string; body: string };
 
 export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
   const t = await getTranslations("aboutPage");
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return {
+    alternates: seoAlternates("/about", locale), title: t("metaTitle"), description: t("metaDescription") };
 }
 
 export default async function AboutPage() {

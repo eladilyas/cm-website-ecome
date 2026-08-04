@@ -63,6 +63,18 @@ const nextConfig: NextConfig = {
   // No remotePatterns — all product imagery is served locally from
   // /public/hardware/ and /public/mockups/. Keep this list empty so we
   // notice if anything tries to reach for an external image again.
+  images: {
+    // Next 16 validates `quality` against this allow-list and answers
+    // HTTP 400 for anything not on it. The default is [75] only, so the
+    // three `quality={88}` props in HeroCarousel were making every
+    // homepage hero image request fail outright — the most visible
+    // photography on the site was not rendering at all. Allow both the
+    // default and the intentional 88.
+    qualities: [75, 88],
+    // AVIF first, WebP fallback — meaningful payload savings on the
+    // large hero photography.
+    formats: ["image/avif", "image/webp"],
+  },
 
   async headers() {
     return [

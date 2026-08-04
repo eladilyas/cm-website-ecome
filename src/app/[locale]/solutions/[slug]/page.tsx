@@ -21,10 +21,12 @@
 //     of the workflow section (e.g. Cafés' Kiosque libre-service)
 //   • scaling — CTA paragraph closing the page
 
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
+import { seoAlternates } from "@/lib/seoAlternates";
 import { Button } from "@/components/ui/Button";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { TrySimulatorCTA } from "@/components/solutions/TrySimulatorCTA";
@@ -95,13 +97,46 @@ function isRichEcosystem(
   return typeof item === "object" && item !== null && "name" in item;
 }
 
-export default async function IndustryPage({ params }: { params: Params }) {
-  const { slug: rawSlug } = await params;
-  const slug: CanonicalSlug | null =
+/** Resolve a URL slug to its canonical form, or null when it matches
+ *  neither a canonical slug nor a legacy alias. */
+function resolveSlug(rawSlug: string): CanonicalSlug | null {
+  return (
     SLUG_ALIAS[rawSlug] ??
     ((CANONICAL_SLUGS as readonly string[]).includes(rawSlug)
       ? (rawSlug as CanonicalSlug)
-      : null);
+      : null)
+  );
+}
+
+// These seven pages had no generateMetadata, so all of them shared the
+// root default title — seven indexable sector URLs competing as one. The
+// per-sector title and standfirst already live in `industryPages.<slug>`,
+// so the metadata just reads what the page body already reads.
+//
+// Canonical always points at the CANONICAL slug, never the alias the
+// visitor arrived on, so /solutions/cafes and /solutions/cafe consolidate
+// into a single indexed URL.
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
+  const { slug: rawSlug } = await params;
+  const slug = resolveSlug(rawSlug);
+  if (!slug) return {};
+
+  const locale = await getLocale();
+  const t = await getTranslations(`industryPages.${slug}`);
+  return {
+    title: t("title"),
+    description: t("standfirst"),
+    alternates: seoAlternates(`/solutions/${slug}`, locale),
+  };
+}
+
+export default async function IndustryPage({ params }: { params: Params }) {
+  const { slug: rawSlug } = await params;
+  const slug = resolveSlug(rawSlug);
   if (!slug) return notFound();
 
   const t = await getTranslations(`industryPages.${slug}`);

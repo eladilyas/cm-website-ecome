@@ -18,7 +18,8 @@
 // /support) are staged for the next batch.
 
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { seoAlternates } from "@/lib/seoAlternates";
+import { getTranslations, getLocale } from "next-intl/server";
 import { Button } from "@/components/ui/Button";
 import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/components/ui/Reveal";
@@ -30,8 +31,10 @@ type Track = { slug: string; name: string; body: string; ctaLabel: string };
 type ProcessStep = { title: string; body: string };
 
 export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
   const t = await getTranslations("partnership");
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return {
+    alternates: seoAlternates("/partnership", locale), title: t("metaTitle"), description: t("metaDescription") };
 }
 
 export default async function PartnershipPage() {

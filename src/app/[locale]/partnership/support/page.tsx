@@ -1,6 +1,7 @@
 // /partnership/support — Partner support page (Partnership 5)
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { seoAlternates } from "@/lib/seoAlternates";
+import { getTranslations, getLocale } from "next-intl/server";
 import {
   ProgramHero,
   StatsBand,
@@ -12,8 +13,10 @@ import {
 import { SectionDivider } from "@/components/ui/SectionDivider";
 
 export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
   const t = await getTranslations("partnership.programs.support");
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return {
+    alternates: seoAlternates("/partnership/support", locale), title: t("metaTitle"), description: t("metaDescription") };
 }
 
 export default async function PartnerSupportPage() {

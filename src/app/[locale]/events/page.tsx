@@ -8,7 +8,8 @@
 // Copy lives under `eventsPage.*` in both FR + EN.
 
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { seoAlternates } from "@/lib/seoAlternates";
+import { getTranslations, getLocale } from "next-intl/server";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionDivider } from "@/components/ui/SectionDivider";
@@ -30,8 +31,10 @@ const EVENT_VIDEO_KEY: Record<string, string> = {
 };
 
 export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
   const t = await getTranslations("eventsPage");
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return {
+    alternates: seoAlternates("/events", locale), title: t("metaTitle"), description: t("metaDescription") };
 }
 
 export default async function EventsPage() {

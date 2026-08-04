@@ -23,7 +23,8 @@
     "month": "mois",
     "months": "mois",
     "currency": "MAD",
-    "free": "Gratuit"
+    "free": "Gratuit",
+    "skipToContent": "Aller au contenu"
   },
   "nav": {
     "shop": "Boutique",
@@ -217,6 +218,9 @@
     "switchTo": "Passer en {language}"
   },
   "home": {
+    "metaTitle": "Caisse moderne pour restaurants, cafés et commerces au Maroc",
+    "metaDescription": "Caisse Manager est la plateforme tout-en-un de caisse, de stock et de cuisine conçue pour les opérateurs marocains — d'une seule caisse à un groupe multi-sites. Testez le simulateur en direct. Plan gratuit, Pro à partir de 250 MAD/mois.",
+    "metaOgDescription": "Caisse, stock et cuisine, conçus pour les restaurants, cafés, boulangeries et commerces marocains. Testez le simulateur en direct.",
     "hero": {
       "eyebrow": "Caisse Manager",
       "headline": "L'IA au service de votre croissance",

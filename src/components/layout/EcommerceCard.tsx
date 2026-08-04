@@ -25,10 +25,14 @@ type ProductLink = {
 };
 
 const PRODUCTS: ProductLink[] = [
-  { labelKey: "pos", href: "/products/pos", icon: "monitor" },
-  { labelKey: "kds", href: "/products/kds", icon: "kds" },
-  { labelKey: "mobile", href: "/products/online-ordering-app", icon: "phone" },
-  { labelKey: "kiosk", href: "/products/kiosk", icon: "kiosk" },
+  // The /products/* namespace was never built — these four were 404ing
+  // from the header on every page. Repointed at the surfaces that do
+  // document each module: /demo lets you drive the POS itself, /why
+  // carries the module ecosystem story, and kiosk has real hardware.
+  { labelKey: "pos", href: "/demo", icon: "monitor" },
+  { labelKey: "kds", href: "/why", icon: "kds" },
+  { labelKey: "mobile", href: "/why", icon: "phone" },
+  { labelKey: "kiosk", href: "/shop?category=kiosk", icon: "kiosk" },
   { labelKey: "store", href: "/shop", icon: "hardware" },
 ];
 

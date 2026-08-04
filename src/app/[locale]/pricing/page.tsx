@@ -14,7 +14,9 @@
 // pieces (Reveal animations, pricing card buttons, comparison matrix
 // hover state, FAQ accordion) live in narrow client islands.
 
-import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
+import { getTranslations, getLocale } from "next-intl/server";
+import { seoAlternates } from "@/lib/seoAlternates";
 import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
@@ -25,6 +27,20 @@ import { HardwareCallout } from "@/components/pricing/HardwareCallout";
 import { PricingPlansSection } from "@/components/pricing/PricingPlansSection";
 import { PricingFaqSection } from "@/components/pricing/PricingFaqSection";
 import { ModulesGrid } from "@/components/pricing/ModulesGrid";
+
+
+// /pricing had NO metadata export at all, so it inherited the root
+// defaults — a generic title on one of the two highest-intent commercial
+// pages. Copy comes from the existing `pricing.meta*` catalog keys.
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const t = await getTranslations("pricing");
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: seoAlternates("/pricing", locale),
+  };
+}
 
 export default async function PricingPage() {
   const t = await getTranslations("pricing");

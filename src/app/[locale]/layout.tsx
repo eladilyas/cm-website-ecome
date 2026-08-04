@@ -35,19 +35,15 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "seo" });
 
-  // Mirror sitemap.ts: default locale → clean URL, others → /{locale}.
-  const canonical = locale === routing.defaultLocale ? "/" : `/${locale}`;
-  const languages: Record<string, string> = {};
-  for (const l of routing.locales) {
-    const tag = l === "fr" ? "fr-MA" : l;
-    languages[tag] = l === routing.defaultLocale ? "/" : `/${l}`;
-  }
-  languages["x-default"] = "/";
-
+  // NO `alternates` here, deliberately. Metadata `alternates` is inherited
+  // by every descendant page, and a layout cannot know the page path — so
+  // any canonical set here is correct for the home page and wrong for all
+  // ~25 other routes, each of which was telling Google "the real version
+  // of me is the home page" and de-indexing itself. Pages now declare
+  // their own via `seoAlternates(path, locale)` from `@/lib/seoAlternates`.
   return {
     title: { default: t("defaultTitle"), template: `%s | ${t("siteName")}` },
     description: t("defaultDescription"),
-    alternates: { canonical, languages },
     openGraph: {
       title: t("defaultTitle"),
       description: t("defaultDescription"),

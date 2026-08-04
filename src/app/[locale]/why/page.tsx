@@ -10,8 +10,9 @@
 // Server component; all copy resolves via next-intl (`whyPage.*`).
 
 import type { Metadata } from "next";
+import { seoAlternates } from "@/lib/seoAlternates";
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionDivider } from "@/components/ui/SectionDivider";
@@ -38,8 +39,10 @@ type CommitmentCard = {
 };
 
 export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
   const t = await getTranslations("whyPage");
   return {
+    alternates: seoAlternates("/why", locale),
     title: t("metaTitle"),
     description: t("metaDescription"),
   };

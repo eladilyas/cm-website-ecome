@@ -23,7 +23,8 @@
     "month": "month",
     "months": "months",
     "currency": "MAD",
-    "free": "Free"
+    "free": "Free",
+    "skipToContent": "Skip to content"
   },
   "nav": {
     "shop": "Shop",
@@ -217,6 +218,9 @@
     "switchTo": "Switch to {language}"
   },
   "home": {
+    "metaTitle": "Modern POS for restaurants, cafés & retail in Morocco",
+    "metaDescription": "Caisse Manager is the all-in-one POS, inventory and kitchen platform built for Moroccan operators — from a single counter to a multi-location group. Try the live simulator. Free Basic plan, Pro from 250 MAD/month.",
+    "metaOgDescription": "POS, inventory and kitchen, built for Moroccan restaurants, cafés, bakeries and retail. Try the live simulator.",
     "hero": {
       "eyebrow": "Caisse Manager",
       "headline": "AI-Empowerment for business growth",

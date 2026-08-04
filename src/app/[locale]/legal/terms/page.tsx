@@ -4,12 +4,15 @@
 // counsel before launch. The structure here is a starting outline only —
 // it should not be relied on as a complete legal agreement.
 
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { LegalLayout, LegalH2, LegalP } from "@/components/legal/LegalLayout";
+import { seoAlternates } from "@/lib/seoAlternates";
 
 export async function generateMetadata() {
+  const locale = await getLocale();
   const t = await getTranslations("legal");
   return {
+    alternates: seoAlternates("/legal/terms", locale),
     title: t("metaTermsTitle"),
     description: t("metaTermsDesc"),
   };

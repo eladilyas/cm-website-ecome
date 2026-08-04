@@ -13,6 +13,14 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
+        // `/_next/` must NOT be blocked. Google needs `/_next/static/**`
+        // to fetch the JS and CSS chunks, and `/_next/image` to fetch
+        // every optimized image. Blocking it meant Googlebot could not
+        // execute the bundle — and because section content mounts behind
+        // a framer-motion reveal that starts at opacity 0, the page
+        // Google actually rendered was very close to blank. Google's own
+        // guidance is explicit that render-critical assets stay
+        // crawlable.
         disallow: [
           "/account/",
           "/cart",
@@ -20,7 +28,6 @@ export default function robots(): MetadataRoute.Robots {
           "/signin",
           "/signup",
           "/api/",
-          "/_next/",
         ],
       },
     ],
