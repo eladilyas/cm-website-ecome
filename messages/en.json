@@ -260,25 +260,15 @@
       "title": "Built for your operation.",
       "subtitle": "From a single café to a forty-store chain — every kind of business runs on the same Caisse Manager engine. Find your operation below.",
       "tiles": {
-        "restaurants": {
+        "dine-in": {
           "eyebrow": "Hospitality",
           "title": "Restaurants",
           "tagline": "Fast service, full house."
         },
-        "cafes": {
+        "cafe": {
           "eyebrow": "Coffee & counter",
           "title": "Cafés",
           "tagline": "Counter to cup, in seconds."
-        },
-        "retail": {
-          "eyebrow": "Shop floor",
-          "title": "Retail",
-          "tagline": "Inventory you can trust."
-        },
-        "multi-store": {
-          "eyebrow": "Group operations",
-          "title": "Multi-store",
-          "tagline": "Every location, one console."
         },
         "fast-food": {
           "eyebrow": "Quick service",
@@ -290,15 +280,25 @@
           "title": "Bakery",
           "tagline": "Stock that matches the oven."
         },
-        "bar": {
-          "eyebrow": "Evening trade",
-          "title": "Bar & lounge",
-          "tagline": "Tabs, rounds, and tickets."
-        },
         "beauty": {
           "eyebrow": "Appointments",
-          "title": "Beauty & services",
+          "title": "Beauty salons",
           "tagline": "Bookings, staff, and till — one app."
+        },
+        "barber": {
+          "eyebrow": "Chair & queue",
+          "title": "Barbershops",
+          "tagline": "Walk-ins and bookings, one screen."
+        },
+        "market": {
+          "eyebrow": "Shop floor",
+          "title": "Retail",
+          "tagline": "Inventory you can trust."
+        },
+        "all": {
+          "eyebrow": "Every trade",
+          "title": "All solutions",
+          "tagline": "See the seven, side by side."
         }
       }
     },

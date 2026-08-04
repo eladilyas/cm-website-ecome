@@ -26,15 +26,23 @@ import { routing } from "@/i18n/routing";
 
 const SITE_URL = "https://caissemanager.com";
 
+/** The seven canonical sector slugs — must stay in sync with
+ *  CANONICAL_SLUGS in `src/app/[locale]/solutions/[slug]/page.tsx`.
+ *
+ *  Canonical only, deliberately: `cafes`, `restaurants` and `retail` are
+ *  legacy aliases that 307 to these, and a sitemap should advertise the
+ *  destination rather than the redirect. `multi-store`, `bar-lounge` and
+ *  `beauty-services` used to be listed here and resolved to nothing at
+ *  all — three 404s handed straight to crawlers. Bar & Lounge and
+ *  Multi-store have since been retired as solutions outright. */
 const INDUSTRY_SLUGS = [
-  "restaurants",
-  "cafes",
-  "fast-food",
+  "cafe",
   "bakery",
-  "retail",
-  "multi-store",
-  "bar-lounge",
-  "beauty-services",
+  "fast-food",
+  "dine-in",
+  "beauty",
+  "barber",
+  "market",
 ];
 
 type RouteSpec = {

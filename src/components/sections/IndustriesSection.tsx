@@ -20,7 +20,8 @@
 // Visual discipline:
 //   • Strict gray + light-blue palette (matching Solutions
 //     section). Restaurants gets the only light-blue card as
-//     hero anchor; Multi-store is the only deep-slate card.
+//     hero anchor; the terminal All-solutions card is the only
+//     deep-slate card.
 //   • Monoline icon system — 96-unit artboard, 1.6px stroke,
 //     currentColor across every industry. Consistency at the
 //     stroke level, not via per-card chrome.
@@ -42,8 +43,18 @@ type IndustryTile = {
 
 // Column-major order (grid-auto-flow: column): JSX-i = (row, col)
 // where row toggles every item, column advances every two items.
-//   [Restaurants ] [Retail      ] [Fast food ] [Bar & lounge]
-//   [Cafés       ] [Multi-store ] [Bakery    ] [Beauty      ]
+//   [Restaurants ] [Fast food ] [Beauty salons] [Retail        ]
+//   [Cafés       ] [Bakery    ] [Barbershops  ] [All solutions ]
+//
+// Food trades occupy the first two columns, appointment-led trades the
+// third — so a visitor scanning columns reads a grouping, not a list.
+// The eighth cell is a terminal card into /solutions rather than an
+// eighth trade: it keeps the 2×4 grid whole and gives the carousel an
+// exit into the overview instead of dead-ending.
+//
+// Slugs are the CANONICAL sector slugs. `restaurants`/`cafes`/`retail`
+// are legacy aliases that 307-redirect, and the homepage should not
+// spend a redirect hop on its primary navigation.
 //
 // Visual properties (gradients, icons, tone) stay code-local — they're
 // part of the design system, not copy. Labels (title, eyebrow, tagline)
@@ -58,29 +69,17 @@ type IndustryVisual = {
 
 const INDUSTRY_VISUALS: IndustryVisual[] = [
   {
-    slug: "restaurants",
+    slug: "dine-in",
     background:
       "linear-gradient(160deg, #ffffff 0%, #f0f5fa 55%, #dbe6f2 100%)",
     textTone: "ink",
     icon: <UtensilsIcon />,
   },
   {
-    slug: "cafes",
+    slug: "cafe",
     background: "linear-gradient(180deg, #f4f6f9 0%, #e5e9ee 100%)",
     textTone: "ink",
     icon: <CoffeeIcon />,
-  },
-  {
-    slug: "retail",
-    background: "linear-gradient(180deg, #f1f3f6 0%, #dfe2e7 100%)",
-    textTone: "ink",
-    icon: <BagIcon />,
-  },
-  {
-    slug: "multi-store",
-    background: "linear-gradient(180deg, #1a1d22 0%, #25282e 100%)",
-    textTone: "paper",
-    icon: <BuildingsIcon />,
   },
   {
     slug: "fast-food",
@@ -95,16 +94,30 @@ const INDUSTRY_VISUALS: IndustryVisual[] = [
     icon: <LoafIcon />,
   },
   {
-    slug: "bar",
-    background: "linear-gradient(180deg, #f6f7f9 0%, #e6e8ed 100%)",
-    textTone: "ink",
-    icon: <GlassIcon />,
-  },
-  {
     slug: "beauty",
     background: "linear-gradient(180deg, #fbfbfc 0%, #eaecf0 100%)",
     textTone: "ink",
     icon: <ScissorsIcon />,
+  },
+  {
+    slug: "barber",
+    background: "linear-gradient(180deg, #f6f7f9 0%, #e6e8ed 100%)",
+    textTone: "ink",
+    icon: <BarberPoleIcon />,
+  },
+  {
+    slug: "market",
+    background: "linear-gradient(180deg, #f1f3f6 0%, #dfe2e7 100%)",
+    textTone: "ink",
+    icon: <BagIcon />,
+  },
+  // Terminal card — inherits the single deep-slate treatment that used
+  // to anchor the grid, so the composition keeps one dark accent.
+  {
+    slug: "all",
+    background: "linear-gradient(180deg, #1a1d22 0%, #25282e 100%)",
+    textTone: "paper",
+    icon: <GridIcon />,
   },
 ];
 
@@ -193,7 +206,12 @@ function IndustryCard({ tile }: { tile: IndustryTile }) {
     <Link
       // Locale-aware Link from @/i18n/navigation: typed as a literal
       // template, locale prefix added automatically when EN is active.
-      href={`/solutions/${tile.slug}` as never}
+      // The terminal card points at the overview, not a sector page.
+      href={
+        (tile.slug === "all"
+          ? "/solutions"
+          : `/solutions/${tile.slug}`) as never
+      }
       className="snap-start relative overflow-hidden block"
       style={{
         background: tile.background,
@@ -293,16 +311,31 @@ function BagIcon() {
   );
 }
 
-function BuildingsIcon() {
+/** Barber pole — the one unmistakable shorthand for the trade, and
+ *  distinct from the salon Scissors so the two service cards do not
+ *  read as the same business. */
+function BarberPoleIcon() {
   return (
     <svg {...ICON_PROPS} xmlns="http://www.w3.org/2000/svg" aria-hidden>
-      <path d="M 10 36 L 30 22 L 50 36 L 70 22 L 86 36" />
-      <path d="M 14 36 L 14 82" />
-      <path d="M 46 36 L 46 82" />
-      <path d="M 82 36 L 82 82" />
-      <path d="M 10 82 L 86 82" />
-      <path d="M 22 82 L 22 60 L 30 60 L 30 82" />
-      <path d="M 56 82 L 56 60 L 64 60 L 64 82" />
+      <rect x="36" y="20" width="24" height="56" rx="12" />
+      <path d="M 36 34 L 60 24" />
+      <path d="M 36 48 L 60 38" />
+      <path d="M 36 62 L 60 52" />
+      <path d="M 40 14 L 56 14" />
+      <path d="M 40 82 L 56 82" />
+    </svg>
+  );
+}
+
+/** Terminal card mark — a 2×2 field reading as "the whole set". */
+function GridIcon() {
+  return (
+    <svg {...ICON_PROPS} xmlns="http://www.w3.org/2000/svg" aria-hidden>
+      <rect x="16" y="16" width="28" height="28" rx="3" />
+      <rect x="52" y="16" width="28" height="28" rx="3" />
+      <rect x="16" y="52" width="28" height="28" rx="3" />
+      <path d="M 56 66 L 76 66" />
+      <path d="M 68 58 L 76 66 L 68 74" />
     </svg>
   );
 }
@@ -325,17 +358,6 @@ function LoafIcon() {
       <path d="M 32 38 L 38 60" />
       <path d="M 46 36 L 52 62" />
       <path d="M 60 38 L 66 60" />
-    </svg>
-  );
-}
-
-function GlassIcon() {
-  return (
-    <svg {...ICON_PROPS} xmlns="http://www.w3.org/2000/svg" aria-hidden>
-      <path d="M 16 22 L 80 22 L 48 56 Z" />
-      <path d="M 48 56 L 48 78" />
-      <path d="M 30 78 L 66 78" />
-      <circle cx="58" cy="34" r="3" fill="currentColor" />
     </svg>
   );
 }

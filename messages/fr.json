@@ -260,25 +260,15 @@
       "title": "Conçu pour votre exploitation.",
       "subtitle": "Du café indépendant à la chaîne de quarante adresses — chaque type de commerce tourne sur le même moteur Caisse Manager. Trouvez le vôtre ci-dessous.",
       "tiles": {
-        "restaurants": {
+        "dine-in": {
           "eyebrow": "Hôtellerie & restauration",
           "title": "Restaurants",
           "tagline": "Service rapide, salle pleine."
         },
-        "cafes": {
+        "cafe": {
           "eyebrow": "Café & caisse",
           "title": "Cafés",
           "tagline": "De la caisse à la tasse, en quelques secondes."
-        },
-        "retail": {
-          "eyebrow": "Surface de vente",
-          "title": "Commerce de détail",
-          "tagline": "Un stock auquel vous pouvez vous fier."
-        },
-        "multi-store": {
-          "eyebrow": "Opérations multi-sites",
-          "title": "Multi-magasins",
-          "tagline": "Tous vos points de vente, une seule console."
         },
         "fast-food": {
           "eyebrow": "Service rapide",
@@ -290,15 +280,25 @@
           "title": "Boulangerie",
           "tagline": "Un stock aligné sur votre four."
         },
-        "bar": {
-          "eyebrow": "Activité de soirée",
-          "title": "Bar & lounge",
-          "tagline": "Tournées, additions, tickets."
-        },
         "beauty": {
           "eyebrow": "Rendez-vous",
-          "title": "Beauté & services",
+          "title": "Salons de beauté",
           "tagline": "Réservations, équipes, caisse — une seule app."
+        },
+        "barber": {
+          "eyebrow": "Fauteuil & file",
+          "title": "Barbershops",
+          "tagline": "Sans rendez-vous ou réservé, un seul écran."
+        },
+        "market": {
+          "eyebrow": "Surface de vente",
+          "title": "Commerce de détail",
+          "tagline": "Un stock auquel vous pouvez vous fier."
+        },
+        "all": {
+          "eyebrow": "Tous les métiers",
+          "title": "Toutes les solutions",
+          "tagline": "Voir les sept, côte à côte."
         }
       }
     },
