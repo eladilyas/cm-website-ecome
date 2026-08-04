@@ -227,7 +227,9 @@
       "subhead": "The unified platform Moroccan operators trust to run point of sale, kitchen, online orders, and back office — one system, on every device, built to grow with you.",
       "primaryCta": "Start free trial",
       "secondaryCta": "See pricing",
-      "trustBadge": "No commitment · 10-minute setup"
+      "trustBadge": "No commitment · 10-minute setup",
+      "trustedBy": "Trusted by",
+      "trustedByLabel": "Businesses running Caisse Manager"
     },
     "finalCta": {
       "heading": "See it on your counter.",
@@ -679,7 +681,35 @@
         "ctaLabel": "See pricing →",
         "ctaHref": "/pricing"
       },
-      "scaling": "Join the cafés that have already made their counter smoother. Try the demo in seconds, or talk to an advisor for a targeted walkthrough based on your volume and menu."
+      "scaling": "Join the cafés that have already made their counter smoother. Try the demo in seconds, or talk to an advisor for a targeted walkthrough based on your volume and menu.",
+      "client": {
+        "clientSlug": "room-21",
+        "clientName": "Room 21",
+        "eyebrow": "The client",
+        "tag": "Café · Pastry salon",
+        "city": "Morocco",
+        "facts": [
+          {
+            "label": "Counters",
+            "value": "1"
+          },
+          {
+            "label": "Peak",
+            "value": "Afternoon"
+          },
+          {
+            "label": "Service",
+            "value": "Counter + room"
+          },
+          {
+            "label": "On Caisse Manager",
+            "value": "Daily"
+          }
+        ],
+        "storyTitle": "A room that fills up and never fully empties.",
+        "story": "Room 21 is a café-pastry salon that runs busy from mid-afternoon onward. Orders do not arrive one at a time and finish one at a time — a table asks for a second round while someone new is already waiting at the counter, and both expect to be served without one blocking the other.",
+        "pressure": "A single open order is the enemy. The counter needs a second, third and fourth ticket running at once — and the drawer opening on its own each time money changes hands."
+      }
     },
     "fast-food": {
       "eyebrow": "Sector · Fast food",
@@ -774,7 +804,35 @@
           "name": "Only Chicken"
         }
       ],
-      "scaling": "Join the fast-food chains already syncing counter, kitchen, and delivery on Caisse Manager. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your volume and delivery partners."
+      "scaling": "Join the fast-food chains already syncing counter, kitchen, and delivery on Caisse Manager. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your volume and delivery partners.",
+      "client": {
+        "clientSlug": "texas-chicken",
+        "clientName": "Texas Chicken",
+        "eyebrow": "The client",
+        "tag": "Fast food · International franchise",
+        "city": "Morocco",
+        "facts": [
+          {
+            "label": "Sites",
+            "value": "Multi-site"
+          },
+          {
+            "label": "Model",
+            "value": "Franchise"
+          },
+          {
+            "label": "Channels",
+            "value": "Counter + delivery"
+          },
+          {
+            "label": "On Caisse Manager",
+            "value": "Daily"
+          }
+        ],
+        "storyTitle": "The same menu, the same price, every branch.",
+        "story": "Texas Chicken runs a multi-site franchise where consistency is the product. Kitchen tickets have to reach the right station the moment they are rung, delivery orders from every platform have to land on one screen, and a price cannot quietly differ between two branches.",
+        "pressure": "At peak, seconds in the queue compound. The kitchen screen and the counter have to be the same truth, live — not two systems reconciled after service."
+      }
     },
     "dine-in": {
       "eyebrow": "Sector · Restaurants",
@@ -867,7 +925,35 @@
         "ctaLabel": "See pricing →",
         "ctaHref": "/pricing"
       },
-      "scaling": "Join the restaurants already running their dining room table by table on Caisse Manager. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your menu and volume."
+      "scaling": "Join the restaurants already running their dining room table by table on Caisse Manager. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your menu and volume.",
+      "client": {
+        "clientSlug": "75-flavours",
+        "clientName": "75 Flavours",
+        "eyebrow": "The client",
+        "tag": "Restaurant · Café · Dine-in",
+        "city": "Morocco",
+        "facts": [
+          {
+            "label": "Service",
+            "value": "Table service"
+          },
+          {
+            "label": "Hours",
+            "value": "Breakfast to late"
+          },
+          {
+            "label": "Bills",
+            "value": "Often split"
+          },
+          {
+            "label": "On Caisse Manager",
+            "value": "Daily"
+          }
+        ],
+        "storyTitle": "Open from breakfast to late, on one floor plan.",
+        "story": "75 Flavours is a café-restaurant that serves from the first coffee of the morning through to a late dinner. The room never resets between services — a table finishing lunch and a table starting the afternoon exist at the same time, and the floor has to be read at a glance rather than reconstructed from memory.",
+        "pressure": "A split bill that takes three minutes costs the next seating. Splitting has to be one gesture, and the plan has to show what is actually free right now."
+      }
     },
     "bakery": {
       "eyebrow": "Sector · Bakery",
@@ -921,7 +1007,35 @@
         "ctaLabel": "See pricing →",
         "ctaHref": "/pricing"
       },
-      "scaling": "Join the bakeries that have already made their oven pay off. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your production and catalog."
+      "scaling": "Join the bakeries that have already made their oven pay off. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your production and catalog.",
+      "client": {
+        "clientSlug": "maison-adena",
+        "clientName": "Maison Adena",
+        "eyebrow": "The client",
+        "tag": "Bakery · Café",
+        "city": "Morocco",
+        "facts": [
+          {
+            "label": "Opens",
+            "value": "Pre-dawn"
+          },
+          {
+            "label": "Lines",
+            "value": "Bake + service"
+          },
+          {
+            "label": "Stock",
+            "value": "Perishable"
+          },
+          {
+            "label": "On Caisse Manager",
+            "value": "Daily"
+          }
+        ],
+        "storyTitle": "The oven sets the pace, not the till.",
+        "story": "Maison Adena bakes and serves under the same roof. Viennoiserie comes out on the oven's schedule while the counter runs on the customer's, and the two have to stay in step through the morning rush without anyone stopping to count trays.",
+        "pressure": "Stock that is wrong by an hour is stock that is wrong. They need the alert before a batch turns, and a till that keeps taking orders even when the connection drops."
+      }
     },
     "beauty": {
       "eyebrow": "Sector · Beauty salons",
@@ -964,7 +1078,35 @@
         "ctaLabel": "See the shop →",
         "ctaHref": "/shop/swan-1-gen-2"
       },
-      "scaling": "Join the beauty salons that have already put their schedule and checkout to work for their clients. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your team and services."
+      "scaling": "Join the beauty salons that have already put their schedule and checkout to work for their clients. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your team and services.",
+      "client": {
+        "clientSlug": "hammam-almaz",
+        "clientName": "Hammam Almaz",
+        "eyebrow": "The client",
+        "tag": "Beauty · Hammam & care",
+        "city": "Morocco",
+        "facts": [
+          {
+            "label": "Model",
+            "value": "By appointment"
+          },
+          {
+            "label": "Staff",
+            "value": "Per-practitioner"
+          },
+          {
+            "label": "Sales",
+            "value": "Service + retail"
+          },
+          {
+            "label": "On Caisse Manager",
+            "value": "Daily"
+          }
+        ],
+        "storyTitle": "An empty chair costs more than a missed call.",
+        "story": "Hammam Almaz sells time as much as treatment. A booking that no one confirms is an hour that cannot be resold, and each practitioner carries their own column of the day, their own regulars, and their own share of the takings.",
+        "pressure": "The schedule and the till cannot be two different books. Whoever is on the desk needs the day, the practitioner and the payment in one place."
+      }
     },
     "barber": {
       "eyebrow": "Sector · Barbershops",
@@ -1017,7 +1159,35 @@
         "ctaLabel": "See the shop →",
         "ctaHref": "/shop/swan-1-gen-2"
       },
-      "scaling": "Join the barbershops already unifying queue, reservations, and checkout on Caisse Manager. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your chairs and subscription plans."
+      "scaling": "Join the barbershops already unifying queue, reservations, and checkout on Caisse Manager. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your chairs and subscription plans.",
+      "client": {
+        "clientSlug": "barbers-star",
+        "clientName": "Barber's Star",
+        "eyebrow": "The client",
+        "tag": "Barbershop",
+        "city": "Morocco",
+        "facts": [
+          {
+            "label": "Model",
+            "value": "Walk-in + booked"
+          },
+          {
+            "label": "Chairs",
+            "value": "Multiple"
+          },
+          {
+            "label": "Custom",
+            "value": "Regulars"
+          },
+          {
+            "label": "On Caisse Manager",
+            "value": "Daily"
+          }
+        ],
+        "storyTitle": "Walk-ins and regulars, on one screen.",
+        "story": "Barber's Star works two ways at once. Regulars book ahead and expect their slot honoured; walk-ins arrive and expect to be told honestly how long the wait is. Both streams compete for the same chairs across the same afternoon.",
+        "pressure": "One screen has to answer both: who is booked, who is waiting, and which chair frees up next — without the barber leaving the chair to find out."
+      }
     },
     "market": {
       "eyebrow": "Sector · Retail · Market",
@@ -1072,7 +1242,35 @@
         "ctaLabel": "See the shop →",
         "ctaHref": "/shop/swan-1-gen-2"
       },
-      "scaling": "Join the neighbourhood shops that have already put their catalog, stock, and scale in order on Caisse Manager. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your supplier count and sections."
+      "scaling": "Join the neighbourhood shops that have already put their catalog, stock, and scale in order on Caisse Manager. Try the demo in seconds, or talk to an advisor for a walkthrough tailored to your supplier count and sections.",
+      "client": {
+        "clientSlug": "lartisan",
+        "clientName": "L'Artisan",
+        "eyebrow": "The client",
+        "tag": "Retail · Market & restaurant",
+        "city": "Morocco",
+        "facts": [
+          {
+            "label": "Counters",
+            "value": "Market + kitchen"
+          },
+          {
+            "label": "Pricing",
+            "value": "By weight"
+          },
+          {
+            "label": "Ticket",
+            "value": "Mixed basket"
+          },
+          {
+            "label": "On Caisse Manager",
+            "value": "Daily"
+          }
+        ],
+        "storyTitle": "Two businesses, one ticket.",
+        "story": "L'Artisan is a butcher, a poultry counter and a fine grocery on one side, and a wood-fired restaurant on the other — under the same roof and often for the same customer. Someone buys from the grocery and orders a table in the same visit.",
+        "pressure": "That has to be one ticket, rung once, with weighed goods priced correctly — not two tills the customer has to visit twice."
+      }
     }
   },
   "productCard": {

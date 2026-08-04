@@ -1,8 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { TRUSTED_LOGOS } from "@/lib/trustedLogos";
+import { useTranslations } from "next-intl";
+import { BAND_LOGOS } from "@/data/logos";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 import { HERO_GLASS_SURFACE, HERO_GLASS_HAIRLINE } from "@/lib/heroGlass";
 
 // Px / second — slow enough to feel premium, fast enough that the visible
@@ -13,14 +14,15 @@ const SCROLL_SPEED_PX_PER_SEC = 32;
  * Trusted-by strip — JS-driven auto-scrolling carousel of client logos.
  *
  * Treatment:
- *   • Logos are rendered in uniform WHITE (CSS filter brightness(0) invert(1))
- *     so the strip reads as one cohesive set rather than a colorful gallery.
- *     The filter preserves each brand's silhouette, transparency, and
- *     proportions — only the color is flattened.
- *   • Each logo lives in a fixed-width "slot" (w-[100px] md:w-[120px]) with
- *     object-contain fit. Square / portrait logos get horizontal breathing
- *     room; very wide logos cap at slot width. Result: bounded visual weight
- *     for every brand regardless of source aspect ratio.
+ *   • Real WHITE artwork per brand, from `BAND_LOGOS`. This replaced a CSS
+ *     `brightness(0) invert(1)` filter over colour art. That filter collapsed
+ *     every opaque pixel to pure white, so a mascot or a badge lost its inner
+ *     detail and read as a featureless blob — which is why the old roster had
+ *     to exclude several brands outright. Genuine white lockups keep their
+ *     counters and internal shapes, so the roster is 38 brands instead of 12.
+ *   • Sizing is NOT done here. Each asset is a fixed 320×140 canvas with the
+ *     artwork pre-scaled so its ink area matches its neighbours, so BrandLogo
+ *     renders it at one uniform slot size and the optical balance holds.
  *   • Flat opacity-80 (no hover transition on the items) — they're
  *     decorative; the strip's pause-on-hover lives on the parent container.
  *
@@ -38,6 +40,7 @@ const SCROLL_SPEED_PX_PER_SEC = 32;
  *     through the static row.
  */
 export function TrustedByStrip() {
+  const t = useTranslations("home.hero");
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const stateRef = useRef({ paused: false, inView: false });
@@ -97,7 +100,7 @@ export function TrustedByStrip() {
     <div
       ref={containerRef}
       role="region"
-      aria-label="Clients using Caisse Manager"
+      aria-label={t("trustedByLabel")}
       // Shared "hero glass" — same dark frost the navbar uses at the
       // top of the hero (see src/lib/heroGlass.ts). The two edges read
       // as a single premium glass system bracketing the hero, rather
@@ -107,7 +110,7 @@ export function TrustedByStrip() {
       <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-5 md:py-6">
         <div className="flex items-center gap-6 md:gap-10">
           <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-paper/55 whitespace-nowrap flex-shrink-0">
-            Trusted by
+            {t("trustedBy")}
           </p>
 
           <div
@@ -134,23 +137,23 @@ export function TrustedByStrip() {
             >
               <ul className="flex items-center gap-6 md:gap-10 w-max">
                 {/* First copy — announced to assistive tech as a list. */}
-                {TRUSTED_LOGOS.map((logo) => (
+                {BAND_LOGOS.map((logo) => (
                   <li
-                    key={`a-${logo.name}`}
+                    key={`a-${logo.slug}`}
                     className="flex-shrink-0 opacity-80"
                   >
-                    <LogoSlot logo={logo} altText={logo.name} />
+                    <BrandLogo logo={logo} surface="dark" size="sm" />
                   </li>
                 ))}
                 {/* Second copy — pixel-identical duplicate that completes the
                     seamless loop. aria-hidden so SR users hear each name once. */}
-                {TRUSTED_LOGOS.map((logo) => (
+                {BAND_LOGOS.map((logo) => (
                   <li
-                    key={`b-${logo.name}`}
+                    key={`b-${logo.slug}`}
                     aria-hidden="true"
                     className="flex-shrink-0 opacity-80"
                   >
-                    <LogoSlot logo={logo} altText="" />
+                    <BrandLogo logo={logo} surface="dark" size="sm" alt="" />
                   </li>
                 ))}
               </ul>
@@ -162,33 +165,3 @@ export function TrustedByStrip() {
   );
 }
 
-// ── LogoSlot ─────────────────────────────────────────────────────────────
-// Fixed-width slot (w-[100px] md:w-[120px], h-7 md:h-9) that contains the
-// logo image and centers it via flex. The image renders inside via
-// object-contain so its native aspect is preserved; max-w-full max-h-full
-// ensures it never overflows. CSS filter flattens every source color to a
-// uniform white silhouette — applied uniformly because the data set is
-// curated to only include logos that survive the transformation.
-
-function LogoSlot({
-  logo,
-  altText,
-}: {
-  logo: { src: string; width: number; height: number; name: string };
-  altText: string;
-}) {
-  return (
-    <div className="h-7 md:h-9 w-[100px] md:w-[120px] flex items-center justify-center">
-      <Image
-        src={logo.src}
-        alt={altText}
-        width={logo.width}
-        height={logo.height}
-        sizes="(min-width: 768px) 120px, 100px"
-        className="max-w-full max-h-full w-auto h-auto select-none pointer-events-none"
-        style={{ filter: "brightness(0) invert(1)" }}
-        draggable={false}
-      />
-    </div>
-  );
-}

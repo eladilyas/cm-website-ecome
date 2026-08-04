@@ -30,6 +30,11 @@ import { seoAlternates } from "@/lib/seoAlternates";
 import { Button } from "@/components/ui/Button";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { TrySimulatorCTA } from "@/components/solutions/TrySimulatorCTA";
+import {
+  ClientStory,
+  type ClientStoryContent,
+} from "@/components/solutions/ClientStory";
+import { CLIENT_LOGOS } from "@/data/logos";
 import type { ActivityKey } from "@/data/demo/types";
 
 // Photography source of truth — one WebP per canonical slug, taken
@@ -150,6 +155,18 @@ export default async function IndustryPage({ params }: { params: Params }) {
   const scaling = t("scaling");
   const activity = ACTIVITY_FOR_SLUG[slug];
 
+  // The named client that opens this sector page. `clientSlug` resolves into
+  // the logo library; a brand with no colour artwork resolves to null and the
+  // story block falls back to a typographic lockup rather than an empty frame.
+  const clientStory = t.raw("client") as ClientStoryContent & {
+    clientSlug: string;
+    clientName: string;
+  };
+  const clientLogo =
+    CLIENT_LOGOS.find(
+      (l) => l.slug === clientStory.clientSlug && l.variants.onLight,
+    ) ?? null;
+
   // Optional fields — read defensively so slugs not yet ported to the
   // richer schema still render.
   let intro: string | null = null;
@@ -215,10 +232,21 @@ export default async function IndustryPage({ params }: { params: Params }) {
         </div>
       </section>
 
-      {/* Try-the-simulator CTA — prominently placed under the hero so
-          visitors convert from marketing into a hands-on POS preview
-          before scrolling through workflow + ecosystem detail. */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pb-14 md:pb-20">
+      {/* Client first, product second.
+          A named customer, their real operating pressure, and only then any
+          claim about the software. A visitor landing here is asking whether we
+          understand a business like theirs; naming one and describing their
+          actual service answers that before a feature is mentioned. */}
+      <ClientStory
+        logo={clientLogo}
+        name={clientStory.clientName}
+        content={clientStory}
+      />
+
+      {/* Try-the-simulator CTA — sits after the client story so the visitor
+          reaches it already persuaded that we know the trade, then converts
+          into a hands-on POS preview before the workflow detail. */}
+      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-14 md:pt-20 pb-14 md:pb-20">
         <TrySimulatorCTA
           activity={activity}
           label={tLabels("ctaTrySim", { activity: title })}

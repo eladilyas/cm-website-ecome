@@ -1,33 +1,48 @@
-// Brand logo library — clients, technology/commercial partners, and the trade
-// shows Caisse Manager exhibits at.
+// Brand logo library — clients, partners, and the trade shows we exhibit at.
 //
-// Every brand ships two artwork variants, and the suffix says which SURFACE the
-// file is for — not what colour the art is:
+// ── The variant suffix names the SURFACE, not the artwork colour ──────────
+//   -on-light  →  colour artwork.  Place on LIGHT surfaces (paper, canvas).
+//   -on-dark   →  white artwork.   Place on DARK surfaces (ink, night, photo).
+// A light background asks for variants.onLight. Getting it backwards ships
+// an invisible logo. A null means that variant does not exist for the brand.
 //
-//   -on-light  →  the colour / dark original artwork. Place it on LIGHT
-//                 surfaces (paper, white cards, light section backgrounds).
-//   -on-dark   →  the all-white artwork. Place it on DARK surfaces (ink
-//                 sections, photo overlays, the dark footer).
+// ── Every file is a FIXED 320x140 canvas ─────────────────────────────────
+// Render each one in one identical box — w-40 h-[70px] (or any 320:140
+// box) — and nothing else. Do NOT use object-contain sizing tricks, do NOT
+// set width and height independently, and do NOT try to normalise sizes in
+// CSS. The optical balancing is already baked into the pixels: each logo is
+// scaled so its INK AREA (not its bounding-box height) is comparable to its
+// neighbours, then centred with padding inside the shared canvas.
 //
-// So a light background asks for `variants.onLight`, a dark background asks
-// for `variants.onDark`. Getting it backwards renders an invisible logo.
+// Why ink area: a 6:1 wordmark and a 1:1 roundel set to the same CSS height
+// do not look the same size — the wordmark carries several times the ink and
+// dominates the row. Matching covered area is what makes a logo wall read as
+// one deliberate set. Sizing these in CSS would undo that work.
 //
-// Every file is a lossy WebP (quality 90) with alpha, tight-cropped to the art
-// and normalised to an 80px OPTICAL height. Widths are intentionally NOT
-// uniform: roundels come out near-square and wordmarks come out very wide, so
-// lay them out on a shared height (`h-10`, `h-12`, …) with `w-auto` and let
-// flexbox handle the rest. Never set both dimensions.
+// Assets are 2x (320x140 for a 160x70 CSS slot), so they stay crisp on
+// retina. Do not render them larger than 160 CSS px wide.
 //
-// Generated from the brand kits in "Website CM/Clients" and
-// "Website CM/Partenariats". To add a brand, drop both variants in the source
-// folder and re-run the logo build.
+// Regenerate with scratchpad/optical_logos.py when brands are added.
 
-export type LogoVariant = { onLight: string; onDark: string };
+export type LogoVariant = {
+  /** Colour artwork for light surfaces, or null if none exists. */
+  onLight: string | null;
+  /** White artwork for dark surfaces, or null if none exists. */
+  onDark: string | null;
+};
 
-export type Logo = { slug: string; name: string; variants: LogoVariant };
+export type Logo = {
+  slug: string;
+  name: string;
+  variants: LogoVariant;
+  /** Cleared for the monochrome hero band: has white art AND survives the
+   *  all-white treatment without losing brand identity or introducing
+   *  colour that would break the band's uniformity. */
+  inBand?: boolean;
+};
 
-/** Businesses running Caisse Manager — the client wall / social-proof marquee.
- *  Sorted alphabetically by name. */
+
+/** Businesses running Caisse Manager. Alphabetical by name. */
 export const CLIENT_LOGOS: Logo[] = [
   {
     slug: "75-flavours",
@@ -36,6 +51,16 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/75-flavours-on-light.webp",
       onDark: "/media/logos/clients/75-flavours-on-dark.webp",
     },
+    inBand: true,
+  },
+  {
+    slug: "alhayba",
+    name: "Alhayba",
+    variants: {
+      onLight: "/media/logos/clients/alhayba-on-light.webp",
+      onDark: null,
+    },
+    inBand: false,
   },
   {
     slug: "amazon-juices",
@@ -44,6 +69,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/amazon-juices-on-light.webp",
       onDark: "/media/logos/clients/amazon-juices-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "barber-plus",
@@ -52,6 +78,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/barber-plus-on-light.webp",
       onDark: "/media/logos/clients/barber-plus-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "barbers-star",
@@ -60,6 +87,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/barbers-star-on-light.webp",
       onDark: "/media/logos/clients/barbers-star-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "bunnies",
@@ -68,6 +96,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/bunnies-on-light.webp",
       onDark: "/media/logos/clients/bunnies-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "burgern-shake-iberia",
@@ -76,14 +105,16 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/burgern-shake-iberia-on-light.webp",
       onDark: "/media/logos/clients/burgern-shake-iberia-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "crusty",
-    name: "Crusty",
+    name: "crusty",
     variants: {
       onLight: "/media/logos/clients/crusty-on-light.webp",
       onDark: "/media/logos/clients/crusty-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "ctr-chicken",
@@ -92,6 +123,16 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/ctr-chicken-on-light.webp",
       onDark: "/media/logos/clients/ctr-chicken-on-dark.webp",
     },
+    inBand: true,
+  },
+  {
+    slug: "elbayt-eldimashki",
+    name: "Elbayt Eldimashki",
+    variants: {
+      onLight: "/media/logos/clients/elbayt-eldimashki-on-light.webp",
+      onDark: null,
+    },
+    inBand: false,
   },
   {
     slug: "food-yard",
@@ -100,6 +141,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/food-yard-on-light.webp",
       onDark: "/media/logos/clients/food-yard-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "fried",
@@ -108,6 +150,16 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/fried-on-light.webp",
       onDark: "/media/logos/clients/fried-on-dark.webp",
     },
+    inBand: true,
+  },
+  {
+    slug: "golden-coffee",
+    name: "Golden Coffee",
+    variants: {
+      onLight: "/media/logos/clients/golden-coffee-on-light.webp",
+      onDark: null,
+    },
+    inBand: false,
   },
   {
     slug: "hammam-almaz",
@@ -116,6 +168,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/hammam-almaz-on-light.webp",
       onDark: "/media/logos/clients/hammam-almaz-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "hy-sushi",
@@ -124,6 +177,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/hy-sushi-on-light.webp",
       onDark: "/media/logos/clients/hy-sushi-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "ikbal-gourmandise",
@@ -132,6 +186,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/ikbal-gourmandise-on-light.webp",
       onDark: "/media/logos/clients/ikbal-gourmandise-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "kleat",
@@ -140,6 +195,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/kleat-on-light.webp",
       onDark: "/media/logos/clients/kleat-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "la-grande-tente",
@@ -148,6 +204,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/la-grande-tente-on-light.webp",
       onDark: "/media/logos/clients/la-grande-tente-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "la-tasse-joyeuse",
@@ -156,14 +213,16 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/la-tasse-joyeuse-on-light.webp",
       onDark: "/media/logos/clients/la-tasse-joyeuse-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "lartisan",
-    name: "L'Artisan",
+    name: "lartisan",
     variants: {
       onLight: "/media/logos/clients/lartisan-on-light.webp",
       onDark: "/media/logos/clients/lartisan-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "le-beldi",
@@ -172,14 +231,25 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/le-beldi-on-light.webp",
       onDark: "/media/logos/clients/le-beldi-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "le-roissant",
-    name: "Le Roissant",
+    name: "Le roissant",
     variants: {
       onLight: "/media/logos/clients/le-roissant-on-light.webp",
       onDark: "/media/logos/clients/le-roissant-on-dark.webp",
     },
+    inBand: true,
+  },
+  {
+    slug: "leamido",
+    name: "Leamido",
+    variants: {
+      onLight: "/media/logos/clients/leamido-on-light.webp",
+      onDark: null,
+    },
+    inBand: false,
   },
   {
     slug: "maison-adena",
@@ -188,6 +258,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/maison-adena-on-light.webp",
       onDark: "/media/logos/clients/maison-adena-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "mr-bnin",
@@ -196,6 +267,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/mr-bnin-on-light.webp",
       onDark: "/media/logos/clients/mr-bnin-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "mr-daddy",
@@ -204,6 +276,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/mr-daddy-on-light.webp",
       onDark: "/media/logos/clients/mr-daddy-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "only-chicken",
@@ -212,22 +285,43 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/only-chicken-on-light.webp",
       onDark: "/media/logos/clients/only-chicken-on-dark.webp",
     },
+    inBand: true,
+  },
+  {
+    slug: "panda",
+    name: "Panda",
+    variants: {
+      onLight: null,
+      onDark: "/media/logos/clients/panda-on-dark.webp",
+    },
+    inBand: false,
+  },
+  {
+    slug: "panini-grill",
+    name: "Panini Grill",
+    variants: {
+      onLight: "/media/logos/clients/panini-grill-on-light.webp",
+      onDark: null,
+    },
+    inBand: false,
   },
   {
     slug: "parigini",
-    name: "Parigini",
+    name: "parigini",
     variants: {
       onLight: "/media/logos/clients/parigini-on-light.webp",
       onDark: "/media/logos/clients/parigini-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "patisserie-rhouni",
-    name: "Pâtisserie Rhouni",
+    name: "Patisserie Rhouni",
     variants: {
       onLight: "/media/logos/clients/patisserie-rhouni-on-light.webp",
       onDark: "/media/logos/clients/patisserie-rhouni-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "pizza-philestini",
@@ -236,6 +330,16 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/pizza-philestini-on-light.webp",
       onDark: "/media/logos/clients/pizza-philestini-on-dark.webp",
     },
+    inBand: true,
+  },
+  {
+    slug: "primos",
+    name: "Primos",
+    variants: {
+      onLight: "/media/logos/clients/primos-on-light.webp",
+      onDark: null,
+    },
+    inBand: false,
   },
   {
     slug: "restaurant-abwab-elmansour",
@@ -244,6 +348,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/restaurant-abwab-elmansour-on-light.webp",
       onDark: "/media/logos/clients/restaurant-abwab-elmansour-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "restaurant-seafood",
@@ -252,6 +357,16 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/restaurant-seafood-on-light.webp",
       onDark: "/media/logos/clients/restaurant-seafood-on-dark.webp",
     },
+    inBand: true,
+  },
+  {
+    slug: "room-21",
+    name: "Room 21",
+    variants: {
+      onLight: "/media/logos/clients/room-21-on-light.webp",
+      onDark: null,
+    },
+    inBand: false,
   },
   {
     slug: "saloon-33",
@@ -260,6 +375,16 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/saloon-33-on-light.webp",
       onDark: "/media/logos/clients/saloon-33-on-dark.webp",
     },
+    inBand: true,
+  },
+  {
+    slug: "sea-view-360",
+    name: "Sea View 360",
+    variants: {
+      onLight: "/media/logos/clients/sea-view-360-on-light.webp",
+      onDark: null,
+    },
+    inBand: false,
   },
   {
     slug: "social-coffee",
@@ -268,6 +393,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/social-coffee-on-light.webp",
       onDark: "/media/logos/clients/social-coffee-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "texas-chicken",
@@ -276,6 +402,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/texas-chicken-on-light.webp",
       onDark: "/media/logos/clients/texas-chicken-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "the-hunger",
@@ -284,14 +411,16 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/the-hunger-on-light.webp",
       onDark: "/media/logos/clients/the-hunger-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "the-mara",
-    name: "Thé-Mara",
+    name: "Thé-Mara",
     variants: {
       onLight: "/media/logos/clients/the-mara-on-light.webp",
       onDark: "/media/logos/clients/the-mara-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "turkish-steak-house",
@@ -300,6 +429,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/turkish-steak-house-on-light.webp",
       onDark: "/media/logos/clients/turkish-steak-house-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "uncle-crespy",
@@ -308,6 +438,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/uncle-crespy-on-light.webp",
       onDark: "/media/logos/clients/uncle-crespy-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "wake-up",
@@ -316,6 +447,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/wake-up-on-light.webp",
       onDark: "/media/logos/clients/wake-up-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "wok-4-you",
@@ -324,6 +456,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/wok-4-you-on-light.webp",
       onDark: "/media/logos/clients/wok-4-you-on-dark.webp",
     },
+    inBand: true,
   },
   {
     slug: "zanmai",
@@ -332,14 +465,15 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/zanmai-on-light.webp",
       onDark: "/media/logos/clients/zanmai-on-dark.webp",
     },
+    inBand: true,
   },
 ];
-/** Technology, payment and delivery partners integrated with the platform.
- *  Sorted alphabetically by name. */
+
+/** Technology, payment, financing and delivery partners. */
 export const PARTNER_LOGOS: Logo[] = [
   {
     slug: "brehm",
-    name: "Brehm",
+    name: "brehm",
     variants: {
       onLight: "/media/logos/partners/brehm-on-light.webp",
       onDark: "/media/logos/partners/brehm-on-dark.webp",
@@ -371,7 +505,7 @@ export const PARTNER_LOGOS: Logo[] = [
   },
   {
     slug: "glory",
-    name: "Glory",
+    name: "glory",
     variants: {
       onLight: "/media/logos/partners/glory-on-light.webp",
       onDark: "/media/logos/partners/glory-on-dark.webp",
@@ -387,7 +521,7 @@ export const PARTNER_LOGOS: Logo[] = [
   },
   {
     slug: "imin",
-    name: "iMin",
+    name: "imin",
     variants: {
       onLight: "/media/logos/partners/imin-on-light.webp",
       onDark: "/media/logos/partners/imin-on-dark.webp",
@@ -403,7 +537,7 @@ export const PARTNER_LOGOS: Logo[] = [
   },
   {
     slug: "odoo",
-    name: "Odoo",
+    name: "odoo",
     variants: {
       onLight: "/media/logos/partners/odoo-on-light.webp",
       onDark: "/media/logos/partners/odoo-on-dark.webp",
@@ -427,15 +561,15 @@ export const PARTNER_LOGOS: Logo[] = [
   },
   {
     slug: "yassir",
-    name: "Yassir",
+    name: "yassir",
     variants: {
       onLight: "/media/logos/partners/yassir-on-light.webp",
       onDark: "/media/logos/partners/yassir-on-dark.webp",
     },
   },
 ];
-/** Trade shows and industry exhibitions Caisse Manager exhibits at.
- *  Sorted alphabetically by name. */
+
+/** Trade shows and exhibitions Caisse Manager has exhibited at. */
 export const EVENT_LOGOS: Logo[] = [
   {
     slug: "franchise-exhibition-morocco-2026",
@@ -455,10 +589,14 @@ export const EVENT_LOGOS: Logo[] = [
   },
   {
     slug: "salon-cremai",
-    name: "Salon Cremaï",
+    name: "Salon Cremaï",
     variants: {
       onLight: "/media/logos/events/salon-cremai-on-light.webp",
       onDark: "/media/logos/events/salon-cremai-on-dark.webp",
     },
   },
 ];
+
+/** The hero band roster — clients cleared for the all-white monochrome
+ *  treatment, in library order. */
+export const BAND_LOGOS: Logo[] = CLIENT_LOGOS.filter((l) => l.inBand);

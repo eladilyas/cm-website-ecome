@@ -227,7 +227,9 @@
       "subhead": "La plateforme unifiée que les commerçants marocains choisissent pour piloter la caisse, la cuisine, les commandes en ligne et le back-office — un seul système, sur tous les appareils, conçu pour évoluer avec vous.",
       "primaryCta": "Démarrer l'essai gratuit",
       "secondaryCta": "Voir les tarifs",
-      "trustBadge": "Sans engagement · Configuration en 10 minutes"
+      "trustBadge": "Sans engagement · Configuration en 10 minutes",
+      "trustedBy": "Ils nous font confiance",
+      "trustedByLabel": "Des commerces qui tournent sur Caisse Manager"
     },
     "finalCta": {
       "heading": "Voyez-le sur votre caisse.",
@@ -679,7 +681,35 @@
         "ctaLabel": "Voir les tarifs →",
         "ctaHref": "/pricing"
       },
-      "scaling": "Rejoignez les cafés qui ont déjà rendu leur caisse plus fluide. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration ciblée sur votre volume et votre carte."
+      "scaling": "Rejoignez les cafés qui ont déjà rendu leur caisse plus fluide. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration ciblée sur votre volume et votre carte.",
+      "client": {
+        "clientSlug": "room-21",
+        "clientName": "Room 21",
+        "eyebrow": "Le client",
+        "tag": "Café · Salon de pâtisserie",
+        "city": "Maroc",
+        "facts": [
+          {
+            "label": "Caisses",
+            "value": "1"
+          },
+          {
+            "label": "Affluence",
+            "value": "L'après-midi"
+          },
+          {
+            "label": "Service",
+            "value": "Caisse + salle"
+          },
+          {
+            "label": "Sur Caisse Manager",
+            "value": "Au quotidien"
+          }
+        ],
+        "storyTitle": "Une salle qui se remplit et ne se vide jamais vraiment.",
+        "story": "Room 21 est un café-pâtisserie plein dès le milieu d'après-midi. Les commandes n'arrivent pas une par une : une table redemande une tournée pendant qu'un nouveau client attend déjà au comptoir, et les deux veulent être servis sans que l'un bloque l'autre.",
+        "pressure": "Une seule commande ouverte, et tout se grippe. La caisse doit faire tourner un deuxième, un troisième, un quatrième ticket en parallèle — et le tiroir s'ouvrir seul à chaque encaissement."
+      }
     },
     "fast-food": {
       "eyebrow": "Secteur · Fast-food",
@@ -774,7 +804,35 @@
           "name": "Only Chicken"
         }
       ],
-      "scaling": "Rejoignez les enseignes fast-food qui synchronisent déjà caisse, cuisine et livraison sur Caisse Manager. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration ciblée sur votre volume et vos partenaires de livraison."
+      "scaling": "Rejoignez les enseignes fast-food qui synchronisent déjà caisse, cuisine et livraison sur Caisse Manager. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration ciblée sur votre volume et vos partenaires de livraison.",
+      "client": {
+        "clientSlug": "texas-chicken",
+        "clientName": "Texas Chicken",
+        "eyebrow": "Le client",
+        "tag": "Fast-food · Franchise internationale",
+        "city": "Maroc",
+        "facts": [
+          {
+            "label": "Sites",
+            "value": "Multi-sites"
+          },
+          {
+            "label": "Modèle",
+            "value": "Franchise"
+          },
+          {
+            "label": "Canaux",
+            "value": "Comptoir + livraison"
+          },
+          {
+            "label": "Sur Caisse Manager",
+            "value": "Au quotidien"
+          }
+        ],
+        "storyTitle": "La même carte, le même prix, dans chaque point de vente.",
+        "story": "Texas Chicken exploite une franchise multi-sites où la constance est le produit. Les tickets de cuisine doivent atteindre le bon poste à la seconde où ils sont saisis, les commandes de toutes les plateformes de livraison doivent arriver sur un seul écran, et un prix ne peut pas différer discrètement d'un point de vente à l'autre.",
+        "pressure": "Aux heures de pointe, chaque seconde en file se cumule. L'écran cuisine et la caisse doivent dire la même vérité, en direct — pas deux systèmes réconciliés après le service."
+      }
     },
     "dine-in": {
       "eyebrow": "Secteur · Restaurants",
@@ -867,7 +925,35 @@
         "ctaLabel": "Voir les tarifs →",
         "ctaHref": "/pricing"
       },
-      "scaling": "Rejoignez les restaurants qui pilotent déjà leur salle table par table sur Caisse Manager. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration adaptée à votre carte et votre volume."
+      "scaling": "Rejoignez les restaurants qui pilotent déjà leur salle table par table sur Caisse Manager. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration adaptée à votre carte et votre volume.",
+      "client": {
+        "clientSlug": "75-flavours",
+        "clientName": "75 Flavours",
+        "eyebrow": "Le client",
+        "tag": "Restaurant · Café · Sur place",
+        "city": "Maroc",
+        "facts": [
+          {
+            "label": "Service",
+            "value": "À table"
+          },
+          {
+            "label": "Horaires",
+            "value": "Du matin au soir"
+          },
+          {
+            "label": "Additions",
+            "value": "Souvent partagées"
+          },
+          {
+            "label": "Sur Caisse Manager",
+            "value": "Au quotidien"
+          }
+        ],
+        "storyTitle": "Ouvert du petit-déjeuner au dîner tardif, sur un seul plan de salle.",
+        "story": "75 Flavours est un café-restaurant qui sert du premier café du matin jusqu'au dîner tardif. La salle ne se remet jamais à zéro entre deux services : une table qui termine son déjeuner et une table qui commence son après-midi coexistent, et le plan doit se lire d'un coup d'œil plutôt que se reconstituer de mémoire.",
+        "pressure": "Une addition partagée qui prend trois minutes coûte le service suivant. Le partage doit se faire en un geste, et le plan doit montrer ce qui est réellement libre maintenant."
+      }
     },
     "bakery": {
       "eyebrow": "Secteur · Boulangerie",
@@ -921,7 +1007,35 @@
         "ctaLabel": "Voir les tarifs →",
         "ctaHref": "/pricing"
       },
-      "scaling": "Rejoignez les boulangeries qui ont déjà rendu leur four rentable. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration adaptée à votre production et votre catalogue."
+      "scaling": "Rejoignez les boulangeries qui ont déjà rendu leur four rentable. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration adaptée à votre production et votre catalogue.",
+      "client": {
+        "clientSlug": "maison-adena",
+        "clientName": "Maison Adena",
+        "eyebrow": "Le client",
+        "tag": "Boulangerie · Café",
+        "city": "Maroc",
+        "facts": [
+          {
+            "label": "Ouverture",
+            "value": "Avant l'aube"
+          },
+          {
+            "label": "Flux",
+            "value": "Four + service"
+          },
+          {
+            "label": "Stock",
+            "value": "Périssable"
+          },
+          {
+            "label": "Sur Caisse Manager",
+            "value": "Au quotidien"
+          }
+        ],
+        "storyTitle": "C'est le four qui donne le rythme, pas la caisse.",
+        "story": "Maison Adena produit et sert sous le même toit. Les viennoiseries sortent au rythme du four, le comptoir tourne au rythme du client, et les deux doivent rester alignés pendant le coup de feu du matin sans que personne s'arrête pour compter les plaques.",
+        "pressure": "Un stock faux d'une heure est un stock faux. Il faut l'alerte avant que le lot ne tourne, et une caisse qui continue d'encaisser même quand la connexion tombe."
+      }
     },
     "beauty": {
       "eyebrow": "Secteur · Salons de beauté",
@@ -964,7 +1078,35 @@
         "ctaLabel": "Voir la boutique →",
         "ctaHref": "/shop/swan-1-gen-2"
       },
-      "scaling": "Rejoignez les salons de beauté qui ont déjà mis leur planning et leur encaissement au service de leur clientèle. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration adaptée à votre équipe et vos prestations."
+      "scaling": "Rejoignez les salons de beauté qui ont déjà mis leur planning et leur encaissement au service de leur clientèle. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration adaptée à votre équipe et vos prestations.",
+      "client": {
+        "clientSlug": "hammam-almaz",
+        "clientName": "Hammam Almaz",
+        "eyebrow": "Le client",
+        "tag": "Beauté · Hammam & soins",
+        "city": "Maroc",
+        "facts": [
+          {
+            "label": "Modèle",
+            "value": "Sur rendez-vous"
+          },
+          {
+            "label": "Équipe",
+            "value": "Par praticienne"
+          },
+          {
+            "label": "Ventes",
+            "value": "Soin + boutique"
+          },
+          {
+            "label": "Sur Caisse Manager",
+            "value": "Au quotidien"
+          }
+        ],
+        "storyTitle": "Un fauteuil vide coûte plus cher qu'un appel manqué.",
+        "story": "Hammam Almaz vend du temps autant que du soin. Un rendez-vous que personne ne confirme est une heure qu'on ne peut plus revendre, et chaque praticienne porte sa propre colonne de la journée, ses habituées et sa part de la recette.",
+        "pressure": "L'agenda et la caisse ne peuvent pas être deux registres différents. La personne à l'accueil a besoin de la journée, de la praticienne et du paiement au même endroit."
+      }
     },
     "barber": {
       "eyebrow": "Secteur · Barbershops",
@@ -1017,7 +1159,35 @@
         "ctaLabel": "Voir la boutique →",
         "ctaHref": "/shop/swan-1-gen-2"
       },
-      "scaling": "Rejoignez les barbershops qui ont déjà unifié file d'attente, réservations et encaissement sur Caisse Manager. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration adaptée à vos fauteuils et vos abonnements."
+      "scaling": "Rejoignez les barbershops qui ont déjà unifié file d'attente, réservations et encaissement sur Caisse Manager. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration adaptée à vos fauteuils et vos abonnements.",
+      "client": {
+        "clientSlug": "barbers-star",
+        "clientName": "Barber's Star",
+        "eyebrow": "Le client",
+        "tag": "Barbershop",
+        "city": "Maroc",
+        "facts": [
+          {
+            "label": "Modèle",
+            "value": "Sans RDV + réservé"
+          },
+          {
+            "label": "Fauteuils",
+            "value": "Plusieurs"
+          },
+          {
+            "label": "Clientèle",
+            "value": "Des habitués"
+          },
+          {
+            "label": "Sur Caisse Manager",
+            "value": "Au quotidien"
+          }
+        ],
+        "storyTitle": "Sans rendez-vous ou réservé, sur un seul écran.",
+        "story": "Barber's Star fonctionne de deux façons à la fois. Les habitués réservent à l'avance et comptent sur leur créneau ; ceux qui passent sans rendez-vous veulent qu'on leur annonce honnêtement le temps d'attente. Les deux flux se disputent les mêmes fauteuils sur le même après-midi.",
+        "pressure": "Un seul écran doit répondre aux deux : qui est réservé, qui attend, et quel fauteuil se libère ensuite — sans que le barbier quitte son fauteuil pour aller voir."
+      }
     },
     "market": {
       "eyebrow": "Secteur · Commerce · Marché",
@@ -1072,7 +1242,35 @@
         "ctaLabel": "Voir la boutique →",
         "ctaHref": "/shop/swan-1-gen-2"
       },
-      "scaling": "Rejoignez les commerces de proximité qui ont déjà mis leur catalogue, leur stock et leur balance en ordre sur Caisse Manager. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration adaptée à votre nombre de fournisseurs et vos rayons."
+      "scaling": "Rejoignez les commerces de proximité qui ont déjà mis leur catalogue, leur stock et leur balance en ordre sur Caisse Manager. Essayez la démo en quelques secondes, ou parlez à un conseiller pour une démonstration adaptée à votre nombre de fournisseurs et vos rayons.",
+      "client": {
+        "clientSlug": "lartisan",
+        "clientName": "L'Artisan",
+        "eyebrow": "Le client",
+        "tag": "Commerce · Marché & restaurant",
+        "city": "Maroc",
+        "facts": [
+          {
+            "label": "Comptoirs",
+            "value": "Marché + cuisine"
+          },
+          {
+            "label": "Prix",
+            "value": "Au poids"
+          },
+          {
+            "label": "Ticket",
+            "value": "Panier mixte"
+          },
+          {
+            "label": "Sur Caisse Manager",
+            "value": "Au quotidien"
+          }
+        ],
+        "storyTitle": "Deux commerces, un seul ticket.",
+        "story": "L'Artisan, c'est une boucherie, un rayon volaille et une épicerie fine d'un côté, et un restaurant au feu de bois de l'autre — sous le même toit et souvent pour le même client. On achète à l'épicerie et on commande une table dans la même visite.",
+        "pressure": "Cela doit tenir sur un seul ticket, saisi une fois, avec les produits pesés au bon prix — pas deux caisses que le client doit visiter deux fois."
+      }
     }
   },
   "productCard": {
