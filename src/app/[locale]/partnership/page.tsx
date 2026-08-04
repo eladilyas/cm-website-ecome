@@ -25,6 +25,8 @@ import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { Arrow } from "@/components/ui/Arrow";
+import { BrandLogo } from "@/components/ui/BrandLogo";
+import { PARTNER_LOGOS } from "@/data/logos";
 
 type EarningsTile = { period: string; amount: string; hint: string };
 type Track = { slug: string; name: string; body: string; ctaLabel: string };
@@ -66,6 +68,32 @@ export default async function PartnershipPage() {
           <p className="mt-6 text-[17px] md:text-[19px] leading-[1.55] text-ink-soft max-w-[46rem]">
             {t("heroBody")}
           </p>
+        </Reveal>
+      </section>
+
+      {/* The existing ecosystem, shown before we ask anyone to join it.
+          A prospective partner's first question is who is already in — so the
+          twelve payment, financing, delivery, hardware and ERP partners are
+          named here, in colour on the light surface, rather than described
+          abstractly further down the page. */}
+      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pb-16 md:pb-20">
+        <Reveal>
+          <p className="text-[10.5px] font-semibold uppercase tracking-[0.2em] text-ink-mute mb-5">
+            {t("partnersEyebrow")}
+          </p>
+        </Reveal>
+        <Reveal delay={0.04}>
+          {/* A plain wrap, not a marquee. This is a finite, knowable set the
+              reader should be able to scan and stop on; motion would make it
+              read as decoration. Optical balance is baked into each asset, so
+              a flat flex row is all that is needed. */}
+          <ul className="flex flex-wrap items-center gap-x-1 gap-y-1 -ml-3">
+            {PARTNER_LOGOS.map((logo) => (
+              <li key={logo.slug} className="opacity-85">
+                <BrandLogo logo={logo} surface="light" size="md" />
+              </li>
+            ))}
+          </ul>
         </Reveal>
       </section>
 
