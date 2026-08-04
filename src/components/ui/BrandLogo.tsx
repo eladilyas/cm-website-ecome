@@ -25,11 +25,11 @@ import type { Logo } from "@/data/logos";
  *  optical balance survives — only the scale changes. */
 const SIZES = {
   /** Dense rows: the hero band, footer strips. */
-  sm: { cls: "w-[120px] h-[52.5px]", vw: "120px" },
+  sm: "w-[120px] h-[52.5px]",
   /** Default: client walls, partner grids. */
-  md: { cls: "w-[150px] h-[65.6px]", vw: "150px" },
+  md: "w-[150px] h-[65.6px]",
   /** Feature moment: a single client called out beside their story. */
-  lg: { cls: "w-[190px] h-[83px]", vw: "190px" },
+  lg: "w-[190px] h-[83px]",
 } as const;
 
 export type BrandLogoSize = keyof typeof SIZES;
@@ -59,18 +59,22 @@ export function BrandLogo({
   // put white art on white, so render nothing instead of an invisible box.
   if (!src) return null;
 
-  const s = SIZES[size];
   return (
     <Image
       src={src}
       alt={alt ?? logo.name}
       width={320}
       height={140}
-      sizes={s.vw}
+      // Deliberately NO `sizes`. With `sizes` set, Next cannot know the
+      // viewport so it emits the entire width ladder — up to 2048px and
+      // beyond — for what is a 120px slot. Across 38 logos rendered twice by
+      // the marquee that was ~570 candidate URLs of dead srcset in the HTML.
+      // These assets are a fixed 320×140 and are never displayed larger, so
+      // omitting `sizes` lets Next emit a plain 1x/2x pair instead.
       priority={priority}
       loading={priority ? undefined : "lazy"}
       draggable={false}
-      className={`${s.cls} select-none ${className}`}
+      className={`${SIZES[size]} select-none ${className}`}
     />
   );
 }
