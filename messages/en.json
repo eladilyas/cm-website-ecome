@@ -3116,7 +3116,10 @@
     "ctaEyebrow": "Ready when you are",
     "ctaTitle": "Ready to move your counter forward?",
     "ctaSales": "Talk to sales",
-    "ctaDemo": "Try the demo →"
+    "ctaDemo": "Try the demo →",
+    "wallEyebrow": "The roster",
+    "wallTitle": "Cafés, bakeries, kitchens, salons and shops — already running.",
+    "wallBody": "Every logo here is a business that opens tomorrow on Caisse Manager. Not pilots, not trials — operations that ring their real orders through it every day."
   },
   "whyPage": {
     "metaTitle": "Why Caisse Manager",

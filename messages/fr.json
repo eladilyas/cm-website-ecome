@@ -3116,7 +3116,10 @@
     "ctaEyebrow": "Pour commencer",
     "ctaTitle": "Prêt à faire avancer votre caisse ?",
     "ctaSales": "Parler aux ventes",
-    "ctaDemo": "Essayer la démo →"
+    "ctaDemo": "Essayer la démo →",
+    "wallEyebrow": "Nos clients",
+    "wallTitle": "Cafés, boulangeries, cuisines, salons et commerces — déjà en service.",
+    "wallBody": "Chaque logo ici est un commerce qui ouvre demain avec Caisse Manager. Pas des pilotes, pas des essais — des exploitations qui y passent leurs vraies commandes chaque jour."
   },
   "whyPage": {
     "metaTitle": "Pourquoi Caisse Manager",

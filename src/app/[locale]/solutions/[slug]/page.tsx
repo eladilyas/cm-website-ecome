@@ -35,6 +35,7 @@ import {
   type ClientStoryContent,
 } from "@/components/solutions/ClientStory";
 import { CLIENT_LOGOS } from "@/data/logos";
+import { BrandLogo, hasRenderableLogo } from "@/components/ui/BrandLogo";
 import type { ActivityKey } from "@/data/demo/types";
 
 // Photography source of truth — one WebP per canonical slug, taken
@@ -100,6 +101,30 @@ function isRichEcosystem(
   item: EcosystemItem,
 ): item is { name: string; tag?: string; body?: string } {
   return typeof item === "object" && item !== null && "name" in item;
+}
+
+/** Ecosystem entries are localised copy carrying a display name, not a slug.
+ *  Match back to the logo library on a normalised name so accents and
+ *  apostrophes reconcile between the two sources. */
+function normaliseName(s: string): string {
+  return s
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "");
+}
+
+function clientLogoByName(name: string) {
+  const key = normaliseName(name);
+  return (
+    CLIENT_LOGOS.find((l) => normaliseName(l.name) === key) ??
+    CLIENT_LOGOS.find(
+      (l) =>
+        key.startsWith(normaliseName(l.name)) &&
+        normaliseName(l.name).length >= 5,
+    ) ??
+    null
+  );
 }
 
 /** Resolve a URL slug to its canonical form, or null when it matches
@@ -358,11 +383,24 @@ export default async function IndustryPage({ params }: { params: Params }) {
                   .filter((e): e is { name: string; tag?: string; body?: string } =>
                     isRichEcosystem(e) && Boolean(e.body),
                   )
-                  .map((e) => (
+                  .map((e) => {
+                    const eLogo = clientLogoByName(e.name);
+                    const eShow = hasRenderableLogo(eLogo, "light");
+                    return (
                     <article
                       key={e.name}
                       className="rounded-2xl bg-canvas ring-1 ring-hairline p-5 md:p-6"
                     >
+                      {/* These are named businesses, so lead with the mark when
+                          we hold usable artwork. */}
+                      {eShow && eLogo && (
+                        <BrandLogo
+                          logo={eLogo}
+                          surface="light"
+                          size="md"
+                          className="mb-4"
+                        />
+                      )}
                       <div className="flex items-baseline gap-2 flex-wrap">
                         <h3 className="text-[16px] md:text-[17px] font-semibold text-ink tracking-[-0.01em]">
                           {e.name}
@@ -377,7 +415,8 @@ export default async function IndustryPage({ params }: { params: Params }) {
                         {e.body}
                       </p>
                     </article>
-                  ))}
+                    );
+                  })}
               </div>
               {/* Secondary chips — names only */}
               {ecosystem.some(
@@ -393,6 +432,20 @@ export default async function IndustryPage({ params }: { params: Params }) {
                     )
                     .map((e, i) => {
                       const label = typeof e === "string" ? e : e.name;
+                      const cLogo = clientLogoByName(label);
+                      // A recognisable mark beats the same name set in a pill.
+                      // Brands whose artwork cannot render on this surface keep
+                      // the text chip, so the row never shows an empty pill.
+                      if (hasRenderableLogo(cLogo, "light") && cLogo) {
+                        return (
+                          <span
+                            key={i}
+                            className="inline-flex items-center justify-center rounded-xl bg-canvas ring-1 ring-hairline px-1"
+                          >
+                            <BrandLogo logo={cLogo} surface="light" size="sm" />
+                          </span>
+                        );
+                      }
                       return (
                         <span
                           key={i}

@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { BrandLogo, hasRenderableLogo } from "@/components/ui/BrandLogo";
+import { ClientWall } from "@/components/solutions/ClientWall";
 import { CLIENT_LOGOS } from "@/data/logos";
 
 const CANONICAL_SLUGS = [
@@ -186,44 +187,72 @@ export default async function IndustriesOverviewPage() {
             </Reveal>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+          {/* Editorial rows, not a card grid.
+              Eleven identical rounded boxes read as a template; hairline-ruled
+              rows with a dedicated logo column read as an index of real
+              businesses. It also fixes the duplication the card version shipped
+              with — there, a brand whose artwork could not render fell back to
+              its name in the logo slot AND repeated it in the heading directly
+              underneath. Here the logo column holds artwork or nothing, and the
+              name appears exactly once. */}
+          <ul className="border-t border-hairline">
             {proof.map((p, i) => {
-              // These are real businesses, so show their real marks. The card
-              // reserves a fixed logo row whether or not artwork resolves, so
-              // one brand without a logo cannot make its card shorter than the
-              // rest and break the grid's baseline.
               const logo = proofLogo(p);
               const showLogo = hasRenderableLogo(logo, "light");
               return (
-                <Reveal key={p.name} delay={0.04 + i * 0.02}>
-                  <article className="h-full flex flex-col rounded-2xl bg-canvas ring-1 ring-hairline p-5 md:p-6">
-                    <div className="h-[66px] flex items-center mb-4">
-                      {showLogo && logo ? (
-                        <BrandLogo logo={logo} surface="light" size="md" />
-                      ) : (
-                        <span className="text-[20px] font-semibold tracking-[-0.015em] text-ink/80">
-                          {p.name}
-                        </span>
-                      )}
-                    </div>
-                    <div className="flex items-baseline gap-2 flex-wrap">
-                      <h3 className="text-[15.5px] md:text-[16.5px] font-semibold text-ink tracking-[-0.008em]">
-                        {p.name}
-                      </h3>
-                      <span className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-ink-mute">
-                        {p.tag}
-                      </span>
-                    </div>
-                    <p className="mt-3 text-[13.5px] md:text-[14px] leading-[1.6] text-ink-soft">
-                      {p.body}
-                    </p>
-                  </article>
-                </Reveal>
+                <li key={p.name} className="border-b border-hairline">
+                  <Reveal delay={0.02 + Math.min(i, 6) * 0.02}>
+                    <article className="grid grid-cols-1 md:grid-cols-[minmax(0,11rem)_minmax(0,1fr)] lg:grid-cols-[minmax(0,13rem)_minmax(0,20rem)_minmax(0,1fr)] gap-x-8 gap-y-3 py-7 md:py-8">
+                      {/* Logo column, left-aligned so every mark shares one
+                          optical axis down the list. Centring would let the
+                          axis wander with each logo's width. */}
+                      <div className="flex items-center">
+                        {showLogo && logo ? (
+                          <BrandLogo logo={logo} surface="light" size="md" />
+                        ) : (
+                          <span className="text-[19px] font-semibold tracking-[-0.015em] text-ink">
+                            {p.name}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Name + sector. The name is suppressed when the logo
+                          column already carried it typographically. */}
+                      <div className="lg:pt-3">
+                        {showLogo && (
+                          <h3 className="text-[16px] md:text-[17px] font-semibold text-ink tracking-[-0.01em]">
+                            {p.name}
+                          </h3>
+                        )}
+                        <p
+                          className={`text-[10.5px] font-semibold uppercase tracking-[0.16em] text-ink-mute ${
+                            showLogo ? "mt-1.5" : ""
+                          }`}
+                        >
+                          {p.tag}
+                        </p>
+                      </div>
+
+                      <p className="lg:pt-2.5 text-[14px] md:text-[14.5px] leading-[1.6] text-ink-soft max-w-[46rem]">
+                        {p.body}
+                      </p>
+                    </article>
+                  </Reveal>
+                </li>
               );
             })}
-          </div>
+          </ul>
         </div>
       </section>
+
+      {/* Full roster on ink — the structural break between the eleven named
+          stories above and the CTA below, and the one surface where every
+          brand is legible without per-logo special casing. */}
+      <ClientWall
+        eyebrow={t("wallEyebrow")}
+        title={t("wallTitle")}
+        body={t("wallBody")}
+      />
 
       {/* Closing CTA */}
       <section className="mx-auto max-w-[1280px] px-6 lg:px-10 py-20 md:py-28">
