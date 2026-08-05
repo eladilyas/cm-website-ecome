@@ -39,6 +39,15 @@ export type Logo = {
    *  all-white treatment without losing brand identity or introducing
    *  colour that would break the band's uniformity. */
   inBand?: boolean;
+  /** MEASURED: is the colour artwork legible on a white surface?
+   *
+   *  False for brands whose "colour" lockup is itself light-inked — white
+   *  knockout text inside a coloured ring, pale gold hairlines, and so on.
+   *  Placed on white those read as an empty frame no matter how well they are
+   *  scaled. Callers must render these as the WHITE variant on a dark chip
+   *  instead; BrandLogo does this automatically. Computed from the ink's
+   *  luminance-weighted mean and its near-white share, not by eye. */
+  onLightSafe?: boolean;
 };
 
 
@@ -60,6 +69,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/alhayba-on-light.webp",
       onDark: null,
     },
+    onLightSafe: false,
     inBand: false,
   },
   {
@@ -78,6 +88,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/barber-plus-on-light.webp",
       onDark: "/media/logos/clients/barber-plus-on-dark.webp",
     },
+    onLightSafe: false,
     inBand: true,
   },
   {
@@ -96,6 +107,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/bunnies-on-light.webp",
       onDark: "/media/logos/clients/bunnies-on-dark.webp",
     },
+    onLightSafe: false,
     inBand: true,
   },
   {
@@ -109,7 +121,7 @@ export const CLIENT_LOGOS: Logo[] = [
   },
   {
     slug: "crusty",
-    name: "crusty",
+    name: "Crusty",
     variants: {
       onLight: "/media/logos/clients/crusty-on-light.webp",
       onDark: "/media/logos/clients/crusty-on-dark.webp",
@@ -132,6 +144,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/elbayt-eldimashki-on-light.webp",
       onDark: null,
     },
+    onLightSafe: false,
     inBand: false,
   },
   {
@@ -168,6 +181,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/hammam-almaz-on-light.webp",
       onDark: "/media/logos/clients/hammam-almaz-on-dark.webp",
     },
+    onLightSafe: false,
     inBand: true,
   },
   {
@@ -186,6 +200,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/ikbal-gourmandise-on-light.webp",
       onDark: "/media/logos/clients/ikbal-gourmandise-on-dark.webp",
     },
+    onLightSafe: false,
     inBand: true,
   },
   {
@@ -204,6 +219,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/la-grande-tente-on-light.webp",
       onDark: "/media/logos/clients/la-grande-tente-on-dark.webp",
     },
+    onLightSafe: false,
     inBand: true,
   },
   {
@@ -217,7 +233,7 @@ export const CLIENT_LOGOS: Logo[] = [
   },
   {
     slug: "lartisan",
-    name: "lartisan",
+    name: "L’Artisan",
     variants: {
       onLight: "/media/logos/clients/lartisan-on-light.webp",
       onDark: "/media/logos/clients/lartisan-on-dark.webp",
@@ -240,6 +256,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/le-roissant-on-light.webp",
       onDark: "/media/logos/clients/le-roissant-on-dark.webp",
     },
+    onLightSafe: false,
     inBand: true,
   },
   {
@@ -249,6 +266,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/leamido-on-light.webp",
       onDark: null,
     },
+    onLightSafe: false,
     inBand: false,
   },
   {
@@ -303,11 +321,12 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/panini-grill-on-light.webp",
       onDark: null,
     },
+    onLightSafe: false,
     inBand: false,
   },
   {
     slug: "parigini",
-    name: "parigini",
+    name: "Parigini",
     variants: {
       onLight: "/media/logos/clients/parigini-on-light.webp",
       onDark: "/media/logos/clients/parigini-on-dark.webp",
@@ -321,6 +340,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/patisserie-rhouni-on-light.webp",
       onDark: "/media/logos/clients/patisserie-rhouni-on-dark.webp",
     },
+    onLightSafe: false,
     inBand: true,
   },
   {
@@ -330,6 +350,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/pizza-philestini-on-light.webp",
       onDark: "/media/logos/clients/pizza-philestini-on-dark.webp",
     },
+    onLightSafe: false,
     inBand: true,
   },
   {
@@ -339,6 +360,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/primos-on-light.webp",
       onDark: null,
     },
+    onLightSafe: false,
     inBand: false,
   },
   {
@@ -348,6 +370,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/restaurant-abwab-elmansour-on-light.webp",
       onDark: "/media/logos/clients/restaurant-abwab-elmansour-on-dark.webp",
     },
+    onLightSafe: false,
     inBand: true,
   },
   {
@@ -366,6 +389,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/room-21-on-light.webp",
       onDark: null,
     },
+    onLightSafe: false,
     inBand: false,
   },
   {
@@ -384,6 +408,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/sea-view-360-on-light.webp",
       onDark: null,
     },
+    onLightSafe: false,
     inBand: false,
   },
   {
@@ -402,6 +427,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/texas-chicken-on-light.webp",
       onDark: "/media/logos/clients/texas-chicken-on-dark.webp",
     },
+    onLightSafe: false,
     inBand: true,
   },
   {
@@ -447,6 +473,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/wake-up-on-light.webp",
       onDark: "/media/logos/clients/wake-up-on-dark.webp",
     },
+    onLightSafe: false,
     inBand: true,
   },
   {
@@ -456,6 +483,7 @@ export const CLIENT_LOGOS: Logo[] = [
       onLight: "/media/logos/clients/wok-4-you-on-light.webp",
       onDark: "/media/logos/clients/wok-4-you-on-dark.webp",
     },
+    onLightSafe: false,
     inBand: true,
   },
   {
@@ -473,7 +501,7 @@ export const CLIENT_LOGOS: Logo[] = [
 export const PARTNER_LOGOS: Logo[] = [
   {
     slug: "brehm",
-    name: "brehm",
+    name: "Brehm",
     variants: {
       onLight: "/media/logos/partners/brehm-on-light.webp",
       onDark: "/media/logos/partners/brehm-on-dark.webp",
@@ -505,7 +533,7 @@ export const PARTNER_LOGOS: Logo[] = [
   },
   {
     slug: "glory",
-    name: "glory",
+    name: "Glory",
     variants: {
       onLight: "/media/logos/partners/glory-on-light.webp",
       onDark: "/media/logos/partners/glory-on-dark.webp",
@@ -521,7 +549,7 @@ export const PARTNER_LOGOS: Logo[] = [
   },
   {
     slug: "imin",
-    name: "imin",
+    name: "iMin",
     variants: {
       onLight: "/media/logos/partners/imin-on-light.webp",
       onDark: "/media/logos/partners/imin-on-dark.webp",
@@ -537,7 +565,7 @@ export const PARTNER_LOGOS: Logo[] = [
   },
   {
     slug: "odoo",
-    name: "odoo",
+    name: "Odoo",
     variants: {
       onLight: "/media/logos/partners/odoo-on-light.webp",
       onDark: "/media/logos/partners/odoo-on-dark.webp",
@@ -561,7 +589,7 @@ export const PARTNER_LOGOS: Logo[] = [
   },
   {
     slug: "yassir",
-    name: "yassir",
+    name: "Yassir",
     variants: {
       onLight: "/media/logos/partners/yassir-on-light.webp",
       onDark: "/media/logos/partners/yassir-on-dark.webp",
@@ -586,6 +614,7 @@ export const EVENT_LOGOS: Logo[] = [
       onLight: "/media/logos/events/marocotel-on-light.webp",
       onDark: "/media/logos/events/marocotel-on-dark.webp",
     },
+    onLightSafe: false,
   },
   {
     slug: "salon-cremai",

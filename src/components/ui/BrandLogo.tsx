@@ -52,12 +52,48 @@ export function BrandLogo({
   className?: string;
   priority?: boolean;
 }) {
-  const src =
-    surface === "dark" ? logo.variants.onDark : logo.variants.onLight;
+  // A light surface normally wants the colour artwork — but a good number of
+  // these "colour" lockups are themselves light-inked: white knockout text
+  // inside a coloured ring, pale gold hairlines. Placed on white they read as
+  // an empty frame however well they are scaled. `onLightSafe: false` marks
+  // those (measured, not guessed), and the fix is to show the WHITE artwork on
+  // a dark chip — the standard brand-guideline answer for a light-ink mark,
+  // and it reads as deliberate rather than as a patch.
+  const needsChip =
+    surface === "light" &&
+    logo.onLightSafe === false &&
+    Boolean(logo.variants.onDark);
+
+  const src = needsChip
+    ? logo.variants.onDark
+    : surface === "dark"
+      ? logo.variants.onDark
+      : logo.variants.onLight;
 
   // A brand can legitimately lack one variant. Rendering the wrong one would
   // put white art on white, so render nothing instead of an invisible box.
   if (!src) return null;
+
+  if (needsChip) {
+    return (
+      <span
+        className={`inline-flex items-center justify-center rounded-xl bg-ink ${SIZES[size]} ${className}`}
+      >
+        <Image
+          src={src}
+          alt={alt ?? logo.name}
+          width={320}
+          height={140}
+          priority={priority}
+          loading={priority ? undefined : "lazy"}
+          draggable={false}
+          // Inset so the artwork keeps clear of the chip's rounded corners;
+          // the asset's own padding alone is tuned for an edgeless surface.
+          className="w-[86%] h-[86%] select-none"
+        />
+      </span>
+    );
+  }
 
   return (
     <Image

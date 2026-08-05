@@ -15,6 +15,8 @@ import { Arrow } from "@/components/ui/Arrow";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionDivider } from "@/components/ui/SectionDivider";
+import { BrandLogo } from "@/components/ui/BrandLogo";
+import { CLIENT_LOGOS } from "@/data/logos";
 
 const CANONICAL_SLUGS = [
   "cafe",
@@ -39,6 +41,30 @@ const SECTOR_IMAGE: Record<(typeof CANONICAL_SLUGS)[number], string> = {
 };
 
 type ProofCard = { name: string; tag: string; body: string };
+
+/** The proof cards are authored as localised copy, so they carry a display
+ *  name rather than a logo slug. Match them back to the logo library on a
+ *  normalised name — accents, apostrophes and case all differ between the two
+ *  sources ("L'Artisan" vs "L’Artisan", "Panda Sushi" vs "Panda"). */
+function normalise(s: string): string {
+  return s
+    .normalize("NFKD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "");
+}
+
+function proofLogo(card: ProofCard) {
+  const key = normalise(card.name);
+  return (
+    CLIENT_LOGOS.find((l) => normalise(l.name) === key) ??
+    // Fall back to a prefix match so "Panda Sushi" resolves to "Panda".
+    CLIENT_LOGOS.find(
+      (l) => key.startsWith(normalise(l.name)) && normalise(l.name).length >= 5,
+    ) ??
+    null
+  );
+}
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -161,23 +187,39 @@ export default async function IndustriesOverviewPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-            {proof.map((p, i) => (
-              <Reveal key={p.name} delay={0.04 + i * 0.02}>
-                <article className="h-full rounded-2xl bg-canvas ring-1 ring-hairline p-5 md:p-6">
-                  <div className="flex items-baseline gap-2 flex-wrap">
-                    <h3 className="text-[15.5px] md:text-[16.5px] font-semibold text-ink tracking-[-0.008em]">
-                      {p.name}
-                    </h3>
-                    <span className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-ink-mute">
-                      {p.tag}
-                    </span>
-                  </div>
-                  <p className="mt-3 text-[13.5px] md:text-[14px] leading-[1.6] text-ink-soft">
-                    {p.body}
-                  </p>
-                </article>
-              </Reveal>
-            ))}
+            {proof.map((p, i) => {
+              // These are real businesses, so show their real marks. The card
+              // reserves a fixed logo row whether or not artwork resolves, so
+              // one brand without a logo cannot make its card shorter than the
+              // rest and break the grid's baseline.
+              const logo = proofLogo(p);
+              return (
+                <Reveal key={p.name} delay={0.04 + i * 0.02}>
+                  <article className="h-full flex flex-col rounded-2xl bg-canvas ring-1 ring-hairline p-5 md:p-6">
+                    <div className="h-[66px] flex items-center mb-4">
+                      {logo ? (
+                        <BrandLogo logo={logo} surface="light" size="md" />
+                      ) : (
+                        <span className="text-[20px] font-semibold tracking-[-0.015em] text-ink/80">
+                          {p.name}
+                        </span>
+                      )}
+                    </div>
+                    <div className="flex items-baseline gap-2 flex-wrap">
+                      <h3 className="text-[15.5px] md:text-[16.5px] font-semibold text-ink tracking-[-0.008em]">
+                        {p.name}
+                      </h3>
+                      <span className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-ink-mute">
+                        {p.tag}
+                      </span>
+                    </div>
+                    <p className="mt-3 text-[13.5px] md:text-[14px] leading-[1.6] text-ink-soft">
+                      {p.body}
+                    </p>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
