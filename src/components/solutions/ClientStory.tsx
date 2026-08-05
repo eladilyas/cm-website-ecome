@@ -14,7 +14,7 @@
 // right. On mobile it stacks with the identity card first, so the brand is
 // still the first thing read.
 
-import { BrandLogo } from "@/components/ui/BrandLogo";
+import { BrandLogo, hasRenderableLogo } from "@/components/ui/BrandLogo";
 import { Reveal } from "@/components/ui/Reveal";
 import type { Logo } from "@/data/logos";
 
@@ -48,6 +48,12 @@ export function ClientStory({
   name: string;
   content: ClientStoryContent;
 }) {
+  // Ask whether artwork will actually render before choosing the layout. Some
+  // brands supplied only a light-inked colour PNG with no white variant, so
+  // there is nothing that reads on this surface — those fall back to a
+  // typographic lockup rather than leaving a hole where the logo should be.
+  const showLogo = hasRenderableLogo(logo, "light");
+
   return (
     <section className="bg-paper border-y border-hairline">
       <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
@@ -63,7 +69,7 @@ export function ClientStory({
                   the name does the work at display size. Never both — a
                   wordmark logo beside the same name set in type reads as a
                   duplication. */}
-              {logo ? (
+              {showLogo && logo ? (
                 <BrandLogo logo={logo} surface="light" size="lg" className="mb-5" />
               ) : (
                 <p className="text-[28px] md:text-[32px] font-semibold tracking-[-0.02em] leading-[1.05] text-ink mb-5">
@@ -71,7 +77,7 @@ export function ClientStory({
                 </p>
               )}
 
-              {logo && (
+              {showLogo && (
                 <h2 className="text-[19px] md:text-[20px] font-semibold tracking-[-0.012em] text-ink">
                   {name}
                 </h2>

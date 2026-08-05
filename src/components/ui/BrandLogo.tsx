@@ -34,6 +34,26 @@ const SIZES = {
 
 export type BrandLogoSize = keyof typeof SIZES;
 
+/**
+ * Will BrandLogo actually render artwork for this brand on this surface?
+ *
+ * Callers that provide a typographic fallback must ask this BEFORE laying out,
+ * rather than relying on BrandLogo returning null — otherwise they reserve a
+ * logo slot, get nothing in it, and show a gap where the brand should be.
+ *
+ * False when the brand has no artwork for the surface at all, or when its
+ * colour lockup is light-inked and there is no white variant to chip.
+ */
+export function hasRenderableLogo(
+  logo: Logo | null | undefined,
+  surface: "light" | "dark",
+): boolean {
+  if (!logo) return false;
+  if (surface === "dark") return Boolean(logo.variants.onDark);
+  if (logo.onLightSafe === false) return Boolean(logo.variants.onDark);
+  return Boolean(logo.variants.onLight);
+}
+
 export function BrandLogo({
   logo,
   surface,
@@ -59,10 +79,18 @@ export function BrandLogo({
   // those (measured, not guessed), and the fix is to show the WHITE artwork on
   // a dark chip — the standard brand-guideline answer for a light-ink mark,
   // and it reads as deliberate rather than as a patch.
-  const needsChip =
-    surface === "light" &&
-    logo.onLightSafe === false &&
-    Boolean(logo.variants.onDark);
+  const lightUnsafe = surface === "light" && logo.onLightSafe === false;
+  const needsChip = lightUnsafe && Boolean(logo.variants.onDark);
+
+  // Light-inked artwork with NO white variant to fall back on. This is the
+  // legacy brand set — colour PNGs supplied without a dark-surface lockup.
+  // There is nothing here that can be made legible on a light surface: the
+  // chip needs white art, and deriving it from the alpha silhouette would
+  // flatten the mark to a featureless blob, which is the exact failure the
+  // white-artwork switch was made to escape. Return null so the caller's
+  // typographic fallback renders the brand name instead — a wordmark set in
+  // type is honest and legible, an invisible logo is neither.
+  if (lightUnsafe && !logo.variants.onDark) return null;
 
   const src = needsChip
     ? logo.variants.onDark

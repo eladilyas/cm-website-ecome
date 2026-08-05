@@ -15,7 +15,7 @@ import { Arrow } from "@/components/ui/Arrow";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionDivider } from "@/components/ui/SectionDivider";
-import { BrandLogo } from "@/components/ui/BrandLogo";
+import { BrandLogo, hasRenderableLogo } from "@/components/ui/BrandLogo";
 import { CLIENT_LOGOS } from "@/data/logos";
 
 const CANONICAL_SLUGS = [
@@ -193,11 +193,12 @@ export default async function IndustriesOverviewPage() {
               // one brand without a logo cannot make its card shorter than the
               // rest and break the grid's baseline.
               const logo = proofLogo(p);
+              const showLogo = hasRenderableLogo(logo, "light");
               return (
                 <Reveal key={p.name} delay={0.04 + i * 0.02}>
                   <article className="h-full flex flex-col rounded-2xl bg-canvas ring-1 ring-hairline p-5 md:p-6">
                     <div className="h-[66px] flex items-center mb-4">
-                      {logo ? (
+                      {showLogo && logo ? (
                         <BrandLogo logo={logo} surface="light" size="md" />
                       ) : (
                         <span className="text-[20px] font-semibold tracking-[-0.015em] text-ink/80">
