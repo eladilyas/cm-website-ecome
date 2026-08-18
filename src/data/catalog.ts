@@ -42,7 +42,11 @@
 // ── Pricing ───────────────────────────────────────────────────────────
 // Starting prices show publicly as "From X MAD HT" on cards + detail
 // pages via src/lib/formatPrice.ts. The spreadsheet carries NO pricing,
-// so every `priceFrom` on the products added in 2026-08 is a positional
+// Exception: six Syscall products now carry the RETAIL price printed in the
+// Syscall reseller catalogue (S-Watch, SB-700N, GP-2000T, GP-100R Pack,
+// GP-101R Coaster Set, SGP-100R Set). Those are documented, not positional.
+// The reseller prices in that same PDF are channel-confidential and unused.
+// so every other `priceFrom` on the products added in 2026-08 is a positional
 // PLACEHOLDER, ordered sensibly within its category but not commercially
 // approved. Confirm with the founder before launch.
 //
@@ -1289,7 +1293,7 @@ const PAGING: CatalogProduct[] = [
       { label: "Antenna", value: "Helical" },
       { label: "Compatibility", value: "Syscall guest pagers and the SRT-8200 repeater" },
     ],
-    priceFrom: 2400,
+    priceFrom: 2600,
     availability: IN_STOCK,
     complementaryWith: ["syscall-gp-101r-10c", "syscall-srt-8200", "signature-guest-pager"],
   },
@@ -1499,7 +1503,7 @@ const PAGING: CatalogProduct[] = [
       { label: "Water resistance", value: "Water-resistant design" },
       { label: "Compatibility", value: "All Syscall call-button transmitters and the multi-transmitter" },
     ],
-    priceFrom: 1200,
+    priceFrom: 1600,
     availability: IN_STOCK,
     complementaryWith: ["syscall-st-600", "syscall-gp-2000t", "syscall-srt-8200"],
   },
@@ -1665,7 +1669,7 @@ const PAGING: CatalogProduct[] = [
       { label: "Antenna", value: "Helical antenna" },
       { label: "Compatibility", value: "Multi-transmitter GP-1000T / GP-2000T" },
     ],
-    priceFrom: 6500,
+    priceFrom: 6000,
     availability: IN_STOCK,
     complementaryWith: ["syscall-gp-2000t", "syscall-gp-101r", "syscall-srt-8200"],
   },
@@ -1761,7 +1765,7 @@ const PAGING: CatalogProduct[] = [
       { label: "Battery", value: "Li-Polymer, rechargeable" },
       { label: "Compatibility", value: "GP-2000T / GP-1000T transmitters · SRT-8200 repeater" },
     ],
-    priceFrom: 6500,
+    priceFrom: 6000,
     availability: INCOMING,
     complementaryWith: ["syscall-gp-2000t", "syscall-gp-100r", "syscall-srt-8200"],
   },
@@ -1860,7 +1864,7 @@ const PAGING: CatalogProduct[] = [
       { label: "Power", value: "DC 8 V / 3 A" },
       { label: "Compatibility", value: "Multi-transmitter GP-2000T" },
     ],
-    priceFrom: 6400,
+    priceFrom: 7000,
     availability: INCOMING,
     complementaryWith: ["signature-guest-pager", "syscall-gp-2000t", "syscall-srt-8200"],
   },
