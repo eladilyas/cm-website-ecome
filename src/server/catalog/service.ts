@@ -112,8 +112,23 @@ function toCatalogCategory(
 
 // ── Cached readers ─────────────────────────────────────────────────────
 
+/** Placeholder hero path. A product still carrying it has no real
+ *  photograph. Mirrors PHOTO_PENDING in `src/data/catalog.ts`. */
+const PHOTO_PENDING_PATH = "/hardware/photo-pending.webp";
+
 /** Every product visible to the public site. Excludes disabled +
- *  soft-deleted rows. Ordered by displayOrder asc, then name. */
+ *  soft-deleted rows. Ordered by displayOrder asc, then name.
+ *
+ *  Also excludes products with no real photograph. A hardware card is mostly
+ *  its image — a grey placeholder tile reads as a broken page rather than as
+ *  a product, and it cheapens every genuine card beside it. Filtering HERE
+ *  rather than per-component means the rule holds on every surface at once:
+ *  the shop grid, the Store mega menu, the home rail, quick-view and search
+ *  all read through this function. A product reappears the moment a real
+ *  photo is attached in the back-office — no code change needed.
+ *
+ *  Admin reads deliberately do NOT filter (see listAllProducts below), so
+ *  pending-photo products stay visible and fixable in the panel. */
 export const listPublicProducts = unstable_cache(
   async (): Promise<CatalogProduct[]> =>
     withDbFallback(
@@ -123,6 +138,7 @@ export const listPublicProducts = unstable_cache(
           where: {
             deletedAt: null,
             status: { in: ["IN_STOCK", "INCOMING"] },
+            heroImage: { not: PHOTO_PENDING_PATH },
           },
           orderBy: [{ displayOrder: "asc" }, { name: "asc" }],
         });
@@ -165,6 +181,10 @@ export const getPublicProductBySlug = unstable_cache(
             slug,
             deletedAt: null,
             status: { in: ["IN_STOCK", "INCOMING"] },
+            // Consistent with the list readers: a product with no real photo
+            // is not public, so a direct URL 404s rather than rendering a
+            // detail page built around a placeholder tile.
+            heroImage: { not: PHOTO_PENDING_PATH },
           },
         });
         return row ? toCatalogProduct(row) : null;
@@ -186,6 +206,9 @@ export const listFeaturedProducts = unstable_cache(
             deletedAt: null,
             featured: true,
             status: { in: ["IN_STOCK", "INCOMING"] },
+            // Same no-placeholder rule as listPublicProducts — the home rail
+            // is the most prominent product surface on the site.
+            heroImage: { not: PHOTO_PENDING_PATH },
           },
           orderBy: [{ displayOrder: "asc" }, { name: "asc" }],
           take: limit,
