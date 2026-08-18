@@ -611,7 +611,8 @@
       "accessories": "Accessories",
       "consumables": "Consumables",
       "access-presence": "Access & Presence"
-    }
+    },
+    "allProducts": "All products"
   },
   "industryPages": {
     "labels": {

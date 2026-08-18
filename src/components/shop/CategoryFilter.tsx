@@ -9,32 +9,40 @@
 
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { useMemo } from "react";
+import { useTranslations } from "next-intl";
 
 import { useCatalog } from "@/components/catalog/CatalogProvider";
-
-// Slugs surfaced in the /shop chip rail. We curate the order rather
-// than dumping every category so the rail stays short; admins can
-// adjust display order via /admin/categories and we'll re-surface
-// here once that page lands.
-const SHOP_CHIP_SLUGS = ["pos-terminals", "mobile-pos", "kds", "kiosks"];
 
 export function CategoryFilter() {
   const params = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
-  const { categoryLabels } = useCatalog();
+  const { products, categoryLabels } = useCatalog();
+  const t = useTranslations("shop");
   const active = params.get("category") ?? "all";
 
-  const categories = useMemo<{ id: string; label: string }[]>(
-    () => [
-      { id: "all", label: "All products" },
-      ...SHOP_CHIP_SLUGS.filter((s) => categoryLabels[s]).map((s) => ({
-        id: s,
-        label: categoryLabels[s],
-      })),
-    ],
-    [categoryLabels],
-  );
+  // Derived from the categories the live products actually occupy.
+  //
+  // This used to be a hardcoded list — ["pos-terminals", "mobile-pos", "kds",
+  // "kiosks"] — from the legacy taxonomy. Those slugs are all soft-disabled in
+  // the live DB, so every chip was filtered out by the `categoryLabels[s]`
+  // guard and the rail collapsed to "All products" alone. With 76 products in
+  // the catalogue that left no way to filter at all.
+  //
+  // Deriving from the products themselves means the rail cannot drift out of
+  // sync with the taxonomy again, and a category with nothing in it never
+  // shows a chip that leads to an empty grid.
+  const categories = useMemo<{ id: string; label: string }[]>(() => {
+    const counts = new Map<string, number>();
+    for (const p of products) {
+      counts.set(p.category, (counts.get(p.category) ?? 0) + 1);
+    }
+    const chips = [...counts.entries()]
+      .filter(([slug]) => categoryLabels[slug])
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([slug]) => ({ id: slug, label: categoryLabels[slug] }));
+    return [{ id: "all", label: t("allProducts") }, ...chips];
+  }, [products, categoryLabels, t]);
 
   const set = (id: string) => {
     const next = new URLSearchParams(params.toString());
