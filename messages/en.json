@@ -112,6 +112,14 @@
       "allHardwareLabel": "All hardware",
       "allHardwareDesc": "See the complete lineup"
     },
+    "storeMenu": {
+      "categoriesEyebrow": "Shop by category",
+      "railLabel": "Product categories",
+      "arrivingSoon": "Arriving soon",
+      "seeAll": "See all {count}",
+      "seeAllAria": "See all {count} products in {category}",
+      "browseCategory": "Browse {category}"
+    },
     "supportDropdown": {
       "helpCenter": "Help Center",
       "faq": "Frequently asked",

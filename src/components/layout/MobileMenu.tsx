@@ -34,7 +34,7 @@
 // Accessibility: full-screen dialog, role="dialog", body scroll-lock
 // while open, Esc closes, the back chevron is keyboard-focusable.
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";

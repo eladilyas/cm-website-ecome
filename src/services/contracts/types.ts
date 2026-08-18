@@ -79,6 +79,8 @@ export type ProductStatus =
   | "out-of-stock"
   | "disabled";
 
+// Mirrors `CatalogCategory` in src/data/catalog.ts — keep the two unions
+// in step: the demo ProductService maps CATALOG straight onto `Product`.
 export type ProductCategory =
   | "pos-terminals"
   | "mobile-pos"
@@ -87,7 +89,10 @@ export type ProductCategory =
   | "cash-drawers"
   | "printers"
   | "scanners"
-  | "paging";
+  | "paging"
+  | "rfid"
+  | "time-attendance"
+  | "accessories";
 
 export type Product = Readonly<{
   slug: ProductSlug;

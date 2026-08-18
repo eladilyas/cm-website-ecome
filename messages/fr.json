@@ -112,6 +112,14 @@
       "allHardwareLabel": "Tout le matériel",
       "allHardwareDesc": "Voir la gamme complète"
     },
+    "storeMenu": {
+      "categoriesEyebrow": "Parcourir par catégorie",
+      "railLabel": "Catégories de produits",
+      "arrivingSoon": "En arrivage",
+      "seeAll": "Voir les {count}",
+      "seeAllAria": "Voir les {count} produits de la catégorie {category}",
+      "browseCategory": "Parcourir {category}"
+    },
     "supportDropdown": {
       "helpCenter": "Centre d'aide",
       "faq": "Questions fréquentes",

@@ -32,6 +32,14 @@ export type NavItem = {
   href?: string;
   groups?: NavGroup[];
   items?: NavSubItem[];
+  /** Opt-in marker for a bespoke desktop dropdown treatment.
+   *
+   *  "store" → NavExpansion renders the category-rail + product-grid
+   *  mega-menu (StoreMegaMenu) instead of the generic text columns. The
+   *  `items` list below stays authoritative for the mobile drill-in sheet
+   *  and as the desktop fallback when the live catalog is unavailable, so
+   *  removing this flag degrades to the old panel rather than breaking. */
+  kind?: "store";
 };
 
 /** Build the navigation tree from the active locale's catalog.
@@ -107,8 +115,16 @@ export function useNavMenu(): NavItem[] {
     // ─── Store ─────────────────────────────────────────────────
     // Flat 8-category taxonomy. POS first so the dropdown opens on
     // the headline product family.
+    //
+    // `kind: "store"` switches the DESKTOP dropdown to the category-rail
+    // + product-grid mega-menu, whose categories and products come from
+    // the live catalog rather than from this list. The `items` below are
+    // still what the mobile drill-in sheet renders, and what the desktop
+    // panel falls back to if the catalog comes back empty — so this stays
+    // the hand-maintained safety net, not dead data.
     {
       label: t("store"),
+      kind: "store",
       href: "/shop",
       items: [
         { label: cat("pos"), href: "/shop?category=pos" },

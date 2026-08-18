@@ -396,6 +396,17 @@ export function Header({
                           className={`inline-flex h-11 items-center px-3 text-[13px] font-normal transition-colors duration-200 ${
                             isOpen ? linkActiveClass : linkClass
                           }`}
+                          // A top-level item that ALSO has a dropdown (Store,
+                          // Solutions) previously opened its panel on hover
+                          // only: the button branch below carries onFocus, but
+                          // this Link branch did not. Tabbing to Store and
+                          // pressing Enter navigated to /shop and the mega
+                          // menu was unreachable by keyboard entirely. The
+                          // link still navigates on Enter — this only adds the
+                          // same focus-to-open affordance the button has.
+                          onFocus={() => hasDropdown && onNavItemEnter(item)}
+                          aria-haspopup={hasDropdown ? "true" : undefined}
+                          aria-expanded={hasDropdown ? isOpen : undefined}
                         >
                           {item.label}
                         </Link>

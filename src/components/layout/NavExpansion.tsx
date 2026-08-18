@@ -1,7 +1,10 @@
 "use client";
 
-import Link from "next/link";
+import { useMemo } from "react";
+import { Link } from "@/i18n/navigation";
 import type { NavItem } from "@/lib/nav";
+import { useCatalogOptional } from "@/components/catalog/CatalogProvider";
+import { StoreMegaMenu, buildStoreTabs } from "@/components/layout/StoreMegaMenu";
 
 type Props = {
   item: NavItem;
@@ -12,8 +15,13 @@ type Props = {
 // Apple-style content for the expanded navbar. NO chrome — no rounded card,
 // no shadow, no border. The container above provides the background surface.
 //
-// Three rendering modes:
-//   1. Store-style mega-menu — item.groups only, no items. First group
+// Four rendering modes:
+//   0. Store mega-menu (item.kind === "store") — vertical category rail
+//      + product-photo grid, driven by the live catalog. See
+//      StoreMegaMenu.tsx. Falls through to mode 3 when the catalog has
+//      no products to show (Postgres unreachable → empty provider), so
+//      the Store dropdown is never blank.
+//   1. Column mega-menu — item.groups only, no items. First group
 //      becomes the hero column, rest become supplementary columns.
 //   2. Hybrid (Apple Vision pattern) — item.items AND item.groups both
 //      set. Left column is the big-text items list, right columns are
@@ -26,6 +34,31 @@ type Props = {
 export function NavExpansion({ item, onSelect, scheme }: Props) {
   const hasGroups = !!item.groups?.length;
   const hasItems = !!item.items?.length;
+
+  // Live catalog (Postgres → CatalogHydrator → CatalogProvider). Read
+  // unconditionally — it's a context read, and the hook order has to stay
+  // stable across the branches below. `Optional` because the header also
+  // renders on routes that could theoretically sit outside the provider.
+  const catalog = useCatalogOptional();
+  const storeTabs = useMemo(
+    () =>
+      item.kind === "store" && catalog
+        ? buildStoreTabs(catalog.categories, catalog.products)
+        : [],
+    [item.kind, catalog],
+  );
+
+  // ─── 0 · Store mega-menu — category rail + product grid ───────────
+  if (item.kind === "store" && storeTabs.length > 0) {
+    return (
+      <StoreMegaMenu
+        tabs={storeTabs}
+        onSelect={onSelect}
+        scheme={scheme}
+        triggerLabel={item.label}
+      />
+    );
+  }
 
   const eyebrowClass =
     scheme === "dark"
