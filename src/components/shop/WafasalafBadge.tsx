@@ -17,8 +17,12 @@
 //     so we display the more attractive number with a "from" prefix;
 //     checkout recomputes the exact monthly based on the customer's
 //     declared age bracket.
-//   • Renders on EVERY product (no MAD floor) so the financing
-//     option is consistently discoverable across the catalog.
+//   • Renders above a MAD floor only — see
+//     WAFASALAF_MIN_FINANCEABLE_MAD. It used to render on every
+//     product regardless of price, which was fine when the catalog
+//     started at a few thousand MAD but stopped being defensible once
+//     45 MAD accessories landed: an RFID keyfob was advertising a
+//     24-month instalment plan.
 //   • Three variants:
 //       - compact: single line "X MAD/mo · [logo]" — cards + rail
 //       - inline:  "From X MAD/mo with [logo] · 24 months" — detail
@@ -61,6 +65,14 @@ function WafasalafLogo({
   );
 }
 
+/** Minimum ticket we advertise financing on, in MAD.
+ *
+ *  Consumer credit has a floor in practice, and the catalogue now reaches
+ *  down to 45 MAD accessories. Quoting a 24-month instalment on a keyfob is
+ *  not a real offer. 1 000 MAD is a conservative threshold — raise it once
+ *  Wafasalaf confirm their actual minimum. */
+const WAFASALAF_MIN_FINANCEABLE_MAD = 1000;
+
 export function WafasalafBadge({
   amount,
   variant = "inline",
@@ -73,7 +85,12 @@ export function WafasalafBadge({
   className?: string;
 }) {
   const t = useTranslations("wafasalaf");
-  if (amount <= 0) return null;
+  // Below the financing floor, say nothing. Consumer credit has a minimum
+  // financeable amount, and the catalogue now runs down to 45 MAD accessories
+  // — an RFID token was being advertised at "3 MAD / month over 24 months",
+  // which is not a real offer and makes the page look unconsidered. Suppress
+  // the badge instead of quoting an instalment nobody would take out.
+  if (amount < WAFASALAF_MIN_FINANCEABLE_MAD) return null;
 
   let monthly: number;
   try {
