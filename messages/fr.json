@@ -2984,7 +2984,8 @@
       "openFullscreen": "Ouvrir dans un nouvel onglet",
       "iframeTitlePos": "Caisse Manager POS — démo boulangerie en direct",
       "iframeTitleBackoffice": "Caisse Manager Back-office — démo boulangerie en direct",
-      "mobileHint": "Le POS en direct est conçu pour les tablettes et les écrans desktop. Sur mobile, appuyez sur « Ouvrir dans un nouvel onglet » pour une meilleure expérience."
+      "mobileHint": "Le POS en direct est conçu pour les tablettes et les écrans desktop. Ouvrez-le dans un nouvel onglet pour l'expérience complète.",
+      "mobileCardTitle": "À découvrir sur un écran plus grand"
     },
     "livePromo": {
       "eyebrow": "Nouveau — tester l'app réelle",

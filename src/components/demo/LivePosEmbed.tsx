@@ -77,7 +77,7 @@ export function LivePosEmbed() {
   };
 
   return (
-    <div className="mx-auto max-w-[1240px] px-4 sm:px-5 lg:px-6 pt-4 md:pt-6 pb-8 md:pb-10">
+    <div className="mx-auto max-w-[1240px] px-4 sm:px-5 lg:px-6 pt-24 md:pt-28 pb-8 md:pb-10">
       {/* Compact header — one row: title + tab toggle. */}
       <header className="mb-3 md:mb-4">
         <div className="flex flex-wrap items-center justify-between gap-3 md:gap-5">
@@ -162,11 +162,42 @@ export function LivePosEmbed() {
         </AnimatePresence>
       </header>
 
-      {/* Iframe host — product-shot proportions (16:10) so the
-          simulator's own layout renders at natural aspect on any
-          screen. No fake browser chrome — reads as the real app. */}
+      {/* ── Phones: do NOT embed ────────────────────────────────────────
+          The demo tenant itself refuses small viewports — it renders its own
+          "Mobile Access Not Supported" panel. At 375px the 16:10 frame is
+          only ~214px tall, so we were spending the most valuable slot on the
+          page to display someone else's error message.
+          Below md we show the honest thing instead: what the surface is, and
+          one large control that opens it in a real tab where it works. */}
+      <div className="md:hidden rounded-2xl ring-1 ring-hairline bg-canvas p-6 text-center">
+        <span
+          aria-hidden
+          className="mx-auto mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-paper ring-1 ring-hairline text-ink"
+        >
+          {tab === "pos" ? <PosIcon /> : <BackofficeIcon />}
+        </span>
+        <p className="text-[15px] font-semibold text-ink">
+          {t("mobileCardTitle")}
+        </p>
+        <p className="mt-2 text-[13px] leading-[1.55] text-ink-soft">
+          {t("mobileHint")}
+        </p>
+        <a
+          href={target.url}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="mt-5 inline-flex items-center justify-center gap-2 h-12 w-full px-5 rounded-full bg-ink text-paper text-[14px] font-semibold"
+        >
+          {t("openFullscreen")}
+          <ExternalIcon />
+        </a>
+      </div>
+
+      {/* ── md and up: the live embed ───────────────────────────────────
+          16:10 so the simulator's own layout renders at natural aspect. No
+          fake browser chrome — it reads as the real app. */}
       <div
-        className="relative w-full rounded-2xl overflow-hidden ring-1 ring-hairline bg-ink"
+        className="hidden md:block relative w-full rounded-2xl overflow-hidden ring-1 ring-hairline bg-ink"
         style={{ aspectRatio: "16 / 10" }}
       >
         <AnimatePresence mode="wait">
@@ -189,10 +220,6 @@ export function LivePosEmbed() {
           />
         </AnimatePresence>
       </div>
-
-      <p className="mt-3 lg:hidden text-[12px] text-ink-mute leading-[1.5]">
-        {t("mobileHint")}
-      </p>
     </div>
   );
 }

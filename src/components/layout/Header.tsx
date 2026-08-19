@@ -445,7 +445,7 @@ export function Header({
                 }
                 aria-expanded={expansion?.kind === "search"}
                 onClick={toggleSearch}
-                className={`inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors duration-300 ${iconBtnClass}`}
+                className={`inline-flex h-11 w-11 items-center justify-center rounded-full transition-colors duration-300 ${iconBtnClass}`}
               >
                 <svg width="16" height="16" viewBox="0 0 22 22" fill="none" aria-hidden="true">
                   {expansion?.kind === "search" ? (
@@ -470,7 +470,7 @@ export function Header({
                     ? `${t("openCart")} · ${t("cartItems", { count: cartCount })}`
                     : t("openCart")
                 }
-                className={`relative inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors duration-300 ${iconBtnClass}`}
+                className={`relative inline-flex h-11 w-11 items-center justify-center rounded-full transition-colors duration-300 ${iconBtnClass}`}
               >
                 {/* Modern shopping bag — rounded-square body with a
                     centered arch handle. Reads cleanly at 16-20px and
@@ -522,7 +522,7 @@ export function Header({
                     aria-haspopup="menu"
                     aria-expanded={accountMenuOpen}
                     aria-label={`Account menu · signed in as ${profile.fullName}`}
-                    className={`inline-flex h-9 w-9 items-center justify-center rounded-full text-[11px] font-semibold tracking-[0.02em] transition-colors duration-300 ${
+                    className={`inline-flex h-11 w-11 items-center justify-center rounded-full text-[11px] font-semibold tracking-[0.02em] transition-colors duration-300 ${
                       accountMenuOpen ? accountChipOpen : accountChipRest
                     }`}
                     style={{
@@ -613,7 +613,7 @@ export function Header({
               )}
               <button
                 type="button"
-                className={`md:hidden inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors ${iconBtnClass}`}
+                className={`md:hidden inline-flex h-11 w-11 items-center justify-center rounded-full transition-colors ${iconBtnClass}`}
                 aria-label={mobileOpen ? t("closeMenu") : t("openMenu")}
                 aria-expanded={mobileOpen}
                 onClick={() => setMobileOpen((v) => !v)}
