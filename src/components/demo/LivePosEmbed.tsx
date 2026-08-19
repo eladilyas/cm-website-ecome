@@ -112,14 +112,21 @@ export function LivePosEmbed() {
 
         {/* Primary action + discreet manual-credentials toggle */}
         <div className="mt-4 flex flex-wrap items-center gap-3">
-          <SignInButton
-            state={signInState}
-            idleLabel={t("signInCta")}
-            signingLabel={t("signInSigning")}
-            doneLabel={t("signInDone")}
-            onClick={handleSignIn}
-          />
-          <p className="text-[12.5px] text-ink-mute">{t("signInHint")}</p>
+          {/* Hidden on phones: it posts a prefill message to the iframe,
+              which is not rendered below md, so tapping it would do nothing
+              visible. The mobile card carries the real action instead. */}
+          <div className="hidden md:block">
+            <SignInButton
+              state={signInState}
+              idleLabel={t("signInCta")}
+              signingLabel={t("signInSigning")}
+              doneLabel={t("signInDone")}
+              onClick={handleSignIn}
+            />
+          </div>
+          <p className="hidden md:block text-[12.5px] text-ink-mute">
+            {t("signInHint")}
+          </p>
           <button
             type="button"
             onClick={() => setShowCreds((s) => !s)}
@@ -131,7 +138,7 @@ export function LivePosEmbed() {
             href={target.url}
             target="_blank"
             rel="noreferrer noopener"
-            className="ml-auto inline-flex items-center gap-1.5 h-8 px-2.5 rounded-full text-[11.5px] font-medium text-ink-mute hover:text-ink hover:bg-canvas transition-colors"
+            className="hidden md:inline-flex ml-auto items-center gap-1.5 h-8 px-2.5 rounded-full text-[11.5px] font-medium text-ink-mute hover:text-ink hover:bg-canvas transition-colors"
           >
             {t("openFullscreen")}
             <ExternalIcon />
