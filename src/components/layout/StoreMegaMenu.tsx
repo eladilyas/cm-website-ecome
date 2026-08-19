@@ -332,7 +332,7 @@ export function StoreMegaMenu({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.28, ease: APPLE_EASE }}
         >
-          <ul className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+          <ul className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-7">
             {active.products.map((product) => (
               <li key={product.slug}>
                 <ProductTile
@@ -404,10 +404,6 @@ function ProductTile({
 }) {
   const incoming = product.availability?.status === "incoming";
 
-  const surface = onDark
-    ? "bg-paper/[0.04] ring-white/10 hover:ring-white/20"
-    : "bg-paper ring-hairline hover:ring-hairline-strong";
-  const plate = onDark ? "bg-paper/[0.03]" : "bg-canvas";
   const name = onDark
     ? "text-paper/90 group-hover:text-paper"
     : "text-ink group-hover:text-[color:var(--tile-accent)]";
@@ -417,12 +413,21 @@ function ProductTile({
       href={`/shop/${product.slug}`}
       onClick={onSelect}
       className={[
-        // h-full + column flex so tiles in a row share one height even
-        // when a long name wraps to two lines. Without it the photo
-        // plates drift out of alignment across the grid.
-        "group relative flex h-full flex-col overflow-hidden rounded-3xl ring-1 ring-inset",
-        "transition-[box-shadow,background-color] duration-500",
-        surface,
+        // NO card chrome — no ring, no plate, no filled background.
+        //
+        // Each product used to sit in a ringed, padded box, which cost three
+        // things: the inset padding shrank the photo, the ring drew a hard
+        // edge round every item so the panel read as a wall of containers,
+        // and the boxes ate the horizontal room the products needed. The
+        // reference menu has none of it — products sit directly on the panel,
+        // so the photo is the largest thing on screen and the only container
+        // is the panel itself.
+        //
+        // The hit area is still the whole cell (block link + padding), so
+        // nothing is lost in clickability; only the drawn box is gone.
+        "group relative block rounded-2xl p-2",
+        "transition-colors duration-300",
+        onDark ? "hover:bg-paper/[0.04]" : "hover:bg-ink/[0.02]",
         focusRing(onDark),
       ].join(" ")}
       style={
@@ -432,7 +437,11 @@ function ProductTile({
         } as React.CSSProperties
       }
     >
-      <div className={`relative h-[112px] lg:h-[124px] shrink-0 ${plate}`}>
+      {/* Taller frame, and the p-5 inset is gone — the product now fills the
+          room the box used to spend on padding. The assets are transparent
+          with the product at 82% of the canvas, so they need no plate behind
+          them to read on either surface. */}
+      <div className="relative h-[132px] lg:h-[148px]">
         <Image
           src={product.heroImage}
           // Real alt text: the catalog's descriptive `alt` when present,
@@ -440,7 +449,7 @@ function ProductTile({
           alt={product.alt || product.name}
           fill
           sizes="(min-width: 1024px) 300px, 220px"
-          className="object-contain p-5 transition-transform duration-700 group-hover:scale-[1.04]"
+          className="object-contain transition-transform duration-700 group-hover:scale-[1.05]"
           style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}
         />
         {incoming && (
@@ -448,12 +457,12 @@ function ProductTile({
           // stays reserved. Reads as metadata, not an alarm.
           <span
             className={[
-              "absolute top-2.5 right-2.5 inline-flex items-center rounded-full",
+              "absolute top-0 right-0 inline-flex items-center rounded-full",
               "px-2 py-[3px] text-[9.5px] font-medium uppercase tracking-[0.1em]",
-              "ring-1 ring-inset backdrop-blur-sm",
+              "ring-1 ring-inset",
               onDark
-                ? "bg-night/50 text-paper/70 ring-white/15"
-                : "bg-paper/85 text-ink-mute ring-hairline-strong",
+                ? "bg-night/60 text-paper/70 ring-white/15"
+                : "bg-paper/90 text-ink-mute ring-hairline-strong",
             ].join(" ")}
           >
             {arrivingLabel}
@@ -461,22 +470,22 @@ function ProductTile({
         )}
       </div>
 
-      <div className="flex flex-1 items-start px-4 py-3">
-        <p
-          className={`line-clamp-2 text-[13px] font-medium tracking-[-0.008em] leading-[1.25] transition-colors duration-200 ${name}`}
-        >
-          {product.name}
-          {product.subline && (
-            <span
-              className={`ml-1 text-[11.5px] font-normal tracking-normal ${
-                onDark ? "text-paper/45" : "text-ink-mute"
-              }`}
-            >
-              {product.subline}
-            </span>
-          )}
-        </p>
-      </div>
+      {/* Centred under the photo, as in the reference. Fixed two-line box so
+          a wrapping name cannot shift the row beneath it. */}
+      <p
+        className={`mt-3 min-h-[2.4em] text-center line-clamp-2 text-[13px] font-medium tracking-[-0.008em] leading-[1.2] transition-colors duration-200 ${name}`}
+      >
+        {product.name}
+        {product.subline && (
+          <span
+            className={`ml-1 text-[11.5px] font-normal tracking-normal ${
+              onDark ? "text-paper/45" : "text-ink-mute"
+            }`}
+          >
+            {product.subline}
+          </span>
+        )}
+      </p>
     </Link>
   );
 }
@@ -504,12 +513,15 @@ function SeeAllTile({
       onClick={onSelect}
       aria-label={ariaLabel}
       className={[
+        // Matches the product tiles: no ring, no filled plate. It occupies a
+        // grid cell of the same height so the row stays even, but it reads as
+        // a quiet action rather than a fourth box.
         "group flex h-full min-h-[160px] lg:min-h-[172px] flex-col items-center justify-center",
-        "gap-2 rounded-3xl ring-1 ring-inset text-center px-4",
-        "transition-[box-shadow,background-color] duration-500",
+        "gap-2 rounded-2xl text-center px-4 p-2",
+        "transition-colors duration-300",
         onDark
-          ? "bg-paper/[0.03] ring-white/10 hover:ring-white/20 text-paper/75 hover:text-paper"
-          : "bg-fog ring-hairline hover:ring-hairline-strong text-ink-soft hover:text-ink",
+          ? "text-paper/70 hover:text-paper hover:bg-paper/[0.04]"
+          : "text-ink-soft hover:text-ink hover:bg-ink/[0.02]",
         focusRing(onDark),
       ].join(" ")}
       style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}
