@@ -192,20 +192,18 @@ export default async function IndustryPage({ params }: { params: Params }) {
       (l) => l.slug === clientStory.clientSlug && l.variants.onLight,
     ) ?? null;
 
-  // Optional fields — read defensively so slugs not yet ported to the
-  // richer schema still render.
-  let intro: string | null = null;
-  try {
-    intro = t("intro");
-  } catch {}
-  let goDeeper: GoDeeper | null = null;
-  try {
-    goDeeper = t.raw("goDeeper") as GoDeeper;
-  } catch {}
-  let ecosystemIntro: string | null = null;
-  try {
-    ecosystemIntro = t("ecosystemIntro");
-  } catch {}
+  // Optional fields. These MUST be probed with `t.has()`, not try/catch:
+  // next-intl does not throw on a missing key, it returns the key path as a
+  // string. So `try { t("intro") } catch {}` never caught anything and the
+  // literal text "industryPages.cafe.intro" was rendering on the page — on
+  // six of the seven sectors, since only bakery actually has an `intro`.
+  const intro = t.has("intro") ? t("intro") : null;
+  const goDeeper = t.has("goDeeper")
+    ? (t.raw("goDeeper") as GoDeeper)
+    : null;
+  const ecosystemIntro = t.has("ecosystemIntro")
+    ? t("ecosystemIntro")
+    : null;
 
   const richWorkflow = workflow.some(isRichWorkflow);
   const richEcosystem = ecosystem.some(isRichEcosystem);
