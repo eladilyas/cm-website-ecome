@@ -28,7 +28,7 @@ import { PricingPlansSection } from "@/components/pricing/PricingPlansSection";
 import { PricingFaqSection } from "@/components/pricing/PricingFaqSection";
 import { ModulesGrid } from "@/components/pricing/ModulesGrid";
 import { PriceBlock, type PriceTier } from "@/components/ui/PriceBlock";
-import { PLAN_PRICES } from "@/data/pricing";
+import { PLAN_PRICES } from "@/data/planPrices";
 
 
 // /pricing had NO metadata export at all, so it inherited the root

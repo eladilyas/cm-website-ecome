@@ -28,18 +28,13 @@ export function ttc(ht: number): number {
   return Math.round(ht * (1 + VAT_RATE));
 }
 
-export type BillingCycle = "monthly" | "yearly" | "biennial";
+// Price data + the cycle union live in a NON-client module so the
+// server-rendered pricing hero can read them too — see planPrices.ts.
+export { PLAN_PRICES } from "@/data/planPrices";
+export type { BillingCycle } from "@/data/planPrices";
+import { PLAN_PRICES } from "@/data/planPrices";
+import type { BillingCycle } from "@/data/planPrices";
 
-/** The plan price ladder, in MAD HT per counter per month.
- *
- *  Hoisted out of `usePlans()` deliberately. That is a hook (it resolves
- *  localised copy), so a server component cannot call it — and the pricing
- *  hero needs the same figures the client-rendered cards show. Keeping one
- *  const means the hero can never contradict the cards beneath it. */
-export const PLAN_PRICES: Record<"pro" | "enterprise", Record<BillingCycle, number>> = {
-  pro: { monthly: 260, yearly: 195, biennial: 130 },
-  enterprise: { monthly: 350, yearly: 260, biennial: 170 },
-};
 
 export type PlanHighlight = {
   label: string;
