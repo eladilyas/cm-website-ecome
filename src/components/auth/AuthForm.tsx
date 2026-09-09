@@ -72,7 +72,7 @@ export const AuthInput = forwardRef<HTMLInputElement, InputProps>(
           "placeholder:text-ink-mute/70 placeholder:font-normal " +
           "tabular-nums tracking-[-0.005em] " +
           "transition-[border-color,box-shadow,background-color] duration-200 " +
-          "[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] " +
+          "ease-brand " +
           "focus:outline-none " +
           (errored
             ? "border-red-300/80 focus:border-red-500 focus:ring-4 focus:ring-red-500/8 bg-red-50/40"
@@ -105,7 +105,7 @@ export const AuthPasswordInput = forwardRef<HTMLInputElement, PasswordInputProps
             "placeholder:text-ink-mute/70 placeholder:font-normal " +
             "tracking-[-0.005em] " +
             "transition-[border-color,box-shadow,background-color] duration-200 " +
-            "[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] " +
+            "ease-brand " +
             "focus:outline-none " +
             (errored
               ? "border-red-300/80 focus:border-red-500 focus:ring-4 focus:ring-red-500/8 bg-red-50/40"
@@ -184,7 +184,7 @@ export function AuthSubmit({
         "relative w-full h-[52px] inline-flex items-center justify-center rounded-full " +
         "bg-ink text-paper text-[14px] font-medium tracking-[-0.005em] " +
         "transition-[transform,background-color,box-shadow] duration-200 " +
-        "[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] " +
+        "ease-brand " +
         "hover:bg-ink-soft hover:-translate-y-[1px] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] " +
         "active:translate-y-0 " +
         "disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none " +

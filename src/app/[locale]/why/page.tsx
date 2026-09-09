@@ -63,7 +63,7 @@ export default async function WhyPage() {
       <SectionDivider scheme="light" />
 
       {/* Hero — pitch + b-roll video (or product still while R2 hostname unset) */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-28 md:pt-36 pb-16 md:pb-24">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 pt-28 md:pt-36 pb-16 md:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-14 items-center">
           <div>
             <Reveal>
@@ -73,7 +73,7 @@ export default async function WhyPage() {
             </Reveal>
             <Reveal delay={0.04}>
               <h1
-                className="text-[clamp(2.25rem,4.6vw,3.75rem)] font-semibold tracking-[-0.024em] leading-[1.02] text-ink max-w-[22ch]"
+                className="text-h1 font-semibold tracking-[-0.024em] leading-[1.02] text-ink max-w-[22ch]"
                 style={{ textWrap: "balance" }}
               >
                 {t("title")}
@@ -86,7 +86,7 @@ export default async function WhyPage() {
             </Reveal>
           </div>
           <Reveal delay={0.12}>
-            <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden ring-1 ring-hairline bg-ink">
+            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden ring-1 ring-hairline bg-ink">
               {broll.kind !== "missing" ? (
                 // eslint-disable-next-line jsx-a11y/media-has-caption
                 <video
@@ -119,7 +119,7 @@ export default async function WhyPage() {
 
       {/* Modules — one brain, several modules */}
       <section className="bg-paper border-y border-hairline">
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
           <div className="max-w-[44rem] mb-10 md:mb-14">
             <Reveal>
               <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-3">
@@ -127,7 +127,7 @@ export default async function WhyPage() {
               </p>
             </Reveal>
             <Reveal delay={0.04}>
-              <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
+              <h2 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
                 {t("modulesTitle")}
               </h2>
             </Reveal>
@@ -185,7 +185,7 @@ export default async function WhyPage() {
       </section>
 
       {/* Integrations */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
         <div className="max-w-[44rem] mb-10 md:mb-14">
           <Reveal>
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-3">
@@ -193,7 +193,7 @@ export default async function WhyPage() {
             </p>
           </Reveal>
           <Reveal delay={0.04}>
-            <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
+            <h2 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
               {t("integrationsTitle")}
             </h2>
           </Reveal>
@@ -230,7 +230,7 @@ export default async function WhyPage() {
 
       {/* Commitments */}
       <section className="bg-paper border-t border-hairline">
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
           <div className="max-w-[44rem] mb-10 md:mb-14">
             <Reveal>
               <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-3">
@@ -238,7 +238,7 @@ export default async function WhyPage() {
               </p>
             </Reveal>
             <Reveal delay={0.04}>
-              <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
+              <h2 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
                 {t("commitmentsTitle")}
               </h2>
             </Reveal>
@@ -270,7 +270,7 @@ export default async function WhyPage() {
       </section>
 
       {/* Closing CTA */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 py-20 md:py-28">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 py-20 md:py-28">
         <Reveal>
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-4">
             {t("ctaEyebrow")}
@@ -278,7 +278,7 @@ export default async function WhyPage() {
         </Reveal>
         <Reveal delay={0.04}>
           <h2
-            className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[22ch]"
+            className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[22ch]"
             style={{ textWrap: "balance" }}
           >
             {t("ctaTitle")}

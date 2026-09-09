@@ -115,7 +115,7 @@ export function StoreShowcaseSection() {
   return (
     <section data-scheme="light" className="bg-paper">
       <SectionDivider scheme="light" />
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-14 md:pt-20 pb-20 md:pb-28">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 pt-14 md:pt-20 pb-20 md:pb-28">
         {/* ── Editorial header ──────────────────────────────────────── */}
         <div className="max-w-[44rem]">
           <Reveal>
@@ -125,7 +125,7 @@ export function StoreShowcaseSection() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2
-              className="text-[clamp(1.875rem,3.8vw,2.875rem)] font-semibold tracking-[-0.022em] leading-[1.08] text-ink"
+              className="text-h2 font-semibold tracking-[-0.022em] leading-[1.08] text-ink"
               style={{ textWrap: "balance" }}
             >
               {t("headlineLine1")}
@@ -134,7 +134,7 @@ export function StoreShowcaseSection() {
             </h2>
           </Reveal>
           <Reveal delay={0.12}>
-            <p className="mt-5 text-[16px] md:text-[17px] leading-[1.5] text-ink-soft max-w-[34rem]">
+            <p className="mt-5 text-[16px] md:text-base leading-[1.5] text-ink-soft max-w-[34rem]">
               {t("subtitle")}
             </p>
           </Reveal>
@@ -161,15 +161,11 @@ export function StoreShowcaseSection() {
                     }}
                     aria-pressed={active}
                     className={
-                      "h-9 px-3.5 text-[12.5px] font-medium rounded-full border transition-colors " +
+                      "h-9 px-3.5 text-[12.5px] font-medium rounded-full border transition-colors ease-brand " +
                       (active
                         ? "bg-ink text-paper border-ink"
                         : "bg-paper text-ink-soft border-hairline hover:text-ink hover:bg-fog")
                     }
-                    style={{
-                      transitionTimingFunction:
-                        "cubic-bezier(0.32, 0.72, 0, 1)",
-                    }}
                   >
                     {c.label}
                   </button>
@@ -264,8 +260,7 @@ function RailArrow({
       type="button"
       onClick={onClick}
       aria-label={label}
-      className="h-9 w-9 rounded-full border border-hairline-strong bg-paper text-ink-soft hover:text-ink hover:bg-fog flex items-center justify-center transition-colors"
-      style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+      className="h-9 w-9 rounded-full border border-hairline-strong bg-paper text-ink-soft hover:text-ink hover:bg-fog flex items-center justify-center transition-colors ease-brand"
     >
       <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden>
         <path

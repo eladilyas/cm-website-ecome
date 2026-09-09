@@ -43,8 +43,7 @@ export function ProductCard({ product }: { product: CatalogProduct }) {
       // Spring-style ease gives a softer settle than a flat curve.
       whileHover={{ y: -6 }}
       transition={{ duration: 0.45, ease: APPLE_EASE }}
-      className="group relative h-full rounded-2xl overflow-hidden bg-paper border border-hairline transition-[border-color,box-shadow] duration-500 hover:border-hairline-strong hover:shadow-[0_22px_50px_-18px_rgba(20,30,50,0.22),0_8px_18px_-10px_rgba(20,30,50,0.08)] focus-within:ring-2 focus-within:ring-ink/20 focus-within:ring-offset-2 focus-within:ring-offset-paper"
-      style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}
+      className="ease-brand group relative h-full rounded-2xl overflow-hidden bg-paper border border-hairline transition-[border-color,box-shadow] duration-500 hover:border-hairline-strong hover:shadow-[0_22px_50px_-18px_rgba(20,30,50,0.22),0_8px_18px_-10px_rgba(20,30,50,0.08)] focus-within:ring-2 focus-within:ring-ink/20 focus-within:ring-offset-2 focus-within:ring-offset-paper"
     >
       {/* Primary clickable surface — opens Quick View. Wraps the
           image plate + identity block. Footer below is a sibling. */}
@@ -77,11 +76,10 @@ export function ProductCard({ product }: { product: CatalogProduct }) {
             alt={product.alt}
             fill
             sizes="(min-width: 1280px) 380px, (min-width: 768px) 50vw, 100vw"
-            className="object-contain p-7 transition-transform duration-700 group-hover:scale-[1.035]"
+            className="ease-brand object-contain p-7 transition-transform duration-700 group-hover:scale-[1.035]"
             style={{
               filter:
                 "drop-shadow(0 24px 40px rgba(40,80,140,0.10)) drop-shadow(0 4px 8px rgba(0,0,0,0.06))",
-              transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
             }}
             priority={false}
           />

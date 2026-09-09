@@ -68,7 +68,7 @@ export default async function FinancingDetailPage({
           <p className="text-[11px] uppercase tracking-[0.16em] text-ink-mute font-medium">
             Financing
           </p>
-          <h1 className="mt-0.5 text-[clamp(1.5rem,3vw,1.875rem)] font-semibold tracking-[-0.018em] text-ink tabular-nums">
+          <h1 className="mt-0.5 text-h2 font-semibold tracking-[-0.018em] text-ink tabular-nums">
             {request.ref}
           </h1>
         </div>

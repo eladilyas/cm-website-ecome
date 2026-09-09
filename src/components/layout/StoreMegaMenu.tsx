@@ -5,7 +5,7 @@
 // Shape borrowed from iMin's product menu (rail of families on the left,
 // that family's products as image-first cards on the right), rewritten in
 // OUR vocabulary: mono ink/paper/canvas surfaces, hairline rings, 24px
-// card radii, Apple easing, and the red accent (#E11D2A) reserved for a
+// card radii, the ease-brand curve, and the brand-red accent reserved for a
 // single hover state. No purple, no saturated status pills.
 //
 // ── Data source ───────────────────────────────────────────────────────
@@ -47,7 +47,7 @@ const APPLE_EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 /** Red accent. Used on exactly one interaction in this panel (product
  *  name hover, matching CategoryStrip on /shop) — never as a fill. */
-const ACCENT = "#E11D2A";
+const ACCENT = "var(--color-brand)";
 
 /** Tiles per category, counting the "See all" tile. Two rows of three
  *  at the desktop panel width. */
@@ -293,15 +293,13 @@ export function StoreMegaMenu({
                 onFocus={() => select(index)}
                 onClick={() => select(index)}
                 className={[
+                  "ease-brand",
                   "group flex items-center justify-between gap-2 rounded-full",
                   "h-9 pl-3.5 pr-3 text-left text-[13.5px] tracking-[-0.005em]",
                   "transition-[background-color,color] duration-300",
                   focusRing(onDark),
                   isActive ? `${railActive} font-medium` : `${railRest} font-normal`,
                 ].join(" ")}
-                style={{
-                  transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
-                }}
               >
                 <span className="truncate">{labels[tab.slug]}</span>
                 <span
@@ -413,6 +411,7 @@ function ProductTile({
       href={`/shop/${product.slug}`}
       onClick={onSelect}
       className={[
+        "ease-brand",
         // NO card chrome — no ring, no plate, no filled background.
         //
         // Each product used to sit in a ringed, padded box, which cost three
@@ -432,7 +431,6 @@ function ProductTile({
       ].join(" ")}
       style={
         {
-          transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
           "--tile-accent": ACCENT,
         } as React.CSSProperties
       }
@@ -449,8 +447,7 @@ function ProductTile({
           alt={product.alt || product.name}
           fill
           sizes="(min-width: 1024px) 300px, 220px"
-          className="object-contain transition-transform duration-700 group-hover:scale-[1.05]"
-          style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}
+          className="ease-brand object-contain transition-transform duration-700 group-hover:scale-[1.05]"
         />
         {incoming && (
           // Quiet outline chip, not a saturated fill — the red accent
@@ -513,6 +510,7 @@ function SeeAllTile({
       onClick={onSelect}
       aria-label={ariaLabel}
       className={[
+        "ease-brand",
         // Matches the product tiles: no ring, no filled plate. It occupies a
         // grid cell of the same height so the row stays even, but it reads as
         // a quiet action rather than a fourth box.
@@ -524,14 +522,12 @@ function SeeAllTile({
           : "text-ink-soft hover:text-ink hover:bg-ink/[0.02]",
         focusRing(onDark),
       ].join(" ")}
-      style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}
     >
       <span
         aria-hidden
-        className={`inline-flex h-8 w-8 items-center justify-center rounded-full ring-1 ring-inset transition-transform duration-500 group-hover:translate-x-0.5 ${
+        className={`ease-brand inline-flex h-8 w-8 items-center justify-center rounded-full ring-1 ring-inset transition-transform duration-500 group-hover:translate-x-0.5 ${
           onDark ? "ring-white/15" : "ring-hairline-strong"
         }`}
-        style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}
       >
         <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
           <path

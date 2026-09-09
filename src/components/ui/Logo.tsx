@@ -5,8 +5,6 @@ import Link from "next/link";
 const LOGO_INTRINSIC_W = 379.157;
 const LOGO_INTRINSIC_H = 366.132;
 
-const APPLE_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
-
 type LogoProps = {
   /** Visual width of the mark in px. Height is derived from intrinsic aspect. */
   size?: number;
@@ -64,10 +62,9 @@ export function Logo({
           width={width}
           height={height}
           priority
-          className={`absolute inset-0 transition-opacity duration-500 ${
+          className={`ease-brand absolute inset-0 transition-opacity duration-500 ${
             white ? "opacity-0" : "opacity-100"
           }`}
-          style={{ transitionTimingFunction: APPLE_EASE }}
         />
         {/* White — same asset flattened via CSS filter. Visible when
             `white` is on. aria-hidden so screen-readers see one logo. */}
@@ -78,12 +75,11 @@ export function Logo({
           width={width}
           height={height}
           priority
-          className={`absolute inset-0 transition-opacity duration-500 ${
+          className={`ease-brand absolute inset-0 transition-opacity duration-500 ${
             white ? "opacity-100" : "opacity-0"
           }`}
           style={{
             filter: "brightness(0) invert(1)",
-            transitionTimingFunction: APPLE_EASE,
           }}
         />
       </span>

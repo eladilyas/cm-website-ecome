@@ -7,7 +7,7 @@
 // ─────────
 // The centerpiece renders the OFFICIAL brand SVG (the same vector path that
 // lives in /public/logo/cm-logo.svg) inlined so its color matches the rest
-// of the site (#E11D2A) rather than the file's baked-in #ff0000. No
+// of the site (the brand token) rather than the file's baked-in #ff0000. No
 // approximation, no library icon, no redrawn stroke — this is the brand
 // mark, presented as a brand moment.
 //
@@ -25,9 +25,9 @@
 //
 // Motion
 // ──────
-// All entrance motion uses Apple-grade curves (cubic-bezier(0.22,1,0.36,1)
-// for the natural-feeling decel + the [0.32,0.72,0,1] brand curve for the
-// brand-led moments). Entrance is staggered, directional, and crisp:
+// All entrance motion uses the single brand curve, --ease-brand /
+// cubic-bezier(0.22,1,0.36,1), for both the natural-feeling decel and the
+// brand-led moments. Entrance is staggered, directional, and crisp:
 //   • central disc scales up with a slight overshoot
 //   • each partner tile slides in FROM its polar direction (outside → in)
 //   • arc strokes draw partner → center as the tile arrives
@@ -44,8 +44,8 @@ import { useTranslations } from "next-intl";
 import { INTEGRATIONS, type Integration } from "@/data/integrations";
 
 const APPLE_EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
-const BRAND_EASE: [number, number, number, number] = [0.32, 0.72, 0, 1];
-const BRAND_RED = "#E11D2A";
+const BRAND_EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+const BRAND_RED = "var(--color-brand)";
 
 // (The official brand-mark SVG path used to live here as the central
 // element. It's been replaced by /3d/cm-brand-object-2.png — a fully
@@ -119,7 +119,7 @@ export function EcosystemRadial() {
           width: "44%",
           aspectRatio: "1 / 1",
           background:
-            "radial-gradient(50% 50% at 50% 50%, rgba(225,29,42,0.20) 0%, rgba(225,29,42,0.07) 38%, rgba(225,29,42,0) 78%)",
+            "radial-gradient(50% 50% at 50% 50%, color-mix(in srgb, var(--color-brand) 20%, transparent) 0%, color-mix(in srgb, var(--color-brand) 7%, transparent) 38%, transparent 78%)",
           filter: "blur(36px)",
         }}
       />
@@ -180,8 +180,8 @@ export function EcosystemRadial() {
               y1={inner.y}
               x2={outer.x}
               y2={outer.y}
-              stroke="rgba(225,29,42,0.40)"
               strokeWidth="0.22"
+              style={{ stroke: "color-mix(in srgb, var(--color-brand) 40%, transparent)" }}
               strokeLinecap="round"
               vectorEffect="non-scaling-stroke"
             />
@@ -203,15 +203,15 @@ export function EcosystemRadial() {
               partner data → Caisse Manager. */}
           <linearGradient id="ecosystem-arc-gradient">
             <stop offset="0%" stopColor="rgba(255,255,255,0.18)" />
-            <stop offset="50%" stopColor="rgba(225,29,42,0.42)" />
-            <stop offset="100%" stopColor="rgba(225,29,42,0.85)" />
+            <stop offset="50%" style={{ stopColor: "color-mix(in srgb, var(--color-brand) 42%, transparent)" }} />
+            <stop offset="100%" style={{ stopColor: "color-mix(in srgb, var(--color-brand) 85%, transparent)" }} />
           </linearGradient>
           {/* Pulse-dot soft glow — applied to the traveling dot so it
               reads as a moving spark rather than a flat circle. */}
           <radialGradient id="ecosystem-pulse-glow">
-            <stop offset="0%" stopColor={BRAND_RED} stopOpacity="0.7" />
-            <stop offset="60%" stopColor={BRAND_RED} stopOpacity="0.18" />
-            <stop offset="100%" stopColor={BRAND_RED} stopOpacity="0" />
+            <stop offset="0%" stopOpacity="0.7" style={{ stopColor: BRAND_RED }} />
+            <stop offset="60%" stopOpacity="0.18" style={{ stopColor: BRAND_RED }} />
+            <stop offset="100%" stopOpacity="0" style={{ stopColor: BRAND_RED }} />
           </radialGradient>
         </defs>
 
@@ -264,7 +264,7 @@ export function EcosystemRadial() {
                 />
               </circle>
               {/* The bright pulse dot itself */}
-              <circle r="0.55" fill={BRAND_RED}>
+              <circle r="0.55" style={{ fill: BRAND_RED }}>
                 <animateMotion
                   dur="4.2s"
                   repeatCount="indefinite"
@@ -348,7 +348,7 @@ function CentralAnchor({ reduce }: { reduce: boolean }) {
           className="relative h-full w-full object-contain"
           style={{
             filter:
-              "drop-shadow(0 28px 56px rgba(225,29,42,0.36)) drop-shadow(0 10px 22px rgba(20,15,40,0.18))",
+              "drop-shadow(0 28px 56px color-mix(in srgb, var(--color-brand) 36%, transparent)) drop-shadow(0 10px 22px rgba(20,15,40,0.18))",
           }}
         />
       </div>
@@ -423,14 +423,13 @@ function PartnerTile({
             ? undefined
             : { duration: breathPeriod, ease: "easeInOut", repeat: Infinity }
         }
-        className="group relative rounded-[18px] w-[132px] md:w-[152px] transition-shadow duration-300"
-        style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+        className="ease-brand group relative rounded-2xl w-[132px] md:w-[152px] transition-shadow duration-300"
       >
         {/* Outer ambient halo — the tile bleeds its brand color into
             the surrounding dark canvas. */}
         <div
           aria-hidden
-          className="pointer-events-none absolute -inset-3 -z-10 rounded-[26px]"
+          className="pointer-events-none absolute -inset-3 -z-10 rounded-3xl"
           style={{
             background: `radial-gradient(60% 60% at 50% 50%, ${hexToRgba(integration.brandColor, 0.42)} 0%, ${hexToRgba(integration.brandColor, 0.10)} 55%, ${hexToRgba(integration.brandColor, 0)} 85%)`,
             filter: "blur(10px)",
@@ -445,7 +444,7 @@ function PartnerTile({
             Depth comes from the outer halo, drop shadow, and a single
             top-rim white highlight — never from a vertical wash. */}
         <div
-          className="relative rounded-[18px] px-3.5 py-4 md:px-4 md:py-5 overflow-hidden"
+          className="relative rounded-2xl px-3.5 py-4 md:px-4 md:py-5 overflow-hidden"
           style={{
             background: integration.brandColor,
             boxShadow: `0 0 0 1px ${darkenHex(integration.brandColor, 0.12)}, 0 12px 28px -10px ${hexToRgba(integration.brandColor, 0.55)}, 0 24px 40px -18px rgba(0,0,0,0.55), inset 0 1px 0 ${hexToRgba("#ffffff", 0.18)}`,

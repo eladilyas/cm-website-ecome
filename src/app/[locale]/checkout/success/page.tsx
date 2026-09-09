@@ -93,7 +93,7 @@ async function NotFound({ refStr }: { refStr: string }) {
         <p className="text-[11px] uppercase tracking-[0.18em] text-ink-mute font-medium mb-3">
           {t("notFoundTitle")}
         </p>
-        <h1 className="text-[clamp(1.5rem,3vw,2rem)] font-semibold tracking-[-0.022em] leading-[1.1] text-ink">
+        <h1 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.1] text-ink">
           {refStr ? (
             <>
               <code className="tabular-nums">{refStr}</code>

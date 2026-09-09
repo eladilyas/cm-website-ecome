@@ -43,19 +43,19 @@ export function ClientWall({
 
   return (
     <section data-scheme="dark" className="bg-ink text-paper">
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-10 py-20 md:py-28">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 py-20 md:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] gap-10 lg:gap-16">
           {/* Copy column — stays with the wall rather than sitting above it,
               so the count and the evidence are read together. */}
           <div className="lg:sticky lg:top-28 lg:self-start">
             <Reveal>
-              <p className="text-[10.5px] font-semibold uppercase tracking-[0.2em] text-paper/45 mb-4">
+              <p className="text-micro font-semibold uppercase tracking-[0.2em] text-paper/45 mb-4">
                 {eyebrow}
               </p>
             </Reveal>
             <Reveal delay={0.04}>
               <h2
-                className="text-[clamp(1.75rem,3.2vw,2.5rem)] font-semibold tracking-[-0.02em] leading-[1.06]"
+                className="text-h2 font-semibold tracking-[-0.02em] leading-[1.06]"
                 style={{ textWrap: "balance" }}
               >
                 {title}
@@ -69,7 +69,7 @@ export function ClientWall({
             <Reveal delay={0.12}>
               <p className="mt-7 text-[clamp(2.5rem,5vw,3.75rem)] font-semibold tracking-[-0.03em] leading-none tabular-nums">
                 {roster.length}
-                <span className="text-[#E11D2A]">+</span>
+                <span className="text-brand">+</span>
               </p>
             </Reveal>
           </div>

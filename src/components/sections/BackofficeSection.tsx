@@ -38,7 +38,7 @@ export function BackofficeSection() {
       className="relative overflow-hidden bg-canvas text-ink"
     >
       <SectionDivider scheme="light" />
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-24 md:py-32">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 py-24 md:py-32">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-12 md:gap-16 items-center">
           {/* ── Left: copy + dual CTA path ────────────────────────────── */}
           <div>
@@ -47,11 +47,11 @@ export function BackofficeSection() {
                 Backoffice
               </p>
 
-              <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold tracking-tight leading-[1.07] text-ink">
+              <h2 className="text-h2 font-semibold tracking-tight leading-[1.07] text-ink">
                 The back office that runs every counter.
               </h2>
 
-              <p className="mt-5 text-[17px] md:text-[19px] leading-[1.5] text-ink-soft max-w-[32rem]">
+              <p className="mt-5 text-base md:text-lg leading-[1.5] text-ink-soft max-w-[32rem]">
                 Menu, inventory, staff, financials, reporting — all powered by
                 the same engine that runs your till. Operate from a laptop at
                 your desk or the phone in your pocket; the numbers stay the
@@ -110,7 +110,7 @@ export function BackofficeSection() {
                   className="pointer-events-none absolute -inset-x-[4%] -inset-y-[10%] -z-0"
                   style={{
                     background:
-                      "radial-gradient(58% 50% at 50% 45%, rgba(225,29,42,0.10) 0%, rgba(225,29,42,0) 70%)",
+                      "radial-gradient(58% 50% at 50% 45%, color-mix(in srgb, var(--color-brand) 10%, transparent) 0%, transparent 70%)",
                     filter: "blur(28px)",
                   }}
                 />

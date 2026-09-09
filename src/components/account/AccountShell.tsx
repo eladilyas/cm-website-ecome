@@ -172,13 +172,13 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="bg-canvas border-y border-hairline">
-      <div className="mx-auto max-w-7xl px-5 md:px-8 py-10 md:py-14">
+      <div className="mx-auto max-w-shell px-5 md:px-8 py-10 md:py-14">
         <header className="flex flex-wrap items-end justify-between gap-4 mb-8 md:mb-10">
           <div>
             <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-ink-mute">
               {tShell("eyebrow")}
             </p>
-            <h1 className="mt-1.5 text-[28px] md:text-[34px] font-semibold tracking-[-0.02em] leading-[1.1] text-ink">
+            <h1 className="mt-1.5 text-h1 font-semibold tracking-[-0.02em] leading-[1.1] text-ink">
               {tShell("greeting", { firstName })}
             </h1>
             <p className="mt-1.5 text-[14px] text-ink-soft">
@@ -188,8 +188,7 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
           <button
             type="button"
             onClick={handleSignOut}
-            className="inline-flex items-center gap-2 h-10 px-4 rounded-full border border-hairline-strong bg-paper text-[13px] font-medium text-ink hover:bg-fog transition-colors"
-            style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+            className="ease-brand inline-flex items-center gap-2 h-10 px-4 rounded-full border border-hairline-strong bg-paper text-[13px] font-medium text-ink hover:bg-fog transition-colors"
           >
             <SignOutIcon />
             {tNav("signOut")}
@@ -257,15 +256,11 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
                       key={item.href}
                       href={item.href}
                       className={
-                        "flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors " +
+                        "ease-brand flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors " +
                         (active
                           ? "bg-canvas text-ink"
                           : "hover:bg-canvas text-ink-soft hover:text-ink")
                       }
-                      style={{
-                        transitionTimingFunction:
-                          "cubic-bezier(0.32, 0.72, 0, 1)",
-                      }}
                     >
                       <span className="mt-0.5">{item.icon(active)}</span>
                       <span className="min-w-0">

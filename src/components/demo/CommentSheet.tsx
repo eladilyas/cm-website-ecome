@@ -90,14 +90,14 @@ export function CommentSheet({
             type="button"
             onClick={handleClear}
             disabled={!value && !draft}
-            className="h-9 px-4 text-[13px] font-medium rounded-[8px] text-paper/65 hover:text-paper hover:bg-white/[0.06] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            className="h-9 px-4 text-[13px] font-medium rounded-md text-paper/65 hover:text-paper hover:bg-white/[0.06] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
           >
             Clear
           </button>
           <button
             type="button"
             onClick={handleSave}
-            className="h-9 px-5 text-[13px] font-medium rounded-[8px] bg-[#E11D2A] text-white hover:bg-[#c8141f] transition-colors"
+            className="h-9 px-5 text-[13px] font-medium rounded-md bg-brand text-white hover:bg-brand-hover transition-colors"
           >
             Save note
           </button>
@@ -120,11 +120,11 @@ export function CommentSheet({
                     type="button"
                     onClick={() => togglePreset(preset)}
                     className={
-                      "inline-flex items-center h-7 px-2.5 rounded-[6px] text-[12px] font-medium transition-colors " +
+                      "inline-flex items-center h-7 px-2.5 rounded-sm text-[12px] font-medium transition-colors " +
                       (active
                         ? warning
                           ? "bg-amber-400/20 text-amber-200 border border-amber-300/40"
-                          : "bg-[#E11D2A]/15 text-[#E11D2A] border border-[#E11D2A]/35"
+                          : "bg-brand/15 text-brand border border-brand/35"
                         : warning
                           ? "border border-amber-300/25 text-amber-200/85 hover:bg-amber-400/10"
                           : "border border-white/15 text-paper/75 hover:bg-white/[0.06] hover:text-paper")
@@ -147,7 +147,7 @@ export function CommentSheet({
             onChange={(e) => setDraft(e.target.value)}
             placeholder="Type a custom note…"
             rows={3}
-            className="w-full rounded-[8px] bg-white/[0.04] border border-white/12 px-3 py-2.5 text-[13.5px] text-paper placeholder:text-paper/35 leading-[1.45] focus:outline-none focus:border-white/30 focus:bg-white/[0.06] transition-colors resize-none"
+            className="w-full rounded-md bg-white/[0.04] border border-white/12 px-3 py-2.5 text-[13.5px] text-paper placeholder:text-paper/35 leading-[1.45] focus:outline-none focus:border-white/30 focus:bg-white/[0.06] transition-colors resize-none"
           />
           <p className="mt-2 text-[10.5px] text-paper/40 leading-snug">
             Tap chips to add or remove. Free text persists alongside chip selections.

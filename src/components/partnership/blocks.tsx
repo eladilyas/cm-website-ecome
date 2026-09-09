@@ -21,7 +21,7 @@ export function ProgramHero({
   crumb: string;
 }) {
   return (
-    <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-28 md:pt-36 pb-14 md:pb-20">
+    <section className="mx-auto max-w-shell px-6 lg:px-10 pt-28 md:pt-36 pb-14 md:pb-20">
       <Reveal>
         <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-4">
           {crumb} <span className="text-ink-mute/50">›</span> {eyebrow}
@@ -29,7 +29,7 @@ export function ProgramHero({
       </Reveal>
       <Reveal delay={0.04}>
         <h1
-          className="text-[clamp(2.25rem,5vw,4.25rem)] font-semibold tracking-[-0.024em] leading-[1.02] text-ink max-w-[22ch]"
+          className="text-h1 font-semibold tracking-[-0.024em] leading-[1.02] text-ink max-w-[22ch]"
           style={{ textWrap: "balance" }}
         >
           {title}
@@ -64,7 +64,7 @@ export function StatsBand({
   const card = scheme === "paper" ? "bg-canvas" : "bg-paper";
   return (
     <section className={bg}>
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
         <div className="max-w-[44rem] mb-10 md:mb-14">
           <Reveal>
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-3">
@@ -72,7 +72,7 @@ export function StatsBand({
             </p>
           </Reveal>
           <Reveal delay={0.04}>
-            <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
+            <h2 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
               {title}
             </h2>
           </Reveal>
@@ -118,7 +118,7 @@ export function NumberedSteps({
   const cardBg = scheme === "paper" ? "bg-canvas" : "bg-paper";
   return (
     <section className={bg}>
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
         <div className="max-w-[44rem] mb-10 md:mb-14">
           <Reveal>
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-3">
@@ -126,7 +126,7 @@ export function NumberedSteps({
             </p>
           </Reveal>
           <Reveal delay={0.04}>
-            <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
+            <h2 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
               {title}
             </h2>
           </Reveal>
@@ -179,7 +179,7 @@ export function FeatureCards({
   const grid = cols === 2 ? "md:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-3";
   return (
     <section className={bg}>
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
         <div className="max-w-[44rem] mb-10 md:mb-14">
           <Reveal>
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-3">
@@ -187,7 +187,7 @@ export function FeatureCards({
             </p>
           </Reveal>
           <Reveal delay={0.04}>
-            <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
+            <h2 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
               {title}
             </h2>
           </Reveal>
@@ -236,7 +236,7 @@ export function BulletList({
   const bg = scheme === "paper" ? "bg-paper border-y border-hairline" : "";
   return (
     <section className={bg}>
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-8 md:gap-14 items-start">
           <div>
             <Reveal>
@@ -246,7 +246,7 @@ export function BulletList({
             </Reveal>
             <Reveal delay={0.04}>
               <h2
-                className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink"
+                className="text-h2 font-semibold tracking-[-0.018em] leading-[1.08] text-ink"
                 style={{ textWrap: "balance" }}
               >
                 {title}
@@ -266,7 +266,7 @@ export function BulletList({
                 <li key={line} className="flex items-start gap-3 text-[15px] leading-[1.55] text-ink-soft">
                   <span
                     aria-hidden
-                    className="mt-[9px] h-1.5 w-1.5 rounded-full bg-[#E11D2A] shrink-0"
+                    className="mt-[9px] h-1.5 w-1.5 rounded-full bg-brand shrink-0"
                   />
                   <span>{line}</span>
                 </li>
@@ -291,7 +291,7 @@ export function ContactChannels({
   items: { title: string; body: string }[];
 }) {
   return (
-    <section className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+    <section className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
       <div className="max-w-[44rem] mb-10 md:mb-14">
         <Reveal>
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-3">
@@ -299,7 +299,7 @@ export function ContactChannels({
           </p>
         </Reveal>
         <Reveal delay={0.04}>
-          <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
+          <h2 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
             {title}
           </h2>
         </Reveal>
@@ -345,7 +345,7 @@ export function ProgramCta({
 }) {
   return (
     <section className="bg-paper border-t border-hairline">
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-20 md:py-28">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 py-20 md:py-28">
         <Reveal>
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-4">
             {eyebrow}
@@ -353,7 +353,7 @@ export function ProgramCta({
         </Reveal>
         <Reveal delay={0.04}>
           <h2
-            className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[24ch]"
+            className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[24ch]"
             style={{ textWrap: "balance" }}
           >
             {title}

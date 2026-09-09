@@ -190,12 +190,11 @@ function ParkedHeaderButton({
           : "Orders on hold"
       }
       className={
-        "relative inline-flex items-center gap-1.5 h-8 px-2.5 rounded-full text-[11.5px] font-medium transition-colors " +
+        "ease-brand relative inline-flex items-center gap-1.5 h-8 px-2.5 rounded-full text-[11.5px] font-medium transition-colors " +
         (hasParked
           ? "bg-amber-400/12 text-amber-200 border border-amber-300/30 hover:bg-amber-400/20"
           : "text-paper/55 hover:text-paper hover:bg-white/[0.06] border border-transparent")
       }
-      style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
     >
       <svg
         width="12"
@@ -277,16 +276,15 @@ function StageDots({ stage }: { stage: string }) {
       {order.map((s, idx) => (
         <span
           key={s}
-          className="h-1.5 rounded-full transition-all duration-300"
+          className="ease-brand h-1.5 rounded-full transition-all duration-300"
           style={{
             width: idx === i ? 14 : 6,
             backgroundColor:
               idx < i
                 ? "rgba(52,211,153,0.85)"
                 : idx === i
-                  ? "rgba(225,29,42,0.85)"
+                  ? "color-mix(in srgb, var(--color-brand) 85%, transparent)"
                   : "rgba(255,255,255,0.18)",
-            transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
           }}
         />
       ))}

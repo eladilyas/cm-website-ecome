@@ -18,7 +18,7 @@ export default function ForbiddenPage() {
         <p className="text-[11px] uppercase tracking-[0.18em] text-ink-mute font-medium mb-3">
           Access required
         </p>
-        <h1 className="text-[clamp(1.75rem,3.5vw,2.25rem)] font-semibold tracking-[-0.022em] leading-[1.1] text-ink">
+        <h1 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.1] text-ink">
           You don&rsquo;t have access to this page.
         </h1>
         <p className="mt-4 text-[14px] text-ink-soft leading-[1.55]">

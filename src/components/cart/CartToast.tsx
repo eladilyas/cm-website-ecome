@@ -152,10 +152,7 @@ export function CartToast() {
               <Link
                 href="/cart"
                 onClick={dismissToast}
-                className="inline-flex items-center gap-1.5 h-9 px-3.5 text-[12.5px] font-medium rounded-full bg-ink text-paper hover:bg-ink-soft transition-colors"
-                style={{
-                  transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
-                }}
+                className="ease-brand inline-flex items-center gap-1.5 h-9 px-3.5 text-[12.5px] font-medium rounded-full bg-ink text-paper hover:bg-ink-soft transition-colors"
               >
                 View cart
                 <Arrow size={12} strokeWidth={1.4} />

@@ -50,7 +50,7 @@ export default async function PartnershipPage() {
       <SectionDivider scheme="light" />
 
       {/* Hero */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-28 md:pt-36 pb-14 md:pb-20">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 pt-28 md:pt-36 pb-14 md:pb-20">
         <Reveal>
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-5">
             {t("eyebrow")}
@@ -58,7 +58,7 @@ export default async function PartnershipPage() {
         </Reveal>
         <Reveal delay={0.04}>
           <h1
-            className="text-[clamp(2.25rem,5vw,4.25rem)] font-semibold tracking-[-0.024em] leading-[1.02] text-ink max-w-[22ch]"
+            className="text-h1 font-semibold tracking-[-0.024em] leading-[1.02] text-ink max-w-[22ch]"
             style={{ textWrap: "balance" }}
           >
             {t("heroHeadline")}
@@ -76,7 +76,7 @@ export default async function PartnershipPage() {
           twelve payment, financing, delivery, hardware and ERP partners are
           named here, in colour on the light surface, rather than described
           abstractly further down the page. */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pb-16 md:pb-20">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 pb-16 md:pb-20">
         <Reveal>
           <p className="text-[10.5px] font-semibold uppercase tracking-[0.2em] text-ink-mute mb-5">
             {t("partnersEyebrow")}
@@ -99,7 +99,7 @@ export default async function PartnershipPage() {
 
       {/* Earnings preview */}
       <section className="bg-paper border-y border-hairline">
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
           <div className="max-w-[44rem] mb-10 md:mb-14">
             <Reveal>
               <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-3">
@@ -107,7 +107,7 @@ export default async function PartnershipPage() {
               </p>
             </Reveal>
             <Reveal delay={0.04}>
-              <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
+              <h2 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
                 {t("earningsTitle")}
               </h2>
             </Reveal>
@@ -163,7 +163,7 @@ export default async function PartnershipPage() {
       </section>
 
       {/* Why partner */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
         <div className="max-w-[44rem]">
           <Reveal>
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-3">
@@ -172,7 +172,7 @@ export default async function PartnershipPage() {
           </Reveal>
           <Reveal delay={0.04}>
             <h2
-              className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink"
+              className="text-h2 font-semibold tracking-[-0.018em] leading-[1.08] text-ink"
               style={{ textWrap: "balance" }}
             >
               {t("whyTitle")}
@@ -193,7 +193,7 @@ export default async function PartnershipPage() {
 
       {/* Three tracks */}
       <section className="bg-paper border-y border-hairline">
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
           <div className="max-w-[44rem] mb-10 md:mb-14">
             <Reveal>
               <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-3">
@@ -201,7 +201,7 @@ export default async function PartnershipPage() {
               </p>
             </Reveal>
             <Reveal delay={0.04}>
-              <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
+              <h2 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
                 {t("tracksTitle")}
               </h2>
             </Reveal>
@@ -209,9 +209,7 @@ export default async function PartnershipPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
             {tracks.map((track, i) => (
               <Reveal key={track.slug} delay={0.06 + i * 0.04}>
-                <article className="group h-full flex flex-col rounded-2xl bg-canvas ring-1 ring-hairline p-6 md:p-7 transition-all duration-500 hover:-translate-y-0.5 hover:ring-hairline-strong hover:shadow-[0_18px_42px_-28px_rgba(0,0,0,0.22)]"
-                  style={{ transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)" }}
-                >
+                <article className="group h-full flex flex-col rounded-2xl bg-canvas ring-1 ring-hairline p-6 md:p-7 transition-all duration-500 ease-brand hover:-translate-y-0.5 hover:ring-hairline-strong hover:shadow-[0_18px_42px_-28px_rgba(0,0,0,0.22)]">
                   <p className="text-[10.5px] font-semibold uppercase tracking-[0.16em] text-ink-mute mb-4">
                     0{i + 1}
                   </p>
@@ -223,7 +221,7 @@ export default async function PartnershipPage() {
                   </p>
                   <Link
                     href={`/partnership/${track.slug}` as "/partnership"}
-                    className="mt-5 inline-flex items-center text-[13.5px] font-medium text-ink hover:text-[#E11D2A] transition-colors"
+                    className="mt-5 inline-flex items-center text-[13.5px] font-medium text-ink hover:text-brand transition-colors"
                   >
                     {track.ctaLabel}
                     <Arrow size={13} className="ml-1.5" />
@@ -236,7 +234,7 @@ export default async function PartnershipPage() {
       </section>
 
       {/* Process */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
         <div className="max-w-[44rem] mb-10 md:mb-14">
           <Reveal>
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-3">
@@ -244,7 +242,7 @@ export default async function PartnershipPage() {
             </p>
           </Reveal>
           <Reveal delay={0.04}>
-            <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
+            <h2 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
               {t("processTitle")}
             </h2>
           </Reveal>
@@ -270,7 +268,7 @@ export default async function PartnershipPage() {
 
       {/* Apply */}
       <section className="bg-paper border-y border-hairline">
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
           <div className="max-w-[46rem]">
             <Reveal>
               <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-3">
@@ -279,7 +277,7 @@ export default async function PartnershipPage() {
             </Reveal>
             <Reveal delay={0.04}>
               <h2
-                className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink"
+                className="text-h2 font-semibold tracking-[-0.018em] leading-[1.08] text-ink"
                 style={{ textWrap: "balance" }}
               >
                 {t("applyTitle")}
@@ -309,7 +307,7 @@ export default async function PartnershipPage() {
       </section>
 
       {/* Partner support teaser */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 py-20 md:py-28">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 py-20 md:py-28">
         <Reveal>
           <div className="rounded-2xl bg-paper ring-1 ring-hairline p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
             <div className="flex-1">
@@ -326,7 +324,7 @@ export default async function PartnershipPage() {
             <div className="shrink-0">
               <Link
                 href={"/partnership/support" as "/partnership"}
-                className="inline-flex items-center text-[13.5px] font-medium text-ink hover:text-[#E11D2A] transition-colors"
+                className="inline-flex items-center text-[13.5px] font-medium text-ink hover:text-brand transition-colors"
               >
                 {t("supportCta")}
                 <Arrow size={13} className="ml-1.5" />

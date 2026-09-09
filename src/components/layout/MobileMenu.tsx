@@ -342,7 +342,7 @@ function DrillPanel({
         <span>Menu</span>
       </button>
 
-      <h2 className="text-[26px] font-semibold tracking-[-0.014em] leading-tight mb-5">
+      <h2 className="text-h2 font-semibold tracking-[-0.014em] leading-tight mb-5">
         {item.label}
       </h2>
 

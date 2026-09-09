@@ -65,7 +65,7 @@ export function PhoneInput({
       className={
         "relative flex items-stretch h-[52px] rounded-xl bg-paper border " +
         "transition-[border-color,box-shadow,background-color] duration-200 " +
-        "[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] " +
+        "ease-brand " +
         (errored
           ? "border-red-300/80 ring-4 ring-red-500/[0.05] bg-red-50/40"
           : focused

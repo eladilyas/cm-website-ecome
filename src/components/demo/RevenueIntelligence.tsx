@@ -19,7 +19,7 @@ import {
 } from "@/lib/demoStore";
 import { KPICard } from "./KPICard";
 
-const BRAND_RED = "#E11D2A";
+const BRAND_RED = "var(--color-brand)";
 
 // Category colors — distinct enough to read in a stacked bar but
 // kept in the cool/neutral family so the brand red stays the only
@@ -136,7 +136,7 @@ function CategoryMixCard({ mix }: { mix: CategoryMix }) {
   const empty = mix.length === 0;
   const t = useTranslations("demo.backoffice.revenueIntel");
   return (
-    <section className="rounded-[10px] border border-hairline bg-paper p-4 md:p-5">
+    <section className="rounded-lg border border-hairline bg-paper p-4 md:p-5">
       <header className="flex items-baseline justify-between gap-3 mb-3">
         <h3 className="text-[13.5px] font-semibold tracking-[-0.005em] text-ink">
           {t("revenueByCategory")}
@@ -201,7 +201,7 @@ function ChannelMixCard({ mix }: { mix: ChannelMix }) {
   const t = useTranslations("demo.backoffice.revenueIntel");
   const tCh = useTranslations("demo.backoffice.revenueIntel.channelLabels");
   return (
-    <section className="rounded-[10px] border border-hairline bg-paper p-4 md:p-5">
+    <section className="rounded-lg border border-hairline bg-paper p-4 md:p-5">
       <header className="flex items-baseline justify-between gap-3 mb-3">
         <h3 className="text-[13.5px] font-semibold tracking-[-0.005em] text-ink">
           {t("byChannel")}
@@ -286,9 +286,10 @@ function Donut({ mix }: { mix: ChannelMix }) {
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke={
-            i === 0 ? BRAND_RED : CATEGORY_COLORS[i % CATEGORY_COLORS.length]
-          }
+          style={{
+            stroke:
+              i === 0 ? BRAND_RED : CATEGORY_COLORS[i % CATEGORY_COLORS.length],
+          }}
           strokeWidth={stroke}
           strokeDasharray={`${seg.arcLen.toFixed(2)} ${(circumference - seg.arcLen).toFixed(2)}`}
           strokeDashoffset={seg.dashOffset}

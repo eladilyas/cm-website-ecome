@@ -535,14 +535,14 @@ export default function CheckoutPage() {
   return (
     <>
       <section className="min-h-[80vh] bg-canvas pt-10 md:pt-14 pb-16">
-        <div className="mx-auto max-w-[1180px] px-6 lg:px-10">
+        <div className="mx-auto max-w-shell px-6 lg:px-10">
           {/* Header */}
           <div className="mb-8 md:mb-10 flex items-baseline justify-between gap-4 flex-wrap">
             <div>
               <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-ink-mute mb-2">
                 {t("eyebrow")}
               </p>
-              <h1 className="text-[clamp(1.75rem,3.6vw,2.5rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink">
+              <h1 className="text-h1 font-semibold tracking-[-0.022em] leading-[1.05] text-ink">
                 {t("heading")}
               </h1>
             </div>
@@ -794,10 +794,7 @@ export default function CheckoutPage() {
                 <button
                   type="submit"
                   disabled={submitting || paymentMethod === null}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-ink text-paper text-[14px] font-medium hover:bg-ink-soft disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
-                  style={{
-                    transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
-                  }}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-ink text-paper text-[14px] font-medium hover:bg-ink-soft disabled:opacity-60 disabled:cursor-not-allowed transition-colors ease-brand"
                 >
                   {submitting ? (
                     <>{t("submitting")}</>
@@ -983,10 +980,7 @@ function AuthGate() {
           <div className="mt-7 flex items-center justify-center gap-3 flex-wrap">
             <Link
               href={{ pathname: "/signup", query: { next: "/checkout" } }}
-              className="h-11 px-5 inline-flex items-center text-[13px] font-medium rounded-full bg-ink text-paper hover:bg-ink-soft transition-colors"
-              style={{
-                transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
-              }}
+              className="h-11 px-5 inline-flex items-center text-[13px] font-medium rounded-full bg-ink text-paper hover:bg-ink-soft transition-colors ease-brand"
             >
               {t("createAccount")}
             </Link>
@@ -1190,14 +1184,13 @@ function PaymentCard({
       disabled={disabled}
       aria-pressed={active ? true : undefined}
       className={
-        "w-full text-left rounded-xl border p-4 flex items-start gap-3 transition-colors " +
+        "w-full text-left rounded-xl border p-4 flex items-start gap-3 transition-colors ease-brand " +
         (active
           ? "border-ink bg-canvas"
           : disabled
             ? "border-hairline bg-paper opacity-60 cursor-not-allowed"
             : "border-hairline bg-paper hover:bg-canvas hover:border-hairline-strong cursor-pointer")
       }
-      style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
     >
       {logo ? (
         <span

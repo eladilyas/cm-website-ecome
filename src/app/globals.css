@@ -105,9 +105,9 @@
   /* ── Section rhythm ──────────────────────────────────────────────────
      Three steps. 17 distinct padding signatures were in use across 39
      sections, with the home page and the subpages sharing none. */
-  --space-section-tight: 4rem;
-  --space-section: 5.5rem;
-  --space-section-feature: 7.5rem;
+  --spacing-section-tight: 4rem;
+  --spacing-section: 5.5rem;
+  --spacing-section-feature: 7.5rem;
 }
 
 /* Utility — hide the native scrollbar on horizontally-scrolling containers
@@ -150,10 +150,10 @@
   height: 7px;
   margin: -3.5px 0 0 -3.5px;
   border-radius: 9999px;
-  background: rgba(225, 29, 42, 0.95);
-  box-shadow: 0 0 14px rgba(225, 29, 42, 0.7);
+  background: color-mix(in srgb, var(--color-brand) 95%, transparent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--color-brand) 70%, transparent);
   pointer-events: none;
-  animation: ecosystem-pulse-out 4.8s var(--ease-apple, cubic-bezier(0.22, 1, 0.36, 1)) infinite;
+  animation: ecosystem-pulse-out 4.8s var(--ease-brand) infinite;
 }
 
 /* Hero orbit — generic ring rotations used by OrbitItem. A parent rotates
@@ -187,7 +187,7 @@
   border-radius: 9999px;
   border: 1px solid rgba(225, 29, 42, 0.55);
   pointer-events: none;
-  animation: ecosystem-sonar 4s var(--ease-apple, cubic-bezier(0.22, 1, 0.36, 1)) infinite;
+  animation: ecosystem-sonar 4s var(--ease-brand) infinite;
 }
 .ecosystem-sonar-2 {
   animation-delay: 2s;
@@ -216,7 +216,7 @@
     #f7f8fa 32%,
     #ffeaee 42%,
     #ffbac4 48%,
-    #E11D2A 50%,
+    var(--color-brand) 50%,
     #ffbac4 52%,
     #ffeaee 58%,
     #f7f8fa 68%,

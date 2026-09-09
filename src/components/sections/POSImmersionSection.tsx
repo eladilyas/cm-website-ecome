@@ -36,7 +36,7 @@
 //     (ambient bloom, mid contact, fine contact, inset top highlight,
 //     inset bottom shadow, inset side hairlines).
 //   • Bezel reduced (p-2.5 md:p-3) and chassis corner radius retuned
-//     to rounded-[28px] — more modern-iPad-Pro than the old 34px.
+//     to rounded-3xl (28px) — more modern-iPad-Pro than the old 34px.
 //   • Screen: inset hairline + 1-px inner shadow at the glass / bezel
 //     join, so the screen reads as recessed glass, not a colored
 //     rectangle pasted onto the chassis.
@@ -285,7 +285,7 @@ export function POSImmersionSection() {
         }}
       />
 
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-14 md:pt-20 pb-16 md:pb-24">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 pt-14 md:pt-20 pb-16 md:pb-24">
         {/* Compact title block — single eyebrow + one-line headline.
             Deliberately spare: no standfirst, no feature bullets, no
             third paragraph. Anything more delays the product. */}
@@ -297,7 +297,7 @@ export function POSImmersionSection() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2
-              className="text-[clamp(2rem,4.6vw,3.25rem)] font-semibold tracking-[-0.022em] leading-[1.02] text-ink"
+              className="text-h2 font-semibold tracking-[-0.022em] leading-[1.02] text-ink"
               style={{ textWrap: "balance" }}
             >
               {t("headline")}
@@ -318,7 +318,7 @@ export function POSImmersionSection() {
             <nav
               role="tablist"
               aria-label={t("tabsAria")}
-              className="flex items-center gap-1 p-1 rounded-[12px] bg-fog/60 ring-1 ring-hairline overflow-x-auto scrollbar-hide max-w-full"
+              className="flex items-center gap-1 p-1 rounded-lg bg-fog/60 ring-1 ring-hairline overflow-x-auto scrollbar-hide max-w-full"
             >
               {ACTIVITY_LIST.map((a) => {
                 const isActive = a.key === activity;
@@ -330,12 +330,11 @@ export function POSImmersionSection() {
                     aria-selected={isActive}
                     onClick={() => selectActivity(a.key)}
                     className={
-                      "shrink-0 w-[124px] h-8 text-[12.5px] font-medium rounded-[8px] transition-all duration-200 flex items-center justify-center " +
+                      "shrink-0 w-[124px] h-8 text-[12.5px] font-medium rounded-md transition-all duration-200 ease-brand flex items-center justify-center " +
                       (isActive
                         ? "bg-paper text-ink shadow-[0_1px_2px_rgba(0,0,0,0.05),0_0_0_0.5px_rgba(0,0,0,0.04)]"
                         : "text-ink-soft hover:text-ink hover:bg-paper/55")
                     }
-                    style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
                   >
                     {tAct(a.key)}
                   </button>
@@ -365,7 +364,7 @@ export function POSImmersionSection() {
                 lighting (box-shadow stack) is variant-controlled; the
                 chassis material itself stays identical. */}
             <div
-              className="relative rounded-[26px] p-1.5 md:p-2"
+              className="relative rounded-3xl p-1.5 md:p-2"
               style={{
                 background: [
                   // Subtle horizontal sheen across the very top of the
@@ -385,7 +384,7 @@ export function POSImmersionSection() {
                   top edge the way a real device does. */}
               <div
                 aria-hidden
-                className="absolute inset-x-0 top-0 h-12 rounded-t-[28px] pointer-events-none"
+                className="absolute inset-x-0 top-0 h-12 rounded-t-3xl pointer-events-none"
                 style={{
                   background:
                     "linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 100%)",
@@ -424,7 +423,7 @@ export function POSImmersionSection() {
                   • Inset hairline + inner shadow at the glass / bezel
                     join — reads as recessed glass, not pasted color. */}
               <div
-                className="relative w-full rounded-[22px] overflow-hidden bg-night"
+                className="relative w-full rounded-2xl overflow-hidden bg-night"
                 style={{
                   height: "min(70vh, 640px)",
                   boxShadow:
@@ -441,7 +440,7 @@ export function POSImmersionSection() {
             The hint above the button is plain instruction, not marketing. */}
         <Reveal delay={0.2}>
           <div className="mt-8 md:mt-10 flex flex-col items-center gap-3">
-            <p className="text-[13px] text-ink-mute text-center max-w-[26rem]">
+            <p className="text-tiny text-ink-mute text-center max-w-[26rem]">
               {t("hint")}
             </p>
             <Button href="/start-free-trial" variant="primary" size="md">

@@ -21,8 +21,6 @@ import { DiscountTile } from "@/components/pricing/DiscountTile";
 import { Arrow } from "@/components/ui/Arrow";
 import { usePlans, type Plan } from "@/data/pricing";
 
-const APPLE_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
-
 export function PricingPreviewSection() {
   const PLANS = usePlans();
   const t = useTranslations("home.pricingPreview");
@@ -39,44 +37,42 @@ export function PricingPreviewSection() {
         className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[680px] -z-0"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(225,29,42,0.06), rgba(225,29,42,0) 70%)",
+            "radial-gradient(closest-side, color-mix(in srgb, var(--color-brand) 6%, transparent), transparent 70%)",
         }}
       />
 
-      <div className="relative mx-auto max-w-[1240px] px-6 lg:px-10 py-12 md:py-14 lg:py-16">
+      <div className="relative mx-auto max-w-shell px-6 lg:px-10 py-12 md:py-14 lg:py-16">
         <Reveal>
-          <div className="rounded-[16px] bg-paper ring-1 ring-hairline overflow-hidden">
+          <div className="rounded-2xl bg-paper ring-1 ring-hairline overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr_1fr]">
               {/* ── Column 1 — section header + cross-link ────────────── */}
               <div className="relative p-7 md:p-9 flex flex-col border-b lg:border-b-0 lg:border-r border-hairline">
-                <p className="text-[10.5px] font-medium uppercase tracking-[0.20em] text-ink-mute">
+                <p className="text-micro font-medium uppercase tracking-[0.20em] text-ink-mute">
                   {t("eyebrow")}
                 </p>
                 <h2
-                  className="mt-6 text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[-0.022em] leading-[1.04] text-ink"
+                  className="mt-6 text-h2 font-semibold tracking-[-0.022em] leading-[1.04] text-ink"
                   style={{ textWrap: "balance" }}
                 >
                   {t("titleLine1")}
                   <br />
                   <span className="text-ink-mute">{t("titleLine2")}</span>
                 </h2>
-                <p className="mt-5 text-[14px] leading-[1.55] text-ink-soft max-w-[24rem]">
+                <p className="mt-5 text-sm leading-[1.55] text-ink-soft max-w-[24rem]">
                   {t("subtitle")}
                 </p>
                 <div className="mt-auto pt-8 flex flex-wrap items-center gap-x-5 gap-y-2">
                   <Link
                     href="/pricing"
-                    className="inline-flex items-center text-[13.5px] font-medium text-ink hover:text-[#E11D2A] transition-colors duration-200"
-                    style={{ transitionTimingFunction: APPLE_EASE }}
+                    className="inline-flex items-center text-[13.5px] font-medium text-ink hover:text-brand transition-colors duration-200 ease-brand"
                   >
                     {t("compareCta")}
                     <Arrow
                       size={13}
-                      className="ml-1.5 transition-transform duration-300"
-                      style={{ transitionTimingFunction: APPLE_EASE }}
+                      className="ml-1.5 transition-transform duration-300 ease-brand"
                     />
                   </Link>
-                  <span className="text-[12px] text-ink-mute tabular-nums">
+                  <span className="text-mini text-ink-mute tabular-nums">
                     {t("compareHint")}
                   </span>
                 </div>
@@ -142,14 +138,14 @@ function PlanColumn({
       >
         {/* Header row — plan name + optional inline Popular tag */}
         <div className="flex items-center gap-2">
-          <p className="text-[10.5px] font-medium uppercase tracking-[0.20em] text-ink-mute">
+          <p className="text-micro font-medium uppercase tracking-[0.20em] text-ink-mute">
             {plan.name}
           </p>
           {isPro && (
             <span className="inline-flex items-center gap-1.5 h-[18px] px-2 rounded-full bg-canvas ring-1 ring-hairline text-ink text-[9.5px] font-medium uppercase tracking-[0.14em]">
               <span
                 aria-hidden
-                className="inline-block h-1 w-1 rounded-full bg-[#E11D2A]"
+                className="inline-block h-1 w-1 rounded-full bg-brand"
               />
               {labels.popular}
             </span>
@@ -157,7 +153,7 @@ function PlanColumn({
         </div>
 
         {/* Tagline */}
-        <h3 className="mt-3 text-[17px] md:text-[18px] font-semibold tracking-[-0.011em] leading-[1.2] text-ink">
+        <h3 className="mt-3 text-h3 font-semibold tracking-[-0.011em] leading-[1.2] text-ink">
           {plan.tagline}
         </h3>
 
@@ -240,18 +236,16 @@ function PlanColumn({
         {/* CTA */}
         <Link
           href={plan.ctaHref}
-          className={`group/cta mt-6 inline-flex items-center justify-center w-full h-10 rounded-[8px] text-[13.5px] font-medium transition-all duration-300 ${
+          className={`group/cta mt-6 inline-flex items-center justify-center w-full h-10 rounded-md text-[13.5px] font-medium transition-all duration-300 ease-brand ${
             isPro
-              ? "bg-[#E11D2A] text-white hover:bg-[#c8141f] shadow-[0_6px_16px_-10px_rgba(225,29,42,0.30)]"
+              ? "bg-brand text-white hover:bg-brand-hover shadow-[0_6px_16px_-10px_color-mix(in_srgb,var(--color-brand)_30%,transparent)]"
               : "bg-ink text-paper hover:bg-ink-soft"
           }`}
-          style={{ transitionTimingFunction: APPLE_EASE }}
         >
           {plan.ctaLabel}
           <Arrow
             size={13}
-            className="ml-1.5 transition-transform duration-300 group-hover/cta:translate-x-0.5"
-            style={{ transitionTimingFunction: APPLE_EASE }}
+            className="ml-1.5 transition-transform duration-300 ease-brand group-hover/cta:translate-x-0.5"
           />
         </Link>
       </div>

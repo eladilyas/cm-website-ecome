@@ -86,7 +86,7 @@ export function ProductStatusControl({
       : "h-7 px-2.5 text-[11.5px] ") +
     "inline-flex items-center gap-1.5 rounded-full font-medium tracking-tight " +
     "transition-[background-color,color,transform] duration-200 " +
-    "[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] " +
+    "ease-brand " +
     (active
       ? "bg-paper text-ink shadow-[0_1px_2px_rgba(0,0,0,0.04),0_0_0_0.5px_rgba(0,0,0,0.04)]"
       : "text-ink-mute hover:text-ink");

@@ -180,7 +180,7 @@ export function ActionMenu({
             scale: 0.97,
           }}
           transition={{ duration: 0.16, ease: APPLE_EASE }}
-          className="fixed z-[70] rounded-[10px] bg-night/95 backdrop-blur-md border border-white/12 shadow-[0_18px_48px_rgba(0,0,0,0.45)] overflow-hidden py-1 origin-top-right"
+          className="fixed z-[70] rounded-lg bg-night/95 backdrop-blur-md border border-white/12 shadow-[0_18px_48px_rgba(0,0,0,0.45)] overflow-hidden py-1 origin-top-right"
           style={{
             width,
             top: pos.placement === "below" ? pos.top : undefined,
@@ -234,7 +234,7 @@ export function ActionMenuItem({
     : danger
       ? "text-red-300 hover:bg-red-500/15 hover:text-red-200"
       : active
-        ? "text-[#E11D2A] hover:bg-[#E11D2A]/10"
+        ? "text-brand hover:bg-brand/10"
         : "text-paper hover:bg-white/[0.06]";
 
   const iconTone = disabled
@@ -242,7 +242,7 @@ export function ActionMenuItem({
     : danger
       ? "text-red-300"
       : active
-        ? "text-[#E11D2A]"
+        ? "text-brand"
         : "text-paper/65";
 
   return (

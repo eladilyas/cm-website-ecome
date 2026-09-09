@@ -107,7 +107,7 @@ export function TrustedByStrip() {
       // than two unrelated UI bands.
       className={`relative w-full border-t ${HERO_GLASS_SURFACE} ${HERO_GLASS_HAIRLINE}`}
     >
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-5 md:py-6">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 py-5 md:py-6">
         <div className="flex items-center gap-6 md:gap-10">
           <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-paper/55 whitespace-nowrap flex-shrink-0">
             {t("trustedBy")}

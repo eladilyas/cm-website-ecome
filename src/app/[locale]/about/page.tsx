@@ -45,7 +45,7 @@ export default async function AboutPage() {
       <SectionDivider scheme="light" />
 
       {/* Hero — copy left, product-in-use diptych right */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-28 md:pt-36 pb-16 md:pb-24">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 pt-28 md:pt-36 pb-16 md:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-14 items-center">
           <div>
             <Reveal>
@@ -55,7 +55,7 @@ export default async function AboutPage() {
             </Reveal>
             <Reveal delay={0.04}>
               <h1
-                className="text-[clamp(2.25rem,4.6vw,3.75rem)] font-semibold tracking-[-0.024em] leading-[1.02] text-ink max-w-[22ch]"
+                className="text-h1 font-semibold tracking-[-0.024em] leading-[1.02] text-ink max-w-[22ch]"
                 style={{ textWrap: "balance" }}
               >
                 {t("title")}
@@ -69,7 +69,7 @@ export default async function AboutPage() {
           </div>
           <Reveal delay={0.12}>
             <div className="relative grid grid-cols-2 gap-3 md:gap-4">
-              <div className="relative aspect-[3/4] rounded-[20px] overflow-hidden ring-1 ring-hairline translate-y-4">
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden ring-1 ring-hairline translate-y-4">
                 <Image
                   src="/media/about/pos-in-use.webp"
                   alt={t("heroPhotoAltPos")}
@@ -79,7 +79,7 @@ export default async function AboutPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="relative aspect-[3/4] rounded-[20px] overflow-hidden ring-1 ring-hairline -translate-y-4">
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden ring-1 ring-hairline -translate-y-4">
                 <Image
                   src="/media/about/app-in-hand.webp"
                   alt={t("heroPhotoAltApp")}
@@ -96,7 +96,7 @@ export default async function AboutPage() {
 
       {/* Story + timeline */}
       <section className="bg-paper border-y border-hairline">
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
           <div className="max-w-[44rem] mb-10 md:mb-14">
             <Reveal>
               <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-3">
@@ -104,7 +104,7 @@ export default async function AboutPage() {
               </p>
             </Reveal>
             <Reveal delay={0.04}>
-              <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
+              <h2 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
                 {t("storyTitle")}
               </h2>
             </Reveal>
@@ -136,7 +136,7 @@ export default async function AboutPage() {
       </section>
 
       {/* Vision */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-8 md:gap-14 items-start">
           <div>
             <Reveal>
@@ -146,7 +146,7 @@ export default async function AboutPage() {
             </Reveal>
             <Reveal delay={0.04}>
               <h2
-                className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink"
+                className="text-h2 font-semibold tracking-[-0.018em] leading-[1.08] text-ink"
                 style={{ textWrap: "balance" }}
               >
                 {t("visionTitle")}
@@ -176,7 +176,7 @@ export default async function AboutPage() {
 
       {/* Coverage */}
       <section className="bg-paper border-t border-hairline">
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
           <div className="max-w-[44rem] mb-10 md:mb-14">
             <Reveal>
               <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-3">
@@ -184,7 +184,7 @@ export default async function AboutPage() {
               </p>
             </Reveal>
             <Reveal delay={0.04}>
-              <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
+              <h2 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
                 {t("coverageTitle")}
               </h2>
             </Reveal>
@@ -212,7 +212,7 @@ export default async function AboutPage() {
       </section>
 
       {/* Partners */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
         <div className="max-w-[44rem] mb-10 md:mb-14">
           <Reveal>
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-3">
@@ -220,7 +220,7 @@ export default async function AboutPage() {
             </p>
           </Reveal>
           <Reveal delay={0.04}>
-            <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
+            <h2 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
               {t("partnersTitle")}
             </h2>
           </Reveal>
@@ -256,7 +256,7 @@ export default async function AboutPage() {
 
       {/* Reasons */}
       <section className="bg-paper border-t border-hairline">
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
           <div className="max-w-[44rem] mb-10 md:mb-14">
             <Reveal>
               <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-3">
@@ -264,7 +264,7 @@ export default async function AboutPage() {
               </p>
             </Reveal>
             <Reveal delay={0.04}>
-              <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
+              <h2 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
                 {t("reasonsTitle")}
               </h2>
             </Reveal>
@@ -287,7 +287,7 @@ export default async function AboutPage() {
       </section>
 
       {/* Closing CTA */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 py-20 md:py-28">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 py-20 md:py-28">
         <Reveal>
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-4">
             {t("ctaEyebrow")}
@@ -295,7 +295,7 @@ export default async function AboutPage() {
         </Reveal>
         <Reveal delay={0.04}>
           <h2
-            className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[24ch]"
+            className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[24ch]"
             style={{ textWrap: "balance" }}
           >
             {t("ctaTitle")}

@@ -93,9 +93,8 @@ function PlusIcon({ open }: { open: boolean }) {
       height="18"
       viewBox="0 0 18 18"
       fill="none"
-      className="transition-transform duration-300"
+      className="ease-brand transition-transform duration-300"
       style={{
-        transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
         transform: open ? "rotate(45deg)" : "rotate(0deg)",
       }}
     >

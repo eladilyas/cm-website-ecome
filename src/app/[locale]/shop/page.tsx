@@ -75,7 +75,7 @@ export default async function ShopPage({
             human contact over silent browsing. Mobile collapses to a
             single column with the sidebar sitting under the wordmark. ── */}
       <section data-scheme="light" className="relative overflow-hidden bg-canvas">
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-24 md:pt-28 pb-8 md:pb-10">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 pt-24 md:pt-28 pb-8 md:pb-10">
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 md:gap-10 items-end">
             <div>
               <Reveal>
@@ -85,7 +85,7 @@ export default async function ShopPage({
               </Reveal>
               <Reveal delay={0.04}>
                 <h1
-                  className="text-[clamp(2rem,4.4vw,3.5rem)] font-semibold tracking-[-0.022em] leading-[0.96] text-ink"
+                  className="text-h1 font-semibold tracking-[-0.022em] leading-[0.96] text-ink"
                 >
                   {t("title")}
                 </h1>
@@ -100,7 +100,7 @@ export default async function ShopPage({
                   <p>
                     <Link
                       href="/start-free-trial"
-                      className="inline-flex items-center gap-1 text-[#E11D2A] hover:opacity-80 transition-opacity"
+                      className="inline-flex items-center gap-1 text-brand hover:opacity-80 transition-opacity"
                     >
                       {t("talkSpecialist")}
                       <Arrow />
@@ -109,7 +109,7 @@ export default async function ShopPage({
                   <p>
                     <Link
                       href="/demo"
-                      className="inline-flex items-center gap-1 text-[#E11D2A] hover:opacity-80 transition-opacity"
+                      className="inline-flex items-center gap-1 text-brand hover:opacity-80 transition-opacity"
                     >
                       {t("seePlatform")}
                       <Arrow />
@@ -138,7 +138,7 @@ export default async function ShopPage({
           their parent's grouping when the parent is the active filter. */}
       <section data-scheme="light" className="bg-paper">
         <SectionDivider scheme="light" />
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-10 md:py-14">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-10 md:py-14">
           {category ? (
             <FlatCategoryView
               title={labelFor(category) || t("fallbackTitle")}
@@ -164,10 +164,10 @@ export default async function ShopPage({
       {/* ── Store difference (Apple-style benefits row) ────────────────── */}
       <section data-scheme="light" className="bg-canvas">
         <SectionDivider scheme="light" />
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-20 md:py-28">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-20 md:py-28">
           <Reveal>
             <h2
-              className="text-[clamp(1.75rem,3.6vw,2.5rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[26ch]"
+              className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[26ch]"
               style={{ textWrap: "balance" }}
             >
               {t("benefitsTitleA")}{" "}
@@ -189,10 +189,10 @@ export default async function ShopPage({
             />
             <BenefitCard
               icon={<SetupIcon />}
-              accent="text-[#E11D2A]"
+              accent="text-brand"
               title={
                 <>
-                  <span className="text-[#E11D2A]">{t("benefitSetupStrong")}</span>{" "}
+                  <span className="text-brand">{t("benefitSetupStrong")}</span>{" "}
                   {t("benefitSetupBody")}
                 </>
               }
@@ -227,9 +227,9 @@ export default async function ShopPage({
       {/* ── Footer pre-CTA strip ──────────────────────────────────────── */}
       <section data-scheme="dark" className="bg-night text-paper">
         <SectionDivider scheme="dark" />
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-20 md:py-28 text-center">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-20 md:py-28 text-center">
           <Reveal>
-            <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-semibold tracking-[-0.022em] leading-[1.05]">
+            <h2 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05]">
               {t("ctaTitle")}
             </h2>
           </Reveal>
@@ -386,7 +386,7 @@ function FlatCategoryView({
     <>
       <div className="flex items-baseline justify-between gap-4 flex-wrap mb-7">
         <Reveal>
-          <h2 className="text-[clamp(1.375rem,2.4vw,1.875rem)] font-semibold tracking-[-0.018em] leading-[1.1] text-ink">
+          <h2 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.1] text-ink">
             {title}
           </h2>
         </Reveal>
@@ -460,7 +460,7 @@ function GroupedCategoryView({
               <Reveal>
                 <h2
                   id={`grp-${top.slug}`}
-                  className="text-[clamp(1.375rem,2.4vw,1.875rem)] font-semibold tracking-[-0.018em] leading-[1.1] text-ink"
+                  className="text-h2 font-semibold tracking-[-0.018em] leading-[1.1] text-ink"
                 >
                   {labelFor(top.slug)}
                 </h2>

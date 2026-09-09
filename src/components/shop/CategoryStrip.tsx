@@ -176,7 +176,7 @@ export function CategoryStrip() {
                       ? "text-ink font-semibold"
                       : disabled
                         ? "text-ink-mute font-medium"
-                        : "text-ink font-medium group-hover:text-[#E11D2A]"
+                        : "text-ink font-medium group-hover:text-brand"
                   }`}
                 >
                   {item.label}
@@ -189,7 +189,7 @@ export function CategoryStrip() {
                 {isActive && (
                   <span
                     aria-hidden
-                    className="block mx-auto mt-1.5 h-[3px] w-6 rounded-full bg-[#E11D2A]"
+                    className="block mx-auto mt-1.5 h-[3px] w-6 rounded-full bg-brand"
                   />
                 )}
               </div>

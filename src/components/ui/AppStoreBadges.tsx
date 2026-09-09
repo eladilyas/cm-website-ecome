@@ -35,11 +35,7 @@ const PLAY_STORE_H = 380;
 const RESPONSIVE_SIZES = "(min-width: 768px) 162px, 140px";
 
 const BASE_LINK_CLASS =
-  "inline-flex transition-[opacity,transform] duration-300 hover:opacity-90 hover:-translate-y-[1px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas rounded-[9px]";
-
-const LINK_STYLE = {
-  transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
-} as const;
+  "ease-brand inline-flex transition-[opacity,transform] duration-300 hover:opacity-90 hover:-translate-y-[1px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas rounded-md";
 
 /** App Store badge — official PNG asset. */
 export function AppStoreBadge({ href, className = "" }: Props) {
@@ -48,7 +44,6 @@ export function AppStoreBadge({ href, className = "" }: Props) {
       href={href}
       aria-label="Download Caisse Manager on the App Store"
       className={`${BASE_LINK_CLASS} ${className}`}
-      style={LINK_STYLE}
     >
       <Image
         src="/badges/app-store.png"
@@ -70,7 +65,6 @@ export function GooglePlayBadge({ href, className = "" }: Props) {
       href={href}
       aria-label="Download Caisse Manager on Google Play"
       className={`${BASE_LINK_CLASS} ${className}`}
-      style={LINK_STYLE}
     >
       <Image
         src="/badges/google-play.webp"

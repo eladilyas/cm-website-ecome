@@ -62,7 +62,7 @@ export function AuthShell({
               <p className="text-[10.5px] uppercase tracking-[0.18em] text-ink-mute font-medium mb-2">
                 {eyebrow}
               </p>
-              <h1 className="text-[clamp(1.5rem,2.6vw,1.85rem)] font-semibold tracking-[-0.022em] leading-[1.12] text-ink text-balance">
+              <h1 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.12] text-ink text-balance">
                 {heading}
               </h1>
               {subheading && (
@@ -107,7 +107,7 @@ function BrandPanel() {
       <div
         aria-hidden
         className="absolute -bottom-32 -left-32 w-[480px] h-[480px] rounded-full blur-3xl opacity-[0.18]"
-        style={{ background: "radial-gradient(closest-side, #E11D2A, transparent 70%)" }}
+        style={{ background: "radial-gradient(closest-side, var(--color-brand), transparent 70%)" }}
       />
       {/* Subtle vignette top-right */}
       <div
@@ -126,7 +126,7 @@ function BrandPanel() {
         <p className="text-[11px] uppercase tracking-[0.18em] text-paper/55 font-medium mb-5">
           {t("eyebrow")}
         </p>
-        <p className="text-[clamp(1.65rem,2.6vw,2.1rem)] font-semibold tracking-[-0.022em] leading-[1.18] text-paper">
+        <p className="text-h2 font-semibold tracking-[-0.022em] leading-[1.18] text-paper">
           {t("heading")}
         </p>
         <p className="mt-5 text-[14px] text-paper/70 leading-[1.6]">

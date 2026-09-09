@@ -67,7 +67,7 @@ export function HeroSection() {
       />
 
       {/* ── Content ────────────────────────────────────────────────── */}
-      <div className="relative z-10 mx-auto w-full max-w-[1280px] px-6 lg:px-10 flex-1 flex flex-col items-center justify-center min-h-0">
+      <div className="relative z-10 mx-auto w-full max-w-shell px-6 lg:px-10 flex-1 flex flex-col items-center justify-center min-h-0">
         <Reveal>
           <h1
             // Font-size + width tuned to absorb both the short EN
@@ -75,7 +75,7 @@ export function HeroSection() {
             // AND the slightly longer FR equivalent ("L'IA au service
             // de votre croissance", 36 chars) without either locale
             // wrapping to more than two lines.
-            className="text-[clamp(2rem,4.8vw,3.75rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-center max-w-[22ch] mx-auto"
+            className="text-display font-semibold tracking-[-0.022em] leading-[1.05] text-center max-w-[22ch] mx-auto"
             style={{ textWrap: "balance" }}
           >
             <span className="ai-gradient-text">{t("headline")}</span>
@@ -83,7 +83,7 @@ export function HeroSection() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p className="mt-5 text-[14px] md:text-[15.5px] leading-[1.55] text-paper/80 max-w-[36rem] text-center mx-auto">
+          <p className="mt-5 text-sm md:text-[15.5px] leading-[1.55] text-paper/80 max-w-[36rem] text-center mx-auto">
             {t("subhead")}
           </p>
         </Reveal>

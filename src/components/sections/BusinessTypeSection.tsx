@@ -33,7 +33,7 @@ export function BusinessTypeSection() {
       className="relative overflow-hidden bg-canvas hidden lg:block"
     >
       <SectionDivider scheme="light" />
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-24 md:py-32">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 py-24 md:py-32">
         <div className="text-center max-w-[44rem] mx-auto">
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-ink-mute mb-5">
@@ -42,14 +42,14 @@ export function BusinessTypeSection() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2
-              className="text-[clamp(2rem,4.6vw,3.25rem)] font-semibold tracking-[-0.022em] leading-[1.02] text-ink"
+              className="text-h2 font-semibold tracking-[-0.022em] leading-[1.02] text-ink"
               style={{ textWrap: "balance" }}
             >
               Pick the counter you run.
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="mt-6 text-[17px] md:text-[19px] leading-[1.5] text-ink-soft max-w-[36rem] mx-auto">
+            <p className="mt-6 text-base md:text-lg leading-[1.5] text-ink-soft max-w-[36rem] mx-auto">
               The same Caisse Manager flows, tuned to how you actually serve.
               Tap a counter to drop into a live simulator — no signup, no
               limits, switch businesses any time.
@@ -71,7 +71,7 @@ export function BusinessTypeSection() {
         </div>
 
         <Reveal delay={0.36}>
-          <p className="mt-10 text-center text-[13px] text-ink-mute">
+          <p className="mt-10 text-center text-tiny text-ink-mute">
             No signup needed — this is exploration, not the trial.
           </p>
         </Reveal>
@@ -110,11 +110,10 @@ function BusinessTypeCard({
       {/* Soft brand-red wash on hover */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-brand"
         style={{
           background:
-            "radial-gradient(60% 50% at 50% 50%, rgba(225,29,42,0.06) 0%, rgba(225,29,42,0) 70%)",
-          transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+            "radial-gradient(60% 50% at 50% 50%, color-mix(in srgb, var(--color-brand) 6%, transparent) 0%, transparent 70%)",
         }}
       />
 
@@ -123,21 +122,20 @@ function BusinessTypeCard({
           <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-ink-mute">
             {num}
           </span>
-          <span className="inline-flex items-center gap-1.5 text-[11px] text-ink-mute group-hover:text-[#E11D2A] transition-colors duration-300">
+          <span className="inline-flex items-center gap-1.5 text-[11px] text-ink-mute group-hover:text-brand transition-colors duration-300">
             Open
             <Arrow
               size={12}
               strokeWidth={1.4}
-              className="transition-transform duration-300 group-hover:translate-x-0.5"
-              style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}
+              className="transition-transform duration-300 ease-brand group-hover:translate-x-0.5"
             />
           </span>
         </div>
 
-        <h3 className="mt-5 text-[20px] md:text-[22px] font-semibold tracking-[-0.022em] leading-[1.1] text-ink">
+        <h3 className="mt-5 text-h3 font-semibold tracking-[-0.022em] leading-[1.1] text-ink">
           {name}
         </h3>
-        <p className="mt-2 text-[14px] leading-[1.45] text-ink-soft">
+        <p className="mt-2 text-sm leading-[1.45] text-ink-soft">
           {tagline}
         </p>
       </div>

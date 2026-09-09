@@ -138,8 +138,8 @@ export function KitchenView() {
           </p>
         </div>
         {urgentCount > 0 && (
-          <span className="inline-flex items-center gap-1.5 h-7 px-2.5 rounded-full bg-[#E11D2A]/10 text-[#E11D2A] ring-1 ring-[#E11D2A]/20 text-[11px] font-medium tracking-[0.04em]">
-            <span className="inline-flex w-1.5 h-1.5 rounded-full bg-[#E11D2A]" />
+          <span className="inline-flex items-center gap-1.5 h-7 px-2.5 rounded-full bg-brand/10 text-brand ring-1 ring-brand/20 text-[11px] font-medium tracking-[0.04em]">
+            <span className="inline-flex w-1.5 h-1.5 rounded-full bg-brand" />
             {tKv("urgentBadge", { count: urgentCount })}
           </span>
         )}
@@ -231,7 +231,7 @@ function StageColumn({
           redundant. */}
       <div className="flex-1 min-h-0 overflow-y-auto px-1 pb-2 min-w-0">
         {count === 0 ? (
-          <div className="rounded-[8px] border border-dashed border-hairline px-2 py-4 text-center">
+          <div className="rounded-md border border-dashed border-hairline px-2 py-4 text-center">
             <p className="text-[11px] text-ink-mute">—</p>
           </div>
         ) : (
@@ -285,9 +285,9 @@ function TicketCard({
   return (
     <article
       className={
-        "relative rounded-[10px] bg-paper border overflow-hidden " +
+        "relative rounded-lg bg-paper border overflow-hidden " +
         (isUrgent && !voided
-          ? "border-[#E11D2A]/30 shadow-[0_8px_24px_-12px_rgba(225,29,42,0.25),0_1px_2px_rgba(0,0,0,0.03)]"
+          ? "border-brand/30 shadow-[0_8px_24px_-12px_color-mix(in_srgb,var(--color-brand)_25%,transparent),0_1px_2px_rgba(0,0,0,0.03)]"
           : "border-hairline shadow-[0_1px_2px_rgba(0,0,0,0.03)]") +
         (voided ? " opacity-55" : "")
       }
@@ -296,7 +296,7 @@ function TicketCard({
       {isUrgent && !voided && (
         <div
           aria-hidden
-          className="absolute inset-x-0 top-0 h-[2px] bg-[#E11D2A]"
+          className="absolute inset-x-0 top-0 h-[2px] bg-brand"
         />
       )}
 
@@ -319,7 +319,7 @@ function TicketCard({
           <div className="flex items-center gap-1 flex-wrap">
             {isUrgent && !voided && (
               <span
-                className="inline-flex items-center h-[14px] px-1 rounded-[3px] bg-[#E11D2A] text-white text-[8.5px] font-semibold uppercase tracking-[0.10em]"
+                className="inline-flex items-center h-[14px] px-1 rounded-sm bg-brand text-white text-[8.5px] font-semibold uppercase tracking-[0.10em]"
                 aria-label="Urgent order"
               >
                 Urgent
@@ -329,7 +329,7 @@ function TicketCard({
               {ticket.table}
             </p>
             {ticket.orderType && (
-              <span className="inline-flex items-center h-[14px] px-1 rounded-[3px] bg-fog text-ink-soft text-[8.5px] font-medium uppercase tracking-[0.10em]">
+              <span className="inline-flex items-center h-[14px] px-1 rounded-sm bg-fog text-ink-soft text-[8.5px] font-medium uppercase tracking-[0.10em]">
                 {orderTypeShortLabel(ticket.orderType)}
               </span>
             )}
@@ -342,7 +342,7 @@ function TicketCard({
           the line cook sees the order-wide context (VIP, allergy,
           deliver-asap) BEFORE scanning individual items. */}
       {ticket.orderComment && !voided && (
-        <div className="mx-2.5 mb-1.5 px-2 py-1 rounded-[4px] bg-amber-50 border border-amber-200">
+        <div className="mx-2.5 mb-1.5 px-2 py-1 rounded-sm bg-amber-50 border border-amber-200">
           <p className="text-[8.5px] font-semibold uppercase tracking-[0.12em] text-amber-700">
             Order note
           </p>
@@ -366,13 +366,13 @@ function TicketCard({
               <div
                 className={
                   "flex items-baseline gap-1.5 text-[11.5px] " +
-                  (it.urgent ? "text-[#E11D2A] font-medium" : "text-ink")
+                  (it.urgent ? "text-brand font-medium" : "text-ink")
                 }
               >
                 <span
                   className={
                     "tabular-nums shrink-0 w-4 font-medium " +
-                    (it.urgent ? "text-[#E11D2A]" : "text-ink-mute")
+                    (it.urgent ? "text-brand" : "text-ink-mute")
                   }
                 >
                   {it.qty}×
@@ -380,7 +380,7 @@ function TicketCard({
                 {it.urgent && (
                   <span
                     aria-hidden
-                    className="shrink-0 inline-flex items-center justify-center text-[#E11D2A]"
+                    className="shrink-0 inline-flex items-center justify-center text-brand"
                     title="Urgent — fire first"
                   >
                     <UrgentBoltGlyph />
@@ -402,7 +402,7 @@ function TicketCard({
           type="button"
           onClick={onClear}
           aria-label="Dismiss ticket"
-          className="h-7 w-7 rounded-[6px] border border-hairline text-ink-mute hover:text-ink hover:bg-fog flex items-center justify-center transition-colors"
+          className="h-7 w-7 rounded-sm border border-hairline text-ink-mute hover:text-ink hover:bg-fog flex items-center justify-center transition-colors"
         >
           <CloseIcon />
         </button>
@@ -410,7 +410,7 @@ function TicketCard({
           <button
             type="button"
             onClick={onClear}
-            className="h-7 px-2 text-[11px] font-medium rounded-[6px] border border-hairline-strong text-ink hover:bg-fog transition-colors inline-flex items-center justify-center truncate"
+            className="h-7 px-2 text-[11px] font-medium rounded-sm border border-hairline-strong text-ink hover:bg-fog transition-colors inline-flex items-center justify-center truncate"
           >
             Dismiss
           </button>
@@ -419,7 +419,7 @@ function TicketCard({
             type="button"
             onClick={isTerminal ? onClear : onAdvance}
             className={
-              "h-7 px-2 text-[11px] font-medium rounded-[6px] transition-colors inline-flex items-center justify-center gap-1 truncate " +
+              "h-7 px-2 text-[11px] font-medium rounded-sm transition-colors inline-flex items-center justify-center gap-1 truncate " +
               (isTerminal
                 ? "border border-hairline-strong text-ink hover:bg-fog"
                 : "bg-ink text-paper hover:bg-ink-soft")
@@ -452,7 +452,7 @@ function TimeBadge({ ticket, nowMs }: { ticket: KitchenTicket; nowMs: number }) 
 
   const tone =
     mins >= 20
-      ? "text-[#E11D2A]"
+      ? "text-brand"
       : mins >= 10
         ? "text-amber-700"
         : "text-ink-mute";

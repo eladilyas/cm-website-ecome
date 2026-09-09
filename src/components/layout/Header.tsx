@@ -354,13 +354,13 @@ export function Header({
         onMouseLeave={scheduleClose}
         onMouseEnter={cancelClose}
         className={[
+          "ease-brand",
           "fixed top-0 inset-x-0 z-50",
           "transition-[background-color,backdrop-filter,border-color,color] duration-500",
           "border-b",
           isImmersive ? immersive : isActive ? glassActive : glassRest,
           onDark ? "text-paper" : "text-ink",
         ].join(" ")}
-        style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}
       >
         {/* Top bar — at md+ the 3-column grid (1fr|auto|1fr) keeps the
             centre nav mathematically centred regardless of the
@@ -368,7 +368,7 @@ export function Header({
             md the centre column is hidden, so we drop to a simple
             flex `justify-between`: logo flush left, icon cluster
             flush right — no phantom middle column eating space. */}
-        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-10">
+        <div className="mx-auto max-w-shell px-4 sm:px-6 lg:px-10">
           <div className="flex md:grid md:grid-cols-[1fr_auto_1fr] items-center justify-between h-11 md:gap-x-4">
             <div className="flex md:justify-self-start">
               {/* `white` is bound to the immersive state — same condition
@@ -502,7 +502,7 @@ export function Header({
                 {cartCount > 0 && (
                   <span
                     aria-hidden
-                    className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 inline-flex items-center justify-center rounded-full bg-[#E11D2A] text-white text-[10px] font-semibold tabular-nums leading-none"
+                    className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 inline-flex items-center justify-center rounded-full bg-brand text-white text-[10px] font-semibold tabular-nums leading-none"
                   >
                     {cartCount > 99 ? "99+" : cartCount}
                   </span>
@@ -522,13 +522,9 @@ export function Header({
                     aria-haspopup="menu"
                     aria-expanded={accountMenuOpen}
                     aria-label={`Account menu · signed in as ${profile.fullName}`}
-                    className={`inline-flex h-11 w-11 items-center justify-center rounded-full text-[11px] font-semibold tracking-[0.02em] transition-colors duration-300 ${
+                    className={`ease-brand inline-flex h-11 w-11 items-center justify-center rounded-full text-[11px] font-semibold tracking-[0.02em] transition-colors duration-300 ${
                       accountMenuOpen ? accountChipOpen : accountChipRest
                     }`}
-                    style={{
-                      transitionTimingFunction:
-                        "cubic-bezier(0.32, 0.72, 0, 1)",
-                    }}
                   >
                     {getInitials(profile)}
                   </button>
@@ -642,7 +638,7 @@ export function Header({
               transition={{ duration: 0.45, ease: APPLE_EASE }}
               className="overflow-hidden"
             >
-              <div className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-4 pb-12 md:pb-16">
+              <div className="mx-auto max-w-shell px-6 lg:px-10 pt-4 pb-12 md:pb-16">
                 <motion.div
                   key={contentKey}
                   initial={{ opacity: 0, y: -4 }}

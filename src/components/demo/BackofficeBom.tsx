@@ -99,8 +99,7 @@ export function BackofficeBom() {
             setEditingFor(pickable[0]);
           }}
           disabled={pickable.length === 0}
-          className="h-9 px-4 inline-flex items-center gap-1.5 rounded-full bg-ink text-paper text-[12.5px] font-semibold enabled:hover:bg-ink-soft disabled:opacity-40 transition-colors shrink-0"
-          style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+          className="ease-brand h-9 px-4 inline-flex items-center gap-1.5 rounded-full bg-ink text-paper text-[12.5px] font-semibold enabled:hover:bg-ink-soft disabled:opacity-40 transition-colors shrink-0"
         >
           <PlusIcon /> New recipe
         </button>
@@ -192,7 +191,7 @@ function RecipeCard({
   if (maxBatches === Infinity) maxBatches = 0;
 
   return (
-    <article className="group rounded-[10px] border border-hairline bg-paper px-3.5 py-3 flex flex-col gap-2.5">
+    <article className="group rounded-lg border border-hairline bg-paper px-3.5 py-3 flex flex-col gap-2.5">
       <header className="flex items-baseline justify-between gap-2">
         <p className="text-[13px] font-semibold tracking-[-0.005em] text-ink truncate">
           {product.name}
@@ -250,16 +249,14 @@ function RecipeCard({
           <button
             type="button"
             onClick={onEdit}
-            className="h-7 px-2.5 text-[11.5px] font-medium rounded-full text-ink-soft hover:text-ink hover:bg-fog transition-colors"
-            style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+            className="ease-brand h-7 px-2.5 text-[11.5px] font-medium rounded-full text-ink-soft hover:text-ink hover:bg-fog transition-colors"
           >
             Edit
           </button>
           <button
             type="button"
             onClick={onDelete}
-            className="h-7 px-2.5 text-[11.5px] font-medium rounded-full text-red-600 hover:text-red-700 hover:bg-red-50 transition-colors"
-            style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+            className="ease-brand h-7 px-2.5 text-[11.5px] font-medium rounded-full text-red-600 hover:text-red-700 hover:bg-red-50 transition-colors"
           >
             Remove
           </button>
@@ -280,7 +277,7 @@ function EmptyState({
 }) {
   return (
     <div className="h-full flex flex-col items-center justify-center text-center px-8 py-10">
-      <div className="h-12 w-12 rounded-[12px] bg-paper border border-hairline inline-flex items-center justify-center mb-3 text-ink-mute">
+      <div className="h-12 w-12 rounded-lg bg-paper border border-hairline inline-flex items-center justify-center mb-3 text-ink-mute">
         <BomGlyph />
       </div>
       <h3 className="text-[15px] font-semibold tracking-[-0.005em] text-ink">
@@ -297,8 +294,7 @@ function EmptyState({
         type="button"
         onClick={onCreate}
         disabled={!canCreate}
-        className="mt-3.5 h-9 px-4 inline-flex items-center gap-1.5 rounded-full bg-ink text-paper text-[12.5px] font-semibold enabled:hover:bg-ink-soft disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
-        style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+        className="ease-brand mt-3.5 h-9 px-4 inline-flex items-center gap-1.5 rounded-full bg-ink text-paper text-[12.5px] font-semibold enabled:hover:bg-ink-soft disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
       >
         <PlusIcon /> New recipe
       </button>
@@ -368,8 +364,7 @@ function BomEditorSheet({
           <button
             type="button"
             onClick={onClose}
-            className="h-9 px-4 text-[13px] font-medium rounded-full border border-hairline-strong text-ink hover:bg-fog transition-colors"
-            style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+            className="ease-brand h-9 px-4 text-[13px] font-medium rounded-full border border-hairline-strong text-ink hover:bg-fog transition-colors"
           >
             Cancel
           </button>
@@ -377,8 +372,7 @@ function BomEditorSheet({
             type="button"
             onClick={() => onSave(pickedId, rows.filter((r) => r.qty > 0 && r.componentId))}
             disabled={!canSave}
-            className="h-9 px-4 text-[13px] font-semibold rounded-full bg-ink text-paper enabled:hover:bg-ink-soft disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
-            style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+            className="ease-brand h-9 px-4 text-[13px] font-semibold rounded-full bg-ink text-paper enabled:hover:bg-ink-soft disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             Save recipe
           </button>
@@ -484,8 +478,7 @@ function BomEditorSheet({
               ]);
             }}
             disabled={componentChoices.length === 0}
-            className="h-8 px-3 inline-flex items-center gap-1 rounded-full border border-hairline text-ink-soft hover:text-ink hover:bg-fog text-[11.5px] font-medium disabled:opacity-40 transition-colors"
-            style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+            className="ease-brand h-8 px-3 inline-flex items-center gap-1 rounded-full border border-hairline text-ink-soft hover:text-ink hover:bg-fog text-[11.5px] font-medium disabled:opacity-40 transition-colors"
           >
             <PlusIcon /> Add component
           </button>

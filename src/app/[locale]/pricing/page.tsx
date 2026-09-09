@@ -120,14 +120,14 @@ export default async function PricingPage() {
 
       {/* ── PLANS — editorial header column + Pro + Enterprise ────── */}
       <section data-scheme="light" className="relative bg-canvas">
-        <div className="relative mx-auto max-w-[1280px] px-6 lg:px-10 pb-14 md:pb-20">
+        <div className="relative mx-auto max-w-shell px-6 lg:px-10 pb-14 md:pb-20">
           <PricingPlansSection reassureText={t("plansReassure")} />
         </div>
       </section>
 
       {/* ── MODULES COMPLÉMENTAIRES — five à-la-carte add-on cards ─── */}
       <section data-scheme="light" className="bg-canvas">
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 pb-20 md:pb-28">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 pb-20 md:pb-28">
           <ModulesGrid />
         </div>
       </section>
@@ -135,7 +135,7 @@ export default async function PricingPage() {
       {/* ── TRUST STRIP ────────────────────────────────────────────────── */}
       <section data-scheme="light" className="bg-paper">
         <SectionDivider scheme="light" />
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-20 md:py-24">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-20 md:py-24">
           <div className="max-w-[42rem] mb-10 md:mb-14">
             <Reveal>
               <p className="text-[11px] font-medium uppercase tracking-[0.20em] text-ink-mute mb-3">
@@ -144,7 +144,7 @@ export default async function PricingPage() {
             </Reveal>
             <Reveal delay={0.04}>
               <h2
-                className="text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[-0.018em] leading-[1.1] text-ink"
+                className="text-h2 font-semibold tracking-[-0.018em] leading-[1.1] text-ink"
                 style={{ textWrap: "balance" }}
               >
                 {t("whyTitle")}
@@ -160,7 +160,7 @@ export default async function PricingPage() {
       {/* ── COMPARISON MATRIX ──────────────────────────────────────────── */}
       <section data-scheme="light" className="bg-canvas">
         <SectionDivider scheme="light" />
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-20 md:py-28">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-20 md:py-28">
           <div className="max-w-[40rem] mb-10 md:mb-14">
             <Reveal>
               <p className="text-[11px] font-medium uppercase tracking-[0.20em] text-ink-mute mb-3">
@@ -169,7 +169,7 @@ export default async function PricingPage() {
             </Reveal>
             <Reveal delay={0.04}>
               <h2
-                className="text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[-0.018em] leading-[1.1] text-ink"
+                className="text-h2 font-semibold tracking-[-0.018em] leading-[1.1] text-ink"
                 style={{ textWrap: "balance" }}
               >
                 {t("compareTitle")}
@@ -190,7 +190,7 @@ export default async function PricingPage() {
       {/* ── HARDWARE CALLOUT ───────────────────────────────────────────── */}
       <section data-scheme="light" className="bg-paper">
         <SectionDivider scheme="light" />
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-20 md:py-28">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-20 md:py-28">
           <Reveal>
             <HardwareCallout />
           </Reveal>
@@ -200,7 +200,7 @@ export default async function PricingPage() {
       {/* ── FAQ ────────────────────────────────────────────────────────── */}
       <section data-scheme="light" className="bg-canvas">
         <SectionDivider scheme="light" />
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-20 md:py-28">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-20 md:py-28">
           <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10 md:gap-14">
             <div>
               <Reveal>
@@ -210,7 +210,7 @@ export default async function PricingPage() {
               </Reveal>
               <Reveal delay={0.04}>
                 <h2
-                  className="text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[-0.018em] leading-[1.1] text-ink max-w-[14ch]"
+                  className="text-h2 font-semibold tracking-[-0.018em] leading-[1.1] text-ink max-w-[14ch]"
                   style={{ textWrap: "balance" }}
                 >
                   {t("faqTitle")}
@@ -236,18 +236,10 @@ export default async function PricingPage() {
 
       {/* ── FINAL CTA ──────────────────────────────────────────────────── */}
       <section data-scheme="dark" className="relative bg-night text-paper overflow-hidden">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 h-[60%]"
-          style={{
-            background:
-              "radial-gradient(50% 100% at 50% 0%, rgba(225,29,42,0.18) 0%, rgba(225,29,42,0.05) 45%, rgba(225,29,42,0) 78%)",
-          }}
-        />
         <SectionDivider scheme="dark" />
-        <div className="relative mx-auto max-w-[1280px] px-6 lg:px-10 py-24 md:py-32 text-center">
+        <div className="relative mx-auto max-w-shell px-6 lg:px-10 py-24 md:py-32 text-center">
           <Reveal>
-            <h2 className="text-[clamp(1.75rem,3.2vw,2.5rem)] font-semibold tracking-[-0.02em] leading-[1.08]">
+            <h2 className="text-h2 font-semibold tracking-[-0.02em] leading-[1.08]">
               {t("finalTitle")}
             </h2>
           </Reveal>
@@ -264,7 +256,6 @@ export default async function PricingPage() {
               <Link
                 href="/demo"
                 className="h-11 px-6 inline-flex items-center text-[14px] font-medium rounded-full border border-paper/20 text-paper/85 hover:bg-white/[0.06] hover:text-paper transition-colors"
-                style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
               >
                 {t("finalSecondaryCta")}
               </Link>

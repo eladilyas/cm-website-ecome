@@ -181,7 +181,7 @@ function Tab({
           {badge !== undefined && badge > 0 && (
             <span
               aria-hidden
-              className="absolute -top-1 -right-1.5 min-w-[16px] h-4 px-1 inline-flex items-center justify-center rounded-full bg-[#E11D2A] text-white text-[9px] font-semibold tabular-nums leading-none"
+              className="absolute -top-1 -right-1.5 min-w-[16px] h-4 px-1 inline-flex items-center justify-center rounded-full bg-brand text-white text-[9px] font-semibold tabular-nums leading-none"
             >
               {badge > 99 ? "99+" : badge}
             </span>

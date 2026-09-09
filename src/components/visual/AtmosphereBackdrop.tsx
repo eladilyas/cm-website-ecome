@@ -107,7 +107,7 @@ export function AtmosphereBackdrop() {
         className="pointer-events-none absolute inset-0"
         style={{
           background: [
-            "radial-gradient(70% 60% at 8% 100%, rgba(225,29,42,0.11) 0%, rgba(225,29,42,0) 55%)",
+            "radial-gradient(70% 60% at 8% 100%, color-mix(in srgb, var(--color-brand) 11%, transparent) 0%, transparent 55%)",
             "radial-gradient(60% 70% at 95% 5%, rgba(80,110,160,0.09) 0%, rgba(80,110,160,0) 60%)",
             "radial-gradient(120% 100% at 50% -10%, rgba(45,55,75,0.32) 0%, rgba(10,11,13,0) 60%)",
           ].join(", "),

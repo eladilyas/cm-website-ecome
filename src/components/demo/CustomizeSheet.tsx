@@ -306,7 +306,7 @@ export function CustomizeSheet({
               type="button"
               onClick={confirm}
               disabled={!canConfirm}
-              className="h-10 px-4 text-[13px] font-medium rounded-lg bg-[#E11D2A] text-white enabled:hover:bg-[#c8141f] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="h-10 px-4 text-[13px] font-medium rounded-lg bg-brand text-white enabled:hover:bg-brand-hover disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               {t("addToOrder")}
             </button>
@@ -429,7 +429,7 @@ function PickerSection({
               : t("pickUpToAny")}
         </p>
       </div>
-      <ul className="rounded-[10px] border border-white/[0.08] divide-y divide-white/[0.04] overflow-hidden">
+      <ul className="rounded-lg border border-white/[0.08] divide-y divide-white/[0.04] overflow-hidden">
         {children}
       </ul>
     </section>
@@ -470,8 +470,8 @@ function PickerRow({
         className={
           "h-4 w-4 " +
           (kind === "radio"
-            ? "rounded-full accent-[#E11D2A]"
-            : "rounded accent-[#E11D2A]")
+            ? "rounded-full accent-brand"
+            : "rounded accent-brand")
         }
       />
       <span className="flex-1 text-[13px] text-paper">{label}</span>

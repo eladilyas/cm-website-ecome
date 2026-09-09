@@ -62,7 +62,7 @@ export function EcommerceCard({ onClose, scheme }: Props) {
       <div>
         <p className={`text-[12px] mb-3 ${eyebrowClass}`}>{t("trialEyebrow")}</p>
         <h3
-          className={`text-[clamp(1.75rem,3vw,2.25rem)] font-semibold tracking-tight leading-[1.1] ${titleClass}`}
+          className={`text-h2 font-semibold tracking-tight leading-[1.1] ${titleClass}`}
         >
           {t("trialHeadingLine1")}
           <br />

@@ -145,7 +145,7 @@ export function IndustriesSection() {
       <SectionDivider scheme="light" />
 
       {/* Header */}
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-10 pt-24 md:pt-32 pb-10 md:pb-14 text-center">
+      <div className="mx-auto max-w-shell-wide px-6 lg:px-10 pt-24 md:pt-32 pb-10 md:pb-14 text-center">
         <Reveal>
           <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-ink-mute mb-4">
             {t("eyebrow")}
@@ -153,14 +153,14 @@ export function IndustriesSection() {
         </Reveal>
         <Reveal delay={0.05}>
           <h2
-            className="text-[clamp(1.875rem,4vw,3rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink"
+            className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-ink"
             style={{ textWrap: "balance" }}
           >
             {t("title")}
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="mt-5 text-[16px] md:text-[17px] leading-[1.55] text-ink-soft max-w-[34rem] mx-auto">
+          <p className="mt-5 text-[16px] md:text-base leading-[1.55] text-ink-soft max-w-[34rem] mx-auto">
             {t("subtitle")}
           </p>
         </Reveal>
@@ -242,7 +242,7 @@ function IndustryCard({ tile }: { tile: IndustryTile }) {
         </p>
         <h3
           className={
-            "text-[clamp(1.4rem,1.8vw,1.85rem)] font-bold tracking-[-0.025em] leading-[1.05] " +
+            "text-h3 font-bold tracking-[-0.025em] leading-[1.05] " +
             (isDark ? "text-paper" : "text-ink")
           }
         >
@@ -250,7 +250,7 @@ function IndustryCard({ tile }: { tile: IndustryTile }) {
         </h3>
         <p
           className={
-            "mt-2 text-[12px] md:text-[13px] leading-[1.4] " +
+            "mt-2 text-mini md:text-tiny leading-[1.4] " +
             (isDark ? "text-paper/60" : "text-ink-soft")
           }
         >

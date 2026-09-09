@@ -31,7 +31,7 @@ export function IdentifierPicker() {
   };
 
   return (
-    <section className="mx-auto max-w-[1280px] px-6 lg:px-10 py-10 md:py-14">
+    <section className="mx-auto max-w-shell px-6 lg:px-10 py-10 md:py-14">
       <div className="flex items-baseline justify-between gap-4 flex-wrap">
         <div>
           <Reveal>
@@ -40,7 +40,7 @@ export function IdentifierPicker() {
             </p>
           </Reveal>
           <Reveal delay={0.04}>
-            <h1 className="text-[clamp(1.75rem,4vw,2.5rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-paper">
+            <h1 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-paper">
               {isDineIn
                 ? "Pick a table to start the order."
                 : "Enter the beeper number to start the order."}
@@ -93,7 +93,7 @@ export function IdentifierPicker() {
                 setTyped("");
                 setStage("order-type");
               }}
-              className="h-11 px-5 text-[14px] rounded-[10px] border border-white/10 text-paper/85 hover:text-paper hover:bg-white/[0.04] transition-colors"
+              className="h-11 px-5 text-[14px] rounded-lg border border-white/10 text-paper/85 hover:text-paper hover:bg-white/[0.04] transition-colors"
             >
               Cancel
             </button>
@@ -101,7 +101,7 @@ export function IdentifierPicker() {
               type="button"
               onClick={confirm}
               disabled={typed.length === 0}
-              className="h-11 px-6 text-[14px] font-medium rounded-[10px] bg-[#E11D2A] text-white disabled:opacity-40 disabled:cursor-not-allowed enabled:hover:bg-[#c8141f] transition-colors flex-1 sm:flex-initial"
+              className="h-11 px-6 text-[14px] font-medium rounded-lg bg-brand text-white disabled:opacity-40 disabled:cursor-not-allowed enabled:hover:bg-brand-hover transition-colors flex-1 sm:flex-initial"
             >
               Confirm
             </button>
@@ -131,12 +131,11 @@ function TableGrid({
             key={n}
             type="button"
             onClick={() => onPick(n)}
-            className={`relative h-20 md:h-24 rounded-[10px] border transition-all duration-200 active:scale-[0.97] ${
+            className={`ease-brand relative h-20 md:h-24 rounded-lg border transition-all duration-200 active:scale-[0.97] ${
               isSelected
-                ? "border-[#E11D2A] bg-[#E11D2A]/10 shadow-[0_0_0_3px_rgba(225,29,42,0.18)]"
+                ? "border-brand bg-brand/10 shadow-[0_0_0_3px_color-mix(in_srgb,var(--color-brand)_18%,transparent)]"
                 : "border-white/8 bg-white/[0.03] hover:bg-white/[0.06] hover:border-white/15"
             }`}
-            style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
           >
             <span className="block text-[12px] uppercase tracking-[0.12em] text-paper/55 mb-1">
               Table

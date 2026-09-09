@@ -71,7 +71,7 @@ function Confirmation({
           <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-emerald-700 mb-3">
             {t("paidEyebrow")}
           </p>
-          <h1 className="text-[clamp(1.75rem,3.6vw,2.5rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink">
+          <h1 className="text-h1 font-semibold tracking-[-0.022em] leading-[1.05] text-ink">
             {titleLine1}
             <br />
             {titleLine2}
@@ -128,7 +128,7 @@ function WireConfirmation({
           <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-amber-700 mb-3">
             {t("wireEyebrow")}
           </p>
-          <h1 className="text-[clamp(1.75rem,3.6vw,2.5rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink">
+          <h1 className="text-h1 font-semibold tracking-[-0.022em] leading-[1.05] text-ink">
             {titleLine1}
             <br />
             {titleLine2}

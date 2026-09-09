@@ -46,7 +46,7 @@ export function IntegrationsSection() {
       className="relative overflow-hidden text-paper scroll-mt-24 bg-black"
     >
       <SectionDivider scheme="dark" />
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-28 md:py-40">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 py-28 md:py-40">
         <div className="grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-x-12 lg:gap-x-20 gap-y-14 md:gap-y-0 items-center">
           {/* ── LEFT: editorial title plate ─────────────────────────── */}
           <div className="max-w-[28rem]">
@@ -58,7 +58,7 @@ export function IntegrationsSection() {
 
             <Reveal delay={0.05}>
               <h2
-                className="text-[clamp(2rem,4.2vw,3.25rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-paper max-w-[20ch]"
+                className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-paper max-w-[20ch]"
                 style={{ textWrap: "balance" }}
               >
                 {t("headline")}
@@ -66,13 +66,13 @@ export function IntegrationsSection() {
             </Reveal>
 
             <Reveal delay={0.12}>
-              <p className="mt-7 text-[17px] md:text-[19px] leading-[1.5] text-paper/75 max-w-[27rem]">
+              <p className="mt-7 text-base md:text-lg leading-[1.5] text-paper/75 max-w-[27rem]">
                 {t("subtitle")}
               </p>
             </Reveal>
 
             <Reveal delay={0.16}>
-              <p className="mt-3 text-[13px] md:text-[14px] leading-[1.5] text-paper/50 max-w-[24rem]">
+              <p className="mt-3 text-tiny md:text-sm leading-[1.5] text-paper/50 max-w-[24rem]">
                 {t("whisper")}
               </p>
             </Reveal>

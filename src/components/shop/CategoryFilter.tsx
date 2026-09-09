@@ -67,12 +67,11 @@ export function CategoryFilter() {
             role="tab"
             aria-selected={isActive}
             onClick={() => set(c.id)}
-            className={`shrink-0 h-9 px-4 text-[13px] font-medium rounded-full border transition-colors duration-200 ${
+            className={`ease-brand shrink-0 h-9 px-4 text-[13px] font-medium rounded-full border transition-colors duration-200 ${
               isActive
                 ? "border-ink bg-ink text-paper"
                 : "border-hairline bg-paper text-ink-soft hover:bg-canvas hover:text-ink"
             }`}
-            style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
           >
             {c.label}
           </button>

@@ -227,14 +227,14 @@ export function PaymentSheet() {
                           onClick={() => setPaymentMethod(m.id)}
                           className={`relative w-full text-left px-3 h-11 rounded-lg text-[14px] flex items-center transition-colors ${
                             active
-                              ? "bg-[#E11D2A]/12 text-paper"
+                              ? "bg-brand/12 text-paper"
                               : "text-paper/80 hover:bg-white/[0.04] hover:text-paper"
                           }`}
                         >
                           {active && (
                             <span
                               aria-hidden
-                              className="absolute left-0 top-1.5 bottom-1.5 w-[3px] rounded-r bg-[#E11D2A]"
+                              className="absolute left-0 top-1.5 bottom-1.5 w-[3px] rounded-r bg-brand"
                             />
                           )}
                           {m.label}
@@ -289,7 +289,7 @@ export function PaymentSheet() {
                           key={n}
                           type="button"
                           onClick={() => setTendered(share)}
-                          className="group inline-flex flex-col items-center justify-center h-12 px-3 rounded-[8px] border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] hover:border-white/20 transition-colors min-w-[68px]"
+                          className="group inline-flex flex-col items-center justify-center h-12 px-3 rounded-md border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] hover:border-white/20 transition-colors min-w-[68px]"
                           title={`Each share: ${share.toFixed(2)} MAD`}
                         >
                           <span className="text-[11px] uppercase tracking-[0.10em] text-paper/55 group-hover:text-paper/75 transition-colors">
@@ -307,7 +307,7 @@ export function PaymentSheet() {
 
               {/* Pending splits — list with remove */}
               {splits.length > 0 && (
-                <div className="mt-5 rounded-[10px] border border-white/[0.08] bg-white/[0.02] overflow-hidden">
+                <div className="mt-5 rounded-lg border border-white/[0.08] bg-white/[0.02] overflow-hidden">
                   <p className="px-4 pt-3 pb-2 text-[10px] uppercase tracking-[0.14em] text-paper/45">
                     Splits
                   </p>
@@ -340,7 +340,7 @@ export function PaymentSheet() {
               )}
 
               {remaining === 0 ? (
-                <div className="mt-6 rounded-[10px] border border-emerald-400/25 bg-emerald-400/[0.05] p-5 text-center">
+                <div className="mt-6 rounded-lg border border-emerald-400/25 bg-emerald-400/[0.05] p-5 text-center">
                   <p className="text-[14px] text-emerald-200">
                     Splits cover the order. Click Complete to finalize.
                   </p>
@@ -348,7 +348,7 @@ export function PaymentSheet() {
               ) : isCash ? (
                 <>
                   <div className="mt-6 grid grid-cols-2 gap-3">
-                    <div className="rounded-[10px] border border-white/8 bg-white/[0.03] p-3">
+                    <div className="rounded-lg border border-white/8 bg-white/[0.03] p-3">
                       <p className="text-[10px] uppercase tracking-[0.14em] text-paper/45">
                         Tendered
                       </p>
@@ -356,7 +356,7 @@ export function PaymentSheet() {
                         {tendered.toFixed(2)}
                       </p>
                     </div>
-                    <div className="rounded-[10px] border border-white/8 bg-white/[0.03] p-3">
+                    <div className="rounded-lg border border-white/8 bg-white/[0.03] p-3">
                       <p className="text-[10px] uppercase tracking-[0.14em] text-paper/45">
                         Change
                       </p>
@@ -419,7 +419,7 @@ export function PaymentSheet() {
                     />
                   </div>
                   {cardValid ? (
-                    <div className="rounded-[10px] border border-emerald-400/25 bg-emerald-400/[0.05] p-4 text-center">
+                    <div className="rounded-lg border border-emerald-400/25 bg-emerald-400/[0.05] p-4 text-center">
                       <p className="text-[10px] uppercase tracking-[0.14em] text-emerald-300/85 mb-1">
                         Balance
                       </p>
@@ -446,7 +446,7 @@ export function PaymentSheet() {
                   )}
                 </div>
               ) : (
-                <div className="mt-6 rounded-[10px] border border-white/8 bg-white/[0.03] p-5 text-center">
+                <div className="mt-6 rounded-lg border border-white/8 bg-white/[0.03] p-5 text-center">
                   <p className="text-[14px] text-paper/85">
                     Charge {remaining.toFixed(2)} MAD via{" "}
                     <span className="font-semibold text-paper">
@@ -472,7 +472,7 @@ export function PaymentSheet() {
                 <button
                   type="button"
                   onClick={() => setStage("workspace")}
-                  className="h-12 px-4 text-[14px] rounded-[10px] border border-white/10 text-paper/85 hover:bg-white/[0.04] hover:text-paper transition-colors"
+                  className="h-12 px-4 text-[14px] rounded-lg border border-white/10 text-paper/85 hover:bg-white/[0.04] hover:text-paper transition-colors"
                 >
                   Cancel
                 </button>
@@ -480,7 +480,7 @@ export function PaymentSheet() {
                   <button
                     type="button"
                     onClick={addSplit}
-                    className="h-12 text-[14px] font-medium rounded-[10px] border border-white/15 bg-white/[0.04] text-paper hover:bg-white/[0.08] transition-colors"
+                    className="h-12 text-[14px] font-medium rounded-lg border border-white/15 bg-white/[0.04] text-paper hover:bg-white/[0.08] transition-colors"
                   >
                     Add to splits
                   </button>
@@ -489,7 +489,7 @@ export function PaymentSheet() {
                   type="button"
                   onClick={finishPayment}
                   disabled={!canComplete}
-                  className="h-12 text-[14px] font-medium rounded-[10px] bg-[#E11D2A] text-white enabled:hover:bg-[#c8141f] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                  className="h-12 text-[14px] font-medium rounded-lg bg-brand text-white enabled:hover:bg-brand-hover disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                 >
                   Complete payment
                 </button>

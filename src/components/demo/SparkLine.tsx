@@ -67,10 +67,10 @@ export function SparkLine({
   const areaPath = `${linePath} L ${width} ${height} L 0 ${height} Z`;
 
   const stroke =
-    tone === "brand" ? "#E11D2A" : tone === "emerald" ? "#10b981" : "#1d1d1f";
+    tone === "brand" ? "var(--color-brand)" : tone === "emerald" ? "#10b981" : "#1d1d1f";
   const fill =
     tone === "brand"
-      ? "rgba(225,29,42,0.10)"
+      ? "color-mix(in srgb, var(--color-brand) 10%, transparent)"
       : tone === "emerald"
         ? "rgba(16,185,129,0.10)"
         : "rgba(29,29,31,0.08)";
@@ -83,8 +83,8 @@ export function SparkLine({
       aria-hidden
       className="block"
     >
-      <path d={areaPath} fill={fill} />
-      <path d={linePath} fill="none" stroke={stroke} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d={areaPath} style={{ fill }} />
+      <path d={linePath} fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ stroke }} />
     </svg>
   );
 }

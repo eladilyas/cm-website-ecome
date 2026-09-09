@@ -43,7 +43,7 @@ const HAIRLINE_GRADIENT =
   "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.10) 18%, rgba(255,255,255,0.16) 50%, rgba(255,255,255,0.10) 82%, rgba(255,255,255,0) 100%)";
 
 const ACCENT_GRADIENT =
-  "linear-gradient(90deg, rgba(225,29,42,0) 0%, rgba(225,29,42,0.35) 35%, rgba(225,29,42,0.55) 50%, rgba(225,29,42,0.35) 65%, rgba(225,29,42,0) 100%)";
+  "linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--color-brand) 35%, transparent) 35%, color-mix(in srgb, var(--color-brand) 55%, transparent) 50%, color-mix(in srgb, var(--color-brand) 35%, transparent) 65%, transparent 100%)";
 
 function Hairline() {
   return (
@@ -83,7 +83,7 @@ export function Footer() {
         style={{ background: ACCENT_GRADIENT }}
       />
 
-      <div className="relative mx-auto max-w-[1320px] px-6 lg:px-10">
+      <div className="relative mx-auto max-w-shell px-6 lg:px-10">
         {/* ── BAND 1 · Closing CTA ─────────────────────────────────
             A confident conversion push that sits at the top of the
             footer. Subtle dark surface, not a boxed banner. */}
@@ -93,26 +93,20 @@ export function Footer() {
               <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-paper/45">
                 {tCommon("getStarted")}
               </p>
-              <h3 className="mt-3 text-[clamp(1.75rem,3vw,2.5rem)] font-semibold tracking-[-0.018em] leading-[1.12] text-paper max-w-[28rem]">
+              <h3 className="mt-3 text-h2 font-semibold tracking-[-0.018em] leading-[1.12] text-paper max-w-[28rem]">
                 {t("tagline")}
               </h3>
             </div>
             <div className="flex flex-wrap items-center gap-2.5">
               <Link
                 href="/support#contact"
-                className="inline-flex items-center justify-center h-11 px-5 rounded-full bg-[#E11D2A] text-paper text-[13px] font-semibold hover:bg-[#cf1925] transition-colors"
-                style={{
-                  transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
-                }}
+                className="ease-brand inline-flex items-center justify-center h-11 px-5 rounded-full bg-brand text-paper text-[13px] font-semibold hover:bg-brand-hover transition-colors"
               >
                 {t("links.contact")}
               </Link>
               <Link
                 href="/demo"
-                className="inline-flex items-center gap-1.5 h-11 px-5 rounded-full bg-white/[0.06] text-paper text-[13px] font-semibold border border-white/[0.10] hover:bg-white/[0.10] transition-colors"
-                style={{
-                  transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
-                }}
+                className="ease-brand inline-flex items-center gap-1.5 h-11 px-5 rounded-full bg-white/[0.06] text-paper text-[13px] font-semibold border border-white/[0.10] hover:bg-white/[0.10] transition-colors"
               >
                 {t("links.demo")}
                 <span aria-hidden>→</span>
@@ -132,10 +126,10 @@ export function Footer() {
           <div className="lg:col-span-3">
             <Logo size={28} wordmark white />
             <Reveal>
-              <p className="mt-7 text-[clamp(1.05rem,1.4vw,1.25rem)] font-semibold tracking-[-0.012em] leading-[1.25] text-paper max-w-[20rem]">
+              <p className="mt-7 text-h3 font-semibold tracking-[-0.012em] leading-[1.25] text-paper max-w-[20rem]">
                 {t("brandLine1")}
               </p>
-              <p className="mt-2 text-[clamp(1.05rem,1.4vw,1.25rem)] font-normal tracking-[-0.008em] leading-[1.25] text-paper/55 max-w-[20rem]">
+              <p className="mt-2 text-h3 font-normal tracking-[-0.008em] leading-[1.25] text-paper/55 max-w-[20rem]">
                 {t("brandLine2")}
               </p>
               <p className="mt-5 text-[12.5px] leading-[1.55] text-paper/55 max-w-[20rem]">
@@ -160,11 +154,7 @@ export function Footer() {
                       <li key={l.href}>
                         <Link
                           href={l.href}
-                          className="text-[13px] leading-[1.45] text-paper/75 hover:text-paper transition-colors duration-200"
-                          style={{
-                            transitionTimingFunction:
-                              "cubic-bezier(0.32, 0.72, 0, 1)",
-                          }}
+                          className="ease-brand text-[13px] leading-[1.45] text-paper/75 hover:text-paper transition-colors duration-200"
                         >
                           {l.label}
                         </Link>

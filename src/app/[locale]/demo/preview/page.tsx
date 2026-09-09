@@ -19,8 +19,8 @@
 // supplier book, staff list, opening stock, and 7 days of backfilled
 // receipts (so the Dashboard is alive from the first second).
 //
-// Design tokens reused: hairline borders, brand red #E11D2A, Apple
-// cubic-bezier easing, paper/night surface tokens from globals.css.
+// Design tokens reused: hairline borders, the brand red token, the
+// ease-brand curve, paper/night surface tokens from globals.css.
 
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
@@ -56,12 +56,12 @@ export default function DemoLandingPage() {
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(50% 40% at 50% 30%, rgba(225,29,42,0.10) 0%, rgba(225,29,42,0) 70%)",
+            "radial-gradient(50% 40% at 50% 30%, color-mix(in srgb, var(--color-brand) 10%, transparent) 0%, transparent 70%)",
           filter: "blur(40px)",
         }}
       />
 
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-24 md:py-32">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 py-24 md:py-32">
         {/* Hero */}
         <div className="text-center max-w-[48rem] mx-auto">
           <Reveal>
@@ -71,7 +71,7 @@ export default function DemoLandingPage() {
           </Reveal>
           <Reveal delay={0.05}>
             <h1
-              className="text-[clamp(1.875rem,4.2vw,3.25rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-paper"
+              className="text-h1 font-semibold tracking-[-0.022em] leading-[1.05] text-paper"
               style={{ textWrap: "balance" }}
             >
               {t("heading")}
@@ -119,7 +119,7 @@ export default function DemoLandingPage() {
             <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-paper/45 mb-3">
               {t("fallback.eyebrow")}
             </p>
-            <h3 className="text-[clamp(1.4rem,2.4vw,2rem)] font-semibold tracking-[-0.018em] text-paper">
+            <h3 className="text-h3 font-semibold tracking-[-0.018em] text-paper">
               {t("fallback.heading")}
             </h3>
             <p className="mt-3 text-[14px] md:text-[15px] text-paper/65 max-w-[36rem] mx-auto">
@@ -127,8 +127,7 @@ export default function DemoLandingPage() {
             </p>
             <Link
               href="/start-free-trial"
-              className="mt-5 inline-flex items-center gap-2 h-11 px-5 rounded-full bg-paper text-night text-[13px] font-medium hover:bg-paper/90 transition-colors"
-              style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}
+              className="mt-5 inline-flex items-center gap-2 h-11 px-5 rounded-full bg-paper text-night text-[13px] font-medium hover:bg-paper/90 transition-colors ease-brand"
             >
               {t("fallback.cta")}
               <Arrow />
@@ -168,11 +167,10 @@ function FeaturedCard({
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-brand"
         style={{
           background:
-            "radial-gradient(70% 55% at 50% 50%, rgba(225,29,42,0.12) 0%, rgba(225,29,42,0) 75%)",
-          transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+            "radial-gradient(70% 55% at 50% 50%, color-mix(in srgb, var(--color-brand) 12%, transparent) 0%, transparent 75%)",
         }}
       />
 
@@ -184,15 +182,15 @@ function FeaturedCard({
         {/* Left — copy */}
         <div className="min-w-0">
           <div className="flex items-center gap-3 mb-5">
-            <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-[#E11D2A]/12 text-[#E11D2A]">
+            <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-brand/12 text-brand">
               <ActivityIcon name={activity.key} />
             </span>
-            <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-[#E11D2A]/85">
+            <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-brand/85">
               {t("featuredTemplate")}
             </span>
           </div>
 
-          <h2 className="text-[clamp(2rem,3.6vw,2.75rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-paper">
+          <h2 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-paper">
             {displayName}
           </h2>
           <p className="mt-3 text-[16px] md:text-[18px] leading-[1.45] text-paper/75 max-w-[38rem]">
@@ -210,8 +208,7 @@ function FeaturedCard({
             ))}
           </div>
 
-          <div className="mt-8 inline-flex items-center gap-2 text-[14px] text-paper group-hover:gap-3 transition-all duration-300"
-            style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}>
+          <div className="mt-8 inline-flex items-center gap-2 text-[14px] text-paper group-hover:gap-3 transition-all duration-300 ease-brand">
             <span className="font-medium">{t("tryIt")}</span>
             <Arrow />
           </div>
@@ -267,11 +264,10 @@ function ActivityCard({
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-brand"
         style={{
           background:
-            "radial-gradient(60% 50% at 50% 50%, rgba(225,29,42,0.10) 0%, rgba(225,29,42,0) 70%)",
-          transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+            "radial-gradient(60% 50% at 50% 50%, color-mix(in srgb, var(--color-brand) 10%, transparent) 0%, transparent 70%)",
         }}
       />
 
@@ -314,8 +310,7 @@ function ActivityCard({
               categories: activity.categories.length,
             })}
           </span>
-          <span className="inline-flex items-center gap-1.5 text-[12px] font-medium text-paper/70 group-hover:text-paper group-hover:gap-2 transition-all duration-300"
-            style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}>
+          <span className="inline-flex items-center gap-1.5 text-[12px] font-medium text-paper/70 group-hover:text-paper group-hover:gap-2 transition-all duration-300 ease-brand">
             {t("tryIt")}
             <Arrow />
           </span>
@@ -360,7 +355,7 @@ function Badge({
 }) {
   const tone = {
     neutral: "text-paper/70 border-white/12 bg-white/[0.03]",
-    red: "text-[#ff8a92] border-[#E11D2A]/30 bg-[#E11D2A]/[0.06]",
+    red: "text-[#ff8a92] border-brand/30 bg-brand/[0.06]",
     emerald: "text-emerald-300 border-emerald-400/25 bg-emerald-400/[0.06]",
     amber: "text-amber-300 border-amber-400/25 bg-amber-400/[0.06]",
     indigo: "text-indigo-300 border-indigo-400/25 bg-indigo-400/[0.06]",
@@ -475,8 +470,7 @@ function Arrow() {
       viewBox="0 0 14 14"
       fill="none"
       aria-hidden
-      className="transition-transform duration-300 group-hover:translate-x-0.5"
-      style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}
+      className="transition-transform duration-300 group-hover:translate-x-0.5 ease-brand"
     >
       <path
         d="M3 7h8m0 0L7.5 3.5M11 7l-3.5 3.5"

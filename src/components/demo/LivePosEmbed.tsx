@@ -77,7 +77,7 @@ export function LivePosEmbed() {
   };
 
   return (
-    <div className="mx-auto max-w-[1240px] px-4 sm:px-5 lg:px-6 pt-24 md:pt-28 pb-8 md:pb-10">
+    <div className="mx-auto max-w-shell px-4 sm:px-5 lg:px-6 pt-24 md:pt-28 pb-8 md:pb-10">
       {/* Compact header — one row: title + tab toggle. */}
       <header className="mb-3 md:mb-4">
         <div className="flex flex-wrap items-center justify-between gap-3 md:gap-5">
@@ -85,7 +85,7 @@ export function LivePosEmbed() {
             <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-1">
               {t("eyebrow")}
             </p>
-            <h1 className="text-[clamp(1.35rem,2.4vw,1.875rem)] font-semibold tracking-[-0.018em] leading-[1.1] text-ink">
+            <h1 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.1] text-ink">
               {t("title")}
             </h1>
           </div>
@@ -252,12 +252,11 @@ function SignInButton({
       onClick={onClick}
       disabled={state !== "idle"}
       className={
-        "inline-flex items-center gap-2 h-10 px-5 rounded-full text-[13.5px] font-semibold transition-all duration-200 " +
+        "ease-brand inline-flex items-center gap-2 h-10 px-5 rounded-full text-[13.5px] font-semibold transition-all duration-200 " +
         (state === "done"
           ? "bg-emerald-600 text-white"
           : "bg-ink text-paper hover:bg-black shadow-[0_8px_20px_-8px_rgba(0,0,0,0.35)]")
       }
-      style={{ transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)" }}
     >
       {state === "done" ? <CheckIcon /> : state === "signing" ? <SpinnerIcon /> : <KeyIcon />}
       <span>{label}</span>
@@ -294,12 +293,11 @@ function TabButton({
       aria-selected={active}
       onClick={onClick}
       className={
-        "inline-flex items-center gap-2 h-9 px-3.5 rounded-full text-[13px] font-medium transition-colors duration-200 " +
+        "ease-brand inline-flex items-center gap-2 h-9 px-3.5 rounded-full text-[13px] font-medium transition-colors duration-200 " +
         (active
           ? "bg-ink text-paper"
           : "text-ink-soft hover:text-ink hover:bg-paper")
       }
-      style={{ transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)" }}
     >
       {icon}
       {label}

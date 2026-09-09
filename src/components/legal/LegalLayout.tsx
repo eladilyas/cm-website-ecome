@@ -18,7 +18,7 @@ export function LegalLayout({ title, lastUpdated, intro, children }: Props) {
   return (
     <>
       <section data-scheme="light" className="bg-canvas">
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-20 md:py-28">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-20 md:py-28">
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-ink-mute mb-4">
               Legal
@@ -26,7 +26,7 @@ export function LegalLayout({ title, lastUpdated, intro, children }: Props) {
           </Reveal>
           <Reveal delay={0.04}>
             <h1
-              className="text-[clamp(1.875rem,3.8vw,2.875rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[20ch]"
+              className="text-h1 font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[20ch]"
               style={{ textWrap: "balance" }}
             >
               {title}
@@ -47,7 +47,7 @@ export function LegalLayout({ title, lastUpdated, intro, children }: Props) {
 
       <section data-scheme="light" className="bg-paper">
         <SectionDivider scheme="light" />
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
           <article className="max-w-[760px] mx-auto prose-legal">{children}</article>
 
           <div className="max-w-[760px] mx-auto mt-12 pt-8 border-t border-hairline">
@@ -76,7 +76,7 @@ export function LegalLayout({ title, lastUpdated, intro, children }: Props) {
 // Helper subcomponents for consistent rhythm inside legal copy.
 export function LegalH2({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="mt-12 first:mt-0 text-[18px] md:text-[20px] font-semibold tracking-[-0.012em] text-ink leading-[1.3]">
+    <h2 className="mt-12 first:mt-0 text-h3 font-semibold tracking-[-0.012em] text-ink leading-[1.3]">
       {children}
     </h2>
   );

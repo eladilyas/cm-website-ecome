@@ -140,12 +140,12 @@ export function ConfirmDialog({
   const isDark = scheme === "dark";
 
   // Confirm button color logic.
-  //   • destructive → brand red (#E11D2A) — Reset, Delete, Discard
+  //   • destructive → brand red (bg-brand) — Reset, Delete, Discard
   //   • brand       → brand red filled
   //   • default     → inverse of scheme (ink button on light, paper button on dark)
   const confirmClass =
     tone === "destructive" || tone === "brand"
-      ? "bg-[#E11D2A] text-white hover:bg-[#c8141f]"
+      ? "bg-brand text-white hover:bg-brand-hover"
       : isDark
         ? "bg-paper text-ink hover:bg-paper/90"
         : "bg-ink text-paper hover:bg-ink/85";
@@ -211,12 +211,11 @@ export function ConfirmDialog({
                   ref={cancelRef}
                   type="button"
                   onClick={onCancel}
-                  className={`h-10 px-4 rounded-xl text-[14px] font-medium transition-colors duration-200 ${cancelClass} focus-visible:outline-none focus-visible:ring-2 ${
+                  className={`ease-brand h-10 px-4 rounded-xl text-[14px] font-medium transition-colors duration-200 ${cancelClass} focus-visible:outline-none focus-visible:ring-2 ${
                     isDark
                       ? "focus-visible:ring-paper/40"
                       : "focus-visible:ring-ink/30"
                   }`}
-                  style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
                 >
                   {cancelLabel}
                 </button>
@@ -224,14 +223,13 @@ export function ConfirmDialog({
                   ref={confirmRef}
                   type="button"
                   onClick={onConfirm}
-                  className={`h-10 px-4 rounded-xl text-[14px] font-medium transition-colors duration-200 ${confirmClass} focus-visible:outline-none focus-visible:ring-2 ${
+                  className={`ease-brand h-10 px-4 rounded-xl text-[14px] font-medium transition-colors duration-200 ${confirmClass} focus-visible:outline-none focus-visible:ring-2 ${
                     tone === "destructive" || tone === "brand"
-                      ? "focus-visible:ring-[#E11D2A]/40"
+                      ? "focus-visible:ring-brand/40"
                       : isDark
                         ? "focus-visible:ring-paper/40"
                         : "focus-visible:ring-ink/30"
                   }`}
-                  style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
                 >
                   {confirmLabel}
                 </button>

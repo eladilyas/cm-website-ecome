@@ -47,7 +47,7 @@ export function ComparisonMatrix() {
     <>
       {/* ── Desktop matrix (md+) ───────────────────────────────────────── */}
       <div className="hidden md:block">
-        <div className="rounded-[28px] bg-paper ring-1 ring-hairline overflow-hidden">
+        <div className="rounded-2xl bg-paper ring-1 ring-hairline overflow-hidden">
           {/* Plan header row — empty first cell on the desktop matrix lets
               the feature labels sit underneath without a "Compare" caption
               competing with the section eyebrow above. */}
@@ -65,7 +65,7 @@ export function ComparisonMatrix() {
                     {p.name}
                   </p>
                   {p.recommended && (
-                    <span className="inline-flex items-center h-[18px] px-2 rounded-full bg-[#E11D2A]/10 text-[#E11D2A] text-[9.5px] font-medium uppercase tracking-[0.14em]">
+                    <span className="inline-flex items-center h-[18px] px-2 rounded-full bg-brand/10 text-brand text-[9.5px] font-medium uppercase tracking-[0.14em]">
                       {t("popular")}
                     </span>
                   )}
@@ -131,8 +131,8 @@ export function ComparisonMatrix() {
         {PLANS.map((p) => (
           <div
             key={p.slug}
-            className={`rounded-[24px] bg-paper p-6 ring-1 ${
-              p.recommended ? "ring-[#E11D2A]/30" : "ring-hairline"
+            className={`rounded-2xl bg-paper p-6 ring-1 ${
+              p.recommended ? "ring-brand/30" : "ring-hairline"
             }`}
           >
             <div className="flex items-baseline justify-between">

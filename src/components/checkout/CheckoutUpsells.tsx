@@ -104,7 +104,7 @@ export function CheckoutUpsells({ cartSlugs }: { cartSlugs: string[] }) {
       <ul className="space-y-2.5">
         {suggestions.map((p) => (
           <li key={p.slug}>
-            <div className="flex items-center gap-3 rounded-lg border border-hairline bg-canvas/60 hover:bg-canvas hover:border-hairline-strong p-2.5 transition-colors duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)]">
+            <div className="flex items-center gap-3 rounded-lg border border-hairline bg-canvas/60 hover:bg-canvas hover:border-hairline-strong p-2.5 transition-colors duration-200 ease-brand">
               {/* Tap the row body → Quick View. Keeps the explicit
                   "Add" pill for one-click adders, but lets curious
                   buyers preview without leaving checkout. */}

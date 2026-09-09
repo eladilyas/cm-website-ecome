@@ -46,7 +46,7 @@ export function SolutionsShowcaseSection() {
       />
 
       {/* Header */}
-      <div className="relative mx-auto max-w-[1440px] px-6 lg:px-10 pt-28 md:pt-40 pb-10 md:pb-14 text-center">
+      <div className="relative mx-auto max-w-shell-wide px-6 lg:px-10 pt-28 md:pt-40 pb-10 md:pb-14 text-center">
         <Reveal>
           <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-ink-mute mb-4">
             {t("eyebrow")}
@@ -54,14 +54,14 @@ export function SolutionsShowcaseSection() {
         </Reveal>
         <Reveal delay={0.05}>
           <h2
-            className="text-[clamp(1.875rem,4vw,3rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink"
+            className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-ink"
             style={{ textWrap: "balance" }}
           >
             {t("headline")}
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="mt-5 text-[16px] md:text-[17px] leading-[1.55] text-ink-soft max-w-[34rem] mx-auto">
+          <p className="mt-5 text-[16px] md:text-base leading-[1.55] text-ink-soft max-w-[34rem] mx-auto">
             {t("subtitle")}
           </p>
         </Reveal>
@@ -80,7 +80,7 @@ export function SolutionsShowcaseSection() {
       </div>
 
       {/* Footer */}
-      <div className="relative mx-auto max-w-[1440px] px-6 lg:px-10 pb-20 md:pb-28 text-center">
+      <div className="relative mx-auto max-w-shell-wide px-6 lg:px-10 pb-20 md:pb-28 text-center">
         <Reveal>
           <div className="inline-flex items-center gap-3">
             <Button href={CTA_HREF} variant="primary" size="lg">
@@ -449,7 +449,7 @@ function SolutionCard({
           <div className="relative flex-1 min-w-0">
             <h3
               className={
-                "text-[clamp(1.4rem,2vw,2rem)] font-bold tracking-[-0.028em] leading-[1.05] " +
+                "text-h3 font-bold tracking-[-0.028em] leading-[1.05] " +
                 titleColor
               }
             >
@@ -458,7 +458,7 @@ function SolutionCard({
             {description && (
               <p
                 className={
-                  "mt-2 text-[12px] md:text-[13px] leading-[1.45] " + descColor
+                  "mt-2 text-mini md:text-tiny leading-[1.45] " + descColor
                 }
               >
                 {description}
@@ -476,12 +476,12 @@ function SolutionCard({
   // statements, not labels.
   const titleSize = accent
     ? // POS HERO — display-size, dominates the composition.
-      "text-[clamp(2rem,3.2vw,3.25rem)]"
+      "text-h1"
     : layout === "tall"
-      ? "text-[clamp(1.4rem,1.8vw,1.85rem)]"
+      ? "text-h3"
       : layout === "standard"
-        ? "text-[clamp(1rem,1.2vw,1.2rem)]"
-        : "text-[clamp(1.4rem,1.8vw,1.85rem)]";
+        ? "text-lg"
+        : "text-h3";
   const titleTracking = accent
     ? "tracking-[-0.035em]"
     : "tracking-[-0.022em]";
@@ -517,8 +517,8 @@ function SolutionCard({
             <p
               className={
                 (accent
-                  ? "mt-3 text-[14px] md:text-[15px] leading-[1.45] max-w-[26ch] "
-                  : "mt-2 text-[12px] md:text-[13px] leading-[1.45] ") +
+                  ? "mt-3 text-sm md:text-[15px] leading-[1.45] max-w-[26ch] "
+                  : "mt-2 text-mini md:text-tiny leading-[1.45] ") +
                 descColor
               }
             >
@@ -639,7 +639,7 @@ function DeviceMacBook({ x, y }: { x: number; y: number }) {
       <g clipPath="url(#clip-macbook)">
         {/* Top nav strip */}
         <rect x="40" y="14" width="280" height="20" fill="#fafafc" />
-        <circle cx="50" cy="24" r="4" fill="#E11D2A" />
+        <circle cx="50" cy="24" r="4" fill="var(--color-brand)" />
         <text
           x="58"
           y="27"
@@ -668,7 +668,7 @@ function DeviceMacBook({ x, y }: { x: number; y: number }) {
           ))}
         </g>
         {/* Avatar */}
-        <circle cx="310" cy="24" r="5" fill="#E11D2A" />
+        <circle cx="310" cy="24" r="5" fill="var(--color-brand)" />
         <text
           x="310"
           y="26"
@@ -790,7 +790,7 @@ function DeviceMacBook({ x, y }: { x: number; y: number }) {
                 width="14"
                 height={bar.h}
                 rx="1.5"
-                fill={i === 4 ? "#E11D2A" : "#1d1d1f"}
+                fill={i === 4 ? "var(--color-brand)" : "#1d1d1f"}
                 fillOpacity={i === 4 ? "0.9" : "0.85"}
               />
               <text
@@ -1059,7 +1059,7 @@ function DeviceStockTablet({ x, y }: { x: number; y: number }) {
                 cx="206"
                 cy={ry + 5}
                 r="1.4"
-                fill={r.status === "low" ? "#E11D2A" : "#34a17b"}
+                fill={r.status === "low" ? "var(--color-brand)" : "#34a17b"}
               />
               <text
                 x="210"
@@ -1114,7 +1114,7 @@ function DeviceCustomerVertical({ x, y }: { x: number; y: number }) {
       <g clipPath="url(#clip-customer-vert)">
         {/* Customer display UI — mock */}
         <rect x="10" y="14" width="124" height="20" fill="#fdf6ef" />
-        <circle cx="22" cy="24" r="4" fill="#E11D2A" opacity="0.9" />
+        <circle cx="22" cy="24" r="4" fill="var(--color-brand)" opacity="0.9" />
         <rect x="30" y="20" width="48" height="3" rx="1.5" fill="#1d1d1f" />
         <rect x="30" y="26" width="36" height="2.5" rx="1.25" fill="#6e6e73" />
         {/* Items */}
@@ -1191,7 +1191,7 @@ function DeviceCustomerVertical({ x, y }: { x: number; y: number }) {
           y="156"
           fontFamily="system-ui, -apple-system, sans-serif"
           fontSize="9.5"
-          fill="#E11D2A"
+          fill="var(--color-brand)"
           fontWeight="700"
           letterSpacing="-0.2"
         >
@@ -1214,7 +1214,7 @@ function DeviceCustomerVertical({ x, y }: { x: number; y: number }) {
               cx={80 + (i % 5) * 9.5}
               cy={i < 5 ? 154 : 167}
               r="2.4"
-              fill={i < 5 ? "#E11D2A" : "#fce4d4"}
+              fill={i < 5 ? "var(--color-brand)" : "#fce4d4"}
             />
           ))}
         </g>
@@ -1263,7 +1263,7 @@ function DeviceQueueDisplay({ x, y }: { x: number; y: number }) {
         >
           NOW SERVING
         </text>
-        <circle cx="152" cy="25" r="2.2" fill="#E11D2A">
+        <circle cx="152" cy="25" r="2.2" fill="var(--color-brand)">
           <animate
             attributeName="opacity"
             values="1;0.3;1"
@@ -1412,7 +1412,7 @@ function DeviceMobileAppPhone({ x, y }: { x: number; y: number }) {
         {/* Live indicator */}
         <g>
           <rect x="80" y="38" width="38" height="11" rx="5.5" fill="#fff3f4" />
-          <circle cx="86" cy="43.5" r="2" fill="#E11D2A">
+          <circle cx="86" cy="43.5" r="2" fill="var(--color-brand)">
             <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite" />
           </circle>
           <text
@@ -1487,12 +1487,12 @@ function DeviceMobileAppPhone({ x, y }: { x: number; y: number }) {
         <polyline
           points="20,168 32,164 44,165 56,158 68,160 80,151 92,154 104,148 114,142"
           fill="none"
-          stroke="#E11D2A"
+          stroke="var(--color-brand)"
           strokeWidth="1.4"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-        <circle cx="114" cy="142" r="1.4" fill="#E11D2A" />
+        <circle cx="114" cy="142" r="1.4" fill="var(--color-brand)" />
 
         {/* Recent orders header */}
         <text
@@ -1635,7 +1635,7 @@ function DevicePaymentTerminalSvg({ x, y }: { x: number; y: number }) {
       </text>
 
       {/* NFC contactless zone — concentric arcs above keypad */}
-      <g stroke="#E11D2A" strokeOpacity="0.85" fill="none" strokeLinecap="round">
+      <g stroke="var(--color-brand)" strokeOpacity="0.85" fill="none" strokeLinecap="round">
         <path d="M 32 72 Q 40 66 48 72" strokeWidth="1.2">
           <animate
             attributeName="stroke-opacity"
@@ -1695,7 +1695,7 @@ function DevicePaymentTerminalSvg({ x, y }: { x: number; y: number }) {
                   textAnchor="middle"
                   fontFamily="system-ui, -apple-system, sans-serif"
                   fontSize="6.5"
-                  fill={isAccent ? "#E11D2A" : "#dde1e6"}
+                  fill={isAccent ? "var(--color-brand)" : "#dde1e6"}
                   fontWeight="700"
                 >
                   {key}

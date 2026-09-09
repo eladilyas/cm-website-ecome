@@ -322,7 +322,7 @@ function Carousel({
             opacity: i === index ? 1 : 0,
             transition: reducedMotion
               ? "none"
-              : `opacity ${FADE_DURATION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
+              : `opacity ${FADE_DURATION_MS}ms var(--ease-brand)`,
           }}
         >
           {renderSlide(i, i === index)}
@@ -347,7 +347,7 @@ function Carousel({
                 onFocus={() => setPaused(true)}
                 onBlur={() => setPaused(false)}
                 className={
-                  "h-1.5 rounded-full transition-all duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] " +
+                  "h-1.5 rounded-full transition-all duration-500 ease-brand " +
                   (active
                     ? "w-6 bg-paper"
                     : "w-1.5 bg-paper/45 hover:bg-paper/70")
@@ -405,8 +405,7 @@ function ArrowButton({
       onClick={onClick}
       onFocus={onFocus}
       onBlur={onBlur}
-      className="h-8 w-8 inline-flex items-center justify-center rounded-full bg-night/55 border border-white/15 text-paper/85 hover:bg-night/75 hover:text-paper hover:border-white/30 backdrop-blur-sm transition-colors duration-200"
-      style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}
+      className="h-8 w-8 inline-flex items-center justify-center rounded-full bg-night/55 border border-white/15 text-paper/85 hover:bg-night/75 hover:text-paper hover:border-white/30 backdrop-blur-sm transition-colors duration-200 ease-brand"
     >
       <svg
         width="14"

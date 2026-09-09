@@ -88,10 +88,7 @@ export default async function OrdersListPage() {
             <li key={order.id}>
               <Link
                 href={`/account/orders/${order.ref}`}
-                className="block rounded-2xl bg-paper border border-hairline hover:border-hairline-strong transition-colors overflow-hidden"
-                style={{
-                  transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
-                }}
+                className="block rounded-2xl bg-paper border border-hairline hover:border-hairline-strong transition-colors ease-brand overflow-hidden"
               >
                 <div className="px-5 py-4 flex flex-wrap items-center gap-4">
                   <div className="flex-1 min-w-[200px]">

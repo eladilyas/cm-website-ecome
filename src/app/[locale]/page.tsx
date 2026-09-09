@@ -70,8 +70,8 @@ export default async function HomePage() {
       {/* ── Final CTA ───────────────────────────────────────────────────── */}
       <section data-scheme="dark" className="bg-night text-paper">
         <SectionDivider scheme="dark" />
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-28 md:py-40 text-center">
-          <h2 className="text-[clamp(2rem,5vw,4rem)] font-semibold tracking-[-0.022em] leading-[1.05]">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-28 md:py-40 text-center">
+          <h2 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05]">
             {t("heading")}
           </h2>
           <p className="mt-6 text-[17px] md:text-[19px] text-paper/75 max-w-[34rem] mx-auto">

@@ -111,7 +111,7 @@ export function OrderDiscountSheet({
                   })
                 }
                 disabled={tab === "pct" ? pctValue <= 0 : fixedValue <= 0}
-                className="h-10 px-4 text-[13px] font-medium rounded-lg bg-[#E11D2A] text-white enabled:hover:bg-[#c8141f] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                className="h-10 px-4 text-[13px] font-medium rounded-lg bg-brand text-white enabled:hover:bg-brand-hover disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               >
                 {t("apply")}
               </button>
@@ -199,7 +199,7 @@ export function OrderDiscountSheet({
             <p className="text-[11px] uppercase tracking-[0.14em] text-paper/45 mb-2">
               {t("availableCodes")}
             </p>
-            <ul className="rounded-[10px] border border-white/[0.08] divide-y divide-white/[0.04] overflow-hidden">
+            <ul className="rounded-lg border border-white/[0.08] divide-y divide-white/[0.04] overflow-hidden">
               {presetCoupons.map((c) => (
                 <li
                   key={c.code}
@@ -290,7 +290,7 @@ export function LineDiscountSheet({
               type="button"
               onClick={() => apply(value)}
               disabled={value < 0 || value > 100}
-              className="h-10 px-4 text-[13px] font-medium rounded-lg bg-[#E11D2A] text-white enabled:hover:bg-[#c8141f] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="h-10 px-4 text-[13px] font-medium rounded-lg bg-brand text-white enabled:hover:bg-brand-hover disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               {t("lineApply", { pct: value })}
             </button>
@@ -372,7 +372,7 @@ export function CustomItemSheet({
             type="button"
             onClick={submit}
             disabled={!canAdd}
-            className="h-10 px-4 text-[13px] font-medium rounded-lg bg-[#E11D2A] text-white enabled:hover:bg-[#c8141f] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="h-10 px-4 text-[13px] font-medium rounded-lg bg-brand text-white enabled:hover:bg-brand-hover disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             {price > 0
               ? t("addItemAmount", { amount: price.toFixed(2) })
@@ -429,7 +429,7 @@ function PresetButton({
       className={
         "h-9 px-3 text-[12px] font-medium rounded-lg border transition-colors tabular-nums " +
         (active
-          ? "border-[#E11D2A]/45 bg-[#E11D2A]/[0.10] text-paper"
+          ? "border-brand/45 bg-brand/[0.10] text-paper"
           : "border-white/[0.10] bg-white/[0.04] text-paper/80 hover:bg-white/[0.08] hover:text-paper")
       }
     >

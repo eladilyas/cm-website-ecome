@@ -82,7 +82,7 @@ export function FooterMapBackdrop() {
         className="absolute inset-0"
         style={{
           background: [
-            "radial-gradient(60% 60% at 75% 72%, rgba(225,29,42,0.10) 0%, rgba(225,29,42,0) 70%)",
+            "radial-gradient(60% 60% at 75% 72%, color-mix(in srgb, var(--color-brand) 10%, transparent) 0%, transparent 70%)",
             "radial-gradient(50% 60% at 18% 28%, rgba(70,90,140,0.10) 0%, rgba(70,90,140,0) 70%)",
             "radial-gradient(80% 80% at 50% 100%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 70%)",
           ].join(", "),
@@ -154,17 +154,17 @@ export function FooterMapBackdrop() {
               cx={d.x}
               cy={d.y}
               r={d.size * 2.6}
-              fill="rgba(225,29,42,0.18)"
+              style={{ fill: "color-mix(in srgb, var(--color-brand) 18%, transparent)" }}
             />
             {/* Mid halo — tighter bloom */}
             <circle
               cx={d.x}
               cy={d.y}
               r={d.size * 1.5}
-              fill="rgba(225,29,42,0.35)"
+              style={{ fill: "color-mix(in srgb, var(--color-brand) 35%, transparent)" }}
             />
             {/* Core — the pin itself */}
-            <circle cx={d.x} cy={d.y} r={d.size * 0.55} fill="#E11D2A" />
+            <circle cx={d.x} cy={d.y} r={d.size * 0.55} style={{ fill: "var(--color-brand)" }} />
           </g>
         ))}
       </svg>

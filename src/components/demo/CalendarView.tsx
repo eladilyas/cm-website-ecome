@@ -40,11 +40,11 @@ const STATUS_TINT: Record<
     dot: "bg-ink-mute",
   },
   "in-progress": {
-    bg: "bg-[#E11D2A]/[0.05]",
-    border: "border-[#E11D2A]/25",
+    bg: "bg-brand/[0.05]",
+    border: "border-brand/25",
     text: "text-ink",
-    stripe: "bg-[#E11D2A]",
-    dot: "bg-[#E11D2A]",
+    stripe: "bg-brand",
+    dot: "bg-brand",
   },
   done: {
     bg: "bg-emerald-50/70",
@@ -177,7 +177,7 @@ export function CalendarView() {
             </h2>
             <p className="text-[11px] uppercase tracking-[0.14em] text-ink-mute font-medium shrink-0">
               {isToday ? (
-                <span className="text-[#E11D2A]">{tCal("today")}</span>
+                <span className="text-brand">{tCal("today")}</span>
               ) : dayOffset === -1 ? (
                 tCal("yesterday")
               ) : dayOffset === 1 ? (
@@ -203,10 +203,7 @@ export function CalendarView() {
             <button
               type="button"
               onClick={() => setScheduleOpen(true)}
-              className="h-9 px-3.5 text-[12.5px] font-semibold rounded-full bg-ink text-paper hover:bg-ink-soft transition-colors inline-flex items-center gap-1.5"
-              style={{
-                transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
-              }}
+              className="ease-brand h-9 px-3.5 text-[12.5px] font-semibold rounded-full bg-ink text-paper hover:bg-ink-soft transition-colors inline-flex items-center gap-1.5"
             >
               <PlusIcon />
               {tCal("schedule")}
@@ -240,7 +237,7 @@ export function CalendarView() {
       <div className="px-6 md:px-8 py-4 grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-4">
         {/* Timeline */}
         <div
-          className="relative bg-paper rounded-[12px] border border-hairline overflow-hidden shadow-[0_1px_0_rgba(0,0,0,0.02)]"
+          className="relative bg-paper rounded-lg border border-hairline overflow-hidden shadow-[0_1px_0_rgba(0,0,0,0.02)]"
           style={{ height: `${HOURS_VISIBLE * PX_PER_HOUR + 24}px` }}
         >
           {/* Hour rails */}
@@ -282,9 +279,9 @@ export function CalendarView() {
               className="absolute left-14 right-3 z-30 pointer-events-none"
               style={{ top: `${nowOffsetPx + 12}px` }}
             >
-              <div className="relative h-px bg-[#E11D2A]/85">
-                <span className="absolute -left-1.5 -top-[3.5px] h-1.5 w-1.5 rounded-full bg-[#E11D2A]" />
-                <span className="absolute -right-1 -top-2 text-[9.5px] font-semibold tracking-[0.05em] text-[#E11D2A] tabular-nums">
+              <div className="relative h-px bg-brand/85">
+                <span className="absolute -left-1.5 -top-[3.5px] h-1.5 w-1.5 rounded-full bg-brand" />
+                <span className="absolute -right-1 -top-2 text-[9.5px] font-semibold tracking-[0.05em] text-brand tabular-nums">
                   {formatTime(now)}
                 </span>
               </div>
@@ -313,7 +310,7 @@ export function CalendarView() {
           {dayAppts.length === 0 && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none pl-14">
               <div className="text-center max-w-xs px-6 pointer-events-auto">
-                <div className="mx-auto h-12 w-12 rounded-[12px] border border-hairline-strong bg-fog flex items-center justify-center">
+                <div className="mx-auto h-12 w-12 rounded-lg border border-hairline-strong bg-fog flex items-center justify-center">
                   <CalendarGlyph />
                 </div>
                 <p className="mt-3 text-[13px] font-medium text-ink">
@@ -348,7 +345,7 @@ export function CalendarView() {
 
         {/* Right sidebar — day summary */}
         <aside className="space-y-2.5">
-          <div className="rounded-[12px] border border-hairline bg-paper p-3.5">
+          <div className="rounded-lg border border-hairline bg-paper p-3.5">
             <p className="text-[10px] uppercase tracking-[0.14em] text-ink-mute font-medium">
               {tCal("dayAtAGlance")}
             </p>
@@ -380,7 +377,7 @@ export function CalendarView() {
           </div>
 
           {nextUp && (
-            <div className="rounded-[12px] border border-hairline bg-paper p-4">
+            <div className="rounded-lg border border-hairline bg-paper p-4">
               <p className="text-[10.5px] uppercase tracking-[0.14em] text-ink-mute font-medium">
                 {tCal("nextUp")}
               </p>
@@ -391,13 +388,13 @@ export function CalendarView() {
               <p className="mt-0.5 text-[12px] text-ink-mute">
                 {nextUp.customerName} · {nextUp.durationMin} min
               </p>
-              <p className="mt-2.5 text-[12.5px] font-semibold text-[#E11D2A] tabular-nums">
+              <p className="mt-2.5 text-[12.5px] font-semibold text-brand tabular-nums">
                 {formatTime(nextUp.start)} · {tCal("inMinutes", { count: minutesUntil(nextUp.start, now) })}
               </p>
             </div>
           )}
 
-          <div className="rounded-[12px] border border-hairline bg-paper p-4">
+          <div className="rounded-lg border border-hairline bg-paper p-4">
             <p className="text-[10.5px] uppercase tracking-[0.14em] text-ink-mute font-medium">
               {tCal("operatingHours")}
             </p>
@@ -512,13 +509,12 @@ function WeekPill({
       onClick={onClick}
       aria-current={isViewed ? "date" : undefined}
       className={
-        "group relative inline-flex items-center justify-center gap-1.5 rounded-[10px] h-9 px-2 border transition-all " +
+        "ease-brand group relative inline-flex items-center justify-center gap-1.5 rounded-lg h-9 px-2 border transition-all " +
         (isViewed
           ? "bg-ink text-paper border-ink shadow-[0_2px_8px_rgba(0,0,0,0.08)]"
           : "bg-paper text-ink border-hairline hover:border-hairline-strong hover:bg-fog")
       }
       style={{
-        transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
         transitionDuration: "180ms",
       }}
     >
@@ -533,7 +529,7 @@ function WeekPill({
       <span
         className={
           "text-[13.5px] font-semibold tabular-nums leading-none " +
-          (isToday && !isViewed ? "text-[#E11D2A]" : "")
+          (isToday && !isViewed ? "text-brand" : "")
         }
       >
         {dayNum}
@@ -585,12 +581,12 @@ function SummaryStat({
 }) {
   const valueCls =
     tone === "red"
-      ? "text-[#E11D2A]"
+      ? "text-brand"
       : tone === "emerald"
         ? "text-emerald-600"
         : "text-ink";
   return (
-    <div className="rounded-[8px] bg-canvas border border-hairline px-2 py-1.5">
+    <div className="rounded-md bg-canvas border border-hairline px-2 py-1.5">
       <p className={"text-[16px] font-semibold tabular-nums leading-none " + valueCls}>
         {value}
       </p>
@@ -634,7 +630,7 @@ function AppointmentBlock({
       type="button"
       onClick={onSelect}
       className={
-        "absolute left-16 right-4 rounded-[10px] border text-left transition-all overflow-hidden " +
+        "ease-brand absolute left-16 right-4 rounded-lg border text-left transition-all overflow-hidden " +
         tint.bg +
         " " +
         tint.border +
@@ -648,7 +644,6 @@ function AppointmentBlock({
       style={{
         top: `${top}px`,
         height: `${Math.max(32, height - 4)}px`,
-        transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
         transitionDuration: "180ms",
       }}
     >
@@ -701,7 +696,7 @@ function ActionPopover({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 12 }}
       transition={{ duration: 0.22, ease: APPLE_EASE }}
-      className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 rounded-[10px] border border-hairline-strong bg-paper backdrop-blur-md shadow-[0_18px_48px_rgba(0,0,0,0.18)] p-2 flex items-center gap-2"
+      className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 rounded-lg border border-hairline-strong bg-paper backdrop-blur-md shadow-[0_18px_48px_rgba(0,0,0,0.18)] p-2 flex items-center gap-2"
     >
       <div className="px-2.5 py-1 flex flex-col">
         <span className="text-[12px] font-semibold text-ink truncate max-w-[200px]">
@@ -858,7 +853,7 @@ function ScheduleForm({
       animate={{ opacity: 1, scale: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.96, y: 8 }}
       transition={{ duration: 0.22, ease: APPLE_EASE }}
-      className="relative w-full max-w-[420px] rounded-[12px] bg-paper border border-hairline p-6 text-ink shadow-[0_30px_80px_rgba(0,0,0,0.18)]"
+      className="relative w-full max-w-[420px] rounded-lg bg-paper border border-hairline p-6 text-ink shadow-[0_30px_80px_rgba(0,0,0,0.18)]"
     >
       <header className="mb-5">
         <h3 className="text-[17px] font-semibold tracking-[-0.005em] text-ink">

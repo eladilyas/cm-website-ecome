@@ -84,7 +84,7 @@ export default function StartFreeTrialPage() {
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(45% 50% at 75% 30%, rgba(225,29,42,0.08) 0%, rgba(225,29,42,0) 70%)",
+            "radial-gradient(45% 50% at 75% 30%, color-mix(in srgb, var(--color-brand) 8%, transparent) 0%, transparent 70%)",
           filter: "blur(40px)",
         }}
       />
@@ -98,7 +98,7 @@ export default function StartFreeTrialPage() {
         }}
       />
 
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-14 md:py-20">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 py-14 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-10 md:gap-16 lg:gap-20 items-start">
           {/* ── LEFT — value props + trust ────────────────────────────── */}
           <div className="order-2 md:order-1">
@@ -109,7 +109,7 @@ export default function StartFreeTrialPage() {
             </Reveal>
             <Reveal delay={0.05}>
               <h1
-                className="text-[clamp(2rem,4.4vw,3rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[16ch]"
+                className="text-h1 font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[16ch]"
                 style={{ textWrap: "balance" }}
               >
                 {t("heroHeadline")}
@@ -148,7 +148,7 @@ export default function StartFreeTrialPage() {
               <div className="relative">
                 <div
                   aria-hidden
-                  className="pointer-events-none absolute inset-0 -z-10 rounded-3xl"
+                  className="pointer-events-none absolute inset-0 -z-10 rounded-2xl"
                   style={{
                     background:
                       "linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 100%)",
@@ -156,7 +156,7 @@ export default function StartFreeTrialPage() {
                       "0 24px 60px rgba(40,80,140,0.10), 0 4px 14px rgba(0,0,0,0.04)",
                   }}
                 />
-                <div className="rounded-3xl bg-paper border border-hairline p-6 md:p-8">
+                <div className="rounded-2xl bg-paper border border-hairline p-6 md:p-8">
                   <p className="text-[12px] uppercase tracking-[0.16em] text-ink-mute mb-1">
                     {t("formEyebrow")}
                   </p>
@@ -220,11 +220,7 @@ export default function StartFreeTrialPage() {
                     <button
                       type="submit"
                       disabled={submitting}
-                      className="mt-2 w-full h-12 rounded-full bg-ink text-paper text-[15px] font-medium hover:bg-ink/85 disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-200"
-                      style={{
-                        transitionTimingFunction:
-                          "cubic-bezier(0.32, 0.72, 0, 1)",
-                      }}
+                      className="mt-2 w-full h-12 rounded-full bg-ink text-paper text-[15px] font-medium hover:bg-ink/85 disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-200 ease-brand"
                     >
                       {submitting ? t("submitting") : t("submit")}
                     </button>
@@ -320,18 +316,18 @@ function SuccessState({ name }: { name: string }) {
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(40% 35% at 50% 35%, rgba(225,29,42,0.08) 0%, rgba(225,29,42,0) 70%)",
+            "radial-gradient(40% 35% at 50% 35%, color-mix(in srgb, var(--color-brand) 8%, transparent) 0%, transparent 70%)",
           filter: "blur(40px)",
         }}
       />
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24 w-full">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24 w-full">
         <div className="max-w-[520px] mx-auto text-center">
           <Reveal>
             <BrandCheck variant="circle" size={28} />
           </Reveal>
           <Reveal delay={0.05}>
             <h1
-              className="mt-6 text-[clamp(2rem,4.4vw,3rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink"
+              className="mt-6 text-h1 font-semibold tracking-[-0.022em] leading-[1.05] text-ink"
               style={{ textWrap: "balance" }}
             >
               {name ? t("successWelcome", { name }) : t("successWelcomeNoName")}
@@ -349,8 +345,7 @@ function SuccessState({ name }: { name: string }) {
               </Button>
               <Link
                 href="/demo"
-                className="h-11 px-6 inline-flex items-center text-[14px] font-medium rounded-full border border-hairline-strong text-ink hover:bg-paper transition-colors"
-                style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+                className="h-11 px-6 inline-flex items-center text-[14px] font-medium rounded-full border border-hairline-strong text-ink hover:bg-paper transition-colors ease-brand"
               >
                 {t("successSecondary")}
               </Link>

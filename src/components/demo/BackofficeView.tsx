@@ -130,17 +130,16 @@ export function BackofficeView() {
                 onClick={() => setSection(s.id)}
                 title={tCap(s.labelKey)}
                 className={
-                  "relative w-full flex items-center gap-2.5 px-2.5 h-8 mb-0.5 rounded-lg text-[12.5px] font-medium transition-colors " +
+                  "ease-brand relative w-full flex items-center gap-2.5 px-2.5 h-8 mb-0.5 rounded-lg text-[12.5px] font-medium transition-colors " +
                   (active
                     ? "bg-fog text-ink"
                     : "text-ink-soft hover:text-ink hover:bg-fog/60")
                 }
-                style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
               >
                 {active && (
                   <span
                     aria-hidden
-                    className="absolute left-0 top-1.5 bottom-1.5 w-[3px] rounded-r bg-[#E11D2A]"
+                    className="absolute left-0 top-1.5 bottom-1.5 w-[3px] rounded-r bg-brand"
                   />
                 )}
                 <span

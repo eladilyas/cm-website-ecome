@@ -127,7 +127,7 @@ export function ActiveOrder() {
       {order.flags.urgent && (
         <div
           aria-hidden
-          className="h-[2px] w-full bg-[#E11D2A]"
+          className="h-[2px] w-full bg-brand"
         />
       )}
       <header className="px-4 pt-2.5 pb-2 border-b border-white/8">
@@ -209,7 +209,7 @@ export function ActiveOrder() {
                 aria-expanded={orderMenuOpen}
                 aria-label={tCart("orderActions")}
                 className={
-                  "inline-flex items-center justify-center h-6 w-7 rounded-[6px] transition-colors " +
+                  "inline-flex items-center justify-center h-6 w-7 rounded-sm transition-colors " +
                   (orderMenuOpen
                     ? "bg-white/[0.10] text-paper border border-white/15"
                     : "text-paper/55 hover:text-paper hover:bg-white/[0.06]")
@@ -412,12 +412,11 @@ export function ActiveOrder() {
                     onClick={() => setOrderDiscountOpen(true)}
                     aria-label={order.orderDiscount ? "Edit order discount" : "Apply order discount"}
                     className={
-                      "inline-flex items-center gap-1 h-6 px-2 rounded-full text-[10.5px] font-medium tabular-nums border transition-colors " +
+                      "ease-brand inline-flex items-center gap-1 h-6 px-2 rounded-full text-[10.5px] font-medium tabular-nums border transition-colors " +
                       (order.orderDiscount
-                        ? "bg-[#E11D2A]/15 text-[#E11D2A] border-[#E11D2A]/35 hover:bg-[#E11D2A]/20"
+                        ? "bg-brand/15 text-brand border-brand/35 hover:bg-brand/20"
                         : "text-paper/75 border-dashed border-white/25 hover:text-paper hover:border-white/45 hover:bg-white/[0.04]")
                     }
-                    style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
                   >
                     {order.orderDiscount
                       ? (order.orderDiscount.kind === "pct"
@@ -493,7 +492,7 @@ export function ActiveOrder() {
                 <button
                   type="button"
                   onClick={() => beginPayment("cash")}
-                  className="h-11 text-[14px] font-medium rounded-[8px] bg-[#E11D2A] text-white hover:bg-[#c8141f] transition-colors"
+                  className="h-11 text-[14px] font-medium rounded-md bg-brand text-white hover:bg-brand-hover transition-colors"
                 >
                   {tCart("takePaymentAmount", { amount: fmt(totals.total) })}
                 </button>
@@ -519,7 +518,7 @@ export function ActiveOrder() {
                   type="button"
                   onClick={sendToKitchen}
                   disabled={isEmpty}
-                  className="h-11 text-[14px] font-medium rounded-[8px] bg-[#E11D2A] text-white enabled:hover:bg-[#c8141f] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                  className="h-11 text-[14px] font-medium rounded-md bg-brand text-white enabled:hover:bg-brand-hover disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                 >
                   {order.flags.urgent
                     ? `${tCart("sendToKitchen")} · ${tCart("urgent")}`
@@ -542,7 +541,7 @@ export function ActiveOrder() {
               type="button"
               onClick={() => beginPayment("cash")}
               disabled={isEmpty}
-              className="h-11 text-[14px] font-medium rounded-[8px] bg-[#E11D2A] text-white enabled:hover:bg-[#c8141f] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="h-11 text-[14px] font-medium rounded-md bg-brand text-white enabled:hover:bg-brand-hover disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               {isEmpty
                 ? tCart("takePayment")
@@ -696,8 +695,7 @@ function CustomerAttachPill({
       <button
         type="button"
         onClick={onClick}
-        className="inline-flex items-center gap-1 h-7 px-2.5 rounded-full border border-dashed border-white/20 text-paper/60 text-[10.5px] uppercase tracking-[0.12em] font-medium hover:border-white/40 hover:text-paper transition-colors"
-        style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+        className="ease-brand inline-flex items-center gap-1 h-7 px-2.5 rounded-full border border-dashed border-white/20 text-paper/60 text-[10.5px] uppercase tracking-[0.12em] font-medium hover:border-white/40 hover:text-paper transition-colors"
         aria-label={t("attachCustomer")}
       >
         <span aria-hidden className="text-[12px] leading-none">+</span>
@@ -721,8 +719,7 @@ function CustomerAttachPill({
     <button
       type="button"
       onClick={onClick}
-      className="inline-flex items-center gap-1.5 h-7 px-2.5 rounded-full bg-white/[0.06] border border-white/15 text-paper text-[11.5px] hover:bg-white/[0.1] transition-colors max-w-[160px]"
-      style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+      className="ease-brand inline-flex items-center gap-1.5 h-7 px-2.5 rounded-full bg-white/[0.06] border border-white/15 text-paper text-[11.5px] hover:bg-white/[0.1] transition-colors max-w-[160px]"
       title={attached.name}
     >
       <span aria-hidden className={"shrink-0 w-1.5 h-1.5 rounded-full " + tierDot} />
@@ -771,9 +768,9 @@ function OrderLineRow({
   return (
     <div
       className={
-        "group relative rounded-[8px] border transition-colors px-1.5 py-1 flex items-center gap-1.5 " +
+        "group relative rounded-md border transition-colors px-1.5 py-1 flex items-center gap-1.5 " +
         (isUrgent
-          ? "border-[#E11D2A]/35 bg-[#E11D2A]/[0.08] hover:bg-[#E11D2A]/[0.10]"
+          ? "border-brand/35 bg-brand/[0.08] hover:bg-brand/[0.10]"
           : "border-white/8 bg-white/[0.03] hover:bg-white/[0.05] hover:border-white/15")
       }
     >
@@ -781,7 +778,7 @@ function OrderLineRow({
           touch target hits Apple's 44px envelope (28×30px buttons +
           padding = ~36-44px effective tap area). Tightens on sm+ where
           pointer precision is higher. */}
-      <div className="shrink-0 inline-flex items-center h-8 sm:h-6 rounded-[5px] border border-white/10 bg-white/[0.04] overflow-hidden">
+      <div className="shrink-0 inline-flex items-center h-8 sm:h-6 rounded-sm border border-white/10 bg-white/[0.04] overflow-hidden">
         <button
           type="button"
           onClick={onDec}
@@ -833,7 +830,7 @@ function OrderLineRow({
       <div className="shrink-0 flex items-center gap-1">
         {hasDiscount && (
           <span
-            className="h-5 px-1 rounded-[4px] text-[9.5px] font-medium tabular-nums bg-[#E11D2A]/15 text-[#E11D2A] flex items-center"
+            className="h-5 px-1 rounded-sm text-[9.5px] font-medium tabular-nums bg-brand/15 text-brand flex items-center"
             title={`Line discount: ${line.discountPct}%`}
           >
             −{line.discountPct}%
@@ -850,7 +847,7 @@ function OrderLineRow({
           aria-expanded={menuOpen}
           aria-label="Line actions"
           className={
-            "h-7 sm:h-5 w-7 sm:w-5 rounded-[4px] flex items-center justify-center transition-colors " +
+            "h-7 sm:h-5 w-7 sm:w-5 rounded-sm flex items-center justify-center transition-colors " +
             (menuOpen
               ? "bg-white/[0.10] text-paper"
               : "text-paper/40 hover:text-paper hover:bg-white/[0.08]")
@@ -951,13 +948,12 @@ function UrgentToggle({
       disabled={disabled}
       aria-pressed={active}
       className={
-        "w-full h-9 inline-flex items-center justify-between gap-2 px-3 text-[12.5px] font-medium rounded-lg transition-all " +
+        "ease-brand w-full h-9 inline-flex items-center justify-between gap-2 px-3 text-[12.5px] font-medium rounded-lg transition-all " +
         (active
-          ? "bg-[#E11D2A]/15 border border-[#E11D2A]/35 text-[#ff8e96]"
+          ? "bg-brand/15 border border-brand/35 text-[#ff8e96]"
           : "bg-white/[0.04] border border-white/12 text-paper/75 enabled:hover:bg-white/[0.08] enabled:hover:text-paper") +
         " disabled:opacity-40 disabled:cursor-not-allowed"
       }
-      style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
     >
       <span className="flex items-center gap-2">
         <UrgentBoltIcon />
@@ -967,15 +963,14 @@ function UrgentToggle({
         aria-hidden
         className={
           "inline-flex items-center h-[18px] w-8 rounded-full transition-colors " +
-          (active ? "bg-[#E11D2A]" : "bg-white/15")
+          (active ? "bg-brand" : "bg-white/15")
         }
       >
         <span
           className={
-            "ml-0.5 h-3.5 w-3.5 rounded-full bg-paper transition-transform " +
+            "ease-brand ml-0.5 h-3.5 w-3.5 rounded-full bg-paper transition-transform " +
             (active ? "translate-x-[14px]" : "translate-x-0")
           }
-          style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
         />
       </span>
     </button>
@@ -1018,8 +1013,7 @@ function HoldButton({
       type="button"
       onClick={onClick}
       disabled={disabled}
-      className="h-11 inline-flex items-center justify-center gap-1.5 text-[13px] font-medium rounded-[8px] bg-white/[0.06] border border-white/15 text-paper enabled:hover:bg-white/[0.10] enabled:hover:border-white/25 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
-      style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+      className="ease-brand h-11 inline-flex items-center justify-center gap-1.5 text-[13px] font-medium rounded-md bg-white/[0.06] border border-white/15 text-paper enabled:hover:bg-white/[0.10] enabled:hover:border-white/25 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
     >
       <ParkIcon />
       <HoldLabel />
@@ -1040,7 +1034,7 @@ function EmptyState() {
         <div
           aria-hidden
           className="opacity-90 pointer-events-none"
-          style={{ filter: "drop-shadow(0 8px 22px rgba(225,29,42,0.16))" }}
+          style={{ filter: "drop-shadow(0 8px 22px color-mix(in srgb, var(--color-brand) 16%, transparent))" }}
         >
           <BrandLogoMark size={56} />
         </div>

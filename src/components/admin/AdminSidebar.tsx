@@ -154,7 +154,7 @@ export function AdminSidebar({
                       aria-current={active ? "page" : undefined}
                       className={
                         "relative block rounded-lg px-3 py-2 lg:py-1.5 transition-colors duration-200 " +
-                        "[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] " +
+                        "ease-brand " +
                         (active
                           ? "bg-paper text-ink shadow-[0_0_0_0.5px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)]"
                           : "text-ink-soft hover:text-ink hover:bg-paper/70")

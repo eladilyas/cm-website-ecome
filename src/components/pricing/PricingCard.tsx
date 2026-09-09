@@ -25,8 +25,6 @@ import { DiscountTile } from "./DiscountTile";
 import { ttc } from "@/data/pricing";
 import type { Plan, PlanHighlight, PlanHighlightDetail } from "@/data/pricing";
 
-const APPLE_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
-
 type Props = {
   plan: Plan;
   /** Tightens spacing for surfaces that need a denser card. */
@@ -48,19 +46,18 @@ export function PricingCard({ plan, compact = false }: Props) {
 
   return (
     <div
-      className={`group relative h-full flex flex-col rounded-[20px] p-6 md:p-7 transition-all duration-500 hover:-translate-y-0.5 ${
+      className={`ease-brand group relative h-full flex flex-col rounded-2xl p-6 md:p-7 transition-all duration-500 hover:-translate-y-0.5 ${
         isRecommended
           ? "bg-paper ring-1 ring-hairline-strong shadow-[0_28px_60px_-32px_rgba(0,0,0,0.24),0_2px_8px_-2px_rgba(0,0,0,0.05)] hover:shadow-[0_34px_72px_-30px_rgba(0,0,0,0.28),0_3px_10px_-2px_rgba(0,0,0,0.07)]"
           : "bg-paper ring-1 ring-hairline hover:ring-hairline-strong hover:shadow-[0_22px_55px_-32px_rgba(0,0,0,0.20)]"
       }`}
-      style={{ transitionTimingFunction: APPLE_EASE }}
     >
       {/* Neutral warmth behind the recommended card — a faint paper-on-
           paper glow lifting the card without adding colour. */}
       {isRecommended && (
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 rounded-[22px] overflow-hidden"
+          className="pointer-events-none absolute inset-0 -z-10 rounded-2xl overflow-hidden"
         >
           <div
             className="absolute inset-x-0 top-0 h-[55%]"
@@ -77,7 +74,7 @@ export function PricingCard({ plan, compact = false }: Props) {
       {isRecommended && (
         <span
           aria-hidden
-          className="absolute inset-x-0 top-0 h-[3px] rounded-t-[20px] bg-[#E11D2A]"
+          className="absolute inset-x-0 top-0 h-[3px] rounded-t-2xl bg-brand"
         />
       )}
 
@@ -92,7 +89,7 @@ export function PricingCard({ plan, compact = false }: Props) {
           >
             <span
               aria-hidden
-              className="inline-block h-1 w-1 rounded-full bg-[#E11D2A]"
+              className="inline-block h-1 w-1 rounded-full bg-brand"
             />
             {t("popular")}
           </span>
@@ -101,7 +98,7 @@ export function PricingCard({ plan, compact = false }: Props) {
 
       {/* Tagline */}
       <h3
-        className={`mt-3 text-[clamp(1.125rem,1.5vw,1.35rem)] font-semibold tracking-[-0.014em] leading-[1.2] text-ink ${
+        className={`mt-3 text-h3 font-semibold tracking-[-0.014em] leading-[1.2] text-ink ${
           compact ? "min-h-0" : "min-h-[2.6em]"
         }`}
         style={{ textWrap: "balance" }}
@@ -159,17 +156,15 @@ export function PricingCard({ plan, compact = false }: Props) {
       {/* CTA */}
       <Link
         href={plan.ctaHref}
-        className={`mt-7 group/cta inline-flex items-center justify-center w-full h-11 rounded-full text-[13.5px] font-medium transition-all duration-300 ${
+        className={`ease-brand mt-7 group/cta inline-flex items-center justify-center w-full h-11 rounded-full text-[13.5px] font-medium transition-all duration-300 ${
           isRecommended
-            ? "bg-[#E11D2A] text-white hover:bg-[#c8141f] shadow-[0_8px_20px_-10px_rgba(225,29,42,0.35)]"
+            ? "bg-brand text-white hover:bg-brand-hover shadow-[0_8px_20px_-10px_color-mix(in_srgb,var(--color-brand)_35%,transparent)]"
             : "bg-ink text-paper hover:bg-ink-soft"
         }`}
-        style={{ transitionTimingFunction: APPLE_EASE }}
       >
         {plan.ctaLabel}
         <Arrow
-          className="ml-2 transition-transform duration-300 group-hover/cta:translate-x-0.5"
-          style={{ transitionTimingFunction: APPLE_EASE }}
+          className="ease-brand ml-2 transition-transform duration-300 group-hover/cta:translate-x-0.5"
         />
       </Link>
     </div>

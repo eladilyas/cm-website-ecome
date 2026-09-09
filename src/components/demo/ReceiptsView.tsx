@@ -169,7 +169,7 @@ export function ReceiptsView() {
                           className={
                             "w-full text-left px-4 py-3 transition-colors flex items-center gap-3 border-l-2 " +
                             (isSelected
-                              ? "bg-fog border-l-[#E11D2A]"
+                              ? "bg-fog border-l-brand"
                               : "border-l-transparent hover:bg-fog/60")
                           }
                         >
@@ -359,7 +359,7 @@ function ReceiptDetail({
         )}
 
         {/* Lines */}
-        <section className="rounded-[10px] border border-hairline bg-paper overflow-hidden">
+        <section className="rounded-lg border border-hairline bg-paper overflow-hidden">
           <header className="px-4 py-2.5 border-b border-hairline flex items-center justify-between">
             <p className="text-[10px] uppercase tracking-[0.14em] text-ink-mute">
               Items
@@ -441,7 +441,7 @@ function ReceiptDetail({
         </section>
 
         {/* Totals */}
-        <section className="rounded-[10px] border border-hairline bg-paper p-4">
+        <section className="rounded-lg border border-hairline bg-paper p-4">
           <TotalsRow label="Subtotal" value={receipt.subtotal} />
           {receipt.taxTotal != null && (
             <TotalsRow
@@ -456,7 +456,7 @@ function ReceiptDetail({
         </section>
 
         {/* Payments */}
-        <section className="rounded-[10px] border border-hairline bg-paper p-4">
+        <section className="rounded-lg border border-hairline bg-paper p-4">
           <p className="text-[10px] uppercase tracking-[0.14em] text-ink-mute mb-3">
             Payments
           </p>
@@ -504,8 +504,7 @@ function ReceiptDetail({
               <button
                 type="button"
                 onClick={onVoid}
-                className="h-10 px-5 text-[13px] font-medium rounded-full border border-hairline-strong text-ink hover:bg-fog transition-colors"
-                style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+                className="ease-brand h-10 px-5 text-[13px] font-medium rounded-full border border-hairline-strong text-ink hover:bg-fog transition-colors"
               >
                 Void
               </button>
@@ -514,8 +513,7 @@ function ReceiptDetail({
               <button
                 type="button"
                 onClick={onRefund}
-                className="h-10 px-5 text-[13px] font-semibold rounded-full bg-[#E11D2A] text-white hover:bg-[#c8141f] transition-colors"
-                style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+                className="ease-brand h-10 px-5 text-[13px] font-semibold rounded-full bg-brand text-white hover:bg-brand-hover transition-colors"
               >
                 Refund…
               </button>
@@ -615,7 +613,7 @@ function RefundSheet({
                 );
               }}
               disabled={selected.size === 0}
-              className="h-10 px-4 text-[13px] font-medium rounded-lg bg-[#E11D2A] text-white enabled:hover:bg-[#c8141f] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="h-10 px-4 text-[13px] font-medium rounded-lg bg-brand text-white enabled:hover:bg-brand-hover disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               Process refund
             </button>
@@ -649,7 +647,7 @@ function RefundSheet({
           </div>
         </div>
 
-        <ul className="rounded-[10px] border border-hairline bg-paper divide-y divide-hairline overflow-hidden">
+        <ul className="rounded-lg border border-hairline bg-paper divide-y divide-hairline overflow-hidden">
           {receipt.lines.map((l, i) => {
             const isRefunded = alreadyRefunded.has(i);
             const checked = selected.has(i);
@@ -668,7 +666,7 @@ function RefundSheet({
                   disabled={isRefunded}
                   onChange={() => toggle(i)}
                   aria-label={`Refund ${l.name}`}
-                  className="h-4 w-4 rounded border-hairline-strong bg-paper accent-[#E11D2A]"
+                  className="h-4 w-4 rounded border-hairline-strong bg-paper accent-brand"
                 />
                 <div className="min-w-0 flex-1">
                   <p className="text-[13px] text-ink truncate">

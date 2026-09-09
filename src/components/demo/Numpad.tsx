@@ -19,8 +19,6 @@ type Props = {
   withDecimal?: boolean;
 };
 
-const APPLE_PRESS_EASE = "cubic-bezier(0.32, 0.72, 0, 1)";
-
 export function Numpad({ onPress, className = "", withDecimal = false }: Props) {
   const rows: NumpadKey[][] = [
     ["1", "2", "3"],
@@ -58,9 +56,8 @@ function Key({
       type="button"
       onClick={() => onPress(k)}
       whileTap={{ scale: 0.96 }}
-      transition={{ duration: 0.08, ease: [0.32, 0.72, 0, 1] }}
-      className={`h-12 md:h-14 rounded-[10px] border border-white/8 bg-white/[0.04] text-paper text-[18px] md:text-[20px] font-medium tabular-nums flex items-center justify-center active:bg-white/[0.10] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-paper/30 transition-colors ${className}`}
-      style={{ transitionTimingFunction: APPLE_PRESS_EASE }}
+      transition={{ duration: 0.08, ease: [0.22, 1, 0.36, 1] }}
+      className={`ease-brand h-12 md:h-14 rounded-lg border border-white/8 bg-white/[0.04] text-paper text-[18px] md:text-[20px] font-medium tabular-nums flex items-center justify-center active:bg-white/[0.10] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-paper/30 transition-colors ${className}`}
     >
       {label}
     </motion.button>

@@ -56,12 +56,12 @@ export function ClientStory({
 
   return (
     <section className="bg-paper border-y border-hairline">
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] gap-8 lg:gap-16 items-start">
           {/* ── Identity card ───────────────────────────────────────── */}
           <Reveal>
             <div className="rounded-2xl bg-canvas ring-1 ring-hairline p-6 md:p-8">
-              <p className="text-[10.5px] font-semibold uppercase tracking-[0.2em] text-ink-mute mb-6">
+              <p className="text-micro font-semibold uppercase tracking-[0.2em] text-ink-mute mb-6">
                 {content.eyebrow}
               </p>
 
@@ -78,11 +78,11 @@ export function ClientStory({
               )}
 
               {showLogo && (
-                <h2 className="text-[19px] md:text-[20px] font-semibold tracking-[-0.012em] text-ink">
+                <h2 className="text-h3 font-semibold tracking-[-0.012em] text-ink">
                   {name}
                 </h2>
               )}
-              <p className="mt-1.5 text-[13px] font-medium text-ink-soft">
+              <p className="mt-1.5 text-tiny font-medium text-ink-soft">
                 {content.tag}
               </p>
               <p className="mt-0.5 text-[12.5px] text-ink-mute">{content.city}</p>
@@ -106,7 +106,7 @@ export function ClientStory({
           <div className="lg:pt-2">
             <Reveal delay={0.06}>
               <h3
-                className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.1] text-ink max-w-[26ch]"
+                className="text-h2 font-semibold tracking-[-0.018em] leading-[1.1] text-ink max-w-[26ch]"
                 style={{ textWrap: "balance" }}
               >
                 {content.storyTitle}
@@ -122,9 +122,9 @@ export function ClientStory({
                   and the solution that follows, so it gets the one accent on
                   the page — a red rule, matching the brand's single-accent
                   discipline. */}
-              <blockquote className="mt-7 pl-5 border-l-2 border-[#E11D2A]">
+              <blockquote className="mt-7 pl-5 border-l-2 border-brand">
                 <p
-                  className="text-[17px] md:text-[19px] font-medium leading-[1.45] tracking-[-0.01em] text-ink max-w-[38rem]"
+                  className="text-base md:text-lg font-medium leading-[1.45] tracking-[-0.01em] text-ink max-w-[38rem]"
                   style={{ textWrap: "balance" }}
                 >
                   {content.pressure}

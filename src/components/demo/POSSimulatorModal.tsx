@@ -118,14 +118,11 @@ export function POSSimulatorModal({ open, initialActivity, onClose }: Props) {
                       role="tab"
                       aria-selected={isActive}
                       onClick={() => selectActivity(a.key)}
-                      className={`shrink-0 h-9 px-3.5 text-[12px] md:text-[13px] font-medium rounded-full transition-colors duration-200 ${
+                      className={`ease-brand shrink-0 h-9 px-3.5 text-[12px] md:text-[13px] font-medium rounded-full transition-colors duration-200 ${
                         isActive
                           ? "bg-paper text-ink"
                           : "text-paper/70 hover:text-paper hover:bg-white/[0.06]"
                       }`}
-                      style={{
-                        transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
-                      }}
                     >
                       {tAct(a.key)}
                     </button>

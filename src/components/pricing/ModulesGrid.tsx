@@ -27,7 +27,7 @@ export function ModulesGrid() {
         </Reveal>
         <Reveal delay={0.04}>
           <h3
-            className="mt-3 text-[clamp(1.375rem,2.2vw,1.75rem)] font-semibold tracking-[-0.018em] leading-[1.1] text-ink max-w-[36ch]"
+            className="mt-3 text-h2 font-semibold tracking-[-0.018em] leading-[1.1] text-ink max-w-[36ch]"
             style={{ textWrap: "balance" }}
           >
             {t("addonsTitle")}
@@ -73,8 +73,7 @@ function ModuleCard({
   const biennialTotalTtc = ttc(biennialTotalHt);
   return (
     <div
-      className="h-full flex flex-col rounded-2xl bg-paper ring-1 ring-hairline px-5 py-5 md:px-6 md:py-6 transition-all duration-500 hover:-translate-y-0.5 hover:ring-hairline-strong hover:shadow-[0_18px_42px_-28px_rgba(0,0,0,0.22)]"
-      style={{ transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)" }}
+      className="ease-brand h-full flex flex-col rounded-2xl bg-paper ring-1 ring-hairline px-5 py-5 md:px-6 md:py-6 transition-all duration-500 hover:-translate-y-0.5 hover:ring-hairline-strong hover:shadow-[0_18px_42px_-28px_rgba(0,0,0,0.22)]"
     >
       <ModuleIcon kind={addon.icon} />
       <p className="mt-3.5 text-[14px] font-medium text-ink leading-[1.3]">

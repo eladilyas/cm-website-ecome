@@ -97,7 +97,7 @@ export function BackofficeOverview() {
                     <div
                       className={
                         "w-full rounded-sm transition-colors " +
-                        (isActive ? "bg-[#E11D2A]" : "bg-fog")
+                        (isActive ? "bg-brand" : "bg-fog")
                       }
                       style={{ height: `${Math.max(2, heightPct)}%` }}
                       title={`${h.hour}:00 · ${fmtMoney(h.total)} MAD`}
@@ -134,7 +134,7 @@ export function BackofficeOverview() {
                       </p>
                       <div className="mt-1 h-1 rounded-full bg-fog overflow-hidden">
                         <div
-                          className="h-full bg-[#E11D2A]"
+                          className="h-full bg-brand"
                           style={{ width: `${barPct}%` }}
                         />
                       </div>
@@ -194,7 +194,7 @@ function Card({
   return (
     <section
       className={
-        "rounded-[10px] border bg-paper p-4 md:p-5 " + borderCls
+        "rounded-lg border bg-paper p-4 md:p-5 " + borderCls
       }
     >
       <header className="flex items-baseline justify-between gap-3 mb-1">

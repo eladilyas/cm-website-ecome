@@ -1,7 +1,7 @@
 // Apple-style section divider.
 //
 // A 1px hairline that visually separates consecutive sections, bound to the
-// page's max-w-[1280px] content container with the same px-6 lg:px-10
+// page's max-w-shell content container with the same px-6 lg:px-10
 // gutters. Two scheme variants pick the right hairline color for the
 // surrounding section's tone — light/canvas sections use a near-black low-
 // opacity line; dark/night sections use a near-white low-opacity line.
@@ -26,7 +26,7 @@ type Props = {
 export function SectionDivider({ scheme = "light", className = "" }: Props) {
   const lineClass = scheme === "dark" ? "bg-white/[0.08]" : "bg-black/[0.08]";
   return (
-    <div className={`mx-auto max-w-[1280px] px-6 lg:px-10 ${className}`} aria-hidden="true">
+    <div className={`mx-auto max-w-shell px-6 lg:px-10 ${className}`} aria-hidden="true">
       <div className={`h-px ${lineClass}`} />
     </div>
   );

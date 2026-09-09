@@ -53,7 +53,7 @@ export default async function TechnologyPage() {
         scheme="paper"
       />
       {/* Docs teaser */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
         <div className="rounded-2xl bg-paper ring-1 ring-hairline p-6 md:p-10 max-w-[46rem]">
           <Reveal>
             <p className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-3">
@@ -61,7 +61,7 @@ export default async function TechnologyPage() {
             </p>
           </Reveal>
           <Reveal delay={0.04}>
-            <h2 className="text-[clamp(1.25rem,2.4vw,1.75rem)] font-semibold tracking-[-0.014em] leading-[1.15] text-ink">
+            <h2 className="text-h2 font-semibold tracking-[-0.014em] leading-[1.15] text-ink">
               {t("docsTitle")}
             </h2>
           </Reveal>

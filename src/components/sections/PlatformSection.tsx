@@ -60,7 +60,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 
 const APPLE_EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
-const BRAND_RED = "#E11D2A";
+const BRAND_RED = "var(--color-brand)";
 
 // ─── Module inventory ────────────────────────────────────────────────
 
@@ -268,7 +268,7 @@ export function PlatformSection() {
       />
       <SectionDivider scheme="light" />
 
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-10 md:py-12">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 py-10 md:py-12">
         {/* ── Editorial text plate ──────────────────────────────────── */}
         <div className="text-center max-w-[46rem] mx-auto">
           <Reveal>
@@ -277,7 +277,7 @@ export function PlatformSection() {
             </p>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="text-[clamp(2rem,4.6vw,3.25rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink">
+            <h2 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-ink">
               Every device. One system.
             </h2>
           </Reveal>
@@ -310,7 +310,7 @@ export function PlatformSection() {
                   width: `${HUB.imageWidthPct * 1.8}%`,
                   aspectRatio: "1 / 1",
                   background:
-                    "radial-gradient(50% 50% at 50% 50%, rgba(225,29,42,0.10) 0%, rgba(225,29,42,0) 75%)",
+                    "radial-gradient(50% 50% at 50% 50%, color-mix(in srgb, var(--color-brand) 10%, transparent) 0%, transparent 75%)",
                   filter: "blur(36px)",
                 }}
               />
@@ -347,8 +347,8 @@ export function PlatformSection() {
                 <defs>
                   <linearGradient id="arc-gradient">
                     <stop offset="0%" stopColor="rgba(20,20,30,0.04)" />
-                    <stop offset="60%" stopColor="rgba(225,29,42,0.18)" />
-                    <stop offset="100%" stopColor="rgba(225,29,42,0.45)" />
+                    <stop offset="60%" stopColor="color-mix(in srgb, var(--color-brand) 18%, transparent)" />
+                    <stop offset="100%" stopColor="color-mix(in srgb, var(--color-brand) 45%, transparent)" />
                   </linearGradient>
                 </defs>
 
@@ -494,7 +494,7 @@ function ModuleVisual({
     >
       <span
         aria-hidden
-        className="inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-hairline bg-paper text-[#E11D2A] shadow-[0_8px_18px_rgba(20,15,40,0.06)]"
+        className="inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-hairline bg-paper text-brand shadow-[0_8px_18px_rgba(20,15,40,0.06)]"
       >
         {mod.icon}
       </span>
@@ -531,7 +531,7 @@ function ModuleCaption({
       <p
         className={
           isHub
-            ? "text-[11px] font-semibold uppercase tracking-[0.20em] text-[#E11D2A]"
+            ? "text-[11px] font-semibold uppercase tracking-[0.20em] text-brand"
             : "text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-mute"
         }
       >
@@ -540,13 +540,13 @@ function ModuleCaption({
       <p
         className={
           "mt-1 font-semibold tracking-[-0.012em] text-ink leading-[1.2] " +
-          (isHub ? "text-[17px]" : "text-[13px]")
+          (isHub ? "text-base" : "text-tiny")
         }
       >
         {mod.name}
       </p>
       {isHub && (
-        <p className="mt-1 text-[12px] leading-[1.4] text-ink-mute">
+        <p className="mt-1 text-mini leading-[1.4] text-ink-mute">
           {mod.blurb}
         </p>
       )}
@@ -583,7 +583,7 @@ function MobileModuleCard({ module: mod }: { module: ModuleDef }) {
         </div>
       ) : (
         <div className="flex items-center justify-center mx-auto h-16">
-          <span className="inline-flex h-12 w-12 rounded-xl bg-[#E11D2A]/8 items-center justify-center text-[#E11D2A]">
+          <span className="inline-flex h-12 w-12 rounded-xl bg-brand/8 items-center justify-center text-brand">
             {mod.icon}
           </span>
         </div>
@@ -591,15 +591,15 @@ function MobileModuleCard({ module: mod }: { module: ModuleDef }) {
       <p
         className={
           "mt-3 text-[10px] font-semibold uppercase tracking-[0.14em] " +
-          (isHub ? "text-[#E11D2A]" : "text-ink-mute")
+          (isHub ? "text-brand" : "text-ink-mute")
         }
       >
         {mod.role}
       </p>
-      <p className="mt-0.5 text-[14px] font-semibold tracking-[-0.005em] text-ink">
+      <p className="mt-0.5 text-sm font-semibold tracking-[-0.005em] text-ink">
         {mod.name}
       </p>
-      <p className="mt-0.5 text-[12px] leading-[1.4] text-ink-mute">
+      <p className="mt-0.5 text-mini leading-[1.4] text-ink-mute">
         {mod.blurb}
       </p>
     </div>

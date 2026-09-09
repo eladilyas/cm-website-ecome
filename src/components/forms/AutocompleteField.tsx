@@ -88,26 +88,24 @@ export function AutocompleteField({
   return (
     <div ref={wrapperRef} className="w-full relative">
       <div
-        className={`relative h-14 border-b transition-colors duration-200 ${
+        className={`ease-brand relative h-14 border-b transition-colors duration-200 ${
           errored
-            ? "border-[#E11D2A]"
+            ? "border-brand"
             : focused
               ? "border-ink"
               : "border-hairline-strong"
         }`}
-        style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
       >
         <label
           htmlFor={id}
-          className={`pointer-events-none absolute left-0 transition-all duration-200 ${
+          className={`ease-brand pointer-events-none absolute left-0 transition-all duration-200 ${
             float
               ? "top-0.5 text-[11px] uppercase tracking-[0.14em] text-ink-mute"
               : "top-1/2 -translate-y-1/2 text-[16px] text-ink-mute"
           }`}
-          style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
         >
           {label}
-          {required && <span className="text-[#E11D2A] ml-0.5">*</span>}
+          {required && <span className="text-brand ml-0.5">*</span>}
         </label>
 
         <input
@@ -140,10 +138,9 @@ export function AutocompleteField({
         {/* Chevron */}
         <span
           aria-hidden
-          className={`absolute right-0 top-1/2 -translate-y-1/2 pt-2 text-ink-mute transition-transform duration-200 ${
+          className={`ease-brand absolute right-0 top-1/2 -translate-y-1/2 pt-2 text-ink-mute transition-transform duration-200 ${
             open ? "rotate-180" : ""
           }`}
-          style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M3 5l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -183,7 +180,7 @@ export function AutocompleteField({
       {(error || (filled && !isValidCity(value) && !open)) && (
         <p
           className={`mt-2 text-[12px] leading-[1.4] ${
-            error ? "text-[#E11D2A]" : "text-ink-mute"
+            error ? "text-brand" : "text-ink-mute"
           }`}
         >
           {error ?? "Pick from the list — Morocco cities only for now."}

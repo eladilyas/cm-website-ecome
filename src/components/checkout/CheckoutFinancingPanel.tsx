@@ -229,12 +229,11 @@ function AgePill({
       onClick={onClick}
       aria-pressed={active}
       className={
-        "h-9 text-[12.5px] font-medium rounded-lg border transition-colors " +
+        "ease-brand h-9 text-[12.5px] font-medium rounded-lg border transition-colors " +
         (active
           ? "border-ink bg-ink text-paper"
           : "border-hairline bg-paper text-ink-soft hover:text-ink hover:bg-canvas")
       }
-      style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
     >
       {children}
     </button>

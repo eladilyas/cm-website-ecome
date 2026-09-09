@@ -393,8 +393,7 @@ function AdjustStockSheet({
           <button
             type="button"
             onClick={onClose}
-            className="h-9 px-4 text-[13px] font-medium rounded-full border border-hairline-strong text-ink hover:bg-fog transition-colors"
-            style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+            className="ease-brand h-9 px-4 text-[13px] font-medium rounded-full border border-hairline-strong text-ink hover:bg-fog transition-colors"
           >
             Cancel
           </button>
@@ -402,8 +401,7 @@ function AdjustStockSheet({
             type="button"
             onClick={apply}
             disabled={!canApply}
-            className="h-9 px-4 text-[13px] font-semibold rounded-full bg-ink text-paper enabled:hover:bg-ink-soft disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
-            style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+            className="ease-brand h-9 px-4 text-[13px] font-semibold rounded-full bg-ink text-paper enabled:hover:bg-ink-soft disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             Apply
           </button>
@@ -424,12 +422,11 @@ function AdjustStockSheet({
                 type="button"
                 onClick={() => setMode(m)}
                 className={
-                  "h-7 px-3 text-[11.5px] font-medium rounded-full transition-colors " +
+                  "ease-brand h-7 px-3 text-[11.5px] font-medium rounded-full transition-colors " +
                   (mode === m
                     ? "bg-ink text-paper shadow-[0_1px_0_rgba(0,0,0,0.04)]"
                     : "text-ink-mute hover:text-ink")
                 }
-                style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
               >
                 {labelOf(m)}
               </button>
@@ -638,12 +635,11 @@ function ModePill({
       type="button"
       onClick={onClick}
       className={
-        "px-3 h-7 rounded-full text-[11.5px] font-medium transition-colors " +
+        "ease-brand px-3 h-7 rounded-full text-[11.5px] font-medium transition-colors " +
         (active
           ? "bg-paper text-ink shadow-[0_1px_0_rgba(0,0,0,0.04),0_0_0_1px_rgba(0,0,0,0.06)]"
           : "text-ink-mute hover:text-ink")
       }
-      style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
     >
       {label}
     </button>
@@ -710,7 +706,7 @@ function ProductionView({
     return (
       <div className="flex-1 overflow-y-auto bg-canvas">
         <div className="h-full flex flex-col items-center justify-center text-center px-8 py-16">
-          <div className="h-12 w-12 rounded-[12px] bg-paper border border-hairline inline-flex items-center justify-center mb-4 text-ink-mute">
+          <div className="h-12 w-12 rounded-lg bg-paper border border-hairline inline-flex items-center justify-center mb-4 text-ink-mute">
             <svg
               width="22"
               height="22"
@@ -843,7 +839,7 @@ function RecipeCard({
   if (maxBatches === Infinity) maxBatches = 0;
 
   return (
-    <article className="rounded-[10px] border border-hairline bg-paper px-3.5 py-3 flex flex-col gap-2.5">
+    <article className="rounded-lg border border-hairline bg-paper px-3.5 py-3 flex flex-col gap-2.5">
       <header className="flex items-baseline justify-between gap-2">
         <div className="min-w-0 flex items-baseline gap-2 flex-1">
           <p className="text-[13px] font-semibold tracking-[-0.005em] text-ink truncate">
@@ -910,8 +906,7 @@ function RecipeCard({
           type="button"
           onClick={onProduce}
           disabled={maxBatches === 0}
-          className="h-7 px-3 inline-flex items-center gap-1 text-[11.5px] font-semibold rounded-full bg-ink text-paper enabled:hover:bg-ink-soft disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
-          style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+          className="ease-brand h-7 px-3 inline-flex items-center gap-1 text-[11.5px] font-semibold rounded-full bg-ink text-paper enabled:hover:bg-ink-soft disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
         >
           Produce
           <svg
@@ -1024,7 +1019,7 @@ function ProductionRunSheet({
             Batch size
           </p>
           <div className="flex items-center gap-3">
-            <div className="inline-flex items-center h-12 rounded-[10px] border border-hairline bg-canvas">
+            <div className="inline-flex items-center h-12 rounded-lg border border-hairline bg-canvas">
               <button
                 type="button"
                 onClick={() => setBatches((b) => Math.max(1, b - 1))}
@@ -1069,7 +1064,7 @@ function ProductionRunSheet({
         </div>
 
         {/* Live consumption preview */}
-        <div className="rounded-[10px] bg-canvas border border-hairline p-4">
+        <div className="rounded-lg bg-canvas border border-hairline p-4">
           <p className="text-[10.5px] font-medium uppercase tracking-[0.14em] text-ink-mute mb-2.5">
             Will consume
           </p>

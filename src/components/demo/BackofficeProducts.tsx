@@ -346,8 +346,7 @@ function ProductFormSheet({
               <button
                 type="button"
                 onClick={() => setConfirmDelete(true)}
-                className="h-9 px-3 text-[12.5px] font-medium rounded-full text-red-600 hover:text-red-700 hover:bg-red-50 transition-colors"
-                style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+                className="ease-brand h-9 px-3 text-[12.5px] font-medium rounded-full text-red-600 hover:text-red-700 hover:bg-red-50 transition-colors"
               >
                 Delete
               </button>
@@ -358,8 +357,7 @@ function ProductFormSheet({
               <button
                 type="button"
                 onClick={onClose}
-                className="h-9 px-4 text-[13px] font-medium rounded-full border border-hairline-strong text-ink hover:bg-fog transition-colors"
-                style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+                className="ease-brand h-9 px-4 text-[13px] font-medium rounded-full border border-hairline-strong text-ink hover:bg-fog transition-colors"
               >
                 Cancel
               </button>
@@ -367,8 +365,7 @@ function ProductFormSheet({
                 type="button"
                 onClick={save}
                 disabled={!canSave}
-                className="h-9 px-4 text-[13px] font-semibold rounded-full bg-ink text-paper enabled:hover:bg-ink-soft disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
-                style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+                className="ease-brand h-9 px-4 text-[13px] font-semibold rounded-full bg-ink text-paper enabled:hover:bg-ink-soft disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               >
                 {isEditing ? "Save changes" : "Add product"}
               </button>
@@ -573,7 +570,7 @@ function Field({
       <div className="flex items-baseline justify-between mb-1">
         <span className="text-[10px] uppercase tracking-[0.14em] text-ink-mute">
           {label}
-          {required && <span className="text-[#E11D2A] ml-0.5">*</span>}
+          {required && <span className="text-brand ml-0.5">*</span>}
         </span>
         {(hint || suffix) && (
           <span className="text-[10px] text-ink-mute">{hint ?? suffix}</span>

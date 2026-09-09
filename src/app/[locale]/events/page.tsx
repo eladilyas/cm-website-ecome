@@ -47,7 +47,7 @@ export default async function EventsPage() {
       <SectionDivider scheme="light" />
 
       {/* Hero */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-28 md:pt-36 pb-14 md:pb-20">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 pt-28 md:pt-36 pb-14 md:pb-20">
         <Reveal>
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-5">
             {t("eyebrow")}
@@ -55,7 +55,7 @@ export default async function EventsPage() {
         </Reveal>
         <Reveal delay={0.04}>
           <h1
-            className="text-[clamp(2.25rem,5vw,4rem)] font-semibold tracking-[-0.024em] leading-[1.02] text-ink max-w-[22ch]"
+            className="text-h1 font-semibold tracking-[-0.024em] leading-[1.02] text-ink max-w-[22ch]"
             style={{ textWrap: "balance" }}
           >
             {t("title")}
@@ -69,7 +69,7 @@ export default async function EventsPage() {
       </section>
 
       {/* Events grid */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pb-16 md:pb-24">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 pb-16 md:pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
           {events.map((e, i) => {
             const key = EVENT_VIDEO_KEY[e.slug];
@@ -123,7 +123,7 @@ export default async function EventsPage() {
 
       {/* Closing CTA */}
       <section className="bg-paper border-t border-hairline">
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-20 md:py-28">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-20 md:py-28">
           <Reveal>
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-4">
               {t("ctaEyebrow")}
@@ -131,7 +131,7 @@ export default async function EventsPage() {
           </Reveal>
           <Reveal delay={0.04}>
             <h2
-              className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[24ch]"
+              className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[24ch]"
               style={{ textWrap: "balance" }}
             >
               {t("ctaTitle")}

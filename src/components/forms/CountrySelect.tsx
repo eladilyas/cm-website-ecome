@@ -151,8 +151,7 @@ export function CountrySelect({
           }}
           onKeyDown={onSearchKey}
           placeholder="Search country or dial code"
-          className="w-full h-9 px-3 text-[14px] rounded-lg bg-canvas text-ink placeholder:text-ink-mute outline-none focus:bg-fog transition-colors"
-          style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+          className="ease-brand w-full h-9 px-3 text-[14px] rounded-lg bg-canvas text-ink placeholder:text-ink-mute outline-none focus:bg-fog transition-colors"
         />
       </div>
       <ul className="max-h-[280px] overflow-y-auto py-1">
@@ -179,7 +178,7 @@ export function CountrySelect({
                   <span className="flex-1 truncate">{c.name}</span>
                   <span className="text-ink-mute tabular-nums shrink-0">+{c.dial}</span>
                   {isSelected && (
-                    <span aria-label="selected" className="text-[#E11D2A] shrink-0">
+                    <span aria-label="selected" className="text-brand shrink-0">
                       <BrandCheck variant="inline" size={14} />
                     </span>
                   )}
@@ -213,8 +212,7 @@ export function CountrySelect({
           viewBox="0 0 10 10"
           fill="none"
           aria-hidden
-          className={`text-ink-mute transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-          style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+          className={`ease-brand text-ink-mute transition-transform duration-200 ${open ? "rotate-180" : ""}`}
         >
           <path
             d="M2 4l3 3 3-3"

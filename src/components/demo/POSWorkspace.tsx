@@ -222,12 +222,12 @@ export function POSWorkspace({ embedded = false }: POSWorkspaceProps = {}) {
                 ? tTabs("parkedAria", { count: parkedCount })
                 : tTabs("parkedAriaEmpty")
             }
-            className="ml-auto inline-flex items-center gap-1.5 h-8 px-3 rounded-[8px] bg-white/[0.06] hover:bg-white/[0.1] border border-white/10 text-paper/85 text-[11.5px] font-medium transition-colors"
+            className="ml-auto inline-flex items-center gap-1.5 h-8 px-3 rounded-md bg-white/[0.06] hover:bg-white/[0.1] border border-white/10 text-paper/85 text-[11.5px] font-medium transition-colors"
           >
             <ParkedIcon />
             <span>{tTabs("parked")}</span>
             {parkedCount > 0 && (
-              <span className="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-[#E11D2A] text-paper text-[10.5px] font-semibold tabular-nums">
+              <span className="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-brand text-paper text-[10.5px] font-semibold tabular-nums">
                 {parkedCount}
               </span>
             )}
@@ -351,14 +351,11 @@ function ViewTabButton({
       onClick={onClick}
       aria-current={active ? "page" : undefined}
       className={
-        "inline-flex items-center gap-1.5 h-8 px-3 rounded-lg text-[12px] font-medium transition-colors duration-150 " +
+        "ease-brand inline-flex items-center gap-1.5 h-8 px-3 rounded-lg text-[12px] font-medium transition-colors duration-150 " +
         (active
           ? "bg-white/[0.08] text-paper"
           : "text-paper/60 hover:text-paper hover:bg-white/[0.05]")
       }
-      style={{
-        transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
-      }}
     >
       <span aria-hidden className="text-paper/85">
         {icon}

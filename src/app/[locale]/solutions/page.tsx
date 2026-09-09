@@ -97,7 +97,7 @@ export default async function IndustriesOverviewPage() {
       <SectionDivider scheme="light" />
 
       {/* Hero */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-28 md:pt-36 pb-16 md:pb-20">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 pt-28 md:pt-36 pb-16 md:pb-20">
         <Reveal>
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-5">
             {t("eyebrow")}
@@ -105,14 +105,14 @@ export default async function IndustriesOverviewPage() {
         </Reveal>
         <Reveal delay={0.04}>
           <h1
-            className="text-[clamp(2.25rem,5vw,4.25rem)] font-semibold tracking-[-0.024em] leading-[1.02] text-ink max-w-[22ch]"
+            className="text-h1 font-semibold tracking-[-0.024em] leading-[1.02] text-ink max-w-[22ch]"
             style={{ textWrap: "balance" }}
           >
             {t("title")}
           </h1>
         </Reveal>
         <Reveal delay={0.08}>
-          <p className="mt-6 text-[17px] md:text-[19px] leading-[1.55] text-ink-soft max-w-[46rem]">
+          <p className="mt-6 text-base md:text-lg leading-[1.55] text-ink-soft max-w-[46rem]">
             {t("body")}
           </p>
         </Reveal>
@@ -121,16 +121,15 @@ export default async function IndustriesOverviewPage() {
       {/* Sector grid — real photography from the field, one card per
           trade. 2-up on phones, 3-up tablet, 4-up desktop; the last card
           spans two columns below lg so no ragged gap is left behind. */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pb-20 md:pb-24">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 pb-20 md:pb-24">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
           {CANONICAL_SLUGS.map((slug, i) => (
             <Reveal key={slug} delay={0.03 + i * 0.02}>
               <Link
                 href={`/solutions/${slug}`}
-                className={`group relative block h-full overflow-hidden rounded-2xl ring-1 ring-hairline bg-ink transition-all duration-500 hover:-translate-y-0.5 hover:ring-hairline-strong hover:shadow-[0_18px_42px_-28px_rgba(0,0,0,0.28)] ${
+                className={`group relative block h-full overflow-hidden rounded-2xl ring-1 ring-hairline bg-ink transition-all duration-500 ease-brand hover:-translate-y-0.5 hover:ring-hairline-strong hover:shadow-[0_18px_42px_-28px_rgba(0,0,0,0.28)] ${
                   slug === "market" ? "col-span-2 lg:col-span-1" : ""
                 }`}
-                style={{ transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)" }}
               >
                 <div className="relative aspect-[4/5] sm:aspect-[3/4]">
                   <Image
@@ -139,8 +138,7 @@ export default async function IndustriesOverviewPage() {
                     fill
                     sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
                     loading={i < 4 ? "eager" : "lazy"}
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                    style={{ transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)" }}
+                    className="object-cover transition-transform duration-700 ease-brand group-hover:scale-[1.04]"
                   />
                   {/* Legibility scrim — keeps the label readable over any
                       photo without washing the image out. */}
@@ -168,7 +166,7 @@ export default async function IndustriesOverviewPage() {
 
       {/* Proof grid — "Éprouvé au comptoir, pas seulement sur papier." */}
       <section className="bg-paper border-y border-hairline">
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
           <div className="mb-10 md:mb-14 max-w-[46rem]">
             <Reveal>
               <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-3">
@@ -176,7 +174,7 @@ export default async function IndustriesOverviewPage() {
               </p>
             </Reveal>
             <Reveal delay={0.04}>
-              <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
+              <h2 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.08] text-ink">
                 {t("proofTitle")}
               </h2>
             </Reveal>
@@ -220,12 +218,12 @@ export default async function IndustriesOverviewPage() {
                           column already carried it typographically. */}
                       <div className="lg:pt-3">
                         {showLogo && (
-                          <h3 className="text-[16px] md:text-[17px] font-semibold text-ink tracking-[-0.01em]">
+                          <h3 className="text-h3 font-semibold text-ink tracking-[-0.01em]">
                             {p.name}
                           </h3>
                         )}
                         <p
-                          className={`text-[10.5px] font-semibold uppercase tracking-[0.16em] text-ink-mute ${
+                          className={`text-micro font-semibold uppercase tracking-[0.16em] text-ink-mute ${
                             showLogo ? "mt-1.5" : ""
                           }`}
                         >
@@ -233,7 +231,7 @@ export default async function IndustriesOverviewPage() {
                         </p>
                       </div>
 
-                      <p className="lg:pt-2.5 text-[14px] md:text-[14.5px] leading-[1.6] text-ink-soft max-w-[46rem]">
+                      <p className="lg:pt-2.5 text-sm md:text-[14.5px] leading-[1.6] text-ink-soft max-w-[46rem]">
                         {p.body}
                       </p>
                     </article>
@@ -255,7 +253,7 @@ export default async function IndustriesOverviewPage() {
       />
 
       {/* Closing CTA */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 py-20 md:py-28">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 py-20 md:py-28">
         <Reveal>
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-mute mb-4">
             {t("ctaEyebrow")}
@@ -263,7 +261,7 @@ export default async function IndustriesOverviewPage() {
         </Reveal>
         <Reveal delay={0.04}>
           <h2
-            className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[22ch]"
+            className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[22ch]"
             style={{ textWrap: "balance" }}
           >
             {t("ctaTitle")}

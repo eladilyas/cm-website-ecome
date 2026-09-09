@@ -11,18 +11,18 @@ import { Reveal } from "@/components/ui/Reveal";
 export function NarrativeSection() {
   return (
     <section data-scheme="light" className="bg-canvas overflow-hidden">
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-28 md:py-40">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 py-28 md:py-40">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Typography — left */}
           <div className="md:order-1 text-left">
             <Reveal>
-              <p className="text-[12px] font-medium uppercase tracking-[0.14em] text-ink-mute mb-6">
+              <p className="text-mini font-medium uppercase tracking-[0.14em] text-ink-mute mb-6">
                 One platform
               </p>
             </Reveal>
 
             <Reveal delay={0.05}>
-              <h2 className="text-[clamp(1.875rem,3.8vw,2.875rem)] font-semibold tracking-tight leading-[1.1] text-ink">
+              <h2 className="text-h2 font-semibold tracking-tight leading-[1.1] text-ink">
                 Built for the future of commerce.
               </h2>
             </Reveal>
@@ -34,7 +34,7 @@ export function NarrativeSection() {
             </Reveal>
 
             <Reveal delay={0.14}>
-              <p className="mt-3 text-[14px] leading-[1.55] text-ink-mute max-w-[28rem]">
+              <p className="mt-3 text-sm leading-[1.55] text-ink-mute max-w-[28rem]">
                 Designed to feel like nothing at all.
               </p>
             </Reveal>
@@ -54,7 +54,7 @@ export function NarrativeSection() {
                   className="absolute inset-[6%]"
                   style={{
                     background:
-                      "radial-gradient(52% 52% at 38% 38%, rgba(225,29,42,0.22) 0%, rgba(225,29,42,0) 72%)",
+                      "radial-gradient(52% 52% at 38% 38%, color-mix(in srgb, var(--color-brand) 22%, transparent) 0%, transparent 72%)",
                     filter: "blur(28px)",
                   }}
                 />

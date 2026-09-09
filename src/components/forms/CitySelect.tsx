@@ -25,7 +25,7 @@ export function CitySelect({
   placeholder = "Select a city",
 }: Props) {
   const borderTone = errored
-    ? "border-[#E11D2A]/60 focus:border-[#E11D2A] focus:ring-[#E11D2A]/10"
+    ? "border-brand/60 focus:border-brand focus:ring-brand/10"
     : "border-hairline focus:border-hairline-strong focus:ring-ink/10";
 
   return (

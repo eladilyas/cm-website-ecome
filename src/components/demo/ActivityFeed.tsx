@@ -51,7 +51,7 @@ export function ActivityFeed() {
   );
 
   return (
-    <section className="rounded-[10px] border border-hairline bg-paper p-4 md:p-5">
+    <section className="rounded-lg border border-hairline bg-paper p-4 md:p-5">
       <header className="flex items-baseline justify-between gap-3 mb-1">
         <h3 className="text-[13.5px] font-semibold tracking-[-0.005em] text-ink">
           Recent activity

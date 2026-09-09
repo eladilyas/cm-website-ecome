@@ -27,8 +27,7 @@ export function TrustStrip() {
       {items.map((s, i) => (
         <div
           key={s.title}
-          className="h-full rounded-2xl bg-paper p-6 ring-1 ring-hairline transition-all duration-300 hover:ring-hairline-strong hover:-translate-y-0.5"
-          style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}
+          className="ease-brand h-full rounded-2xl bg-paper p-6 ring-1 ring-hairline transition-all duration-300 hover:ring-hairline-strong hover:-translate-y-0.5"
         >
           <span
             className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-canvas text-ink"

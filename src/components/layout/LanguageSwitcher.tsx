@@ -135,12 +135,9 @@ export function LanguageSwitcher({
             onClick={() => onSelect(l)}
             disabled={pending}
             className={
-              "inline-flex items-center justify-center h-7 min-w-[34px] px-2.5 rounded-full text-[11.5px] font-semibold tracking-[0.04em] transition-colors duration-200 disabled:opacity-60 " +
+              "ease-brand inline-flex items-center justify-center h-7 min-w-[34px] px-2.5 rounded-full text-[11.5px] font-semibold tracking-[0.04em] transition-colors duration-200 disabled:opacity-60 " +
               (active ? activeClass : idleClass)
             }
-            style={{
-              transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
-            }}
           >
             {LABEL[l]}
           </button>

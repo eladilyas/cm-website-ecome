@@ -57,9 +57,6 @@ export function FeatureVisualBlock({
     const padY = isLead
       ? "pt-20 md:pt-28 pb-20 md:pb-28"
       : "pt-16 md:pt-20 pb-16 md:pb-20";
-    const titleScale = isLead
-      ? "text-[clamp(1.875rem,4vw,3rem)]"
-      : "text-[clamp(1.5rem,2.6vw,2rem)]";
     const sectionExtras = isLead
       ? ""
       : "h-full flex flex-col min-h-[640px] md:min-h-[760px]";
@@ -71,7 +68,7 @@ export function FeatureVisualBlock({
       >
         <div
           className={[
-            "mx-auto max-w-[1280px] px-6 lg:px-10 text-center",
+            "mx-auto max-w-shell px-6 lg:px-10 text-center",
             isLead ? "" : "flex-1 flex flex-col",
           ].join(" ")}
         >
@@ -83,12 +80,20 @@ export function FeatureVisualBlock({
                 {eyebrow}
               </p>
             ) : null}
-            <h2 className={`${titleScale} font-semibold tracking-tight leading-[1.05]`}>
+            {/* Lead sections take the page-title step, the rest the section
+                step. The token sweep collapsed both to text-h2, which
+                flattened a real hierarchy — a lead feature block and a
+                sub-block rendered at the same size. */}
+            <h2
+              className={`${
+                isLead ? "text-h1" : "text-h2"
+              } font-semibold tracking-tight leading-[1.05]`}
+            >
               {title}
             </h2>
             {subtitle ? (
               <p
-                className={`mt-4 text-[17px] md:text-[19px] leading-[1.45] max-w-[32rem] mx-auto ${tokens.inkSoft}`}
+                className={`mt-4 text-base md:text-lg leading-[1.45] max-w-[32rem] mx-auto ${tokens.inkSoft}`}
               >
                 {subtitle}
               </p>
@@ -136,7 +141,7 @@ export function FeatureVisualBlock({
       data-scheme={tokens.scheme}
       className={`${tokens.surface} ${tokens.ink} overflow-hidden`}
     >
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-24 md:py-32">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 py-24 md:py-32">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Text */}
           <div className={textOnLeft ? "md:order-1" : "md:order-2"}>
@@ -148,12 +153,12 @@ export function FeatureVisualBlock({
                   {eyebrow}
                 </p>
               ) : null}
-              <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold tracking-tight leading-[1.07]">
+              <h2 className="text-h2 font-semibold tracking-tight leading-[1.07]">
                 {title}
               </h2>
               {subtitle ? (
                 <p
-                  className={`mt-4 text-[17px] md:text-[19px] leading-[1.45] max-w-[32rem] ${tokens.inkSoft}`}
+                  className={`mt-4 text-base md:text-lg leading-[1.45] max-w-[32rem] ${tokens.inkSoft}`}
                 >
                   {subtitle}
                 </p>

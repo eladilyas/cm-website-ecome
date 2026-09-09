@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { motion, useReducedMotion, useSpring } from "framer-motion";
 import { useHeroLayout } from "@/hooks/useHeroLayout";
 
-const APPLE_EASE: [number, number, number, number] = [0.32, 0.72, 0, 1];
+const APPLE_EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 type Props = {
   title: string;
@@ -113,6 +113,7 @@ export function FloatingFeatureCard({
           <div
             // Layer 4 — visual pill + CSS hover lift
             className={[
+              "ease-brand",
               "group inline-flex items-center gap-2.5 rounded-full",
               "px-3.5 py-2",
               "bg-white/[0.04] backdrop-blur-xl",
@@ -123,7 +124,6 @@ export function FloatingFeatureCard({
               "duration-300",
               "cursor-default select-none",
             ].join(" ")}
-            style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
           >
             <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/[0.06] ring-1 ring-white/5 text-paper/85">
               {icon}

@@ -85,7 +85,7 @@ export function ParkedOrdersSheet({ open, onClose }: Props) {
             return (
               <li
                 key={p.id}
-                className="rounded-[10px] bg-white/[0.04] border border-white/10 p-3.5 flex items-start gap-3"
+                className="rounded-lg bg-white/[0.04] border border-white/10 p-3.5 flex items-start gap-3"
               >
                 <div className="flex-1 min-w-0">
                   <p className="text-[13.5px] font-medium text-paper truncate">
@@ -104,11 +104,7 @@ export function ParkedOrdersSheet({ open, onClose }: Props) {
                   <button
                     type="button"
                     onClick={() => handleResume(p.id)}
-                    className="h-8 px-3 rounded-full bg-paper text-ink text-[11.5px] font-semibold hover:bg-paper/85 transition-colors"
-                    style={{
-                      transitionTimingFunction:
-                        "cubic-bezier(0.32, 0.72, 0, 1)",
-                    }}
+                    className="ease-brand h-8 px-3 rounded-full bg-paper text-ink text-[11.5px] font-semibold hover:bg-paper/85 transition-colors"
                   >
                     {t("resume")}
                   </button>

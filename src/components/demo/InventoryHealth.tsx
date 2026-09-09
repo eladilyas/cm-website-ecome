@@ -64,7 +64,7 @@ export function InventoryHealth() {
   return (
     <section
       className={
-        "rounded-[10px] bg-paper p-4 md:p-5 border " + borderTone
+        "rounded-lg bg-paper p-4 md:p-5 border " + borderTone
       }
     >
       <header className="flex items-baseline justify-between gap-3 mb-3">

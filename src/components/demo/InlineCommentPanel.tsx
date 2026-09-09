@@ -87,11 +87,11 @@ export function InlineCommentPanel({
                       type="button"
                       onClick={() => togglePreset(preset)}
                       className={
-                        "inline-flex items-center h-6 px-2 rounded-[5px] text-[10.5px] font-medium transition-colors " +
+                        "inline-flex items-center h-6 px-2 rounded-sm text-[10.5px] font-medium transition-colors " +
                         (active
                           ? warn
                             ? "bg-amber-400/25 text-amber-100 border border-amber-300/45"
-                            : "bg-[#E11D2A]/15 text-[#E11D2A] border border-[#E11D2A]/35"
+                            : "bg-brand/15 text-brand border border-brand/35"
                           : "border border-white/12 text-paper/75 hover:bg-white/[0.06] hover:text-paper")
                       }
                     >
@@ -113,7 +113,7 @@ export function InlineCommentPanel({
                 }}
                 placeholder={t("placeholder")}
                 autoFocus
-                className="flex-1 h-7 rounded-[5px] bg-white/[0.04] border border-white/12 px-2 text-[11.5px] text-paper placeholder:text-paper/35 focus:outline-none focus:border-white/30 focus:bg-white/[0.06] transition-colors"
+                className="flex-1 h-7 rounded-sm bg-white/[0.04] border border-white/12 px-2 text-[11.5px] text-paper placeholder:text-paper/35 focus:outline-none focus:border-white/30 focus:bg-white/[0.06] transition-colors"
               />
               {draft && (
                 <button
@@ -122,7 +122,7 @@ export function InlineCommentPanel({
                     setDraft("");
                     onSave("");
                   }}
-                  className="h-7 px-2 text-[10.5px] text-paper/55 hover:text-paper hover:bg-white/[0.06] rounded-[5px] transition-colors"
+                  className="h-7 px-2 text-[10.5px] text-paper/55 hover:text-paper hover:bg-white/[0.06] rounded-sm transition-colors"
                 >
                   {t("clear")}
                 </button>
@@ -130,7 +130,7 @@ export function InlineCommentPanel({
               <button
                 type="button"
                 onClick={commit}
-                className="h-7 px-2.5 text-[11px] font-medium rounded-[5px] bg-[#E11D2A] text-white hover:bg-[#c8141f] transition-colors"
+                className="h-7 px-2.5 text-[11px] font-medium rounded-sm bg-brand text-white hover:bg-brand-hover transition-colors"
               >
                 {t("apply")}
               </button>

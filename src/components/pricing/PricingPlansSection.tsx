@@ -19,7 +19,7 @@ export function PricingPlansSection({ reassureText }: { reassureText: string }) 
   const t = useTranslations("pricing");
   return (
     <>
-      <div className="rounded-[24px] bg-paper ring-1 ring-hairline overflow-hidden">
+      <div className="rounded-2xl bg-paper ring-1 ring-hairline overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr] items-stretch">
           {/* Header column — the editorial anchor. */}
           <div className="relative px-7 py-8 md:px-9 md:py-10 border-b lg:border-b-0 lg:border-r border-hairline flex flex-col">
@@ -30,7 +30,7 @@ export function PricingPlansSection({ reassureText }: { reassureText: string }) 
             </Reveal>
             <Reveal delay={0.04}>
               <h2
-                className="mt-5 text-[clamp(1.75rem,3vw,2.25rem)] font-semibold tracking-[-0.02em] leading-[1.05] text-ink"
+                className="mt-5 text-h2 font-semibold tracking-[-0.02em] leading-[1.05] text-ink"
                 style={{ textWrap: "balance" }}
               >
                 {t("plansHeaderLine1")}

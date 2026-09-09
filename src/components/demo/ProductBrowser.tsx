@@ -145,20 +145,16 @@ export function ProductBrowser() {
                   aria-selected={isActive}
                   onClick={() => setCategoryId(c.id)}
                   className={
-                    "relative w-full text-left px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 text-[12px] sm:text-[13px] font-medium leading-snug transition-colors duration-150 " +
+                    "ease-brand relative w-full text-left px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 text-[12px] sm:text-[13px] font-medium leading-snug transition-colors duration-150 " +
                     (isActive
                       ? "text-ink bg-canvas"
                       : "text-ink-soft hover:text-ink hover:bg-fog")
                   }
-                  style={{
-                    transitionTimingFunction:
-                      "cubic-bezier(0.32, 0.72, 0, 1)",
-                  }}
                 >
                   {isActive && (
                     <span
                       aria-hidden
-                      className="absolute left-0 top-1.5 bottom-1.5 w-[3px] rounded-r bg-[#E11D2A]"
+                      className="absolute left-0 top-1.5 bottom-1.5 w-[3px] rounded-r bg-brand"
                     />
                   )}
                   {tCat(c.id)}
@@ -241,21 +237,21 @@ function ProductTile({
       type="button"
       onClick={onAdd}
       whileTap={{ scale: 0.97 }}
-      transition={{ duration: 0.08, ease: [0.32, 0.72, 0, 1] }}
+      transition={{ duration: 0.08, ease: [0.22, 1, 0.36, 1] }}
       title={onHand != null ? `On hand: ${onHand}` : undefined}
       // Compact two-row tile: name on top, price + add affordance on the
       // bottom. `justify-between` makes both rows hug their respective
       // edges so the card never carries an empty band. The in-cart marker
       // is folded inline next to the price.
       //
-      // Architectural radii (rounded-[10px]) + h-[76-80] sit the tile at
+      // Architectural radii (rounded-lg) + h-[76-80] sit the tile at
       // a density that matches a real POS register — the cashier reads
       // 12+ products without scrolling. Two lines of name still fit
       // (line-clamp guards overflow).
       className={
-        "group relative h-[76px] md:h-[80px] rounded-[10px] border text-left px-2.5 py-2 transition-colors duration-150 " +
+        "group relative h-[76px] md:h-[80px] rounded-lg border text-left px-2.5 py-2 transition-colors duration-150 " +
         (inOrder
-          ? "border-[#E11D2A]/45 bg-[#E11D2A]/[0.08] hover:bg-[#E11D2A]/[0.12]"
+          ? "border-brand/45 bg-brand/[0.08] hover:bg-brand/[0.12]"
           : "border-hairline bg-paper hover:bg-fog")
       }
     >
@@ -291,21 +287,21 @@ function ProductTile({
               MAD
             </span>
             {inOrder && (
-              <span className="ml-1.5 text-[11px] font-semibold text-[#E11D2A] tabular-nums">
+              <span className="ml-1.5 text-[11px] font-semibold text-brand tabular-nums">
                 ×{qty}
               </span>
             )}
           </span>
-          {/* Add affordance — sharper rounded-[6px] square so the tile
+          {/* Add affordance — sharper rounded-sm square so the tile
               reads as engineered, not consumer-app. Pure brand-red filled
               circle for products with options (the customization wizard
               opener); neutral fog square for plain add. */}
           <span
             aria-hidden
             className={
-              "shrink-0 w-6 h-6 rounded-[6px] flex items-center justify-center transition-colors " +
+              "shrink-0 w-6 h-6 rounded-sm flex items-center justify-center transition-colors " +
               (hasOptions
-                ? "bg-[#E11D2A]/15 text-[#E11D2A]"
+                ? "bg-brand/15 text-brand"
                 : "bg-fog group-hover:bg-canvas text-ink/85")
             }
             title={hasOptions ? tTile("customize") : tTile("add")}

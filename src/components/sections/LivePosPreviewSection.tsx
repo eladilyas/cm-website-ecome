@@ -79,7 +79,7 @@ export function LivePosPreviewSection() {
       className="relative bg-canvas overflow-hidden"
     >
       <SectionDivider scheme="light" />
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-10 py-14 md:py-20">
+      <div className="mx-auto max-w-shell px-6 lg:px-10 py-14 md:py-20">
         {/* Header row — copy left, tabs right */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 lg:gap-10 items-end mb-8 md:mb-10">
           <div className="max-w-[46rem]">
@@ -90,7 +90,7 @@ export function LivePosPreviewSection() {
             </Reveal>
             <Reveal delay={0.04}>
               <h2
-                className="text-[clamp(1.75rem,3.6vw,2.75rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink"
+                className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-ink"
                 style={{ textWrap: "balance" }}
               >
                 {t("title")}
@@ -140,13 +140,13 @@ export function LivePosPreviewSection() {
             <button
               type="button"
               onClick={() => setShowCreds((s) => !s)}
-              className="text-[12px] text-ink-mute hover:text-ink underline underline-offset-2 decoration-hairline hover:decoration-current transition-colors"
+              className="text-mini text-ink-mute hover:text-ink underline underline-offset-2 decoration-hairline hover:decoration-current transition-colors"
             >
               {showCreds ? t("hideCredentials") : t("showCredentials")}
             </button>
             <Link
               href="/demo"
-              className="ml-auto inline-flex items-center gap-1 text-[12.5px] font-medium text-ink hover:text-[#E11D2A] transition-colors"
+              className="ml-auto inline-flex items-center gap-1 text-[12.5px] font-medium text-ink hover:text-brand transition-colors"
             >
               {t("fullDemoCta")}
               <Arrow size={12} />
@@ -236,12 +236,11 @@ function SignInButton({
       onClick={onClick}
       disabled={state !== "idle"}
       className={
-        "inline-flex items-center gap-2 h-10 px-5 rounded-full text-[13.5px] font-semibold transition-all duration-200 " +
+        "inline-flex items-center gap-2 h-10 px-5 rounded-full text-[13.5px] font-semibold transition-all duration-200 ease-brand " +
         (state === "done"
           ? "bg-emerald-600 text-white"
           : "bg-ink text-paper hover:bg-black shadow-[0_8px_20px_-8px_rgba(0,0,0,0.35)]")
       }
-      style={{ transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)" }}
     >
       {state === "done" ? <CheckIcon /> : state === "signing" ? <SpinnerIcon /> : <KeyIcon />}
       <span>{label}</span>
@@ -251,7 +250,7 @@ function SignInButton({
 
 function CredentialTile({ label, value }: { label: string; value: string }) {
   return (
-    <span className="inline-flex items-center gap-1.5 h-8 px-3 rounded-full bg-paper ring-1 ring-hairline text-[12px] font-medium text-ink">
+    <span className="inline-flex items-center gap-1.5 h-8 px-3 rounded-full bg-paper ring-1 ring-hairline text-mini font-medium text-ink">
       <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-mute">
         {label}
       </span>
@@ -278,12 +277,11 @@ function TabButton({
       aria-selected={active}
       onClick={onClick}
       className={
-        "inline-flex items-center gap-2 h-10 px-4 rounded-full text-[13px] font-medium transition-colors duration-200 " +
+        "inline-flex items-center gap-2 h-10 px-4 rounded-full text-tiny font-medium transition-colors duration-200 ease-brand " +
         (active
           ? "bg-ink text-paper"
           : "text-ink-soft hover:text-ink hover:bg-canvas")
       }
-      style={{ transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)" }}
     >
       {icon}
       {label}

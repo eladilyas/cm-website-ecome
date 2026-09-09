@@ -90,12 +90,12 @@ export function FinancingEstimate({ amount }: Props) {
               A simple capsule replaces the previous toggle, communicating the
               offer name + the headline 0% claim without giving the user a
               decision to make. */}
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#E11D2A]/8 border border-[#E11D2A]/20 px-3 h-7 mb-3">
-            <span className="text-[11px] font-semibold tracking-[-0.005em] text-[#E11D2A]">
+          <div className="inline-flex items-center gap-2 rounded-full bg-brand/8 border border-brand/20 px-3 h-7 mb-3">
+            <span className="text-[11px] font-semibold tracking-[-0.005em] text-brand">
               Crédit Gratuit
             </span>
-            <span aria-hidden className="h-3 w-px bg-[#E11D2A]/30" />
-            <span className="text-[11px] font-medium text-[#E11D2A]">
+            <span aria-hidden className="h-3 w-px bg-brand/30" />
+            <span className="text-[11px] font-medium text-brand">
               0% interest
             </span>
           </div>
@@ -135,15 +135,11 @@ export function FinancingEstimate({ amount }: Props) {
                     type="button"
                     onClick={() => setMonths(d)}
                     aria-pressed={isActive}
-                    className={`h-7 px-2.5 text-[12px] font-medium rounded-full tabular-nums transition-colors duration-200 ${
+                    className={`ease-brand h-7 px-2.5 text-[12px] font-medium rounded-full tabular-nums transition-colors duration-200 ${
                       isActive
                         ? "bg-ink text-paper"
                         : "border border-hairline bg-paper text-ink-soft hover:bg-canvas hover:text-ink"
                     }`}
-                    style={{
-                      transitionTimingFunction:
-                        "cubic-bezier(0.32, 0.72, 0, 1)",
-                    }}
                   >
                     {d}
                   </button>
@@ -250,12 +246,11 @@ function AgeChip({
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className={`h-7 px-3 text-[12px] font-medium rounded-full tabular-nums transition-colors duration-200 ${
+      className={`ease-brand h-7 px-3 text-[12px] font-medium rounded-full tabular-nums transition-colors duration-200 ${
         active
           ? "bg-ink text-paper"
           : "border border-hairline bg-paper text-ink-soft hover:bg-canvas hover:text-ink"
       }`}
-      style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
     >
       {children}
     </button>

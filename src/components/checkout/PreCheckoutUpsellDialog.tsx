@@ -115,7 +115,7 @@ export function PreCheckoutUpsellDialog({
               <button
                 type="button"
                 onClick={onAccept}
-                className="h-11 inline-flex items-center justify-center rounded-full bg-ink text-paper text-[13.5px] font-medium hover:bg-ink-soft transition-colors duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] flex-1"
+                className="h-11 inline-flex items-center justify-center rounded-full bg-ink text-paper text-[13.5px] font-medium hover:bg-ink-soft transition-colors duration-200 ease-brand flex-1"
               >
                 Add and continue
               </button>

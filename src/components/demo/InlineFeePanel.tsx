@@ -75,7 +75,7 @@ export function InlineFeePanel({ open, onClose }: Props) {
                   key={p.id}
                   type="button"
                   onClick={() => addPreset(p)}
-                  className="inline-flex items-center gap-1.5 h-6 px-2 rounded-[5px] text-[10.5px] font-medium border border-white/12 text-paper/75 hover:bg-white/[0.06] hover:text-paper transition-colors"
+                  className="inline-flex items-center gap-1.5 h-6 px-2 rounded-sm text-[10.5px] font-medium border border-white/12 text-paper/75 hover:bg-white/[0.06] hover:text-paper transition-colors"
                 >
                   {p.label}
                   <span className="tabular-nums text-paper/55">+{p.amount}</span>
@@ -93,7 +93,7 @@ export function InlineFeePanel({ open, onClose }: Props) {
                   if (e.key === "Escape") onClose();
                 }}
                 placeholder={t("labelPlaceholder")}
-                className="flex-1 h-7 rounded-[5px] bg-white/[0.04] border border-white/12 px-2 text-[11.5px] text-paper placeholder:text-paper/35 focus:outline-none focus:border-white/30 focus:bg-white/[0.06] transition-colors"
+                className="flex-1 h-7 rounded-sm bg-white/[0.04] border border-white/12 px-2 text-[11.5px] text-paper placeholder:text-paper/35 focus:outline-none focus:border-white/30 focus:bg-white/[0.06] transition-colors"
               />
               <input
                 type="number"
@@ -106,13 +106,13 @@ export function InlineFeePanel({ open, onClose }: Props) {
                 placeholder="0"
                 min="0"
                 step="0.5"
-                className="w-16 h-7 rounded-[5px] bg-white/[0.04] border border-white/12 px-2 text-[11.5px] text-paper placeholder:text-paper/35 tabular-nums focus:outline-none focus:border-white/30 focus:bg-white/[0.06] transition-colors"
+                className="w-16 h-7 rounded-sm bg-white/[0.04] border border-white/12 px-2 text-[11.5px] text-paper placeholder:text-paper/35 tabular-nums focus:outline-none focus:border-white/30 focus:bg-white/[0.06] transition-colors"
               />
               <button
                 type="button"
                 onClick={addCustom}
                 disabled={!valid}
-                className="h-7 px-2.5 text-[11px] font-medium rounded-[5px] bg-[#E11D2A] text-white enabled:hover:bg-[#c8141f] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                className="h-7 px-2.5 text-[11px] font-medium rounded-sm bg-brand text-white enabled:hover:bg-brand-hover disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
               >
                 {t("apply")}
               </button>

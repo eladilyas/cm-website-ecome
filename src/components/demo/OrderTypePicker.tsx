@@ -54,7 +54,7 @@ export function OrderTypePicker() {
         </p>
       </Reveal>
       <Reveal delay={0.04}>
-        <h1 className="text-[clamp(1.75rem,4.2vw,2.75rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-paper">
+        <h1 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-paper">
           What type of order would you like to process?
         </h1>
       </Reveal>
@@ -83,11 +83,11 @@ function TypeCard({
       type="button"
       onClick={onSelect}
       whileTap={{ scale: 0.985 }}
-      transition={{ duration: 0.08, ease: [0.32, 0.72, 0, 1] }}
-      className="group relative w-full text-left rounded-[12px] border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-paper/40 focus-visible:ring-offset-2 focus-visible:ring-offset-night transition-colors duration-300"
+      transition={{ duration: 0.08, ease: [0.22, 1, 0.36, 1] }}
+      className="group relative w-full text-left rounded-lg border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-paper/40 focus-visible:ring-offset-2 focus-visible:ring-offset-night transition-colors duration-300"
     >
       <div className="p-5 md:p-6 flex items-center gap-4">
-        <div className="shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-[10px] bg-white/[0.06] flex items-center justify-center text-paper/85 group-hover:text-paper transition-colors">
+        <div className="shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-lg bg-white/[0.06] flex items-center justify-center text-paper/85 group-hover:text-paper transition-colors">
           {meta.icon}
         </div>
         <div className="min-w-0 flex-1">
@@ -131,7 +131,7 @@ function RiderIcon() {
 }
 function ArrowIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden className="text-paper/40 group-hover:text-paper/80 group-hover:translate-x-0.5 transition-all duration-300" style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden className="ease-brand text-paper/40 group-hover:text-paper/80 group-hover:translate-x-0.5 transition-all duration-300">
       <path d="M5 8h6m0 0L8 5m3 3-3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );

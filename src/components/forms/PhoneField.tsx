@@ -47,14 +47,13 @@ export function PhoneField({
   return (
     <div className="w-full">
       <div
-        className={`relative h-14 border-b transition-colors duration-200 ${
+        className={`ease-brand relative h-14 border-b transition-colors duration-200 ${
           errored
-            ? "border-[#E11D2A]"
+            ? "border-brand"
             : focused
               ? "border-ink"
               : "border-hairline-strong"
         }`}
-        style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
       >
         {/* Label — always floated. The country selector is always visible
             so there's no useful "empty" state to fall back to. */}
@@ -63,7 +62,7 @@ export function PhoneField({
           className="pointer-events-none absolute left-0 top-0.5 text-[11px] uppercase tracking-[0.14em] text-ink-mute"
         >
           Phone number
-          {required && <span className="text-[#E11D2A] ml-0.5">*</span>}
+          {required && <span className="text-brand ml-0.5">*</span>}
         </label>
 
         {/* Input row — bottom-aligned within the 56px container so the
@@ -94,7 +93,7 @@ export function PhoneField({
       </div>
 
       {error && (
-        <p id={`${id}-err`} className="mt-2 text-[12px] leading-[1.4] text-[#E11D2A]">
+        <p id={`${id}-err`} className="mt-2 text-[12px] leading-[1.4] text-brand">
           {error}
         </p>
       )}

@@ -36,10 +36,9 @@ export function RailProductCard({ product }: { product: CatalogProduct }) {
     <motion.article
       whileHover={{ y: -6 }}
       transition={{ duration: 0.45, ease: APPLE_EASE }}
-      className="group relative rounded-2xl bg-paper border border-hairline overflow-hidden flex flex-col h-[480px] md:h-[500px] transition-[border-color,box-shadow] duration-500 hover:border-hairline-strong hover:shadow-[0_22px_50px_-18px_rgba(20,30,50,0.22),0_8px_18px_-10px_rgba(20,30,50,0.08)] focus-within:ring-2 focus-within:ring-ink/20 focus-within:ring-offset-2 focus-within:ring-offset-paper"
+      className="ease-brand group relative rounded-2xl bg-paper border border-hairline overflow-hidden flex flex-col h-[480px] md:h-[500px] transition-[border-color,box-shadow] duration-500 hover:border-hairline-strong hover:shadow-[0_22px_50px_-18px_rgba(20,30,50,0.22),0_8px_18px_-10px_rgba(20,30,50,0.08)] focus-within:ring-2 focus-within:ring-ink/20 focus-within:ring-offset-2 focus-within:ring-offset-paper"
       style={{
         scrollSnapAlign: "start",
-        transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
       }}
     >
       {/* Primary tap surface — image + identity block. Opens Quick
@@ -72,11 +71,10 @@ export function RailProductCard({ product }: { product: CatalogProduct }) {
             alt={product.alt}
             fill
             sizes="280px"
-            className="object-contain p-8 transition-transform duration-700 group-hover:scale-[1.035]"
+            className="ease-brand object-contain p-8 transition-transform duration-700 group-hover:scale-[1.035]"
             style={{
               filter:
                 "drop-shadow(0 18px 30px rgba(40,80,140,0.10)) drop-shadow(0 3px 6px rgba(0,0,0,0.05))",
-              transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
             }}
           />
         </div>

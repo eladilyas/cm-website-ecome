@@ -55,7 +55,7 @@ export default function CartPage() {
   if (isEmpty) {
     return (
       <section className="min-h-[80vh] bg-canvas pt-10 md:pt-14 pb-16">
-        <div className="mx-auto max-w-[1180px] px-6 lg:px-10">
+        <div className="mx-auto max-w-shell px-6 lg:px-10">
           <EmptyCartInline />
         </div>
       </section>
@@ -68,14 +68,14 @@ export default function CartPage() {
 
   return (
     <section className="min-h-[80vh] bg-canvas pt-10 md:pt-14 pb-16">
-      <div className="mx-auto max-w-[1180px] px-6 lg:px-10">
+      <div className="mx-auto max-w-shell px-6 lg:px-10">
         {/* Header */}
         <div className="mb-8 md:mb-10 flex items-baseline justify-between gap-4 flex-wrap">
           <div>
             <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-ink-mute mb-2">
               {t("eyebrow")}
             </p>
-            <h1 className="text-[clamp(1.75rem,3.6vw,2.5rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink">
+            <h1 className="text-h1 font-semibold tracking-[-0.022em] leading-[1.05] text-ink">
               {t("headerCount", { count: totals.itemCount })} ·{" "}
               <span className="text-ink-soft tabular-nums">
                 {formatPrice(totals.subtotal)}{" "}
@@ -215,10 +215,7 @@ export default function CartPage() {
 
               <Link
                 href="/checkout"
-                className="mt-5 w-full h-12 inline-flex items-center justify-center gap-2 rounded-full bg-ink text-paper text-[14px] font-medium hover:bg-ink-soft transition-colors"
-                style={{
-                  transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
-                }}
+                className="mt-5 w-full h-12 inline-flex items-center justify-center gap-2 rounded-full bg-ink text-paper text-[14px] font-medium hover:bg-ink-soft transition-colors ease-brand"
               >
                 {t("secureOrder")}
                 <Arrow />
@@ -403,8 +400,7 @@ function QtyStep({
   return (
     <button
       type="button"
-      className="h-9 w-9 rounded-lg border border-hairline-strong bg-paper text-ink-soft hover:bg-canvas hover:text-ink text-[18px] font-medium flex items-center justify-center active:scale-95 transition-all"
-      style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+      className="h-9 w-9 rounded-lg border border-hairline-strong bg-paper text-ink-soft hover:bg-canvas hover:text-ink text-[18px] font-medium flex items-center justify-center active:scale-95 transition-all ease-brand"
       {...rest}
     >
       {children}
@@ -455,8 +451,7 @@ function UpsellRow({
       <button
         type="button"
         onClick={onAdd}
-        className="shrink-0 h-9 px-3 text-[12px] font-medium rounded-full bg-ink text-paper hover:bg-ink-soft transition-colors"
-        style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+        className="shrink-0 h-9 px-3 text-[12px] font-medium rounded-full bg-ink text-paper hover:bg-ink-soft transition-colors ease-brand"
       >
         {addLabel}
       </button>

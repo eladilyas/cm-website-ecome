@@ -94,8 +94,7 @@ function SupplierCard({
     <button
       type="button"
       onClick={onClick}
-      className="group w-full text-left rounded-[10px] border border-hairline bg-paper hover:border-hairline-strong hover:-translate-y-px p-4 md:p-5 transition-all"
-      style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+      className="ease-brand group w-full text-left rounded-lg border border-hairline bg-paper hover:border-hairline-strong hover:-translate-y-px p-4 md:p-5 transition-all"
     >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
@@ -259,8 +258,7 @@ function SupplierFormSheet({
               <button
                 type="button"
                 onClick={() => setConfirmDelete(true)}
-                className="h-9 px-3 text-[12.5px] font-medium rounded-full text-red-600 hover:text-red-700 hover:bg-red-50 transition-colors"
-                style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+                className="ease-brand h-9 px-3 text-[12.5px] font-medium rounded-full text-red-600 hover:text-red-700 hover:bg-red-50 transition-colors"
               >
                 Delete
               </button>
@@ -271,8 +269,7 @@ function SupplierFormSheet({
               <button
                 type="button"
                 onClick={onClose}
-                className="h-9 px-4 text-[13px] font-medium rounded-full border border-hairline-strong text-ink hover:bg-fog transition-colors"
-                style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+                className="ease-brand h-9 px-4 text-[13px] font-medium rounded-full border border-hairline-strong text-ink hover:bg-fog transition-colors"
               >
                 Cancel
               </button>
@@ -280,8 +277,7 @@ function SupplierFormSheet({
                 type="button"
                 onClick={save}
                 disabled={!canSave}
-                className="h-9 px-4 text-[13px] font-semibold rounded-full bg-ink text-paper enabled:hover:bg-ink-soft disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
-                style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+                className="ease-brand h-9 px-4 text-[13px] font-semibold rounded-full bg-ink text-paper enabled:hover:bg-ink-soft disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               >
                 {isEditing ? "Save changes" : "Add supplier"}
               </button>
@@ -361,12 +357,11 @@ function SupplierFormSheet({
                     type="button"
                     onClick={() => toggleCategory(c.id)}
                     className={
-                      "h-7 px-2.5 text-[11px] font-medium rounded-full border transition-colors " +
+                      "ease-brand h-7 px-2.5 text-[11px] font-medium rounded-full border transition-colors " +
                       (active
                         ? "border-ink bg-ink text-paper"
                         : "border-hairline bg-paper text-ink-soft hover:text-ink hover:bg-fog")
                     }
-                    style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
                   >
                     {tCat(c.id)}
                   </button>
@@ -420,7 +415,7 @@ function Field({
       <div className="flex items-baseline justify-between mb-1">
         <span className="text-[10px] uppercase tracking-[0.14em] text-ink-mute">
           {label}
-          {required && <span className="text-[#E11D2A] ml-0.5">*</span>}
+          {required && <span className="text-brand ml-0.5">*</span>}
         </span>
         {(hint || suffix) && (
           <span className="text-[10px] text-ink-mute">{hint ?? suffix}</span>

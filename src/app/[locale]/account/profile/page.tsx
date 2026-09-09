@@ -159,14 +159,11 @@ export default function ProfilePage() {
             type="submit"
             disabled={!dirty}
             className={
-              "inline-flex items-center gap-2 h-11 px-5 rounded-full text-[13px] font-medium transition-colors " +
+              "inline-flex items-center gap-2 h-11 px-5 rounded-full text-[13px] font-medium transition-colors ease-brand " +
               (dirty
                 ? "bg-ink text-paper hover:bg-ink-soft"
                 : "bg-canvas border border-hairline text-ink-mute cursor-not-allowed")
             }
-            style={{
-              transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
-            }}
           >
             {t("save")}
           </button>

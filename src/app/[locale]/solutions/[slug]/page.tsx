@@ -213,19 +213,19 @@ export default async function IndustryPage({ params }: { params: Params }) {
       <SectionDivider scheme="light" />
 
       {/* Hero — copy on the left, editorial industry photo on the right */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-28 md:pt-36 pb-12 md:pb-20">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 pt-28 md:pt-36 pb-12 md:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center">
           <div>
             <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-ink-mute mb-4">
               {eyebrow}
             </p>
             <h1
-              className="text-[clamp(2.25rem,4.6vw,3.75rem)] font-semibold tracking-[-0.022em] leading-[1.04] text-ink max-w-[22ch]"
+              className="text-h1 font-semibold tracking-[-0.022em] leading-[1.04] text-ink max-w-[22ch]"
               style={{ textWrap: "balance" }}
             >
               {title}
             </h1>
-            <p className="mt-6 text-[17px] md:text-[19px] leading-[1.5] text-ink-soft max-w-[44rem]">
+            <p className="mt-6 text-base md:text-lg leading-[1.5] text-ink-soft max-w-[44rem]">
               {standfirst}
             </p>
             {intro && (
@@ -234,7 +234,7 @@ export default async function IndustryPage({ params }: { params: Params }) {
               </p>
             )}
           </div>
-          <div className="relative w-full aspect-[4/5] lg:aspect-[3/4] rounded-[24px] overflow-hidden ring-1 ring-hairline">
+          <div className="relative w-full aspect-[4/5] lg:aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-hairline">
             <Image
               src={HERO_IMAGE_FOR[slug]}
               alt={title}
@@ -269,7 +269,7 @@ export default async function IndustryPage({ params }: { params: Params }) {
       {/* Try-the-simulator CTA — sits after the client story so the visitor
           reaches it already persuaded that we know the trade, then converts
           into a hands-on POS preview before the workflow detail. */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-14 md:pt-20 pb-14 md:pb-20">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 pt-14 md:pt-20 pb-14 md:pb-20">
         <TrySimulatorCTA
           activity={activity}
           label={tLabels("ctaTrySim", { activity: title })}
@@ -280,12 +280,12 @@ export default async function IndustryPage({ params }: { params: Params }) {
       {/* Workflow — either the legacy 01/02/03 numbered format OR the
           new pain/solution two-column bands, depending on the shape
           each slug's catalog carries. */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pb-16 md:pb-24">
-        <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.1] text-ink mb-8 md:mb-10">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 pb-16 md:pb-24">
+        <h2 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.1] text-ink mb-8 md:mb-10">
           {tLabels("workflowTitle")}
         </h2>
         {richWorkflow ? (
-          <div className="rounded-[24px] bg-paper ring-1 ring-hairline overflow-hidden">
+          <div className="rounded-2xl bg-paper ring-1 ring-hairline overflow-hidden">
             {workflow.map((step, i) => (
               <div
                 key={i}
@@ -296,7 +296,7 @@ export default async function IndustryPage({ params }: { params: Params }) {
                 {isRichWorkflow(step) ? (
                   <>
                     <div>
-                      <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-ink-mute mb-2">
+                      <p className="text-micro font-semibold uppercase tracking-[0.18em] text-ink-mute mb-2">
                         {tLabels("painLabel")}
                       </p>
                       <p className="text-[16px] md:text-[17px] font-medium leading-[1.4] text-ink tracking-[-0.01em]">
@@ -304,13 +304,13 @@ export default async function IndustryPage({ params }: { params: Params }) {
                       </p>
                     </div>
                     <div className="md:pl-6 md:border-l border-hairline">
-                      <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[#E11D2A] mb-2">
+                      <p className="text-micro font-semibold uppercase tracking-[0.18em] text-brand mb-2">
                         {tLabels("solutionLabel")}
                       </p>
                       <p className="text-[15px] md:text-[16px] font-medium leading-[1.4] text-ink tracking-[-0.005em]">
                         {step.solutionTitle}
                       </p>
-                      <p className="mt-2.5 text-[14px] leading-[1.6] text-ink-soft">
+                      <p className="mt-2.5 text-sm leading-[1.6] text-ink-soft">
                         {step.solutionBody}
                       </p>
                     </div>
@@ -341,7 +341,7 @@ export default async function IndustryPage({ params }: { params: Params }) {
         {/* Optional "Pour aller plus loin" callout */}
         {goDeeper && (
           <div className="mt-8 md:mt-10 rounded-2xl bg-paper ring-1 ring-hairline p-6 md:p-7 max-w-[42rem]">
-            <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-ink-mute mb-2.5">
+            <p className="text-micro font-semibold uppercase tracking-[0.18em] text-ink-mute mb-2.5">
               {tLabels("goDeeperEyebrow")}
             </p>
             <p className="text-[17px] md:text-[18px] font-semibold text-ink leading-[1.3]">
@@ -353,7 +353,7 @@ export default async function IndustryPage({ params }: { params: Params }) {
             {goDeeper.ctaLabel && (
               <Link
                 href={goDeeper.ctaHref ?? "/pricing"}
-                className="mt-4 inline-flex items-center text-[13.5px] font-medium text-ink hover:text-[#E11D2A] transition-colors"
+                className="mt-4 inline-flex items-center text-[13.5px] font-medium text-ink hover:text-brand transition-colors"
               >
                 {goDeeper.ctaLabel}
               </Link>
@@ -365,8 +365,8 @@ export default async function IndustryPage({ params }: { params: Params }) {
       {/* Ecosystem fit — either the legacy bullet grid OR the featured
           proof cards + secondary chips. */}
       <section className="bg-paper border-y border-hairline">
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
-          <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.1] text-ink mb-3">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
+          <h2 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.1] text-ink mb-3">
             {tLabels("ecosystemTitle")}
           </h2>
           {ecosystemIntro && (
@@ -400,7 +400,7 @@ export default async function IndustryPage({ params }: { params: Params }) {
                         />
                       )}
                       <div className="flex items-baseline gap-2 flex-wrap">
-                        <h3 className="text-[16px] md:text-[17px] font-semibold text-ink tracking-[-0.01em]">
+                        <h3 className="text-h3 font-semibold text-ink tracking-[-0.01em]">
                           {e.name}
                         </h3>
                         {e.tag && (
@@ -409,7 +409,7 @@ export default async function IndustryPage({ params }: { params: Params }) {
                           </span>
                         )}
                       </div>
-                      <p className="mt-3 text-[14px] md:text-[14.5px] leading-[1.6] text-ink-soft">
+                      <p className="mt-3 text-sm md:text-[14.5px] leading-[1.6] text-ink-soft">
                         {e.body}
                       </p>
                     </article>
@@ -465,7 +465,7 @@ export default async function IndustryPage({ params }: { params: Params }) {
                 >
                   <span
                     aria-hidden
-                    className="mt-[9px] h-1.5 w-1.5 rounded-full bg-[#E11D2A] shrink-0"
+                    className="mt-[9px] h-1.5 w-1.5 rounded-full bg-brand shrink-0"
                   />
                   <span>{typeof item === "string" ? item : item.name}</span>
                 </li>
@@ -476,8 +476,8 @@ export default async function IndustryPage({ params }: { params: Params }) {
       </section>
 
       {/* Scaling — closing CTA */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
-        <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold tracking-[-0.018em] leading-[1.1] text-ink mb-6">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
+        <h2 className="text-h2 font-semibold tracking-[-0.018em] leading-[1.1] text-ink mb-6">
           {tLabels("scalingTitle")}
         </h2>
         <p className="text-[16px] md:text-[18px] leading-[1.55] text-ink-soft max-w-[40rem]">
@@ -486,7 +486,7 @@ export default async function IndustryPage({ params }: { params: Params }) {
       </section>
 
       {/* CTAs + back link */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pb-28 md:pb-40">
+      <section className="mx-auto max-w-shell px-6 lg:px-10 pb-28 md:pb-40">
         <div className="flex flex-wrap items-center gap-3">
           <Button href="/start-free-trial" variant="primary" size="lg">
             {tLabels("ctaTrial")}

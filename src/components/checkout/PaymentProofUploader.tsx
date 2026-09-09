@@ -144,8 +144,7 @@ export function PaymentProofUploader({
         type="button"
         onClick={() => fileInputRef.current?.click()}
         disabled={reading}
-        className="w-full rounded-xl border-2 border-dashed border-hairline-strong bg-canvas hover:bg-fog hover:border-ink/40 px-5 py-6 transition-colors flex flex-col items-center text-center disabled:opacity-60 disabled:cursor-not-allowed"
-        style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+        className="ease-brand w-full rounded-xl border-2 border-dashed border-hairline-strong bg-canvas hover:bg-fog hover:border-ink/40 px-5 py-6 transition-colors flex flex-col items-center text-center disabled:opacity-60 disabled:cursor-not-allowed"
       >
         <span className="h-10 w-10 rounded-full bg-paper border border-hairline inline-flex items-center justify-center mb-3">
           {reading ? <Spinner /> : <UploadIcon />}

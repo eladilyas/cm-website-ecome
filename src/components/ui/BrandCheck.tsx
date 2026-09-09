@@ -26,8 +26,6 @@ type Props = {
   className?: string;
 };
 
-const BRAND_RED = "#E11D2A";
-
 export function BrandCheck({ size = 14, variant = "inline", className = "" }: Props) {
   if (variant === "chip") {
     // Small chip: brand-red check on a 12%-opacity brand-red fill.
@@ -36,13 +34,8 @@ export function BrandCheck({ size = 14, variant = "inline", className = "" }: Pr
     return (
       <span
         aria-hidden
-        className={`inline-flex items-center justify-center rounded-full ${className}`}
-        style={{
-          width: outer,
-          height: outer,
-          backgroundColor: "rgba(225, 29, 42, 0.12)",
-          color: BRAND_RED,
-        }}
+        className={`inline-flex items-center justify-center rounded-full bg-brand/12 text-brand ${className}`}
+        style={{ width: outer, height: outer }}
       >
         <CheckPath size={size} />
       </span>
@@ -57,14 +50,8 @@ export function BrandCheck({ size = 14, variant = "inline", className = "" }: Pr
     return (
       <span
         aria-hidden
-        className={`inline-flex items-center justify-center rounded-full ${className}`}
-        style={{
-          width: outer,
-          height: outer,
-          backgroundColor: "rgba(225, 29, 42, 0.10)",
-          border: `2px solid ${BRAND_RED}`,
-          color: BRAND_RED,
-        }}
+        className={`inline-flex items-center justify-center rounded-full border-2 border-brand bg-brand/10 text-brand ${className}`}
+        style={{ width: outer, height: outer }}
       >
         <CheckPath size={size} />
       </span>

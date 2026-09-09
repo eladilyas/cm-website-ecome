@@ -69,7 +69,7 @@ export default async function FinancingListPage() {
             </span>
           </div>
 
-          <h2 className="mt-6 text-[clamp(1.5rem,2.8vw,2rem)] font-semibold tracking-[-0.018em] leading-[1.15] text-ink">
+          <h2 className="mt-6 text-h2 font-semibold tracking-[-0.018em] leading-[1.15] text-ink">
             {t("emptyHeading")}
           </h2>
           <p className="mt-3 text-[14.5px] md:text-[15px] text-ink-soft leading-[1.55] max-w-[420px] mx-auto">
@@ -95,7 +95,7 @@ export default async function FinancingListPage() {
           <div className="mt-7 flex items-center justify-center gap-3 flex-wrap">
             <Link
               href="/shop"
-              className="inline-flex items-center gap-2 h-11 px-5 rounded-full bg-ink text-paper text-[13.5px] font-medium hover:bg-ink-soft transition-colors duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)]"
+              className="inline-flex items-center gap-2 h-11 px-5 rounded-full bg-ink text-paper text-[13.5px] font-medium hover:bg-ink-soft transition-colors duration-200 ease-brand"
             >
               {t("pickHardware")}
             </Link>

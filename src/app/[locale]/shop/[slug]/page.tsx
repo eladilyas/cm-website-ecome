@@ -138,7 +138,7 @@ export default async function ProductDetailPage({ params }: Props) {
         data-scheme="light"
         className="relative overflow-hidden bg-canvas"
       >
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-12 md:pt-20 pb-24 md:pb-32">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 pt-12 md:pt-20 pb-24 md:pb-32">
           <Reveal>
             <Link
               href="/shop"
@@ -186,7 +186,7 @@ export default async function ProductDetailPage({ params }: Props) {
               </Reveal>
               <Reveal delay={0.1}>
                 <h1
-                  className="text-[clamp(1.875rem,4.2vw,3.25rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[18ch]"
+                  className="text-h1 font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[18ch]"
                   style={{ textWrap: "balance" }}
                 >
                   {product.name}
@@ -249,14 +249,14 @@ export default async function ProductDetailPage({ params }: Props) {
       {/* ── FEATURES — 3-column block under hero ──────────────────────── */}
       <section data-scheme="light" className="bg-paper">
         <SectionDivider scheme="light" />
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-20 md:py-28">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-20 md:py-28">
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-ink-mute mb-3">
               Features
             </p>
           </Reveal>
           <Reveal delay={0.04}>
-            <h2 className="text-[clamp(1.75rem,3.6vw,2.5rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[22ch]">
+            <h2 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[22ch]">
               What makes it work.
             </h2>
           </Reveal>
@@ -279,14 +279,14 @@ export default async function ProductDetailPage({ params }: Props) {
       {/* ── SPECS — full table on canvas ──────────────────────────────── */}
       <section data-scheme="light" className="bg-canvas">
         <SectionDivider scheme="light" />
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-20 md:py-28">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-20 md:py-28">
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-ink-mute mb-3">
               Specifications
             </p>
           </Reveal>
           <Reveal delay={0.04}>
-            <h2 className="text-[clamp(1.75rem,3.6vw,2.5rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[22ch]">
+            <h2 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[22ch]">
               The fine print.
             </h2>
           </Reveal>
@@ -325,7 +325,7 @@ export default async function ProductDetailPage({ params }: Props) {
       {complementary.length > 0 && (
         <section data-scheme="light" className="bg-paper">
           <SectionDivider scheme="light" />
-          <div className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-20 md:pt-24 pb-10 md:pb-12">
+          <div className="mx-auto max-w-shell px-6 lg:px-10 pt-20 md:pt-24 pb-10 md:pb-12">
             <div className="flex items-end justify-between gap-4 flex-wrap mb-8">
               <div>
                 <Reveal>
@@ -334,7 +334,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   </p>
                 </Reveal>
                 <Reveal delay={0.04}>
-                  <h2 className="text-[clamp(1.5rem,3vw,2rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink">
+                  <h2 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-ink">
                     Frequently paired with the {product.name}.
                   </h2>
                 </Reveal>
@@ -378,7 +378,7 @@ export default async function ProductDetailPage({ params }: Props) {
               section above didn't already paint one. Avoids a
               double hairline between two stacked light sections. */}
           {complementary.length === 0 && <SectionDivider scheme="light" />}
-          <div className="mx-auto max-w-[1280px] px-6 lg:px-10 pb-20 md:pb-28 pt-10 md:pt-12">
+          <div className="mx-auto max-w-shell px-6 lg:px-10 pb-20 md:pb-28 pt-10 md:pt-12">
             <div className="flex items-end justify-between gap-4 flex-wrap mb-8">
               <div>
                 <Reveal>
@@ -387,7 +387,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   </p>
                 </Reveal>
                 <Reveal delay={0.04}>
-                  <h2 className="text-[clamp(1.5rem,3vw,2rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink">
+                  <h2 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-ink">
                     You may also like.
                   </h2>
                 </Reveal>
@@ -415,9 +415,9 @@ export default async function ProductDetailPage({ params }: Props) {
       {/* ── CLOSING CTA ───────────────────────────────────────────────── */}
       <section data-scheme="dark" className="bg-night text-paper">
         <SectionDivider scheme="dark" />
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-24 md:py-32 text-center">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-24 md:py-32 text-center">
           <Reveal>
-            <h2 className="text-[clamp(2rem,4.4vw,3rem)] font-semibold tracking-[-0.022em] leading-[1.05]">
+            <h2 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05]">
               See it on your counter.
             </h2>
           </Reveal>

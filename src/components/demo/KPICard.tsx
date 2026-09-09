@@ -48,7 +48,7 @@ export function KPICard({
           : "text-ink";
 
   return (
-    <article className="rounded-[10px] border border-hairline bg-paper p-4 md:p-5 flex flex-col gap-3.5 min-h-[148px]">
+    <article className="rounded-lg border border-hairline bg-paper p-4 md:p-5 flex flex-col gap-3.5 min-h-[148px]">
       <header>
         <p className="text-[10.5px] font-medium uppercase tracking-[0.16em] text-ink-mute">
           {label}

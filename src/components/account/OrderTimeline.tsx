@@ -49,7 +49,7 @@ export function OrderTimeline({
         <div className="absolute top-[14px] left-0 right-0 h-px bg-hairline-strong pointer-events-none" />
         <div
           aria-hidden
-          className="absolute top-[14px] left-0 h-px bg-emerald-400 pointer-events-none transition-all duration-500"
+          className="ease-brand absolute top-[14px] left-0 h-px bg-emerald-400 pointer-events-none transition-all duration-500"
           style={{
             width:
               currentIndex <= 0
@@ -57,7 +57,6 @@ export function OrderTimeline({
                 : currentIndex >= stages.length - 1
                   ? "100%"
                   : `${(currentIndex / (stages.length - 1)) * 100}%`,
-            transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
           }}
         />
 

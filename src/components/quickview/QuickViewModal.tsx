@@ -197,7 +197,7 @@ export function QuickViewModal({
                     type="button"
                     onClick={handleAdd}
                     className={
-                      "h-11 inline-flex items-center justify-center gap-2 rounded-full text-[13.5px] font-medium transition-colors duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] " +
+                      "h-11 inline-flex items-center justify-center gap-2 rounded-full text-[13.5px] font-medium transition-colors duration-200 ease-brand " +
                       (inCart
                         ? "bg-emerald-50 border border-emerald-200 text-emerald-700 hover:bg-emerald-100"
                         : "bg-ink text-paper hover:bg-ink-soft")

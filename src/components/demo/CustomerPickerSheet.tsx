@@ -150,8 +150,7 @@ export function CustomerPickerSheet({ open, onClose }: Props) {
               type="button"
               onClick={handleCreate}
               disabled={!newName.trim()}
-              className="h-9 px-4 rounded-full bg-paper text-ink text-[12.5px] font-semibold hover:bg-paper/90 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
-              style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+              className="ease-brand h-9 px-4 rounded-full bg-paper text-ink text-[12.5px] font-semibold hover:bg-paper/90 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               {t("createAndAttach")}
             </button>
@@ -176,7 +175,7 @@ export function CustomerPickerSheet({ open, onClose }: Props) {
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={t("searchPlaceholder")}
                 autoFocus
-                className="w-full h-11 rounded-[10px] bg-white/[0.05] border border-white/10 pl-10 pr-3.5 text-[13.5px] text-paper placeholder:text-paper/40 focus:outline-none focus:border-white/30 focus:bg-white/[0.08] transition-colors"
+                className="w-full h-11 rounded-lg bg-white/[0.05] border border-white/10 pl-10 pr-3.5 text-[13.5px] text-paper placeholder:text-paper/40 focus:outline-none focus:border-white/30 focus:bg-white/[0.08] transition-colors"
               />
             </div>
 
@@ -300,12 +299,11 @@ function ModeSegment({
       aria-selected={active}
       onClick={onClick}
       className={
-        "h-7 px-3 text-[11.5px] font-medium rounded-full transition-colors " +
+        "ease-brand h-7 px-3 text-[11.5px] font-medium rounded-full transition-colors " +
         (active
           ? "bg-paper text-ink shadow-[0_1px_0_rgba(0,0,0,0.04)]"
           : "text-paper/65 hover:text-paper")
       }
-      style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
     >
       {label}
     </button>
@@ -330,12 +328,11 @@ function CustomerRow({
       type="button"
       onClick={onPick}
       className={
-        "group w-full text-left px-2 py-2.5 flex items-center gap-3 rounded-md transition-colors " +
+        "ease-brand group w-full text-left px-2 py-2.5 flex items-center gap-3 rounded-md transition-colors " +
         (attached
           ? "bg-white/[0.06]"
           : "hover:bg-white/[0.04]")
       }
-      style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
     >
       <TierAvatar tier={tier} name={customer.name} />
       <div className="flex-1 min-w-0">
@@ -420,7 +417,7 @@ function EmptyState({ onSwitchToNew }: { onSwitchToNew: () => void }) {
 // ── Form helpers ────────────────────────────────────────────────────
 
 const inputClass =
-  "w-full h-11 rounded-[10px] bg-white/[0.05] border border-white/10 px-3.5 text-[13.5px] text-paper placeholder:text-paper/40 focus:outline-none focus:border-white/30 focus:bg-white/[0.08] transition-colors";
+  "w-full h-11 rounded-lg bg-white/[0.05] border border-white/10 px-3.5 text-[13.5px] text-paper placeholder:text-paper/40 focus:outline-none focus:border-white/30 focus:bg-white/[0.08] transition-colors";
 
 function Field({
   label,

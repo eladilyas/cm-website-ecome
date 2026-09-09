@@ -24,7 +24,7 @@ export default function SupportPage() {
     <>
       {/* ── Hero (canvas) ─────────────────────────────────────────────── */}
       <section data-scheme="light" className="relative overflow-hidden bg-canvas">
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-20 md:py-28">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-20 md:py-28">
           <div className="max-w-[760px] mx-auto text-center">
             <Reveal>
               <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-ink-mute mb-5">
@@ -33,7 +33,7 @@ export default function SupportPage() {
             </Reveal>
             <Reveal delay={0.05}>
               <h1
-                className="text-[clamp(1.875rem,4.2vw,3.25rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink"
+                className="text-h1 font-semibold tracking-[-0.022em] leading-[1.05] text-ink"
                 style={{ textWrap: "balance" }}
               >
                 {t("heroHeadline")}
@@ -55,8 +55,7 @@ export default function SupportPage() {
                   type="search"
                   aria-label={t("searchAria")}
                   placeholder={t("searchPlaceholder")}
-                  className="w-full h-12 pl-11 pr-4 rounded-full border border-hairline-strong bg-paper text-[15px] text-ink placeholder:text-ink-mute outline-none focus:border-ink transition-colors"
-                  style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+                  className="w-full h-12 pl-11 pr-4 rounded-full border border-hairline-strong bg-paper text-[15px] text-ink placeholder:text-ink-mute outline-none focus:border-ink transition-colors ease-brand"
                 />
               </div>
               <p className="mt-3 text-[12px] text-ink-mute">{t("searchSoon")}</p>
@@ -68,7 +67,7 @@ export default function SupportPage() {
       {/* ── Topic grid (paper) ────────────────────────────────────────── */}
       <section data-scheme="light" className="bg-paper">
         <SectionDivider scheme="light" />
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-ink-mute mb-6">
               {t("browseEyebrow")}
@@ -100,10 +99,10 @@ export default function SupportPage() {
       {/* ── FAQ accordion (canvas to differentiate from grid) ─────────── */}
       <section id="faq" data-scheme="light" className="bg-canvas scroll-mt-24">
         <SectionDivider scheme="light" />
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
           <div className="flex items-baseline justify-between gap-4 mb-6">
             <Reveal>
-              <h2 className="text-[clamp(1.5rem,3vw,2rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink">
+              <h2 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-ink">
                 {topicId
                   ? SUPPORT_TOPICS.find((tt) => tt.id === topicId)?.label
                   : t("faqDefaultTitle")}
@@ -117,14 +116,14 @@ export default function SupportPage() {
       {/* ── Contact strip (fog) ───────────────────────────────────────── */}
       <section id="contact" data-scheme="light" className="bg-fog scroll-mt-24">
         <SectionDivider scheme="light" />
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 md:py-24">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-ink-mute mb-5">
               {t("contactEyebrow")}
             </p>
           </Reveal>
           <Reveal delay={0.04}>
-            <h2 className="text-[clamp(1.5rem,3vw,2rem)] font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[24ch]">
+            <h2 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[24ch]">
               {t("contactTitle")}
             </h2>
           </Reveal>
@@ -152,9 +151,9 @@ export default function SupportPage() {
       {/* ── Final CTA (night) ─────────────────────────────────────────── */}
       <section data-scheme="dark" className="bg-night text-paper">
         <SectionDivider scheme="dark" />
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-24 md:py-32 text-center">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-24 md:py-32 text-center">
           <Reveal>
-            <h2 className="text-[clamp(2rem,4.4vw,3rem)] font-semibold tracking-[-0.022em] leading-[1.05]">
+            <h2 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05]">
               {t("finalTitle")}
             </h2>
           </Reveal>
@@ -195,12 +194,11 @@ function TopicTile({
     <button
       type="button"
       onClick={onSelect}
-      className={`text-left rounded-2xl border p-5 transition-all duration-200 ${
+      className={`text-left rounded-2xl border p-5 transition-all duration-200 ease-brand ${
         active
           ? "border-ink bg-ink text-paper"
           : "border-hairline bg-paper hover:bg-canvas text-ink"
       }`}
-      style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
     >
       <p
         className={`text-[15px] md:text-[16px] font-semibold tracking-[-0.012em] ${
@@ -232,8 +230,7 @@ function ContactTile({
   return (
     <a
       href={href}
-      className="block rounded-2xl border border-hairline bg-paper hover:bg-canvas p-5 transition-colors duration-200"
-      style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+      className="block rounded-2xl border border-hairline bg-paper hover:bg-canvas p-5 transition-colors duration-200 ease-brand"
     >
       <p className="text-[10px] uppercase tracking-[0.14em] text-ink-mute">
         {label}

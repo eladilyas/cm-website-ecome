@@ -31,8 +31,6 @@ import { useCartStore } from "@/lib/cartStore";
 
 type Size = "sm" | "md";
 
-const APPLE_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
-
 export function CartButton({
   slug,
   size = "md",
@@ -76,13 +74,13 @@ export function CartButton({
         onClick={onView}
         aria-label={t("inCartLabel", { count: itemQty })}
         className={
+          "ease-brand " +
           base +
           " bg-ink text-paper border border-ink hover:bg-ink-soft hover:border-ink-soft shadow-[0_1px_2px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_18px_-6px_rgba(0,0,0,0.25)] " +
           dims +
           " " +
           className
         }
-        style={{ transitionTimingFunction: APPLE_EASE }}
       >
         <CheckIcon size={size === "sm" ? 12 : 14} />
         <span className="tabular-nums">{t("inCart", { count: itemQty })}</span>
@@ -102,6 +100,7 @@ export function CartButton({
       onClick={onAdd}
       aria-label={t("addToCart")}
       className={
+        "ease-brand " +
         base +
         " border border-hairline-strong bg-paper text-ink " +
         "hover:bg-ink hover:text-paper hover:border-ink " +
@@ -110,7 +109,6 @@ export function CartButton({
         " " +
         className
       }
-      style={{ transitionTimingFunction: APPLE_EASE }}
     >
       <CartIcon size={size === "sm" ? 12 : 14} />
       <span>{t("addToCart")}</span>

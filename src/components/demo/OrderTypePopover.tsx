@@ -89,7 +89,7 @@ export function OrderTypePopover({ open, onClose, anchorRef }: Props) {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -4, scale: 0.97 }}
           transition={{ duration: 0.16, ease: APPLE_EASE }}
-          className="absolute right-0 top-full mt-1.5 z-50 w-56 rounded-[10px] bg-night/95 backdrop-blur-md border border-white/12 shadow-[0_18px_48px_rgba(0,0,0,0.45)] overflow-hidden origin-top-right"
+          className="absolute right-0 top-full mt-1.5 z-50 w-56 rounded-lg bg-night/95 backdrop-blur-md border border-white/12 shadow-[0_18px_48px_rgba(0,0,0,0.45)] overflow-hidden origin-top-right"
           role="menu"
           aria-label={tType("change")}
         >
@@ -108,7 +108,7 @@ export function OrderTypePopover({ open, onClose, anchorRef }: Props) {
                 className={
                   "w-full text-left px-3 py-2 flex items-center justify-between gap-2 transition-colors " +
                   (active
-                    ? "bg-[#E11D2A]/15"
+                    ? "bg-brand/15"
                     : "hover:bg-white/[0.05]")
                 }
               >
@@ -116,7 +116,7 @@ export function OrderTypePopover({ open, onClose, anchorRef }: Props) {
                   <p
                     className={
                       "text-[12.5px] font-medium leading-tight " +
-                      (active ? "text-[#E11D2A]" : "text-paper")
+                      (active ? "text-brand" : "text-paper")
                     }
                   >
                     {tType(LABEL_KEY[t])}
@@ -124,14 +124,14 @@ export function OrderTypePopover({ open, onClose, anchorRef }: Props) {
                   <p
                     className={
                       "mt-0.5 text-[10.5px] leading-tight " +
-                      (active ? "text-[#E11D2A]/85" : "text-paper/55")
+                      (active ? "text-brand/85" : "text-paper/55")
                     }
                   >
                     {tType(SUBLABEL_KEY[t])}
                   </p>
                 </div>
                 {active && (
-                  <span aria-hidden className="text-[#E11D2A]">
+                  <span aria-hidden className="text-brand">
                     <CheckGlyph />
                   </span>
                 )}

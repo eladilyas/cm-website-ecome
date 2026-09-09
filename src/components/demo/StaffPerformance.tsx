@@ -52,7 +52,7 @@ export function StaffPerformance() {
   const noActivity = perf.every((p) => p.ordersToday === 0);
 
   return (
-    <section className="rounded-[10px] border border-hairline bg-paper p-4 md:p-5">
+    <section className="rounded-lg border border-hairline bg-paper p-4 md:p-5">
       <header className="flex items-baseline justify-between gap-3 mb-3">
         <div>
           <p className="text-[10.5px] font-medium uppercase tracking-[0.16em] text-ink-mute">

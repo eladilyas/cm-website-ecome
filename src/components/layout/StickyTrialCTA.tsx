@@ -86,8 +86,7 @@ export function StickyTrialCTA() {
           <div className="px-4 pb-4 pt-3 pointer-events-auto">
             <Link
               href="/start-free-trial"
-              className="flex items-center justify-center h-12 rounded-full bg-ink text-paper text-[15px] font-medium shadow-[0_12px_28px_rgba(0,0,0,0.22)] active:scale-[0.98] transition-transform"
-              style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+              className="ease-brand flex items-center justify-center h-12 rounded-full bg-ink text-paper text-[15px] font-medium shadow-[0_12px_28px_rgba(0,0,0,0.22)] active:scale-[0.98] transition-transform"
             >
               {t("startTrial")}
             </Link>

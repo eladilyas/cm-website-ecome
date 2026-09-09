@@ -48,7 +48,7 @@ export function DiscountTile({
 
   return (
     <div
-      className={`flex items-center justify-between gap-3 rounded-[10px] ${pad} ${
+      className={`flex items-center justify-between gap-3 rounded-lg ${pad} ${
         isBold
           ? "bg-ink text-paper"
           : "bg-canvas text-ink ring-1 ring-hairline"
