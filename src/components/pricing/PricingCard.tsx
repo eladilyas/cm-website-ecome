@@ -70,12 +70,24 @@ export function PricingCard({ plan, compact = false }: Props) {
       )}
 
       {/* Top red rule — architectural mark only on the recommended card.
-          Sits flush with the card's top edge, rounded to match. */}
+          CLIPPED to the card's radius rather than restating it.
+
+          This was `h-[3px] rounded-t-2xl`, which cannot work: a 20px corner
+          radius on a 3px-tall box has nowhere to curve, so the browser
+          clamps it and the bar's square ends overhang the card's rounded
+          corners. It also duplicated the radius value, so it silently broke
+          the moment the radius token changed.
+
+          An overflow-hidden wrapper carrying the SAME radius class as the
+          card means the bar is cut by the card's own curve — correct at any
+          radius, and it cannot drift again. */}
       {isRecommended && (
         <span
           aria-hidden
-          className="absolute inset-x-0 top-0 h-[3px] rounded-t-2xl bg-brand"
-        />
+          className="pointer-events-none absolute inset-0 rounded-2xl overflow-hidden"
+        >
+          <span className="absolute inset-x-0 top-0 h-[3px] bg-brand" />
+        </span>
       )}
 
       {/* Plan name + POPULAIRE tag */}

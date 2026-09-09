@@ -381,15 +381,25 @@ export function POSImmersionSection() {
             >
               {/* Top-of-bezel highlight — narrow light wash across the
                   upper bezel only, so the chassis catches light at the
-                  top edge the way a real device does. */}
+                  top edge the way a real device does.
+
+                  CLIPPED to the chassis radius rather than restating it. An
+                  overlay that hardcodes its parent's corner value looks
+                  correct until the radius token moves, and then silently
+                  overhangs the curve — which is exactly how the pricing
+                  card's top rule broke. */}
               <div
                 aria-hidden
-                className="absolute inset-x-0 top-0 h-12 rounded-t-3xl pointer-events-none"
-                style={{
-                  background:
-                    "linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 100%)",
-                }}
-              />
+                className="pointer-events-none absolute inset-0 rounded-3xl overflow-hidden"
+              >
+                <div
+                  className="absolute inset-x-0 top-0 h-12"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 100%)",
+                  }}
+                />
+              </div>
 
               {/* Front-facing camera pinhole — modern iPad: 1×1 px on
                   this scale, positioned on the long bezel (landscape).
