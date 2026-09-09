@@ -1,13 +1,22 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 import Script from "next/script";
 import { getLocale } from "next-intl/server";
 import "./globals.css";
 import { CatalogHydrator } from "@/components/catalog/CatalogHydrator";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+// IBM Plex Sans — the typeface the product catalogue is set in, and now the
+// site's. Replaces Geist, a neo-grotesque that read cold and technical
+// against the catalogue's warmer humanist letterforms.
+//
+// Weights are named explicitly rather than pulling the whole family: the
+// catalogue only ever uses four (regular prose, medium UI, semibold
+// sub-heads, bold display), so naming them keeps the payload to what is
+// actually used. `latin-ext` is required — the FR copy carries é, è, à, ç.
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -178,7 +187,7 @@ export default async function RootLayout({
   // locale state set by the [locale] layout.
   const locale = await getLocale();
   return (
-    <html lang={locale} className={`${geistSans.variable} h-full antialiased`}>
+    <html lang={locale} className={`${plexSans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-paper text-ink">
         {/* Structured data — Organization + WebSite + SoftwareApplication.
             Renders once in the root so every page inherits the org-level

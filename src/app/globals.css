@@ -1,49 +1,113 @@
 @import "tailwindcss";
 
+/* ═══════════════════════════════════════════════════════════════════════
+   DESIGN TOKENS — derived from the 2026 Caisse Manager product catalogue.
+   ═══════════════════════════════════════════════════════════════════════
+
+   The catalogue is the design source of truth. Its language, page after
+   page: white ground, near-black display type set very large and heavy,
+   brand red used sparingly but with CHARACTER (inline in prose, on the
+   discount, on the COMING SOON stamp), grey for secondary detail,
+   monoline outline icons, product shots floating with a soft reflection.
+
+   These tokens are not decorative — every one of them is consumed.
+   The previous layer had 16 of 22 tokens with zero usages while pages
+   hand-rolled their own values, which is how the site ended up with 18
+   different h1 sizes and 232 hardcoded copies of the brand red. If you
+   add a token here, use it; if you need a value that isn't here, add it
+   here first rather than inlining it.
+   ═══════════════════════════════════════════════════════════════════════ */
+
 @theme {
-  /* ── Neutral palette (pure mono — red lives only in the logo) ── */
-  --color-ink: #1d1d1f;
-  --color-ink-soft: #424245;
-  --color-ink-mute: #6e6e73;
+  /* ── Neutrals ────────────────────────────────────────────────────────
+     Warmed very slightly toward the catalogue's ink, which is a true
+     near-black rather than Apple's blue-grey. */
+  --color-ink: #111418;
+  --color-ink-soft: #3d434b;
+  --color-ink-mute: #8a9099;
   --color-paper: #ffffff;
-  --color-canvas: #fbfbfd;
-  --color-fog: #f5f5f7;
-  --color-night: #000000;
-  --color-night-soft: #0a0a0a;
-  --color-hairline: rgba(0, 0, 0, 0.08);
-  --color-hairline-strong: rgba(0, 0, 0, 0.14);
-  --color-hairline-dark: rgba(255, 255, 255, 0.1);
+  --color-canvas: #fbfbfc;
+  --color-fog: #f4f4f6;
+  --color-night: #0b0d10;
+  --color-night-soft: #14171c;
+  --color-hairline: rgba(17, 20, 24, 0.08);
+  --color-hairline-strong: rgba(17, 20, 24, 0.16);
+  --color-hairline-dark: rgba(255, 255, 255, 0.12);
 
-  /* ── Fonts (Geist from scaffold; closest premium SF-Pro-style web font) ── */
-  --font-sans: var(--font-geist-sans);
-  --font-display: var(--font-geist-sans);
+  /* ── Brand red ───────────────────────────────────────────────────────
+     The catalogue's red, sampled from the logo and the (−20%) mark.
+     This exists BECAUSE it was missing: the codebase carried 232
+     hardcoded literals across four near-identical reds (#E11D2A,
+     #E31E24, #C8141F, …). Use `text-brand` / `bg-brand` / `border-brand`
+     and the `/α` opacity modifier — never a raw hex, never pre-multiplied
+     rgba. */
+  --color-brand: #e31e24;
+  --color-brand-hover: #c4171c;
+  --color-brand-tint: #fdecec;
 
-  /* ── Typography scale (Apple-style: 11 → 96) ── */
-  --text-micro: 0.6875rem;   /* 11 */
-  --text-mini: 0.75rem;      /* 12 */
-  --text-tiny: 0.8125rem;    /* 13 */
-  --text-sm: 0.875rem;       /* 14 */
-  --text-base: 1.0625rem;    /* 17 — Apple body */
-  --text-lg: 1.1875rem;      /* 19 */
-  --text-xl: 1.5rem;         /* 24 */
-  --text-2xl: 2rem;          /* 32 */
-  --text-3xl: 3rem;          /* 48 */
-  --text-4xl: 4rem;          /* 64 */
-  --text-5xl: 5rem;          /* 80 */
-  --text-6xl: 6rem;          /* 96 */
+  /* ── Fonts ───────────────────────────────────────────────────────────
+     IBM Plex Sans — the catalogue's face. Humanist sans with a tall
+     x-height, double-storey 'a' and single-storey 'g', which is what
+     gives the catalogue its warmth where a neo-grotesque (the previous
+     Geist) read cold and technical. Self-hosted via next/font. */
+  --font-sans: var(--font-plex-sans);
+  --font-display: var(--font-plex-sans);
 
-  /* ── Motion ── */
-  --ease-apple: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-apple-in: cubic-bezier(0.4, 0, 1, 1);
+  /* ── Type scale ──────────────────────────────────────────────────────
+     Fluid, and deliberately SHORT. Three heading steps, not eighteen.
+     Sized off the catalogue's own hierarchy: a page title that dominates
+     ("POS", "Back Office"), a section head, and a sub-head.
 
-  /* ── Radii ── */
+     --text-display  page title. The catalogue's product name.
+     --text-h1       page title on secondary pages.
+     --text-h2       section heading.
+     --text-h3       sub-section / card heading.
+     Body sits at 17px like the catalogue's prose column. */
+  --text-display: clamp(2.75rem, 6vw, 4.5rem);
+  --text-h1: clamp(2.25rem, 4.6vw, 3.5rem);
+  --text-h2: clamp(1.625rem, 2.9vw, 2.25rem);
+  --text-h3: clamp(1.125rem, 1.5vw, 1.3125rem);
+  --text-micro: 0.65625rem;  /* 10.5 — eyebrows, uppercase tracked */
+  --text-mini: 0.75rem;      /* 12   — chips, captions */
+  --text-tiny: 0.8125rem;    /* 13   — dense UI, specs */
+  --text-sm: 0.875rem;       /* 14   — secondary body */
+  --text-base: 1.0625rem;    /* 17   — body, matches the catalogue */
+  --text-lg: 1.1875rem;      /* 19   — lead paragraph */
+
+  /* ── Motion ──────────────────────────────────────────────────────────
+     ONE curve. The codebase had two competing (87 uses of
+     cubic-bezier(0.32,0.72,0,1) against 57 of this one) applied through
+     four different mechanisms, so the site had no single motion
+     signature. Use the `ease-brand` utility, not an inline style. */
+  --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-brand-in: cubic-bezier(0.4, 0, 1, 1);
+
+  /* ── Radii ───────────────────────────────────────────────────────────
+     The full ramp is declared so no Tailwind default can leak through.
+     It previously stopped at 2xl, which left `rounded-3xl` on Tailwind's
+     24px default — SMALLER than the overridden `rounded-2xl` at 32px, so
+     the scale was inverted and cards diverged nine ways. */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 28px;
+  --radius-4xl: 36px;
   --radius-pill: 9999px;
-  --radius-lg: 18px;
-  --radius-xl: 24px;
-  --radius-2xl: 32px;
 
-  /* ── Container ── */
-  --container-shell: 1280px;
+  /* ── Containers ──────────────────────────────────────────────────────
+     Two shells only. `shell` for all content; `shell-wide` reserved for
+     edge-to-edge carousels. Eight different page widths were in use. */
+  --container-shell: 1200px;
+  --container-shell-wide: 1440px;
+
+  /* ── Section rhythm ──────────────────────────────────────────────────
+     Three steps. 17 distinct padding signatures were in use across 39
+     sections, with the home page and the subpages sharing none. */
+  --space-section-tight: 4rem;
+  --space-section: 5.5rem;
+  --space-section-feature: 7.5rem;
 }
 
 /* Utility — hide the native scrollbar on horizontally-scrolling containers
