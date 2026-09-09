@@ -30,6 +30,17 @@ export function ttc(ht: number): number {
 
 export type BillingCycle = "monthly" | "yearly" | "biennial";
 
+/** The plan price ladder, in MAD HT per counter per month.
+ *
+ *  Hoisted out of `usePlans()` deliberately. That is a hook (it resolves
+ *  localised copy), so a server component cannot call it — and the pricing
+ *  hero needs the same figures the client-rendered cards show. Keeping one
+ *  const means the hero can never contradict the cards beneath it. */
+export const PLAN_PRICES: Record<"pro" | "enterprise", Record<BillingCycle, number>> = {
+  pro: { monthly: 260, yearly: 195, biennial: 130 },
+  enterprise: { monthly: 350, yearly: 260, biennial: 170 },
+};
+
 export type PlanHighlight = {
   label: string;
   included: boolean;
@@ -116,7 +127,7 @@ export function usePlans(): Plan[] {
       name: t("pro.name"),
       tagline: t("pro.tagline"),
       description: t("pro.description"),
-      prices: { monthly: 260, yearly: 195, biennial: 130 },
+      prices: PLAN_PRICES.pro,
       recommended: true,
       highlights: build("pro", {}),
       ctaLabel: t("pro.ctaLabel"),
@@ -127,7 +138,7 @@ export function usePlans(): Plan[] {
       name: t("enterprise.name"),
       tagline: t("enterprise.tagline"),
       description: t("enterprise.description"),
-      prices: { monthly: 350, yearly: 260, biennial: 170 },
+      prices: PLAN_PRICES.enterprise,
       highlights: build("enterprise", {
         3: {
           kind: "storage",

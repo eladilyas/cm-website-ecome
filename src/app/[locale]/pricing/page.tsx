@@ -27,6 +27,8 @@ import { HardwareCallout } from "@/components/pricing/HardwareCallout";
 import { PricingPlansSection } from "@/components/pricing/PricingPlansSection";
 import { PricingFaqSection } from "@/components/pricing/PricingFaqSection";
 import { ModulesGrid } from "@/components/pricing/ModulesGrid";
+import { PriceBlock, type PriceTier } from "@/components/ui/PriceBlock";
+import { PLAN_PRICES } from "@/data/pricing";
 
 
 // /pricing had NO metadata export at all, so it inherited the root
@@ -45,6 +47,24 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function PricingPage() {
   const t = await getTranslations("pricing");
 
+  // Hero lockup figures come from the Pro plan itself rather than being
+  // written into the copy, so the hero can never contradict the plan cards
+  // below it. `heroTiers` in the catalog supplies only the LABELS; the
+  // amounts are read from the price ladder.
+  const heroTierCopy = t.raw("heroTiers") as {
+    cycle: "yearly" | "monthly";
+    term: string;
+    condition: string;
+    saving?: string;
+  }[];
+  const heroTiers: PriceTier[] = heroTierCopy.map((c) => ({
+    amount: `${PLAN_PRICES.pro[c.cycle]} ${t("currency")}`,
+    term: c.term,
+    condition: c.condition,
+    saving: c.saving,
+  }));
+  const heroFees = t.raw("heroFees") as string[];
+
   // Catalog stores the FAQ-body sentence with a <link>…</link> marker so
   // each locale can wrap the "Ask the team" link inside its natural
   // sentence position. Split and stitch with a locale-aware Link.
@@ -55,35 +75,46 @@ export default async function PricingPage() {
 
   return (
     <>
-      {/* ── HERO ──────────────────────────────────────────────────────── */}
-      <section data-scheme="light" className="relative overflow-hidden bg-canvas">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 h-[520px] -z-0"
-          style={{
-            background:
-              "radial-gradient(55% 80% at 50% 0%, rgba(225,29,42,0.10) 0%, rgba(225,29,42,0.04) 38%, rgba(225,29,42,0) 75%)",
-          }}
-        />
-        <div className="relative mx-auto max-w-[1280px] px-6 lg:px-10 pt-20 md:pt-28 pb-10 md:pb-14 text-center">
+      {/* ── HERO ──────────────────────────────────────────────────────────
+          Set on the catalogue's opening move: title, then the price figure
+          immediately, then the installation fees in grey beneath.
+
+          The red radial wash is gone. The catalogue's ground is plain white
+          and its only colour is the type — a tinted glow behind the
+          headline is exactly the kind of decoration it avoids, and it was
+          also one of the 232 hardcoded reds. */}
+      <section data-scheme="light" className="relative overflow-hidden bg-paper">
+        <div className="relative mx-auto max-w-shell px-6 lg:px-10 pt-20 md:pt-28 pb-10 md:pb-14 text-center">
           <Reveal>
-            <p className="text-[10.5px] font-medium uppercase tracking-[0.20em] text-ink-mute mb-4">
+            <p className="text-micro font-medium uppercase tracking-[0.20em] text-ink-mute mb-4">
               {t("heroEyebrow")}
             </p>
           </Reveal>
           <Reveal delay={0.05}>
             <h1
-              className="text-[clamp(2rem,4.4vw,3.5rem)] font-semibold tracking-[-0.022em] leading-[1.02] text-ink max-w-[20ch] mx-auto"
+              className="text-h1 font-bold tracking-[-0.022em] leading-[1.02] text-ink max-w-[20ch] mx-auto"
               style={{ textWrap: "balance" }}
             >
               {t("heroHeadline")}
             </h1>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="mt-5 text-[15px] md:text-[16px] leading-[1.55] text-ink-soft max-w-[38rem] mx-auto">
+            <p className="mt-5 text-base leading-[1.55] text-ink-soft max-w-[38rem] mx-auto">
               {t("heroBody")}
             </p>
           </Reveal>
+
+          {/* The catalogue's dual-tier lockup. The site's own model is
+              richer than the catalogue's (it also carries a 24-month tier
+              and HT/TTC), so the FIGURES stay as they are and only the
+              presentation is adopted — collapsing to the catalogue's two
+              tiers would delete real commercial information. */}
+          <PriceBlock
+            align="center"
+            className="mt-10 md:mt-12"
+            tiers={heroTiers}
+            notes={heroFees}
+          />
         </div>
       </section>
 

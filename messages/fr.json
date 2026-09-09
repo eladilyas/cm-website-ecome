@@ -571,6 +571,23 @@
         "title": "Équipe locale au Maroc",
         "body": "Installation, réparations et support gérés localement. Visites le jour même à Casablanca, Rabat et Marrakech."
       }
+    ],
+    "heroTiers": [
+      {
+        "cycle": "yearly",
+        "term": "Par mois",
+        "condition": "paiement annuel",
+        "saving": "−25%"
+      },
+      {
+        "cycle": "monthly",
+        "term": "Par mois",
+        "condition": "paiement mensuel"
+      }
+    ],
+    "heroFees": [
+      "Frais d'installation à distance 1 000 MAD",
+      "Frais d'installation sur site 4 000 MAD"
     ]
   },
   "shop": {

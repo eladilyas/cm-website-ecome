@@ -571,6 +571,23 @@
         "title": "Local team in Morocco",
         "body": "Install, repair, and support handled locally. Same-day visits in Casablanca, Rabat, and Marrakech."
       }
+    ],
+    "heroTiers": [
+      {
+        "cycle": "yearly",
+        "term": "Per month",
+        "condition": "billed annually",
+        "saving": "−25%"
+      },
+      {
+        "cycle": "monthly",
+        "term": "Per month",
+        "condition": "billed monthly"
+      }
+    ],
+    "heroFees": [
+      "Remote installation 1 000 MAD",
+      "On-site installation 4 000 MAD"
     ]
   },
   "shop": {
