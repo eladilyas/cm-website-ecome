@@ -21,12 +21,16 @@ import { RailProductCard } from "@/components/shop/RailProductCard";
 import { CartButton } from "@/components/shop/CartButton";
 import { AvailabilityBadge } from "@/components/shop/AvailabilityBadge";
 import { WafasalafBadge } from "@/components/shop/WafasalafBadge";
+import { SpecTiles, pickSpecTiles } from "@/components/shop/SpecTiles";
+import { ProductTrustStrip, type TrustItem } from "@/components/shop/ProductTrustStrip";
+import { StickyBuyBar } from "@/components/shop/StickyBuyBar";
 import {
   getActiveCategoryLabels,
   getPublicProductBySlug,
   listPublicProducts,
 } from "@/server/catalog/service";
 import { formatPrice } from "@/lib/formatPrice";
+import { getTranslations } from "next-intl/server";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -101,6 +105,31 @@ export default async function ProductDetailPage({ params }: Props) {
   // a single price without minimum/maximum ranges when the catalog
   // ships one base price per product.
   const isInStock = (product.availability?.status ?? "in-stock") === "in-stock";
+
+  const tp = await getTranslations("shop.pdp");
+  const trustItems = tp.raw("trust") as TrustItem[];
+
+  // Category label, resolved safely.
+  //
+  // `getActiveCategoryLabels()` reads the DB behind `withDbFallback`, which
+  // returns {} when Postgres is unreachable — and Neon cold-starts take
+  // several seconds. So the previous `CATEGORY_LABEL[product.category]`
+  // rendered the literal string "undefined" as the category eyebrow on
+  // EVERY product page during a cold start, and permanently for any product
+  // whose category row is soft-disabled.
+  //
+  // Fall back to the slug, de-slugified, and never render nothing-shaped
+  // text. `?? undefined` on the final step lets callers omit the element
+  // entirely rather than print an empty eyebrow.
+  const categoryLabel =
+    CATEGORY_LABEL[product.category] ??
+    product.category
+      .split("-")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" ");
+
+  const priceLabel = `${formatPrice(product.priceFrom)} ${tp("exclTax")}`;
+  const specTiles = pickSpecTiles(product.specs);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -144,7 +173,7 @@ export default async function ProductDetailPage({ params }: Props) {
               href="/shop"
               className="inline-flex items-center gap-1.5 text-[12px] uppercase tracking-[0.14em] text-ink-mute hover:text-ink transition-colors"
             >
-              ← Store
+              ← {tp("backToStore")}
             </Link>
           </Reveal>
 
@@ -181,7 +210,7 @@ export default async function ProductDetailPage({ params }: Props) {
             <div className="order-2 md:order-1">
               <Reveal delay={0.05}>
                 <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-ink-mute mb-4">
-                  {CATEGORY_LABEL[product.category]}
+                  {categoryLabel}
                 </p>
               </Reveal>
               <Reveal delay={0.1}>
@@ -206,13 +235,13 @@ export default async function ProductDetailPage({ params }: Props) {
                 <div className="mt-6 flex items-baseline gap-3 flex-wrap">
                   <div className="inline-flex items-baseline gap-2">
                     <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-ink-mute">
-                      Starting at
+                      {tp("startingAt")}
                     </span>
                     <span className="text-[22px] md:text-[24px] font-semibold tabular-nums tracking-[-0.01em] text-ink">
                       {formatPrice(product.priceFrom)}
                     </span>
                     <span className="text-[11px] uppercase tracking-[0.12em] text-ink-mute font-medium">
-                      HT
+                      {tp("exclTax")}
                     </span>
                   </div>
                   <AvailabilityBadge availability={product.availability} size="md" />
@@ -234,17 +263,39 @@ export default async function ProductDetailPage({ params }: Props) {
                 </p>
               </Reveal>
               <Reveal delay={0.22}>
-                <div className="mt-8 flex items-center gap-3 flex-wrap">
+                <div
+                  id="pdp-buy"
+                  className="mt-8 flex items-center gap-3 flex-wrap"
+                >
                   <CartButton slug={product.slug} size="md" />
                   <Button href="/start-free-trial" variant="outline" size="md">
-                    Talk to a specialist
+                    {tp("talkToSpecialist")}
                   </Button>
                 </div>
+              </Reveal>
+
+              {/* Reassurance sits with the buy action, not in the footer —
+                  these are the three objections a hardware buyer has at the
+                  moment they decide. */}
+              <Reveal delay={0.26}>
+                <ProductTrustStrip items={trustItems} className="mt-8" />
               </Reveal>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ── KEY SPECS — four-up tiles, the decision numbers up front ────
+          Rendered only when the product can field at least three specs that
+          actually help a decision; see pickSpecTiles for the ranking. The
+          exhaustive table still lives further down for anyone who wants it. */}
+      {specTiles.length > 0 && (
+        <section data-scheme="light" className="bg-paper">
+          <div className="mx-auto max-w-shell px-6 lg:px-10 py-12 md:py-16">
+            <SpecTiles specs={product.specs} eyebrow={tp("keySpecsEyebrow")} />
+          </div>
+        </section>
+      )}
 
       {/* ── FEATURES — 3-column block under hero ──────────────────────── */}
       <section data-scheme="light" className="bg-paper">
@@ -383,7 +434,7 @@ export default async function ProductDetailPage({ params }: Props) {
               <div>
                 <Reveal>
                   <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-ink-mute mb-3">
-                    More in {CATEGORY_LABEL[product.category]}
+                    More in {categoryLabel}
                   </p>
                 </Reveal>
                 <Reveal delay={0.04}>
@@ -397,7 +448,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   href={`/shop?category=${product.category}`}
                   className="inline-flex items-center gap-1.5 text-[13px] text-ink-soft hover:text-ink transition-colors"
                 >
-                  See all {CATEGORY_LABEL[product.category]} →
+                  See all {categoryLabel} →
                 </Link>
               </Reveal>
             </div>
@@ -438,6 +489,18 @@ export default async function ProductDetailPage({ params }: Props) {
           </Reveal>
         </div>
       </section>
+
+      {/* Mobile-only pinned buy bar. Our PDP is long, so on a phone the
+          hero CTA leaves the viewport within one swipe and never returns —
+          the biggest conversion gap against the reference designs. Hidden
+          until #pdp-buy scrolls out of view so it never competes with the
+          real button, and offset above the mobile tab bar. */}
+      <StickyBuyBar
+        name={product.name}
+        priceLabel={priceLabel}
+        slug={product.slug}
+        watchId="pdp-buy"
+      />
     </>
   );
 }

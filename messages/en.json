@@ -629,7 +629,28 @@
       "consumables": "Consumables",
       "access-presence": "Access & Presence"
     },
-    "allProducts": "All products"
+    "allProducts": "All products",
+    "pdp": {
+      "backToStore": "Store",
+      "startingAt": "Starting at",
+      "exclTax": "excl. tax",
+      "talkToSpecialist": "Talk to a specialist",
+      "keySpecsEyebrow": "At a glance",
+      "trust": [
+        {
+          "title": "Free delivery",
+          "note": "Across Morocco on stocked items"
+        },
+        {
+          "title": "2-year warranty",
+          "note": "Repair or replacement per terms"
+        },
+        {
+          "title": "Support 7 days a week",
+          "note": "Phone, WhatsApp and email"
+        }
+      ]
+    }
   },
   "industryPages": {
     "labels": {

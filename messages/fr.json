@@ -629,7 +629,28 @@
       "consumables": "Consommables",
       "access-presence": "Accès & Présence"
     },
-    "allProducts": "Tous les produits"
+    "allProducts": "Tous les produits",
+    "pdp": {
+      "backToStore": "Boutique",
+      "startingAt": "À partir de",
+      "exclTax": "HT",
+      "talkToSpecialist": "Parler à un spécialiste",
+      "keySpecsEyebrow": "En un coup d'œil",
+      "trust": [
+        {
+          "title": "Livraison offerte",
+          "note": "Partout au Maroc sur les articles en stock"
+        },
+        {
+          "title": "Garantie 2 ans",
+          "note": "Réparation ou remplacement selon conditions"
+        },
+        {
+          "title": "Support 7j/7",
+          "note": "Téléphone, WhatsApp et e-mail"
+        }
+      ]
+    }
   },
   "industryPages": {
     "labels": {
