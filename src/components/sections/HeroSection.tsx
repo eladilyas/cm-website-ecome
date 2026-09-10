@@ -4,21 +4,26 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { TrustedByStrip } from "@/components/sections/TrustedByStrip";
-import { HeroCarousel } from "@/components/sections/HeroCarousel";
+import { HeroVideo } from "@/components/sections/HeroVideo";
 
 // Hero — cinematic photo carousel of Caisse Manager customers, AI-
 // driven headline, two CTAs.
 //
 // Visual system:
-//   ▸ Full-bleed photo carousel (HeroCarousel) cross-fades between four
-//     field-visit photographs across Moroccan customers.
-//   ▸ Multi-layer overlay above the photo carousel:
+//   ▸ Full-bleed background video (HeroVideo) — the brand ad clip, muted
+//     and looping. Replaced a four-photo cross-fading carousel
+//     (HeroCarousel, now unreferenced but kept as a revert path). The
+//     video takes the identical `absolute inset-0` footprint, so the
+//     overlay stack below and the trust strip were unaffected.
+//   ▸ Multi-layer overlay above the video:
 //       1) Base scrim — lifts contrast across every frame.
 //       2) Vertical gradient — darkens top + bottom, leaves middle
-//          breathable so the photos still read.
+//          breathable so the footage still reads.
 //       3) Text-zone radial pool — soft ellipse of darkness exactly
-//          where the headline + subhead + CTAs sit, so the type
-//          stays readable on any frame the carousel lands on.
+//          where the headline + subhead + CTAs sit. This matters more
+//          with video than it did with stills: the background is now
+//          ~900 frames rather than four, so legibility has to hold
+//          across all of them instead of being checked per photo.
 //       4) Brand-red bloom in the lower third for warmth.
 //   ▸ Top edge of the vertical gradient is deliberately darker than
 //     the middle band so the header logo + nav links keep their
@@ -33,8 +38,11 @@ export function HeroSection() {
       data-header-overlay="hero"
       className="relative overflow-hidden bg-night text-paper h-svh flex flex-col"
     >
-      {/* ── Background carousel — four field-visit photos ──────────── */}
-      <HeroCarousel />
+      {/* ── Background — the brand ad clip ──────────────────────────
+          Was HeroCarousel (four cross-fading photos). Same
+          `absolute inset-0` footprint, so every overlay below and the
+          TrustedByStrip at the bottom are unaffected. */}
+      <HeroVideo alt={t("posterAlt")} />
 
       {/* ── Overlay stack ────────────────────────────────────────────
           With the photos sitting raw edge-to-edge below (no fade

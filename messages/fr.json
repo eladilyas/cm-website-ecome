@@ -237,7 +237,8 @@
       "secondaryCta": "Voir les tarifs",
       "trustBadge": "Sans engagement · Configuration en 10 minutes",
       "trustedBy": "Ils nous font confiance",
-      "trustedByLabel": "Des commerces qui tournent sur Caisse Manager"
+      "trustedByLabel": "Des commerces qui tournent sur Caisse Manager",
+      "posterAlt": "Un terminal Caisse Manager en service au comptoir"
     },
     "finalCta": {
       "heading": "Voyez-le sur votre caisse.",

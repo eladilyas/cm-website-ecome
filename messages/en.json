@@ -237,7 +237,8 @@
       "secondaryCta": "See pricing",
       "trustBadge": "No commitment · 10-minute setup",
       "trustedBy": "Trusted by",
-      "trustedByLabel": "Businesses running Caisse Manager"
+      "trustedByLabel": "Businesses running Caisse Manager",
+      "posterAlt": "A Caisse Manager terminal in use at a counter"
     },
     "finalCta": {
       "heading": "See it on your counter.",
