@@ -11,18 +11,21 @@
 // on 54 of 76 products, Model on 43). They are identity fields. Nobody
 // chooses a terminal because it has a model number.
 //
-// So tiles are chosen by how much they help a decision. `TILE_PRIORITY`
+// So tiles are ORDERED by how much they help a decision. `TILE_PRIORITY`
 // ranks the labels that make a real selling point (display, processor,
-// battery, range, capacity…) and `DEMOTED` pushes identity fields to the
-// back. If a product cannot field at least MIN_TILES interesting specs the
-// row does not render at all — a row reading "Brand: WDLink" is worse than
-// no row, and the full table still carries everything.
+// battery, range, capacity…) and `DEMOTED` sorts identity fields to the
+// back so they only ever fill leftover slots.
+//
+// They are sorted, not filtered — see pickSpecTiles for why excluding them
+// was worse. Coverage with the current catalogue: 58 products field four
+// tiles, 15 field three, 3 field two. None field zero.
 
 import { Reveal } from "@/components/ui/Reveal";
 import type { ProductSpec } from "@/server/catalog/types";
 
-/** Fewer than this and the row is not worth its vertical space. */
-const MIN_TILES = 3;
+/** Fewer than this and it is not a row. Two is a legitimate strip; one
+ *  lone tile reads as a mistake. */
+const MIN_TILES = 2;
 const MAX_TILES = 4;
 
 /** Labels that make a good tile, best first. Matched case-insensitively on
@@ -64,16 +67,28 @@ function rankOf(label: string): number {
 }
 
 /** Pick the tiles. Exported so the page can decide whether to render the
- *  section without duplicating the ranking rule. */
+ *  section without duplicating the ranking rule.
+ *
+ *  Demoted labels are sorted LAST, not dropped. Dropping them was a real
+ *  mistake: measured against the catalogue it left 38 of 76 products with
+ *  no tiles at all, including every flagship iMin terminal — those carry
+ *  exactly four specs, two of which ("Model reference", "Brand") are
+ *  identity fields, so excluding them fell below the minimum and the row
+ *  vanished on the most important products on the site.
+ *
+ *  Ranking still does the useful work — the decision specs lead — but a
+ *  filled row of four with the best two first beats an empty one, and on
+ *  hardware a brand and a model reference are genuinely what a buyer
+ *  quotes when they order. */
 export function pickSpecTiles(specs: readonly ProductSpec[] | undefined) {
   if (!specs?.length) return [];
   const ranked = specs
     .map((s, i) => ({ s, rank: rankOf(s.label), i }))
     // Stable: rank first, then original catalogue order.
     .sort((a, b) => a.rank - b.rank || a.i - b.i)
-    .filter((r) => r.rank < 900)
     .slice(0, MAX_TILES)
     .map((r) => r.s);
+  // A one-tile row is not a row. Two or more is a legitimate strip.
   return ranked.length >= MIN_TILES ? ranked : [];
 }
 
