@@ -278,7 +278,10 @@ export default async function ProductDetailPage({ params }: Props) {
                     href="/support#contact"
                     variant="outline"
                     size="md"
-                    className="w-full"
+                    /* h-11 overrides Button's md (h-10). Stacked full-width
+                       beside CartButton's h-11, a 4px mismatch reads as a
+                       mistake — and 40px is under the 44px touch minimum. */
+                    className="w-full !h-11"
                   >
                     {tp("talkToSpecialist")}
                   </Button>
@@ -478,9 +481,19 @@ export default async function ProductDetailPage({ params }: Props) {
                 </Link>
               </Reveal>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+            {/* Horizontal rail below sm, grid above.
+                Measured: six full-width ProductCards stacked made this
+                section 3,341px on a 390px viewport — 38% of the whole page
+                and its single biggest block. The references make "you may
+                also like" swipeable rather than stacked, which keeps all six
+                reachable while returning ~2,500px of height. */}
+            <div className="-mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 scrollbar-hide sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 lg:grid-cols-3">
               {related.map((p, i) => (
-                <Reveal key={p.slug} delay={0.06 + i * 0.04}>
+                <Reveal
+                  key={p.slug}
+                  delay={0.06 + i * 0.04}
+                  className="w-[78%] shrink-0 snap-start sm:w-auto sm:shrink"
+                >
                   <ProductCard product={p} />
                 </Reveal>
               ))}
