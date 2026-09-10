@@ -22,6 +22,7 @@ import { CartButton } from "@/components/shop/CartButton";
 import { AvailabilityBadge } from "@/components/shop/AvailabilityBadge";
 import { WafasalafBadge } from "@/components/shop/WafasalafBadge";
 import { SpecTiles, pickSpecTiles } from "@/components/shop/SpecTiles";
+import { Disclosure } from "@/components/ui/Disclosure";
 import { ProductTrustStrip, type TrustItem } from "@/components/shop/ProductTrustStrip";
 import { StickyBuyBar } from "@/components/shop/StickyBuyBar";
 import {
@@ -263,12 +264,22 @@ export default async function ProductDetailPage({ params }: Props) {
                 </p>
               </Reveal>
               <Reveal delay={0.22}>
-                <div
-                  id="pdp-buy"
-                  className="mt-8 flex items-center gap-3 flex-wrap"
-                >
-                  <CartButton slug={product.slug} size="md" />
-                  <Button href="/start-free-trial" variant="outline" size="md">
+                <div id="pdp-buy" className="mt-8 max-w-[26rem] space-y-2.5">
+                  {/* Full-width and stacked, matching the reference PDPs.
+                      The pair used to sit side by side as small pills, which
+                      on a phone wrapped into the weakest element on the page.
+                      Primary action first, enquiry second. */}
+                  <CartButton
+                    slug={product.slug}
+                    size="md"
+                    className="w-full"
+                  />
+                  <Button
+                    href="/support#contact"
+                    variant="outline"
+                    size="md"
+                    className="w-full"
+                  >
                     {tp("talkToSpecialist")}
                   </Button>
                 </div>
@@ -297,74 +308,89 @@ export default async function ProductDetailPage({ params }: Props) {
         </section>
       )}
 
-      {/* ── FEATURES — 3-column block under hero ──────────────────────── */}
+      {/* ── PRODUCT DETAIL — collapsed by default ──────────────────────
+          Features, the full spec table and the delivery terms used to be
+          three always-open sections, which is most of why this page ran
+          ~8,600px on a phone: a buyer who wanted the shipping terms had to
+          scroll the entire spec table to reach them. Collapsed, the tail is
+          a four-row index. Every reference PDP does this.
+
+          The key specs still sit UNCOLLAPSED above as tiles — the decision
+          numbers stay visible, only the exhaustive detail folds away. */}
       <section data-scheme="light" className="bg-paper">
         <SectionDivider scheme="light" />
-        <div className="mx-auto max-w-shell px-6 lg:px-10 py-20 md:py-28">
+        <div className="mx-auto max-w-shell px-6 lg:px-10 py-16 md:py-24">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-ink-mute mb-3">
-              Features
+            <p className="text-micro font-semibold uppercase tracking-[0.2em] text-ink-mute mb-3">
+              {tp("detailsEyebrow")}
             </p>
           </Reveal>
           <Reveal delay={0.04}>
-            <h2 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[22ch]">
-              What makes it work.
+            <h2 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[22ch] mb-8 md:mb-10">
+              {tp("detailsTitle")}
             </h2>
           </Reveal>
-
-          <ul className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
-            {product.features.map((f, i) => (
-              <Reveal key={i} delay={Math.min(0.06 + i * 0.03, 0.3)}>
-                <li className="flex items-start gap-3">
-                  <BrandCheck variant="chip" size={11} className="mt-0.5 shrink-0" />
-                  <span className="text-[15px] md:text-[16px] leading-[1.5] text-ink-soft">
-                    {f}
-                  </span>
-                </li>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* ── SPECS — full table on canvas ──────────────────────────────── */}
-      <section data-scheme="light" className="bg-canvas">
-        <SectionDivider scheme="light" />
-        <div className="mx-auto max-w-shell px-6 lg:px-10 py-20 md:py-28">
-          <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-ink-mute mb-3">
-              Specifications
-            </p>
-          </Reveal>
-          <Reveal delay={0.04}>
-            <h2 className="text-h2 font-semibold tracking-[-0.022em] leading-[1.05] text-ink max-w-[22ch]">
-              The fine print.
-            </h2>
-          </Reveal>
-
           <Reveal delay={0.08}>
-            <dl className="mt-10 max-w-[800px] divide-y divide-hairline border-y border-hairline">
-              {product.specs.map((s) => (
-                <div
-                  key={s.label}
-                  className="grid grid-cols-[140px_1fr] md:grid-cols-[200px_1fr] gap-6 py-4"
-                >
-                  <dt className="text-[12px] md:text-[13px] uppercase tracking-[0.12em] text-ink-mute">
-                    {s.label}
-                  </dt>
-                  <dd className="text-[14px] md:text-[15px] text-ink leading-[1.5]">
-                    {s.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </Reveal>
-
-          <Reveal delay={0.14}>
-            <p className="mt-8 text-[12px] text-ink-mute">
-              Available configurations may vary by region. Contact our
-              specialists for an exact build sheet matched to your operation.
-            </p>
+            <div className="max-w-[860px]">
+              <Disclosure
+                defaultOpen={0}
+                rows={[
+                  {
+                    title: tp("rowFeatures"),
+                    content: (
+                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3.5">
+                        {product.features.map((f, i) => (
+                          <li key={i} className="flex items-start gap-3">
+                            <BrandCheck
+                              variant="chip"
+                              size={11}
+                              className="mt-1 shrink-0"
+                            />
+                            <span className="text-sm md:text-base leading-[1.5] text-ink-soft">
+                              {f}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    ),
+                  },
+                  {
+                    title: tp("rowSpecs"),
+                    meta: tp("specCount", { count: product.specs.length }),
+                    content: (
+                      <>
+                        <dl className="divide-y divide-hairline border-y border-hairline">
+                          {product.specs.map((sp) => (
+                            <div
+                              key={sp.label}
+                              className="grid grid-cols-[130px_1fr] md:grid-cols-[200px_1fr] gap-4 md:gap-6 py-3.5"
+                            >
+                              <dt className="text-mini md:text-tiny uppercase tracking-[0.12em] text-ink-mute">
+                                {sp.label}
+                              </dt>
+                              <dd className="text-tiny md:text-sm text-ink leading-[1.5]">
+                                {sp.value}
+                              </dd>
+                            </div>
+                          ))}
+                        </dl>
+                        <p className="mt-6 text-mini text-ink-mute leading-[1.55]">
+                          {tp("specsNote")}
+                        </p>
+                      </>
+                    ),
+                  },
+                  {
+                    title: tp("rowShipping"),
+                    content: (
+                      <p className="text-sm md:text-base leading-[1.6] text-ink-soft max-w-[60ch]">
+                        {tp("shippingBody")}
+                      </p>
+                    ),
+                  },
+                ]}
+              />
+            </div>
           </Reveal>
         </div>
       </section>
