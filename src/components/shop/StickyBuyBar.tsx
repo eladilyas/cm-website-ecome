@@ -20,7 +20,7 @@
 //     once on this site; this one is offset by that height plus the safe
 //     area so both stay usable.
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { CartButton } from "@/components/shop/CartButton";
 
 export function StickyBuyBar({
@@ -37,7 +37,6 @@ export function StickyBuyBar({
   watchId: string;
 }) {
   const [shown, setShown] = useState(false);
-  const seenRef = useRef(false);
 
   useEffect(() => {
     const target = document.getElementById(watchId);
@@ -45,15 +44,20 @@ export function StickyBuyBar({
 
     const io = new IntersectionObserver(
       ([entry]) => {
-        // Only reveal AFTER the hero CTA has been seen and left. Without the
-        // `seen` latch the bar flashes on first paint, before the observer
-        // has reported that the hero is visible.
-        if (entry.isIntersecting) {
-          seenRef.current = true;
-          setShown(false);
-        } else if (seenRef.current) {
-          setShown(true);
-        }
+        // Reveal only when the buy row has scrolled UP out of view.
+        //
+        // Direction matters, and reading it off the entry is what makes this
+        // correct. The first version latched a "have we seen it yet" ref and
+        // revealed on any non-intersection after that. It never fired: the
+        // latch only arms if the sentinel is observed INTERSECTING first, and
+        // on a phone the hero is taller than the viewport, so the buy row
+        // starts below the fold. Jump-scrolling past it (or simply loading
+        // and scrolling down) left the latch unarmed forever.
+        //
+        // `boundingClientRect.top < 0` says the sentinel is above the
+        // viewport — i.e. genuinely passed — which is true regardless of how
+        // the user got there and needs no state to remember.
+        setShown(!entry.isIntersecting && entry.boundingClientRect.top < 0);
       },
       { threshold: 0 },
     );
