@@ -7,7 +7,6 @@
 //   4. You may also like — 3 sibling products in the same category
 //   5. Closing CTA — trial signup
 
-import Image from "next/image";
 import Link from "next/link";
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
@@ -22,6 +21,7 @@ import { CartButton } from "@/components/shop/CartButton";
 import { AvailabilityBadge } from "@/components/shop/AvailabilityBadge";
 import { WafasalafBadge } from "@/components/shop/WafasalafBadge";
 import { SpecTiles, pickSpecTiles } from "@/components/shop/SpecTiles";
+import { ProductContextShot } from "@/components/shop/ProductContextShot";
 import { Disclosure } from "@/components/ui/Disclosure";
 import { ProductTrustStrip, type TrustItem } from "@/components/shop/ProductTrustStrip";
 import { StickyBuyBar } from "@/components/shop/StickyBuyBar";
@@ -182,28 +182,12 @@ export default async function ProductDetailPage({ params }: Props) {
             {/* IMAGE */}
             <div className="relative -mx-6 md:mx-0 order-1 md:order-2">
               <Reveal delay={0.06}>
-                <div className="relative w-full max-w-[640px] mx-auto aspect-[4/3]">
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute -inset-x-[8%] -inset-y-[8%] -z-10"
-                    style={{
-                      background:
-                        "radial-gradient(60% 50% at 50% 50%, rgba(80,130,200,0.10) 0%, rgba(80,130,200,0) 70%)",
-                    }}
-                  />
-                  <Image
-                    src={product.heroImage}
-                    alt={product.alt}
-                    fill
-                    sizes="(min-width: 1280px) 640px, (min-width: 768px) 55vw, 100vw"
-                    priority
-                    className="object-contain"
-                    style={{
-                      filter:
-                        "drop-shadow(0 32px 60px rgba(40,80,140,0.16)) drop-shadow(0 6px 14px rgba(0,0,0,0.10))",
-                    }}
-                  />
-                </div>
+                <ProductContextShot
+                  category={product.category}
+                  src={product.heroImage}
+                  alt={product.alt}
+                  contextAlt=""
+                />
               </Reveal>
             </div>
 
