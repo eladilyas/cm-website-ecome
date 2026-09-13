@@ -660,6 +660,12 @@
       "shippingBody": "Stocked items ship across Morocco within 2 business days. Items marked arriving soon are quoted a lead time when you enquire. On-site installation and staff training are available in major cities; remote setup is available everywhere. Hardware carries a two-year warranty covering repair or replacement under normal commercial use.",
       "addToCartAria": "Add to cart",
       "specCount": "{count} specs"
+    },
+    "availability": {
+      "inStockShort": "In stock",
+      "inStockLong": "In stock · Ships immediately",
+      "incomingShort": "Arriving · ~{weeks} wks",
+      "incomingLong": "Arriving soon · ~{weeks} weeks"
     }
   },
   "industryPages": {

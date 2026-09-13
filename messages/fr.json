@@ -660,6 +660,12 @@
       "shippingBody": "Les articles en stock sont expédiés partout au Maroc sous 2 jours ouvrés. Pour les articles en arrivage, un délai vous est communiqué lors de votre demande. L'installation sur site et la formation des équipes sont disponibles dans les grandes villes ; l'installation à distance est disponible partout. Le matériel bénéficie d'une garantie de deux ans couvrant la réparation ou le remplacement dans des conditions d'usage commercial normales.",
       "addToCartAria": "Ajouter au panier",
       "specCount": "{count} spécifications"
+    },
+    "availability": {
+      "inStockShort": "En stock",
+      "inStockLong": "En stock · Disponible immédiatement",
+      "incomingShort": "En arrivage · ~{weeks} sem.",
+      "incomingLong": "En arrivage · ~{weeks} semaines"
     }
   },
   "industryPages": {

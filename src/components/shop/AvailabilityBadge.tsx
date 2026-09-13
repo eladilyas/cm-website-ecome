@@ -1,4 +1,7 @@
-// Availability badge — En stock / En arrivage signal shown on every
+"use client";
+
+import { useTranslations } from "next-intl";
+// Availability badge — in-stock / arriving-soon signal shown on every
 // product surface. Builds buyer trust by setting delivery expectations
 // before checkout.
 //
@@ -33,6 +36,7 @@ export function AvailabilityBadge({
   const status = availability?.status ?? "in-stock";
   const leadWeeks = availability?.leadWeeks ?? 3;
   const isInStock = status === "in-stock";
+  const t = useTranslations("shop.availability");
 
   const dotColor = isInStock ? "bg-emerald-500" : "bg-amber-500";
   const tone = isInStock
@@ -49,14 +53,17 @@ export function AvailabilityBadge({
   const dotSize =
     size === "sm" ? "w-1.5 h-1.5" : size === "md" ? "w-1.5 h-1.5" : "w-2 h-2";
 
-  const label =
-    size === "sm"
-      ? isInStock
-        ? "En stock"
-        : `En arrivage · ~${leadWeeks} sem.`
-      : isInStock
-        ? "En stock · Disponible immédiatement"
-        : `En arrivage · ~${leadWeeks} semaines`;
+  // Was hardcoded French on BOTH locales — "En stock" / "En arrivage"
+  // rendered on every English product page, shop card, rail card, cart row
+  // and quick-view. Localised.
+  const key = isInStock
+    ? size === "sm"
+      ? "inStockShort"
+      : "inStockLong"
+    : size === "sm"
+      ? "incomingShort"
+      : "incomingLong";
+  const label = t(key, { weeks: leadWeeks });
 
   return (
     <span
